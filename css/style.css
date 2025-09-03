@@ -4,22 +4,24 @@
    ======================================== */
 
 /* Variables CSS - Palette de couleurs et espacements */
+/* Palette: https://coolors.co/palette/8b4513-1e3a8a-ff8c00-0066cc-f5f5dc */
+
 :root {
-  /* Couleurs principales */
-  --color-primary: #667eea;
-  --color-primary-dark: #5a67d8;
-  --color-primary-light: #7c3aed;
-  --color-secondary: #764ba2;
-  --color-secondary-dark: #6b46c1;
-  --color-secondary-light: #8b5cf6;
+  /* Couleurs principales - Palette Développement Web (basée sur l'image) */
+  --color-primary: #1E3A8A;       /* Bleu foncé (bordures tableau) */
+  --color-primary-dark: #8B4513;  /* Brun tableau */
+  --color-primary-light: #0066CC; /* Bleu CSS3 */
+  --color-secondary: #0066CC;     /* Bleu CSS3 */
+  --color-secondary-dark: #8B4513; /* Brun tableau */
+  --color-secondary-light: #FF8C00; /* Orange HTML5 */
   
-  /* Couleurs d'accent */
-  --color-accent: #f59e0b;
-  --color-accent-dark: #d97706;
-  --color-accent-light: #fbbf24;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  /* Couleurs d'accent - Palette Développement Web */
+  --color-accent: #FF8C00;        /* Orange HTML5 */
+  --color-accent-dark: #8B4513;   /* Brun tableau */
+  --color-accent-light: #F5F5DC;  /* Beige clair (lumière) */
+  --color-success: #10b981;       /* Vert (conservé) */
+  --color-warning: #FF8C00;       /* Orange HTML5 */
+  --color-error: #ef4444;         /* Rouge (conservé) */
   
   /* Couleurs neutres */
   --color-white: #ffffff;
@@ -34,11 +36,11 @@
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
   
-  /* Couleurs de fond */
+  /* Couleurs de fond - Palette Développement Web */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc;
   --color-bg-tertiary: #f1f5f9;
-  --color-bg-dark: #0f172a;
+  --color-bg-dark: #8B4513;
   
   /* Typographie */
   --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
