@@ -299,7 +299,10 @@ a:focus {
 .logo-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
   transition: opacity var(--transition-fast);
 }
 
@@ -307,18 +310,32 @@ a:focus {
   opacity: 0.8;
 }
 
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .logo-title {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.logo-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+  font-weight: var(--font-weight-normal);
 }
 
 .logo-icon {
-  font-size: var(--font-size-3xl);
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logo-subtitle {
