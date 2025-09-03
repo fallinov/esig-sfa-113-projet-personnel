@@ -268,7 +268,7 @@ a:focus {
 /* Skip link pour l'accessibilité */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -100px;
   left: 6px;
   background: var(--color-primary);
   color: var(--color-white);
@@ -276,11 +276,15 @@ a:focus {
   text-decoration: none;
   border-radius: var(--border-radius-md);
   z-index: var(--z-tooltip);
-  transition: top var(--transition-fast);
+  opacity: 0;
+  visibility: hidden;
+  transition: none;
 }
 
 .skip-link:focus {
   top: 6px;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ========================================
