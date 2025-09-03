@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démonstration Lucide Icons - Module 113</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <style>
+        .demo-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fafafa;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .icon-demo {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .icon-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .icon-demo .emoji {
+            font-size: 2rem;
+            margin-right: 1.5rem;
+            opacity: 0.7;
+        }
+        .icon-demo .icon {
+            margin-right: 1.5rem;
+        }
+        .icon-demo .description {
+            flex: 1;
+        }
+        .icon-demo .icon-name {
+            font-family: 'Monaco', 'Menlo', monospace;
+            color: #6b7280;
+            font-size: 0.9rem;
+            background: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -2rem -2rem 2rem -2rem;
+            border-radius: 12px 12px 0 0;
+        }
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .feature-card .icon {
+            font-size: 3rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1>🎨 Lucide Icons - Design Moderne</h1>
+            <p>Découvrez le nouveau système d'icônes ultra-moderne et épuré de votre projet</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <i data-lucide="zap" class="icon"></i>
+                <h3>Ultra-moderne</h3>
+                <p>Design contemporain et épuré pour 2025</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="palette" class="icon"></i>
+                <h3>Style cohérent</h3>
+                <p>Icônes harmonieuses et équilibrées</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="smartphone" class="icon"></i>
+                <h3>100% Responsive</h3>
+                <p>Parfait sur tous les appareils</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📚 Icônes d'apprentissage - Style moderne</h2>
+            <div class="icon-demo">
+                <span class="emoji">📚</span>
+                <i data-lucide="book-open" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>📚 Livre ouvert</strong>
+                    <p>Icône moderne pour les ressources et l'apprentissage</p>
+                    <div class="icon-name">book-open</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">💡</span>
+                <i data-lucide="lightbulb" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>💡 Ampoule (idée)</strong>
+                    <p>Design épuré pour les idées et conseils</p>
+                    <div class="icon-name">lightbulb</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 Icônes de divertissement - Style épuré</h2>
+            <div class="icon-demo">
+                <span class="emoji">🎮</span>
+                <i data-lucide="gamepad-2" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>🎮 Manette de jeu</strong>
+                    <p>Icône moderne pour les jeux et divertissements</p>
+                    <div class="icon-name">gamepad-2</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">🎬</span>
+                <i data-lucide="video" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>🎬 Vidéo</strong>
+                    <p>Design contemporain pour les médias</p>
+                    <div class="icon-name">video</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>💻 Icônes technologiques - Style professionnel</h2>
+            <div class="icon-demo">
+                <span class="emoji">💻</span>
+                <i data-lucide="monitor" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>💻 Moniteur</strong>
+                    <p>Icône épurée pour la technologie</p>
+                    <div class="icon-name">monitor</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">📱</span>
+                <i data-lucide="smartphone" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>📱 Smartphone</strong>
+                    <p>Design moderne pour le mobile</p>
+                    <div class="icon-name">smartphone</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔍 Icônes d'outils - Style fonctionnel</h2>
+            <div class="icon-demo">
+                <span class="emoji">🔍</span>
+                <i data-lucide="search" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>🔍 Recherche</strong>
+                    <p>Icône fonctionnelle et claire</p>
+                    <div class="icon-name">search</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">📊</span>
+                <i data-lucide="bar-chart-3" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>📊 Graphique en barres</strong>
+                    <p>Design moderne pour les données</p>
+                    <div class="icon-name">bar-chart-3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>💬 Icônes de communication - Style élégant</h2>
+            <div class="icon-demo">
+                <span class="emoji">💬</span>
+                <i data-lucide="message-circle" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>💬 Message</strong>
+                    <p>Icône élégante pour la communication</p>
+                    <div class="icon-name">message-circle</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">💪</span>
+                <i data-lucide="zap" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>💪 Force/Énergie</strong>
+                    <p>Design dynamique et moderne</p>
+                    <div class="icon-name">zap</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>✨ Icônes décoratives - Style harmonieux</h2>
+            <div class="icon-demo">
+                <span class="emoji">✨</span>
+                <i data-lucide="star" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>✨ Étoile</strong>
+                    <p>Icône harmonieuse et équilibrée</p>
+                    <div class="icon-name">star</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">🔥</span>
+                <i data-lucide="flame" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>🔥 Flamme</strong>
+                    <p>Design moderne pour la passion</p>
+                    <div class="icon-name">flame</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📈 Icônes de progression - Style dynamique</h2>
+            <div class="icon-demo">
+                <span class="emoji">📈</span>
+                <i data-lucide="trending-up" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>📈 Tendance à la hausse</strong>
+                    <p>Icône dynamique pour la progression</p>
+                    <div class="icon-name">trending-up</div>
+                </div>
+            </div>
+            <div class="icon-demo">
+                <span class="emoji">📉</span>
+                <i data-lucide="trending-down" class="icon icon-lg"></i>
+                <div class="description">
+                    <strong>📉 Tendance à la baisse</strong>
+                    <p>Design cohérent pour les données</p>
+                    <div class="icon-name">trending-down</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Avantages de Lucide Icons</h2>
+            <ul>
+                <li><strong>🎨 Design ultra-moderne :</strong> Style contemporain et épuré</li>
+                <li><strong>✨ Moins de détails :</strong> Icônes plus lisibles et élégantes</li>
+                <li><strong>🌈 Couleurs modernes :</strong> Palette de couleurs 2025</li>
+                <li><strong>📱 Responsive parfait :</strong> S'adapte à tous les écrans</li>
+                <li><strong>♿ Accessibilité optimale :</strong> Support des lecteurs d'écran</li>
+                <li><strong>🔧 Maintenance simplifiée :</strong> Système centralisé et moderne</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="index.html" class="btn btn-primary">🏠 Retour à l'accueil</a>
+            <a href="test-emoji-replacement.html" class="btn btn-secondary">🧪 Tester le remplacement</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/lucide.js"></script>
+    <script src="js/emoji-replacer.js"></script>
+</body>
+</html>
