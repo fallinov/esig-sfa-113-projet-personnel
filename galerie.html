@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie des projets - Module 113 - Projet Personnel HTML/CSS - ESIG">
+    <meta name="keywords" content="galerie, projets, étudiants, HTML, CSS, ESIG, module 113">
+    <meta name="author" content="Steve Fallet - ESIG">
+    <title>Galerie des Projets | Module 113 - ESIG</title>
+    
+    <!-- Polices locales -->
+    <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/poppins-var.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    <!-- Skip to main content pour l'accessibilité -->
+    <a href="#main-content" class="skip-link">Passer au contenu principal</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1 class="logo-title">
+                        <span class="logo-icon">🚀</span>
+                        Module 113
+                    </h1>
+                    <p class="logo-subtitle">Projet Personnel HTML/CSS</p>
+                </div>
+                
+                <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+                    <label for="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+                        <span class="hamburger"></span>
+                        <span class="sr-only">Menu</span>
+                    </label>
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link">🏠 Accueil</a></li>
+                        <li><a href="ressources.html" class="nav-link">📚 Ressources</a></li>
+                        <li><a href="consignes.html" class="nav-link">📋 Consignes</a></li>
+                        <li><a href="galerie.html" class="nav-link active" aria-current="page">🎨 Galerie</a></li>
+                        <li><a href="faq.html" class="nav-link">❓ FAQ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" class="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 id="hero-title" class="hero-title">
+                        🎨 <span class="highlight">Galerie des Projets</span>
+                    </h2>
+                    <p class="hero-description">
+                        Découvrez les créations de vos camarades et inspirez-vous de leurs réalisations 
+                        pour votre propre projet personnel HTML/CSS.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie Section -->
+        <section class="galerie" aria-labelledby="galerie-title">
+            <div class="container">
+                <h2 id="galerie-title" class="section-title">🌟 Projets des étudiants</h2>
+                
+                <div class="galerie-placeholder">
+                    <div class="placeholder-icon">🚧</div>
+                    <h3>Galerie en cours de construction</h3>
+                    <p>
+                        Cette galerie sera enrichie au fur et à mesure du cours avec les sites web 
+                        créés par les étudiants du Module 113.
+                    </p>
+                    <p>
+                        <strong>Comment ça fonctionne ?</strong><br>
+                        Une fois votre projet terminé et validé, votre site sera ajouté à cette galerie 
+                        avec votre nom, le thème choisi et un lien vers votre site GitHub Pages.
+                    </p>
+                    <p>
+                        <strong>Objectifs de la galerie :</strong>
+                    </p>
+                    <ul>
+                        <li>Montrer la diversité et la créativité des projets</li>
+                        <li>Permettre l'inspiration mutuelle entre étudiants</li>
+                        <li>Créer une vitrine des compétences acquises</li>
+                        <li>Encourager la fierté du travail accompli</li>
+                    </ul>
+                    <p>
+                        <em>🎯 Votre projet pourrait être le prochain à rejoindre cette galerie !</em>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 id="cta-title" class="cta-title">🚀 Prêt à créer votre projet ?</h2>
+                <p class="cta-description">
+                    Commencez dès maintenant votre projet personnel pour avoir la chance 
+                    de voir votre site dans cette galerie !
+                </p>
+                <div class="cta-actions">
+                    <a href="consignes.html" class="btn btn-primary btn-large">📋 Lire les consignes</a>
+                    <a href="ressources.html" class="btn btn-secondary btn-large">📚 Voir les ressources</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Module 113 - Bases du développement web</h3>
+                    <p>Projet personnel HTML/CSS - ESIG Suisse</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Formateur</h4>
+                    <p><strong>Steve Fallet</strong></p>
+                    <p>Formateur d'informaticien</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Support via Teams</p>
+                    <p>Réponse sous 48h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESIG - Module 113. Tous droits réservés.</p>
+                <p>💪 Soyez ambitieux mais réalistes, et n'hésitez pas à sortir des sentiers battus !</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

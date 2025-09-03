@@ -1,0 +1,52 @@
+# ========================================
+# GITIGNORE - MODULE 113 PROJET PERSONNEL
+# ========================================
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers d'éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.log
+
+# Dépendances (si ajoutées plus tard)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers de build
+dist/
+build/
+*.min.css
+*.min.js
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.production
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+
+# Fichiers de cache
+.cache/
+.parcel-cache/
+
+# Fichiers de test
+coverage/
+.nyc_output/
+
+# Fichiers de documentation générés
+docs/
