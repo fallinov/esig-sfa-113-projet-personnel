@@ -42,6 +42,13 @@
   --color-bg-tertiary: #F5F5DC;
   --color-bg-dark: #8B4513;
   
+  /* Couleurs de bordures - Contraste optimal */
+  --color-border-light: #E5E5D0;      /* Beige plus foncé pour fond beige */
+  --color-border-medium: #D4D4C0;     /* Beige encore plus foncé */
+  --color-border-dark: #8B4513;       /* Marron pour contraste fort */
+  --color-border-primary: #1E3A8A;    /* Bleu marine pour contraste */
+  --color-border-accent: #FF8C00;     /* Orange pour contraste */
+  
   /* Typographie */
   --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -239,6 +246,7 @@ a {
 a:hover {
   color: var(--color-primary-dark);
   text-decoration: none;
+  font-weight: var(--font-weight-medium);
 }
 
 a:focus {
@@ -309,7 +317,9 @@ a:focus {
 }
 
 .logo-link:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: all var(--transition-fast);
 }
 
 .logo-text {
@@ -372,14 +382,16 @@ a:focus {
   color: var(--color-gray-700);
   font-size: var(--font-size-base);
   white-space: nowrap;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 }
 
 .nav-link:hover {
   background-color: var(--color-gray-50);
   color: var(--color-primary);
-  border-color: var(--color-gray-200);
+  border: 2px solid var(--color-border-dark);
   text-decoration: none !important;
+  font-weight: var(--font-weight-medium);
+  box-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
 }
 
 .nav-link.active {
@@ -527,16 +539,18 @@ a:focus {
     text-align: left;
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     transition: all var(--transition-fast);
     color: var(--color-gray-700);
   }
   
   .nav-link:hover {
     background-color: var(--color-gray-50);
-    border-color: var(--color-gray-200);
+    border: 2px solid var(--color-border-dark);
     transform: translateX(8px);
     color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
   }
   
   .nav-link.active {
@@ -668,27 +682,39 @@ a:focus {
   text-decoration: none;
   transition: all var(--transition-fast);
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   min-height: 44px; /* Accessibilité */
 }
 
 .btn-primary {
   background-color: var(--color-accent);
   color: var(--color-white);
-  border-color: var(--color-accent);
+  border: 3px solid var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
+  background-color: #E67E00; /* Orange plus clair et plus lisible */
+  border: 3px solid #E67E00;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  color: var(--color-white);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:focus {
+  outline: 3px solid var(--color-white);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 140, 0, 0.3);
 }
 
 .btn-secondary {
   background-color: transparent;
   color: var(--color-white);
-  border-color: var(--color-white);
+  border: 3px solid var(--color-white);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover {
@@ -696,6 +722,14 @@ a:focus {
   color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  text-shadow: none;
+  border: 3px solid var(--color-white);
+}
+
+.btn-secondary:focus {
+  outline: 3px solid var(--color-white);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 .btn-large {
@@ -723,6 +757,19 @@ section {
   background-color: var(--color-bg-secondary);
 }
 
+/* Cartes sur fond beige - Bordures plus foncées */
+.mission .mission-card,
+.objectifs .objectif-item,
+.livrables .livrable-card {
+  border: 3px solid var(--color-border-dark);
+}
+
+.mission .mission-card:hover,
+.objectifs .objectif-item:hover,
+.livrables .livrable-card:hover {
+  border: 3px solid var(--color-border-primary);
+}
+
 .mission-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -736,11 +783,14 @@ section {
   box-shadow: var(--shadow-md);
   text-align: center;
   transition: transform var(--transition-fast);
+  border: 3px solid var(--color-border-medium);
 }
 
 .mission-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-white);
 }
 
 .mission-card .card-icon {
@@ -754,6 +804,10 @@ section {
 }
 
 /* Section Objectifs */
+.objectifs {
+  background-color: var(--color-bg-primary);
+}
+
 .objectifs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -767,12 +821,14 @@ section {
   box-shadow: var(--shadow-md);
   position: relative;
   transition: transform var(--transition-fast);
-  border: 1px solid var(--color-gray-200);
+  border: 3px solid var(--color-border-medium);
 }
 
 .objectif-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-white);
 }
 
 .objectif-number {
@@ -817,11 +873,14 @@ section {
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-fast);
+  border: 3px solid var(--color-border-medium);
 }
 
 .livrable-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-white);
 }
 
 .livrable-icon {
@@ -1224,11 +1283,13 @@ section {
   margin-bottom: var(--spacing-2xl);
   overflow: hidden;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border: 3px solid var(--color-border-medium);
 }
 
 .consigne-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border: 3px solid var(--color-primary);
 }
 
 .consigne-card h3 {
@@ -1290,7 +1351,7 @@ section {
 
 .eval-item {
   background: var(--color-white);
-  border: 2px solid var(--color-gray-200);
+  border: 3px solid var(--color-border-medium);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
   text-align: center;
@@ -1298,9 +1359,10 @@ section {
 }
 
 .eval-item:hover {
-  border-color: var(--color-primary);
+  border: 3px solid var(--color-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  background-color: var(--color-gray-50);
 }
 
 .eval-points {
@@ -1337,7 +1399,7 @@ section {
 .livrable-card,
 .objectif-item,
 .quick-start-card {
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .mission-card:hover,
@@ -1363,8 +1425,26 @@ section {
 
 /* Focus visible */
 *:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Focus amélioré pour les cartes */
+.mission-card:focus-within,
+.objectif-item:focus-within,
+.livrable-card:focus-within,
+.resource-card:focus-within,
+.consigne-card:focus-within {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 6px;
+  box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.1);
+}
+
+/* Focus pour les liens de navigation */
+.nav-link:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.2);
 }
 
 /* Réduction des animations pour les utilisateurs qui les préfèrent */
@@ -1426,14 +1506,16 @@ section {
   backdrop-filter: blur(10px);
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
   text-align: center;
   transition: transform var(--transition-fast);
 }
 
 .quick-start-card:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .quick-start-card .card-icon {
@@ -1454,12 +1536,13 @@ section {
 .quick-start-card .btn {
   background: var(--color-white);
   color: var(--color-primary);
-  border-color: var(--color-white);
+  border: 3px solid var(--color-white);
 }
 
 .quick-start-card .btn:hover {
   background: var(--color-gray-100);
   transform: translateY(-2px);
+  border: 3px solid var(--color-gray-100);
 }
 
 /* Sections de ressources */
@@ -1508,14 +1591,15 @@ section {
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
-  border: 1px solid var(--color-gray-200);
+  border: 3px solid var(--color-border-medium);
   position: relative;
 }
 
 .resource-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary);
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-white);
 }
 
 .resource-card .card-icon {
@@ -1555,7 +1639,9 @@ section {
 
 .priority.recommande {
   background: var(--color-warning);
-  color: var(--color-gray-900);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .priority.bonus {
@@ -1578,6 +1664,14 @@ section {
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  border: 2px solid var(--color-border-dark);
+  transition: all var(--transition-fast);
+}
+
+.meta-item:hover {
+  background: var(--color-gray-200);
+  border: 2px solid var(--color-border-primary);
+  transform: translateY(-1px);
 }
 
 /* Liens des ressources */
@@ -1592,12 +1686,17 @@ section {
   transition: all var(--transition-fast);
   text-align: center;
   min-width: 120px;
+  border: 3px solid var(--color-primary);
 }
 
 .resource-link:hover {
   background: var(--color-primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  color: var(--color-white);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--color-primary-dark);
 }
 
 .resource-link.external::after {
