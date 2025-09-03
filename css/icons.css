@@ -26,43 +26,43 @@
     height: 1.5em;
 }
 
-/* Couleurs modernes et épurées pour les icônes */
+/* Couleurs de la palette officielle pour les icônes */
 .icon-primary {
-    color: #3b82f6;
+    color: var(--color-primary);
 }
 
 .icon-success {
-    color: #10b981;
+    color: var(--color-success);
 }
 
 .icon-warning {
-    color: #f59e0b;
+    color: var(--color-warning);
 }
 
 .icon-danger {
-    color: #ef4444;
+    color: var(--color-error);
 }
 
 .icon-info {
-    color: #06b6d4;
+    color: var(--color-secondary);
 }
 
 .icon-muted {
-    color: #6b7280;
+    color: var(--color-gray-600);
 }
 
 .icon-light {
-    color: #f3f4f6;
+    color: var(--color-gray-100);
 }
 
 .icon-dark {
-    color: #1f2937;
+    color: var(--color-gray-900);
 }
 
 /* Icônes dans les cartes - Style moderne */
 .card-icon .icon {
     font-size: 2.5rem;
-    color: #3b82f6;
+    color: var(--color-primary);
     margin-bottom: 1.5rem;
     opacity: 0.9;
 }
@@ -70,7 +70,7 @@
 /* Icônes dans les titres de section - Style épuré */
 .section-icon .icon {
     font-size: 1.75rem;
-    color: #6b7280;
+    color: var(--color-gray-600);
     margin-right: 0.75rem;
     opacity: 0.8;
 }
@@ -110,7 +110,7 @@
 
 /* Icônes avec ombres douces */
 .icon-shadow {
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 1px 2px rgba(139, 69, 19, 0.1));
 }
 
 /* Icônes dans les listes - Style harmonieux */
@@ -122,7 +122,7 @@
 /* Icônes dans les timelines - Style cohérent */
 .timeline-item .icon {
     font-size: 1.25rem;
-    color: #3b82f6;
+    color: var(--color-primary);
     margin-right: 0.5rem;
 }
 
@@ -155,15 +155,15 @@
 /* Mode sombre support (optionnel) */
 @media (prefers-color-scheme: dark) {
     .icon-muted {
-        color: #9ca3af;
+        color: var(--color-gray-500);
     }
     
     .icon-light {
-        color: #374151;
+        color: var(--color-gray-700);
     }
     
     .icon-dark {
-        color: #f9fafb;
+        color: var(--color-gray-100);
     }
 }
 
@@ -171,10 +171,10 @@
 .logo-icon {
     width: 2rem;
     height: 2rem;
-    color: #007bff;
+    color: var(--color-primary);
     transition: color 0.3s ease;
 }
 
 .logo-icon:hover {
-    color: #0056b3;
+    color: var(--color-primary-dark);
 }
