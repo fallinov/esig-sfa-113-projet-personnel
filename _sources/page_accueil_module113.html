@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 113 - Projet Personnel HTML/CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .header .mission {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Main content */
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Info cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card .icon {
+            font-size: 1.5rem;
+        }
+
+        /* Dates importantes */
+        .dates-importantes {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .date-card {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .date-card .date {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Specs techniques */
+        .specs {
+            background: #e8f4f8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .specs h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+        }
+
+        /* Livrables */
+        .livrables {
+            margin: 2rem 0;
+        }
+
+        .livrable-item {
+            background: #f0f8ff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .livrable-item h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .checklist li {
+            margin: 0.3rem 0;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: -1rem;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Grille d'évaluation */
+        .evaluation {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .eval-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .eval-table th,
+        .eval-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .eval-table th {
+            background: #ff9800;
+            color: white;
+            font-weight: 600;
+        }
+
+        .eval-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .points {
+            font-weight: bold;
+            color: #ff9800;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            background: white;
+            color: #4CAF50;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎯 Module 113</h1>
+            <p class="subtitle">Projet Personnel HTML/CSS</p>
+            <div class="mission">
+                <strong>Créez votre propre site web et démontrez votre autonomie d'apprentissage</strong>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="#" class="nav-link">🏠 Accueil</a>
+                <a href="ressources.html" class="nav-link">📚 Ressources</a>
+                <a href="readme.html" class="nav-link">📝 Modèle README</a>
+                <a href="evaluation.html" class="nav-link">📊 Évaluation</a>
+                <a href="galerie.html" class="nav-link">🎨 Galerie</a>
+                <a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+        </nav>
+
+        <!-- Dates importantes -->
+        <section class="dates-importantes">
+            <h2>📅 Dates importantes</h2>
+            <div class="dates-grid">
+                <div class="date-card">
+                    <div class="date">10 septembre 2025</div>
+                    <div>Choix définitif du thème</div>
+                </div>
+                <div class="date-card">
+                    <div class="date">7 janvier 2026</div>
+                    <div>🎤 Présentation en classe</div>
+                </div>
+                <div class="date-card">
+                    <div class="date">9 janvier 2026 - 22h</div>
+                    <div>🚨 Rendu final ABSOLUE</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <!-- Informations essentielles -->
+            <section>
+                <h2>📋 Informations essentielles</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><span class="icon">🎯</span>Votre mission</h3>
+                        <p>Créer un site web personnel en apprenant de manière autonome HTML5, CSS3 et Git. Thème libre mais respectant les contraintes techniques.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">⚖️</span>Poids dans la note</h3>
+                        <p><strong>20 points sur 40</strong> de la note finale du module.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🚀</span>Livrables</h3>
+                        <p>Site web fonctionnel + dépôt GitHub + README réflexif + présentation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spécifications techniques -->
+            <section class="specs">
+                <h3>🛠️ Spécifications techniques</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <strong>HTML5</strong><br>
+                        Structure sémantique
+                    </div>
+                    <div class="spec-item">
+                        <strong>CSS3</strong><br>
+                        Modèle de boîte + mise en page
+                    </div>
+                    <div class="spec-item">
+                        <strong>Responsive</strong><br>
+                        Mobile + desktop
+                    </div>
+                    <div class="spec-item">
+                        <strong>Git/GitHub</strong><br>
+                        Versioning + publication
+                    </div>
+                    <div class="spec-item">
+                        <strong>Notion avancée</strong><br>
+                        Flexbox OU Grid OU Animations...
+                    </div>
+                </div>
+            </section>
+
+            <!-- Livrables détaillés -->
+            <section class="livrables">
+                <h3>📋 Livrables attendus</h3>
+                
+                <div class="livrable-item">
+                    <h4>1. Site web fonctionnel</h4>
+                    <ul class="checklist">
+                        <li>Une seule page avec plusieurs sections OU plusieurs pages liées</li>
+                        <li>Navigation claire et cohérente</li>
+                        <li>Contenu réel et pertinent (pas de Lorem Ipsum)</li>
+                        <li>Responsive sur mobile et desktop</li>
+                    </ul>
+                </div>
+
+                <div class="livrable-item">
+                    <h4>2. Dépôt GitHub configuré</h4>
+                    <ul class="checklist">
+                        <li>Repository public avec nom explicite</li>
+                        <li>Historique de commits réguliers</li>
+                        <li>Au moins 2 branches utilisées</li>
+                        <li>Site publié via GitHub Pages</li>
+                    </ul>
+                </div>
+
+                <div class="livrable-item">
+                    <h4>3. README.md réflexif</h4>
+                    <ul class="checklist">
+                        <li>Présentation du projet et justification du thème</li>
+                        <li>Parcours d'apprentissage documenté</li>
+                        <li>Outils utilisés et stratégie Git</li>
+                        <li>Usage d'IA (si applicable) avec compréhension 100%</li>
+                        <li>Bilan personnel des apprentissages</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Grille d'évaluation -->
+            <section class="evaluation">
+                <h3>📊 Grille d'évaluation (20 points)</h3>
+                <table class="eval-table">
+                    <thead>
+                        <tr>
+                            <th>Critère</th>
+                            <th>Points</th>
+                            <th>Détails</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Code HTML/CSS valide et propre</td>
+                            <td class="points">5 pts</td>
+                            <td>Syntaxe correcte, indentation, commentaires</td>
+                        </tr>
+                        <tr>
+                            <td>Design responsive</td>
+                            <td class="points">4 pts</td>
+                            <td>Adaptation mobile/desktop avec media queries</td>
+                        </tr>
+                        <tr>
+                            <td>Bonnes pratiques web</td>
+                            <td class="points">3 pts</td>
+                            <td>Accessibilité de base, SEO, performances</td>
+                        </tr>
+                        <tr>
+                            <td>Maîtrise Git & IDE</td>
+                            <td class="points">3 pts</td>
+                            <td>Commits réguliers, branches, utilisation IDE</td>
+                        </tr>
+                        <tr>
+                            <td>Qualité du contenu</td>
+                            <td class="points">2 pts</td>
+                            <td>Cohérence, richesse, originalité</td>
+                        </tr>
+                        <tr>
+                            <td>README complet et réfléchi</td>
+                            <td class="points">3 pts</td>
+                            <td>Documentation détaillée de votre parcours</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Phase actuelle -->
+            <section class="cta-section">
+                <h3>🚀 Phase actuelle : Préparation & Choix du thème</h3>
+                <p><strong>3-10 septembre 2025</strong></p>
+                <p>C'est le moment de commencer votre auto-formation et de réfléchir à votre thème !</p>
+                
+                <a href="ressources.html" class="cta-button">📚 Voir les ressources</a>
+                <a href="readme.html" class="cta-button">📝 Télécharger le modèle README</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer style="text-align: center; color: white; margin-top: 2rem; opacity: 0.8;">
+            <p><strong>Steve Fallet</strong> - Formateur Module 113 ESIG</p>
+            <p>💪 Soyez ambitieux mais réalistes, et n'hésitez pas à sortir des sentiers battus !</p>
+        </footer>
+    </div>
+</body>
+</html>

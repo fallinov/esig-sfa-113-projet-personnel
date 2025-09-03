@@ -1,0 +1,881 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ESIG - Module 113 - Projet personnel</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(174, 130, 0, 0.223); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 99, 174, 0.172); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2556d616-a82f-8148-90b3-c24ac440ef2e" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🚀</span></div><h1 class="page-title">ESIG - Module 113 - Projet personnel</h1><p class="page-description"></p></header><div class="page-body"><blockquote id="6a8ed8fd-ffdd-4006-80e7-b52827fb061a" class=""><strong>Objectif</strong> : Créer et publier un site web personnel en HTML/CSS démontrant la maîtrise des compétences fondamentales du développement web.</blockquote><hr id="4ea76a5b-6528-4214-996b-8fc6772d6c6e"/><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">📋 Vue d&#x27;ensemble</summary><div class="indented"><h3 id="96d5233f-0f09-4cec-95a7-d89aa2daf350" class="">🎯 Philosophie du projet</h3><p id="50d01236-c9ee-4a8e-b9ad-aaf5c9a4a8d7" class="">Plutôt que d&#x27;apprendre de manière passive, vous allez <strong>construire votre propre site web</strong> en découvrant et appliquant les technologies HTML et CSS. Ce projet vous permettra de développer votre <strong>autonomie</strong>, votre <strong>créativité</strong> et votre capacité à <strong>apprendre en faisant</strong>.</p><h3 id="26571f54-6a3f-46b4-a890-6046776b4f03" class="">⚖️ Évaluation</h3><ul id="2de42ba3-3d2a-4955-922a-eeeccb24e314" class="bulleted-list"><li style="list-style-type:disc"><strong>Projet personnel 20 points sur 40</strong> pour l&#x27;évaluation finale du module</li></ul><ul id="830cdb6c-9ee9-469b-b56c-21ed6b28f449" class="bulleted-list"><li style="list-style-type:disc">Complété par un <strong>questionnaire écrit</strong> (20 points) sur des connaissances théoriques et des études de codes (correction, compréhension, complétion)</li></ul><h3 id="33b5ede9-25c6-4f59-bc63-dc35c88dc28c" class="">📅 Durée</h3><ul id="e4b44467-21f9-4947-8133-fefca0d4c442" class="bulleted-list"><li style="list-style-type:disc"><strong>9 semaines</strong> de développement (semaines 4 à 12)</li></ul><ul id="ac359548-d4ff-4bf7-a4e7-ba828598ff3d" class="bulleted-list"><li style="list-style-type:disc">Points de suivi obligatoires avec l’enseignant toutes les 2 semaines</li></ul><p id="25a6d616-a82f-8093-909b-e6b9274862e2" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🎯 Objectifs d&#x27;apprentissage</summary><div class="indented"><ul id="d1480dc5-1bb3-4e37-9a0d-bab13acbb4fc" class="bulleted-list"><li style="list-style-type:disc">Créer et structurer des pages web sémantiques avec HTML5</li></ul><ul id="762f03ac-8666-46e4-9cb3-23f40999dade" class="bulleted-list"><li style="list-style-type:disc">Mettre en forme un site avec CSS3</li></ul><ul id="6b13a35d-bc06-4439-8ed7-b290cd48d00e" class="bulleted-list"><li style="list-style-type:disc">Créer un design responsive (mobile et desktop)</li></ul><ul id="09533771-957c-423f-9001-93ef10d477bd" class="bulleted-list"><li style="list-style-type:disc">Gérer un projet avec Git et GitHub</li></ul><ul id="b27a125b-a6f0-4b0b-ac7a-717e39c071fd" class="bulleted-list"><li style="list-style-type:disc">Publier un site web avec GitHub Pages (ou autre hébergement personnel) </li></ul><ul id="97d4e490-c076-4d23-b46c-ed631598661f" class="bulleted-list"><li style="list-style-type:disc">Documenter et expliquer sa démarche</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">📦 Livrables attendus</summary><div class="indented"><h3 id="532cc2b5-5d32-4be6-9a4d-024bc4a84049" class="">1. 🌐 Site web fonctionnel</h3><ul id="e11c752c-0029-4c4e-859b-9ae30b1d9a28" class="bulleted-list"><li style="list-style-type:disc"><strong>Publication</strong> : Site accessible via GitHub Pages (ou autre hébergement personnel)</li></ul><ul id="05f1938a-85bd-4f2c-94f0-f5e43495d903" class="bulleted-list"><li style="list-style-type:disc"><strong>Structure</strong> : Dépôt GitHub organisé et propre</li></ul><ul id="506da5b5-15ef-484c-be4b-e4afe06fc52b" class="bulleted-list"><li style="list-style-type:disc"><strong>Code</strong> : HTML5 et CSS3 validés W3C</li></ul><h3 id="cf7f7a32-e89f-4b95-ba18-b5a3bec5dcc1" class="">2. 📝 Portfolio réflexif (README.md)</h3><ul id="25a6d616-a82f-80ad-a93c-d27140a9163f" class="bulleted-list"><li style="list-style-type:disc">Document central qui retrace votre parcours d&#x27;apprentissage voir chapitre <a href="https://www.notion.so/ESIG-Module-113-Projet-personnel-2556d616a82f814890b3c24ac440ef2e?pvs=21">“Portfolio réflexif”</a> de cette page</li></ul><h3 id="2f7b53b3-35a2-4a5b-a482-60c3067e6805" class="">3. 📁 Organisation du projet GitHub</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d04e66ac-d86b-4e50-83b1-22aa808ecfd2" class="code code-wrap"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">le-depot-github-de-mon-site/
+├── index.html          # Page d&#x27;accueil
+├── css/
+│   ├── style.css       # Styles principaux
+│   └── normalize.css   # Reset CSS (optionnel)
+├── fonts/              # Polices téléchargées (OBLIGATOIRE)
+│   ├── ma-police.woff2
+│   ├── ma-police.woff
+│   └── ma-police.ttf
+├── img/                # Images du site
+├── pages/              # Pages supplémentaires (optionnel)
+└── README.md           # Portfolio</code></pre></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">✅ Exigences techniques</summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🏗️ Structure HTML obligatoire</summary><div class="indented"><p id="4d7ef279-51d4-4bfb-b9ea-0a459817774d" class="">Votre site doit utiliser <strong>toutes</strong> ces balises HTML5 :</p><p id="309e97e5-bcd8-4a32-b13f-10c0ee1950c7" class=""><strong>Structure sémantique :</strong></p><ul id="18d5379e-2a02-434c-a7cf-b277fca0f57d" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;header&gt;</code> - En-tête du site/page</li></ul><ul id="2c35feb6-a108-42af-95de-ddbc600ca148" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;nav&gt;</code> - Menu de navigation</li></ul><ul id="814fc4a1-7261-4658-9fa2-c98f9dbbf916" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;main&gt;</code> - Contenu principal</li></ul><ul id="8ef74da1-f796-431c-98bc-0179bed46e10" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;section&gt;</code> - Sections de contenu</li></ul><ul id="3c5dab18-597b-4139-b952-c6be76d22922" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;article&gt;</code> - Articles/contenus autonomes (optionnel)</li></ul><ul id="f605fe40-12d1-463b-919f-27727ade4afa" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;footer&gt;</code> - Pied de page</li></ul><p id="d14f9c57-95f1-4464-b98b-8a50a3e33101" class=""><strong>Contenus textuels :</strong></p><ul id="a8aad1c3-4fb5-4e9a-aa36-f257cd720b74" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, … - Hiérarchie des titres</li></ul><ul id="5a14f870-12e1-4d4f-a5a6-765b7d500176" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;p&gt;</code> - Paragraphes</li></ul><ul id="4aa34328-d540-4155-a05a-ba05e8e02f0f" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> - Listes</li></ul><ul id="72c6af37-e448-4f4e-82cb-30331c56b293" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;a&gt;</code> - Liens hypertextes</li></ul><ul id="529f1509-dc36-42ce-816e-3610e65f28b8" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code> - Emphases</li></ul><p id="7f593b6c-9d93-40a7-a971-485221d3169d" class=""><strong>Médias :</strong></p><ul id="7ac21242-7db3-4398-b46d-cb0cf9011330" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;img&gt;</code> - Images avec attributs <code>alt</code></li></ul><ul id="3c2aee19-0bb9-4cd5-a840-9b6aa310d236" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code> - Figures avec légendes</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🎨 Techniques CSS obligatoires</summary><div class="indented"><p id="2a2636a1-80e4-46bc-a58e-c02d7072f4b6" class="">Votre site doit démontrer la maîtrise de :</p><p id="25a6d616-a82f-8018-b539-f7422b5d81f4" class=""><strong>Utilisez des variables CSS</strong></p><ul id="25a6d616-a82f-8037-9668-fc2b95345781" class="bulleted-list"><li style="list-style-type:disc"><strong>Minimum requis :</strong> <ul id="25a6d616-a82f-805f-95ae-f92abd476b7e" class="bulleted-list"><li style="list-style-type:circle">3 variables de <strong>couleurs</strong></li></ul><ul id="25a6d616-a82f-802e-9941-f1a666d4610f" class="bulleted-list"><li style="list-style-type:circle">2 variables de <strong>polices</strong></li></ul><ul id="25a6d616-a82f-808a-88a1-f8a11dac6bfc" class="bulleted-list"><li style="list-style-type:circle">3 variables d&#x27;<strong>espacement</strong></li></ul></li></ul><p id="32ebb445-8f34-47e1-b161-b72df4f153e6" class=""><strong>Mise en forme de base :</strong></p><ul id="6ac5195f-551a-4408-b174-b1562c347525" class="bulleted-list"><li style="list-style-type:disc"><strong>Typographie</strong> : <code>font-family</code>, <code>font-size</code>, <code>font-weight</code>, <code>line-height</code></li></ul><ul id="3e436ad1-5d3d-4992-b704-05502c966bd2" class="bulleted-list"><li style="list-style-type:disc"><strong>Couleurs</strong> : <code>color</code>, <code>background-color</code></li></ul><ul id="d1ac1e46-6659-479d-b059-eeef4c37680d" class="bulleted-list"><li style="list-style-type:disc"><strong>Espacement</strong> : <code>margin</code>, <code>padding</code></li></ul><p id="ba0c71e1-8729-49b3-9f2a-8e6163aae0ea" class=""><strong>Modèle de boîte :</strong></p><ul id="fe87fbf5-740d-448c-93b4-8b80c217e2ec" class="bulleted-list"><li style="list-style-type:disc"><code>width</code>, <code>height</code>, <code>max-width</code></li></ul><ul id="92e0496d-e648-454d-8070-132925225605" class="bulleted-list"><li style="list-style-type:disc"><code>border</code>, <code>border-radius</code></li></ul><ul id="044c7914-81ee-445e-866d-5b84c3c1b933" class="bulleted-list"><li style="list-style-type:disc"><code>box-sizing: border-box</code></li></ul><p id="2851abcb-0b78-4492-8f8d-5802361d5476" class=""><strong>Positionnement :</strong></p><ul id="9ae301cd-8db6-43c7-bb0b-95517acb76df" class="bulleted-list"><li style="list-style-type:disc"><code>display</code> (block, inline, inline-block)</li></ul><ul id="1d472656-2a42-42e5-aaf2-351e3eb25797" class="bulleted-list"><li style="list-style-type:disc"><code>position</code> (static, relative, absolute)</li></ul><ul id="901858a5-ea59-4819-b210-92ea5da1269a" class="bulleted-list"><li style="list-style-type:disc"><code>float</code> OU <code><strong>Flexbox</strong></code> OU <code><strong>CSS Grid</strong></code> (au choix)</li></ul><p id="53a2dcf1-5762-427b-81b1-d83a2e4378c1" class=""><strong>Design responsive :</strong></p><ul id="d2583611-b683-4f26-b47e-b83b52f62be2" class="bulleted-list"><li style="list-style-type:disc"><code>@media queries</code> (minimum 2 breakpoints)</li></ul><ul id="f53bed11-b740-4b06-919f-954320f6ab97" class="bulleted-list"><li style="list-style-type:disc">Images adaptatives (<code>max-width: 100%</code>)</li></ul><ul id="0ed027a2-7f39-47ce-8faf-1fbe7ce54432" class="bulleted-list"><li style="list-style-type:disc">Navigation adaptée mobile/desktop</li></ul><p id="dd3a54ef-cbd7-41bd-a15f-ef2e225f8568" class=""><strong>Interactivité :</strong></p><ul id="3effae8e-fbb6-41ba-9df5-671401918003" class="bulleted-list"><li style="list-style-type:disc"><code>:hover</code>, <code>:focus</code> sur les liens</li></ul><ul id="440bf411-7675-491e-9154-6107d174e719" class="bulleted-list"><li style="list-style-type:disc"><code>:visited</code> pour les liens visités</li></ul><ul id="62cec0b4-c413-4ec8-b804-0d131b5fc1f7" class="bulleted-list"><li style="list-style-type:disc">Transitions CSS (<code>transition</code>) - optionnel mais apprécié</li></ul><ul id="25a6d616-a82f-8068-99fa-cb4399c73433" class="bulleted-list"><li style="list-style-type:disc">Filtres CSS (<code>filter</code>) - optionnel mais apprécié</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">📱 Exigences responsive</summary><div class="indented"><ul id="29b38dc1-8b6a-4524-bad1-595d05d4bee5" class="bulleted-list"><li style="list-style-type:disc"><strong>Mobile First</strong> : Site fonctionnel sur mobile (320px+) </li></ul><ul id="ae83decf-35a0-429d-be97-3867fab8de27" class="bulleted-list"><li style="list-style-type:disc"><strong>Breakpoints</strong> : Adaptation tablette (768px+) et desktop (1024px+)</li></ul><ul id="097753db-ce6a-4a2e-bc7e-353ff8881848" class="bulleted-list"><li style="list-style-type:disc"><strong>Navigation</strong> : Menu adapté aux petits écrans</li></ul><ul id="ef8cc6e8-8dc3-4f7f-8fe5-5db2220889db" class="bulleted-list"><li style="list-style-type:disc"><strong>Images</strong> : Redimensionnement automatique</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🔧 Exigences techniques</summary><div class="indented"><ul id="2c4da637-6b1a-44ba-964c-efc60864e154" class="bulleted-list"><li style="list-style-type:disc"><strong>Validation W3C</strong> : HTML et CSS sans erreurs</li></ul><ul id="25a6d616-a82f-8042-89d3-ddca6f6b9a3b" class="bulleted-list"><li style="list-style-type:disc"><strong>Tester la performance et l’expérience utilisateur </strong>(UX) avec <strong><a href="https://pagespeed.web.dev/">PageSpeed Insights</a></strong><ul id="25a6d616-a82f-80ac-9902-e5924f3f849e" class="bulleted-list"><li style="list-style-type:circle">Résultats pour mobile et bureau</li></ul></li></ul><ul id="838d14d5-e3cc-4daa-be6e-61a00261a5ab" class="bulleted-list"><li style="list-style-type:disc"><strong>Accessibilité</strong> : Attributs <code>alt</code>, structure logique, contrastes suffisants</li></ul><ul id="ee09e1bb-aa17-42e3-92ee-8c0201dd442f" class="bulleted-list"><li style="list-style-type:disc"><strong>Compatibilité</strong> : Fonctionne sur Chrome, Firefox, Safari</li></ul><ul id="2556d616-a82f-8087-b25b-e76b492d8222" class="bulleted-list"><li style="list-style-type:disc"><strong>Polices</strong> : Toutes les polices doivent être téléchargées et hébergées dans le dossier <code>fonts/</code> du projet<ul id="2556d616-a82f-80a9-b4da-fc5a180dca79" class="bulleted-list"><li style="list-style-type:circle">❌ Interdiction d&#x27;utiliser des CDN externes (Google Fonts CDN, etc.)</li></ul><ul id="2556d616-a82f-8074-8442-dfada707d62c" class="bulleted-list"><li style="list-style-type:circle">✅ Téléchargement et intégration locale avec <code>@font-face</code></li></ul></li></ul><ul id="2556d616-a82f-808a-824b-c354b055a193" class="bulleted-list"><li style="list-style-type:disc"><strong>Images</strong> : Toutes les images doivent être hébergées dans le dossier <code>img/</code> du projet<ul id="2556d616-a82f-804a-9a6b-d83302ce3390" class="bulleted-list"><li style="list-style-type:circle">❌ Pas de liens vers des images externes (Unsplash, Pixabay, etc.)</li></ul><ul id="2556d616-a82f-80ca-a035-eb2e1a596184" class="bulleted-list"><li style="list-style-type:circle">✅ Images téléchargées et optimisées localement (&lt; 1MB par image)</li></ul></li></ul></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">📊 Grille d&#x27;évaluation (20 points)</summary><div class="indented"><table id="1f26a697-34d1-4451-bfac-2011bac985e8" class="simple-table"><thead class="simple-table-header"><tr id="54d14b4e-3c19-430c-a708-8bb714ede857"><th id="fIDd" class="simple-table-header-color simple-table-header" style="width:178px">Critère</th><th id="J`{;" class="simple-table-header-color simple-table-header">Points</th><th id="|dNq" class="simple-table-header-color simple-table-header" style="width:398px">Détail</th></tr></thead><tbody><tr id="1078debb-e268-47a7-9da9-325eaa529dec"><td id="fIDd" class="" style="width:178px"><strong>Code HTML/CSS</strong></td><td id="J`{;" class="">4 pts</td><td id="|dNq" class="" style="width:398px">Validité W3C, propreté, sémantique, commentaires</td></tr><tr id="a06748fc-4110-43d3-b750-1d255dfd44b6"><td id="fIDd" class="" style="width:178px"><strong>Design responsive</strong></td><td id="J`{;" class="">4 pts</td><td id="|dNq" class="" style="width:398px">Mobile-first, breakpoints, navigation adaptée</td></tr><tr id="6fb0d091-3e27-4a19-a7ca-84e5cd7f2067"><td id="fIDd" class="" style="width:178px"><strong>Contenu et design</strong></td><td id="J`{;" class="">3 pts</td><td id="|dNq" class="" style="width:398px">Cohérence, originalité, qualité visuelle</td></tr><tr id="15521d8f-4368-47bc-8196-84c7d00bda3a"><td id="fIDd" class="" style="width:178px"><strong>Git/GitHub</strong></td><td id="J`{;" class="">3 pts</td><td id="|dNq" class="" style="width:398px">Commits réguliers, messages clairs, organisation</td></tr><tr id="fdc4bddf-e15e-42e7-9187-20d13013ce3c"><td id="fIDd" class="" style="width:178px"><strong>Notion avancée</strong></td><td id="J`{;" class="">2 pts</td><td id="|dNq" class="" style="width:398px">Flexbox/Grid/Animations bien maîtrisée</td></tr><tr id="6b960c50-8376-4f29-a653-b4db5e7d9cea"><td id="fIDd" class="" style="width:178px">Portfolio (README.md)</td><td id="J`{;" class="">4 pts</td><td id="|dNq" class="" style="width:398px">Réflexion approfondie, transparence, qualité</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">📝 Portfolio réflexif (README.md)</summary><div class="indented"><p id="e8963c2a-10fa-4357-b093-9f7d7e6a2a92" class="">Voici la structure à utiliser pour votre portfolio :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2556d616-a82f-80de-8b4d-c6acdd0232c4" class="code code-wrap"><code class="language-Markdown" style="white-space:pre-wrap;word-break:break-all"># Mon Projet Web
+
+## 1. 🎨 Présentation du projet
+
+### Concept
+- Thème choisi et pourquoi
+- Public cible
+- Objectifs du site
+
+### Fonctionnalités
+- Navigation
+- Sections principales
+- Contenus proposés
+
+### Aperçu visuel
+![Screenshot du site](img/screenshot.png)
+
+---
+
+## 2. 📚 Parcours d&#x27;apprentissage
+
+### Ressources utilisées
+
+#### Plateformes de formation
+- [OpenClassrooms](https://openclassrooms.com) - Cours HTML/CSS
+- [MDN Web Docs](https://developer.mozilla.org) - Références techniques
+- Autres ressources...
+
+#### Progression
+- Semaine 4 : Bases HTML
+- Semaine 6 : CSS et mise en forme
+- Semaine 8 : Responsive design
+- ...
+
+---
+
+## 3. 🛠️ Outils de développement
+
+### Environnement de travail
+- **IDE** : WebStorm / VS Code / Autre
+- **Navigateur** : Chrome DevTools
+- **Versioning** : Git + GitHub
+- **Validation** : Validator W3C
+
+### Méthodologie
+- Approche mobile-first
+- Commits réguliers
+- Tests multi-navigateurs
+
+### Choix de design
+
+#### Palette de couleurs
+- **Outil utilisé** : [Coolors](https://coolors.co/) / [Adobe Color](https://color.adobe.com/) / [Material Design Colors](https://materialui.co/colors/) / [Paletton](https://paletton.com/) / Autre
+- **Palette choisie** :
+  - Couleur principale : `#XXXXXX` - [Nom/Description]
+  - Couleur secondaire : `#XXXXXX` - [Nom/Description]
+  - Couleur d&#x27;accent : `#XXXXXX` - [Nom/Description]
+  - Couleur de texte : `#XXXXXX` - [Nom/Description]
+  - Couleur de fond : `#XXXXXX` - [Nom/Description]
+- **Lien palette** : [URL de la palette générée]
+- **Justification** : Pourquoi ces couleurs correspondent à mon projet
+
+#### Typographie
+- **Polices choisies** :
+  - **Titres** : [Nom de la police] - [Source : Google Fonts/DaFont/etc.]
+  - **Corps de texte** : [Nom de la police] - [Source]
+  - **Police système** : [Fallback utilisé]
+- **Hébergement** :
+  - ✅ Polices téléchargées dans `fonts/`
+  - ✅ Intégration CSS avec `@font-face`
+  - ✅ Fallbacks définis
+- **Justification** : Pourquoi ces polices correspondent à l&#x27;ambiance du site
+
+---
+
+## 4. 🛠️ Tests et validation
+
+### Outils de validation technique
+- **HTML Validator** : [W3C Markup Validator](https://validator.w3.org/)
+  - Résultat : ✅ Aucune erreur / ⚠️ X warnings corrigés
+- **CSS Validator** : [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+  - Résultat : ✅ CSS valide / ⚠️ Problèmes résolus
+- **https://pagespeed.web.dev/** : Audit de performance et qualité
+  - Performance : X/100
+  - Accessibilité : X/100
+  - Bonnes pratiques : X/100
+  - SEO : X/100
+
+### Tests de compatibilité
+- **Navigateurs testés** :
+  - ✅ Chrome (version X)
+  - ✅ Firefox (version X)
+  - ✅ Safari (version X)
+  - ✅ Edge (version X)
+- **Appareils testés** :
+  - 📱 Mobile (iPhone/Android)
+  - 📱 Tablette (iPad/Android)
+  - 💻 Desktop (différentes résolutions)
+
+### Tests d&#x27;accessibilité
+- **WAVE Web Accessibility** : [wave.webaim.org](https://wave.webaim.org/)
+  - Contraste des couleurs : ✅ Conforme WCAG
+  - Structure des titres : ✅ Hiérarchie respectée
+  - Images : ✅ Attributs alt présents
+- **Tests manuels** :
+  - Navigation au clavier : ✅ Fonctionnelle
+  - Zoom à 200% : ✅ Lisible
+  - Lecteur d&#x27;écran : ✅ / ⚠️ Améliorations apportées
+
+### Tests d&#x27;ergonomie
+- **Tailles de texte** :
+  - Corps de texte : 16px minimum
+  - Liens : Zone de clic 44px minimum
+  - Espacement : Suffisant entre les éléments
+- **Tests utilisateur** :
+  - Navigation intuitive : Test avec X personnes
+  - Temps de chargement : &lt; X secondes
+  - Responsive : Affichage correct sur tous écrans
+
+### Corrections apportées
+- Problème 1 : [Description] → Solution : [Action réalisée]
+- Problème 2 : [Description] → Solution : [Action réalisée]
+- Améliorations : [Liste des optimisations réalisées]
+
+---
+
+## 5. 🤖 Usage d&#x27;intelligence artificielle
+
+**⚠️ TRANSPARENCE OBLIGATOIRE** : Si vous utilisez une IA, vous DEVEZ :
+
+### IA utilisée
+- **Nom** : ChatGPT / Claude / GitHub Copilot / Autre
+- **Version** : GPT-4, Claude 3, etc.
+- **Contexte** : Aide ponctuelle / Génération de code / Debugging
+
+### Utilisation détaillée
+**Domaines d&#x27;aide :**
+- Génération de contenu texte : X%
+- Aide au code HTML/CSS : X%
+- Recherche d&#x27;informations : X%
+- Debugging et résolution d&#x27;erreurs : X%
+
+**Ma compréhension :**
+Explication détaillée de ce que fait le code généré par l&#x27;IA,
+pourquoi il fonctionne, et comment je l&#x27;ai adapté à mon projet.
+
+### Parties codées manuellement
+- Structure HTML : X% personnel
+- CSS de base : X% personnel, X% aidé par IA
+- Responsive : X% personnel
+- Tests et validation : 100% personnel
+
+### Apprentissage personnel
+Ce que j&#x27;ai appris en utilisant l&#x27;IA et comment cela m&#x27;a aidé
+à mieux comprendre le développement web.
+
+---
+
+## 6. 🎯 Bilan personnel
+
+### Ce que j&#x27;ai appris
+- Compétences techniques acquises
+- Découvertes surprenantes
+- Concepts difficiles maîtrisés
+
+### Difficultés rencontrées
+- Problèmes techniques et solutions trouvées
+- Moments de blocage et dépassement
+- Aide reçue et sources
+
+### Réussites et fiertés
+- Aspects du projet dont je suis fier
+- Progrès constatés depuis le début
+- Envies de développement futur
+
+### Améliorations possibles
+- Ce que je ferais différemment
+- Fonctionnalités à ajouter
+- Compétences à approfondir
+</code></pre></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🗓️ Planning et jalons</summary><div class="indented"><h3 id="482a8a13-f461-4e62-abe8-a5a8647e9c8f" class="">Phase 1 : Fondations (Semaines 1-3)</h3><ul id="c29cf252-004b-49d4-bc75-1f216014aab9" class="bulleted-list"><li style="list-style-type:disc">Création compte GitHub</li></ul><ul id="2556d616-a82f-8056-a6c9-d11e08bd2053" class="bulleted-list"><li style="list-style-type:disc">Création compte JetBrains</li></ul><ul id="2556d616-a82f-80b2-89cb-def977cc85bf" class="bulleted-list"><li style="list-style-type:disc">Histoire du web</li></ul><ul id="b0b52ac4-e560-47b5-b9d6-5c39fbd11959" class="bulleted-list"><li style="list-style-type:disc">Premier projet &quot;Hello World&quot; et publication de votre premier site</li></ul><ul id="a7664864-fb30-462d-9f46-bde58103b191" class="bulleted-list"><li style="list-style-type:disc">Bases HTML (titres, paragraphes, listes, liens)</li></ul><ul id="9d0306ba-6af4-4875-b91a-7d497396a513" class="bulleted-list"><li style="list-style-type:disc">Introduction CSS</li></ul><ul id="2556d616-a82f-8024-93d4-e9bfe578a9e6" class="bulleted-list"><li style="list-style-type:disc">Configuration de WebStorm</li></ul><ul id="2556d616-a82f-8020-ae34-c281d7ed275e" class="bulleted-list"><li style="list-style-type:disc">Initialisation du projet<ul id="2556d616-a82f-805b-bdd4-d41e2df78aeb" class="bulleted-list"><li style="list-style-type:circle">Recherche d’un sujet</li></ul><ul id="2556d616-a82f-80ca-ad54-daf2d8e8d048" class="bulleted-list"><li style="list-style-type:circle">Recherche d’une plateforme de formation</li></ul><ul id="2556d616-a82f-80b0-b0d3-db0e7215a476" class="bulleted-list"><li style="list-style-type:circle">Création d’une palette de couleurs</li></ul><ul id="2556d616-a82f-80ab-8304-e2f5ac001101" class="bulleted-list"><li style="list-style-type:circle">Choix des polices</li></ul></li></ul><h3 id="6f9b9687-0a7c-4390-b237-9f864c85e466" class="">Phase 2 : Développement (Semaines 4-9)</h3><p id="38172015-a74f-4017-9e3c-576ad6c1a0ee" class=""><strong>Semaine 4 : Démarrage projet</strong></p><ul id="ac24702d-3bd0-4ac0-b9a7-f585dc8a2bb9" class="bulleted-list"><li style="list-style-type:disc">🎯 <strong>Jalon 1</strong> : Validation du concept + plateforme d&#x27;apprentissage</li></ul><ul id="809b2fdb-bafb-4fad-bcab-eeb1cd06094a" class="bulleted-list"><li style="list-style-type:disc">Création de la structure de base</li></ul><ul id="c1765006-ec0f-405c-acef-dec75992ae51" class="bulleted-list"><li style="list-style-type:disc">Début apprentissage autonome</li></ul><p id="4d749c8a-25b8-4000-b5ac-78dc621fab76" class=""><strong>Semaine 6 : Structure HTML</strong></p><ul id="3538e2ed-fb0e-4fe4-817d-b1c9d138c7d5" class="bulleted-list"><li style="list-style-type:disc">🎯 <strong>Jalon 2</strong> : Structure HTML complète</li></ul><ul id="28eae813-8185-46ed-8138-39703f49ec20" class="bulleted-list"><li style="list-style-type:disc">Pages principales créées</li></ul><ul id="c2e3aedb-d098-49bd-b6d4-45244dd742f5" class="bulleted-list"><li style="list-style-type:disc">Navigation fonctionnelle</li></ul><ul id="87eb0b9b-1cb2-4155-a060-7cdf2d2a869a" class="bulleted-list"><li style="list-style-type:disc"><strong>Point de suivi obligatoire</strong></li></ul><p id="d17041c2-3380-49e2-b50b-b5228ebbd6bf" class=""><strong>Semaine 8 : Mise en forme CSS</strong></p><ul id="db33fb21-ab0f-4175-b1da-a00f6a15f6a1" class="bulleted-list"><li style="list-style-type:disc">🎯 <strong>Jalon 3</strong> : CSS de base appliqué</li></ul><ul id="8eafd4af-fd83-4074-a1a8-9ae4778ab0dc" class="bulleted-list"><li style="list-style-type:disc">Design cohérent</li></ul><ul id="e5e9348c-c019-4643-b85e-d583fe867036" class="bulleted-list"><li style="list-style-type:disc">Début du responsive</li></ul><ul id="c788c3c3-2596-4dc2-b757-f2634db18dbe" class="bulleted-list"><li style="list-style-type:disc"><strong>Point de suivi obligatoire</strong></li></ul><p id="d5bef9aa-b49e-4e15-b2ac-e76f7120948d" class=""><strong>Semaine 10 : Responsive design</strong></p><ul id="e0d3b2de-155b-4613-8777-5da220c4a90d" class="bulleted-list"><li style="list-style-type:disc">🎯 <strong>Jalon 4</strong> : Site responsive fonctionnel</li></ul><ul id="fb0c0bad-f166-4a84-a3d5-82ab0eaa70b4" class="bulleted-list"><li style="list-style-type:disc">Tests multi-devices</li></ul><ul id="3a6bf3b0-7e80-4f36-bfbb-edea8c4a5ab9" class="bulleted-list"><li style="list-style-type:disc"><strong>Épreuve formative</strong></li></ul><ul id="5f4881e9-0207-42cb-b49a-1d80c5fae825" class="bulleted-list"><li style="list-style-type:disc"><strong>Point de suivi obligatoire</strong></li></ul><h3 id="97427919-6c2e-4b4e-be86-d58cf7c2c995" class="">Phase 3 : Finalisation (Semaines 11-12)</h3><p id="a4fff988-462e-49b1-87b3-8ae3bff7356f" class=""><strong>Semaine 11 : Optimisation</strong></p><ul id="7d9123dc-514c-4e36-93c4-a66c00b50bef" class="bulleted-list"><li style="list-style-type:disc">Validation W3C</li></ul><ul id="750189b7-6237-4c2a-9ddd-d61bbd2d7fcf" class="bulleted-list"><li style="list-style-type:disc">Optimisation images</li></ul><ul id="cb731808-dd99-4eb0-850a-e97d75f0f465" class="bulleted-list"><li style="list-style-type:disc">Tests de performance</li></ul><p id="185aac76-7fb7-451d-9a05-de67569ba263" class=""><strong>Semaine 12 : Livraison</strong></p><ul id="10d1c45e-92b8-45d5-a3e0-2498eae6c3a3" class="bulleted-list"><li style="list-style-type:disc">🎯 <strong>Livraison finale</strong> : Site + README complet</li></ul><ul id="0560d7cb-d1c0-447c-9e23-64e90987b7cf" class="bulleted-list"><li style="list-style-type:disc">Publication GitHub Pages</li></ul><ul id="9fb82f1b-111e-4f46-8e1e-a9531c6e130f" class="bulleted-list"><li style="list-style-type:disc"><strong>Point de suivi final</strong></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">📚 Ressources</summary><div class="indented"><p id="25a6d616-a82f-8045-a139-e3ecdd7b16db" class=""><em>La petite ⭐ signifie testé et approuvé par Steve Fallet</em></p><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🎓 Plateformes d&#x27;apprentissage</summary><div class="indented"><ul id="25a6d616-a82f-804e-acc3-e739f311e0d6" class="bulleted-list"><li style="list-style-type:disc">📚 <strong>Cours structurés (recommandés)</strong><ul id="25a6d616-a82f-8037-9190-ceba3ad2ebe9" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://openclassrooms.com/">OpenClassrooms</a></strong> - Cours complet HTML/CSS ⭐</li></ul><ul id="25a6d616-a82f-8085-b724-f82645b9e16e" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.freecodecamp.org/">freeCodeCamp</a></strong> - Exercices pratiques ⭐</li></ul><ul id="25a6d616-a82f-80cc-9047-ddd42eaebee9" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.w3schools.com/">W3Schools</a></strong> - Tutoriels simples avec exemples ⭐</li></ul><ul id="25a6d616-a82f-80a2-8321-e2d5446be473" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://developer.mozilla.org/">MDN Web Docs</a></strong> - Documentation de référence ⭐</li></ul><ul id="25a6d616-a82f-80c7-a821-d5658c689198" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.codecademy.com/">Codecademy</a></strong> - Apprentissage interactif</li></ul><ul id="25a6d616-a82f-8054-8ded-ef4de39e5f09" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.khanacademy.org/">Khan Academy</a></strong> - Cours pour débutants ⭐</li></ul><ul id="25a6d616-a82f-80c9-948f-c082e8c403d7" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://scrimba.com/">Scrimba</a></strong> - Vidéos interactives avec code modifiable</li></ul><ul id="25a6d616-a82f-803d-b9b8-f9a2ab7ad7a1" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.theodinproject.com/">The Odin Project</a></strong> - Parcours complet développement web</li></ul></li></ul><ul id="25a6d616-a82f-80fa-a550-f055f0012d90" class="bulleted-list"><li style="list-style-type:disc">🎮 <strong>Apprentissage ludique</strong><ul id="25a6d616-a82f-809f-bfe8-d08c84314f5e" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://flukeout.github.io/">CSS Diner</a></strong> - Apprendre les sélecteurs CSS en jouant ⭐</li></ul><ul id="25a6d616-a82f-809a-bb08-edecf0ed1bb0" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://flexboxfroggy.com/">Flexbox Froggy</a></strong> - Maîtriser Flexbox avec des grenouilles ⭐</li></ul><ul id="25a6d616-a82f-80ce-ba06-cd8b17cecf42" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://cssgridgarden.com/">Grid Garden</a></strong> - CSS Grid avec des légumes ⭐</li></ul><ul id="25a6d616-a82f-80ea-b4da-fb005f2b9866" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="http://www.flexboxdefense.com/">Flexbox Defense</a></strong> - Tower Defense avec Flexbox</li></ul><ul id="25a6d616-a82f-8091-af36-f0f6d380c3fc" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://cssbattle.dev/">CSS Battle</a></strong> - Défis créatifs en CSS</li></ul></li></ul><ul id="25a6d616-a82f-806a-8555-ec6315b5fe82" class="bulleted-list"><li style="list-style-type:disc">📹 <strong>Ressources vidéo francophones</strong><ul id="25a6d616-a82f-80f3-aa46-c2cb77fe2e05" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://grafikart.fr/">Grafikart</a></strong> - Tutoriels web français de qualité ⭐</li></ul><ul id="25a6d616-a82f-802f-9e26-f3c55ec84b9e" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.pierre-giraud.com/">Pierre Giraud</a></strong> - Cours HTML/CSS français complets</li></ul></li></ul><ul id="25a6d616-a82f-80ff-b71d-d54e4ab7a9fd" class="bulleted-list"><li style="list-style-type:disc">🛠️ <strong>Outils d&#x27;entraînement spécialisés</strong><ul id="25a6d616-a82f-8032-b32a-d644fade2ed5" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://emmet.io/">Emmet.io</a></strong> - Raccourcis HTML/CSS (intégré WebStorm)</li></ul><ul id="25a6d616-a82f-801a-aaf6-dfea26e39f79" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></strong> - Référence Flexbox ⭐</li></ul><ul id="25a6d616-a82f-8098-a348-fb3de74f37b8" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://caniuse.com/">Can I Use</a></strong> - Compatibilité navigateurs ⭐</li></ul><ul id="25a6d616-a82f-804e-a230-f1fa3fa4739e" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://css-tricks.com/">CSS-Tricks</a></strong> - Articles et guides CSS avancés ⭐</li></ul></li></ul><ul id="25a6d616-a82f-8001-85b6-d19b82733792" class="bulleted-list"><li style="list-style-type:disc">📖 <strong>Documentation et références</strong><ul id="d356bb70-18ef-4a41-9d19-67ed18ab7da3" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://developer.mozilla.org/fr/docs/Learn">MDN Web Docs</a></strong> - Documentation de référence ⭐</li></ul><ul id="25a6d616-a82f-80fa-b8ad-cce609f8a2d8" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://www.w3schools.com/">W3Schools</a></strong> - Références et tutoriels simples avec exemples ⭐</li></ul><ul id="25a6d616-a82f-80c4-8891-e62373c40ff2" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://fr.learnlayout.com/">Learn Layout</a></strong> - Apprendre les mises en page CSS ⭐</li></ul><ul id="25a6d616-a82f-804d-a389-f37460d2586e" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://cssreference.io/">CSS Reference</a></strong> - Référence visuelle CSS</li></ul><ul id="25a6d616-a82f-80d4-95ea-f7b8bace039f" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://htmlreference.io/">HTML Reference</a></strong> - Référence visuelle HTML</li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🔧 Outils de développement</summary><div class="indented"><ul id="90f60475-8b13-4f11-bbcb-6f0574292631" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.jetbrains.com/webstorm/">WebStorm</a></strong> - IDE recommandé (gratuit pour étudiants) ⭐</li></ul><ul id="8c91857c-98cb-4aef-9ddf-dcc4c741e39f" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://code.visualstudio.com/">Visual Studio Code</a></strong> - Alternative gratuite</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">✅ <strong>Outils de validation</strong></summary><div class="indented"><ul id="25a6d616-a82f-80ce-9914-e25c705c37e7" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://validator.w3.org/">W3C Markup Validator</a></strong> - Validation HTML officielle du W3C<ul id="25a6d616-a82f-80ec-ad33-ecb551736aae" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://html5.validator.nu/">Nu Html Checker</a></strong> - Validateur HTML5 moderne et avancé ⭐</li></ul></li></ul><ul id="25a6d616-a82f-80b8-988b-ece627814e08" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validator</a></strong> - Validation CSS officielle du W3C</li></ul><ul id="25a6d616-a82f-8097-8553-c52023b2d0db" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://wave.webaim.org/">WAVE Web Accessibility</a></strong> - Test d&#x27;accessibilité web ⭐</li></ul><ul id="25a6d616-a82f-807b-966d-c776e46f9a63" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a></strong> - Performance et UX (User eXperience) ⭐</li></ul><ul id="25a6d616-a82f-8054-a749-c60f76e749eb" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.freeformatter.com/html-validator.html">FreeFormatter HTML Validator</a></strong> - Validateur HTML gratuit avec détection d&#x27;erreurs avancée</li></ul><ul id="25a6d616-a82f-807b-8f4a-dd8d8b94ed88" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cssportal.com/css-validator/">CSS Portal Validator</a></strong> - Validation CSS alternative</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">📱 <strong>Tests de responsive design</strong></summary><div class="indented"><ul id="25a6d616-a82f-8008-acf7-d0b33cd81c0c" class="bulleted-list"><li style="list-style-type:disc">Outils de développement intégré aux navigateurs (Brave, Chrome, FireFox) ⭐</li></ul><ul id="25a6d616-a82f-80f7-afbd-e6d82afa49e6" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="http://ami.responsivedesign.is/">Am I Responsive?</a></strong> - Aperçu sur 4 appareils simultanément</li></ul><ul id="25a6d616-a82f-8041-b1fa-d87604fec1a1" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://responsivedesignchecker.com/">Responsive Design Checker</a></strong> - Large gamme d&#x27;appareils avec captures d&#x27;écran</li></ul><ul id="25a6d616-a82f-80a4-bc5f-c34cac6e8a40" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.browserstack.com/responsive">BrowserStack Responsive</a></strong> - Test sur vrais appareils (payant) ⭐</li></ul><ul id="25a6d616-a82f-808e-b20c-ec6dfcb37354" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://chromewebstore.google.com/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk">Mobile FIRST (Chrome Extension)</a></strong> - Simulateur mobile dans le navigateur</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🎨 <strong>Vérification des contrastes</strong></summary><div class="indented"><ul id="25a6d616-a82f-80b8-bad2-ec5e9078fc00" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://colourcontrast.cc/">Colour Contrast Checker</a></strong> - Simple et efficace ⭐</li></ul><ul id="25a6d616-a82f-804c-a975-dab7d86b0c47" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></strong> - Standard WCAG pour l&#x27;accessibilité ⭐</li></ul><ul id="25a6d616-a82f-8099-b40f-f5eed32a47fb" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://coolors.co/contrast-checker/">Coolors Contrast Checker</a></strong> - Test de contraste avec recommandations</li></ul><ul id="25a6d616-a82f-80ef-81f4-d0ab2c9a67df" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.accessibilitychecker.org/color-contrast-checker/">AccessibilityChecker</a></strong> - Conformité WCAG complète</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🖼️ <strong>Images libres de droits</strong></summary><div class="indented"><ul id="25a6d616-a82f-80a7-9f04-ccdb378ad8d9" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://unsplash.com/">Unsplash</a></strong> - Images libres de droits haute qualité ⭐</li></ul><ul id="25a6d616-a82f-8015-8bd1-fed220a5edd6" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://pixabay.com/">Pixabay</a></strong> - Images, illustrations et vidéos gratuites</li></ul><ul id="25a6d616-a82f-805b-b295-da6a56c9b82d" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.pexels.com/">Pexels</a></strong> - Photos et vidéos HD gratuites pour projets commerciaux</li></ul><ul id="25a6d616-a82f-8070-ae2c-f1ceb0dcfdd6" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://kaboompics.com/">Kaboompics</a></strong> - Photos authentiques et soigneusement curées</li></ul><ul id="25a6d616-a82f-8054-95d5-fef0ceb7d9f0" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.freepik.com/">Freepik</a></strong> - Ressources graphiques, vecteurs et photos</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🔤 <strong>Polices et typographie</strong></summary><div class="indented"><ul id="25a6d616-a82f-808b-98f2-dfd6ccc22d9c" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://fonts.google.com/">Google Fonts</a></strong> - Collection gratuite de polices web optimisées<ul id="25a6d616-a82f-803e-b436-d3214fd91ca5" class="bulleted-list"><li style="list-style-type:circle"><strong><a href="https://gwfh.mranftl.com/">Google Web Fonts Helper</a></strong> - Outil pour télécharger les polices Google ⭐</li></ul></li></ul><ul id="25a6d616-a82f-80ca-aa7f-c63b3cbe130e" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.fontsquirrel.com/">Font Squirrel</a></strong> - Polices gratuites 100% libres pour usage commercial</li></ul><ul id="25a6d616-a82f-8032-98a0-cd23d10379cd" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://fonts.adobe.com/">Adobe Fonts</a></strong> - Collection professionnelle avec Creative Cloud</li></ul><ul id="25a6d616-a82f-8011-8813-d4551ca7a70b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.1001fonts.com/">1001 Fonts</a></strong> - Large collection avec filtres par licence</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🎨 <strong>Palettes de couleurs</strong></summary><div class="indented"><ul id="25a6d616-a82f-8084-97f7-ed6d7a908606" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://coolors.co/">Coolors</a></strong> - Générateur ultra-rapide de palettes de couleurs ⭐</li></ul><ul id="25a6d616-a82f-8057-b8be-fb71df2a9887" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://color.adobe.com/">Adobe Color</a></strong> - Roue chromatique professionnelle d&#x27;Adobe ⭐</li></ul><ul id="25a6d616-a82f-80e8-b970-ee4f62575d8e" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://colorhunt.co/">Color Hunt</a></strong> - Palettes tendance sélectionnées manuellement</li></ul><ul id="25a6d616-a82f-80be-8609-d0b8bf2cea41" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://mycolor.space/">ColorSpace</a></strong> - Générateur de palettes et dégradés</li></ul><ul id="25a6d616-a82f-80b2-83af-de6840a4b945" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.canva.com/colors/color-palettes/">Canva Colors</a></strong> - Générateur de palettes à partir d&#x27;images</li></ul></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">💡 Idées de projets</summary><div class="indented"><h3 id="e7d36e28-68e6-431b-a541-b37f1650ba5a" class="">🎭 Thèmes suggérés</h3><ul id="7e5b7664-2bab-4851-aec0-53015fb937eb" class="bulleted-list"><li style="list-style-type:disc"><strong>Portfolio personnel</strong> - Présentation de vos compétences</li></ul><ul id="8b824530-c1da-4596-8074-356ea724ec43" class="bulleted-list"><li style="list-style-type:disc"><strong>Site d&#x27;entreprise fictive</strong> - Restaurant, salon de coiffure, etc.</li></ul><ul id="226eed27-0464-43b5-88ac-1d84751ca950" class="bulleted-list"><li style="list-style-type:disc"><strong>Blog personnel</strong> - Passion, hobby, voyages</li></ul><ul id="684e2866-941b-4cd9-8253-b243ec247e79" class="bulleted-list"><li style="list-style-type:disc"><strong>Site fan</strong> - Série TV, groupe de musique, sport</li></ul><ul id="f1b796a4-b052-4e25-9c77-fbef802e0e23" class="bulleted-list"><li style="list-style-type:disc"><strong>Projet associatif</strong> - Club, organisation, cause</li></ul><ul id="15330bd6-8d89-49d4-9644-8cad17bab1f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Galerie artistique</strong> - Photographie, dessins, créations</li></ul><h3 id="eece878b-6d2f-42dd-910f-f03ed6f1c64d" class="">📋 Structure type recommandée</h3><ol type="1" id="25a6d616-a82f-8063-bac9-f2cb8015e419" class="numbered-list" start="1"><li><strong>Accueil</strong> - Présentation attractive</li></ol><ol type="1" id="25a6d616-a82f-8021-9c17-e708bb97d172" class="numbered-list" start="2"><li><strong>À propos</strong> - Qui vous êtes / Histoire</li></ol><ol type="1" id="25a6d616-a82f-8059-a441-e7c6d998f2cf" class="numbered-list" start="3"><li><strong>Services/Produits/Contenu</strong> - Cœur du site</li></ol><ol type="1" id="25a6d616-a82f-805c-b876-d9748d250f7a" class="numbered-list" start="4"><li><strong>Galerie/Portfolio</strong> - Visuels</li></ol><ol type="1" id="25a6d616-a82f-80b5-b284-dd9f2400afbc" class="numbered-list" start="5"><li><strong>Contact</strong> - Informations pratiques</li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">❓ Support et aide</summary><div class="indented"><h3 id="0004dce0-1c34-49aa-9e2d-1247303ae872" class="">📅 Rendez-vous obligatoires</h3><ul id="4e40632b-6349-4457-90a4-7a92854f15e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Fréquence</strong> : Toutes les 2 semaines</li></ul><ul id="781a2b82-585f-417c-854b-1684ff843027" class="bulleted-list"><li style="list-style-type:disc"><strong>Durée</strong> : 10-15 minutes</li></ul><ul id="1ee38e4f-b12f-49a7-8c50-086136817252" class="bulleted-list"><li style="list-style-type:disc"><strong>Objectif</strong> : Point sur l&#x27;avancement, déblocage, orientation</li></ul><h3 id="1f533c57-1104-4e10-b7c5-7c7cd65f9491" class="">💬 Support en ligne</h3><ul id="1430ef20-5c92-4de9-b116-c2e659a4532c" class="bulleted-list"><li style="list-style-type:disc"><strong>Teams</strong> : Canal du cours pour questions techniques</li></ul><ul id="d102f770-548b-4d46-a044-f4c6eb38cb94" class="bulleted-list"><li style="list-style-type:disc"><strong>Réponse</strong> : Sous 48h en période de cours</li></ul><ul id="22b922d9-4fce-4a24-b881-91700cc316aa" class="bulleted-list"><li style="list-style-type:disc"><strong>Format</strong> : Screenshots de code, liens GitHub</li></ul><h3 id="c8916a6e-2352-4112-b339-edb8e21c89d6" class="">🏫 Support en classe</h3><ul id="1b50d874-a24d-4d6b-9042-9e7e50421dc4" class="bulleted-list"><li style="list-style-type:disc"><strong>Mini-démonstrations</strong> : Réponses aux questions fréquentes</li></ul><ul id="7c2c1568-5182-4159-bd87-b2013fc87621" class="bulleted-list"><li style="list-style-type:disc"><strong>Debugging collectif</strong> : Résolution de problèmes communs</li></ul><ul id="6758ce0d-1351-418f-a3ed-95b44d072a32" class="bulleted-list"><li style="list-style-type:disc"><strong>Partage d&#x27;expériences</strong> : Retours entre étudiants</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">⚠️ Points d&#x27;attention</summary><div class="indented"><h3 id="e345e969-b2b3-4075-b1fa-2f891c45c622" class="">🚫 À éviter absolument</h3><ul id="9e2bfb8e-9342-4310-9294-66471a9a27e6" class="bulleted-list"><li style="list-style-type:disc"><strong>Plagiat</strong> : Copier un site existant</li></ul><ul id="e1254d27-71e2-471e-bd2a-232a5c2e8121" class="bulleted-list"><li style="list-style-type:disc"><strong>Templates</strong> : Utiliser des thèmes pré-faits</li></ul><ul id="42c916f2-fcd7-4530-8a4f-2f1d21a086ee" class="bulleted-list"><li style="list-style-type:disc"><strong>Frameworks</strong> : Bootstrap, Tailwind, etc. (interdits)</li></ul><ul id="6ad7dd07-543e-4d46-8653-dbc89123b671" class="bulleted-list"><li style="list-style-type:disc"><strong>JavaScript</strong> : Hors programme de ce module, mais je ne peux que vous encourager à tester</li></ul><h3 id="2b3de8a4-b07e-4015-8d6c-db592b49d9d8" class="">✅ Bonnes pratiques</h3><ul id="9981aaef-e188-4213-9b40-9646f9ad04f4" class="bulleted-list"><li style="list-style-type:disc"><strong>Commits réguliers </strong>: Au minimum 2-3 par jour de travail<ul id="9ee26853-e231-4a61-8f04-ab8ce6dc82a9" class="bulleted-list"><li style="list-style-type:circle"><strong>Avec messages clairs</strong> : &quot;Ajout navigation mobile&quot; vs &quot;update&quot;</li></ul></li></ul><ul id="1d486a51-e3a5-4fd1-99d7-6166de9dc017" class="bulleted-list"><li style="list-style-type:disc"><strong>Sauvegarde</strong> : Toujours pusher sur GitHub</li></ul><ul id="74137c80-ae2b-4159-bbf5-777df411c108" class="bulleted-list"><li style="list-style-type:disc"><strong>Tests</strong> : Vérifier sur mobile ET desktop</li></ul><ul id="25a6d616-a82f-80e6-b12f-cdd9986e1229" class="bulleted-list"><li style="list-style-type:disc"><strong>Tenir à jour son portfolio (README.md)</strong></li></ul><h3 id="7bb6197a-fe6e-4d2b-af28-a98d632b8853" class="">🤔 En cas de doute</h3><ul id="cb002329-44cc-4636-94a8-84dfc4e6eae8" class="bulleted-list"><li style="list-style-type:disc"><strong>Posez des questions</strong> : Mieux vaut demander que faire faux</li></ul><ul id="e0d1f448-7b7c-4c8d-b868-a9514b80c46d" class="bulleted-list"><li style="list-style-type:disc"><strong>Restez simple</strong> : Privilégier la qualité à la quantité</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🎉 Critères d&#x27;excellence</summary><div class="indented"><p id="add2bb9a-e4ea-4a05-abc3-2c9399241c61" class="">Pour viser les meilleures notes, votre projet peut inclure :</p><h3 id="fc580468-85ad-4cb3-ad50-53872601a8c4" class="">🌟 Techniques avancées</h3><ul id="b13182e5-ecc5-4ad1-9710-87093f7a54e0" class="bulleted-list"><li style="list-style-type:disc"><strong>CSS Grid</strong> ou <strong>Flexbox</strong> maîtrisé</li></ul><ul id="24756d23-a8cf-4d75-820c-2bcb9f76f4e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Animations CSS</strong> subtiles et pertinentes</li></ul><ul id="1c6cde48-9eb0-40e8-a65a-aefd58d0729d" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimisation</strong> : Images WebP, chargement rapide</li></ul><ul id="4e4e12cf-1ad4-419e-b911-438e0ffe2050" class="bulleted-list"><li style="list-style-type:disc"><strong>Accessibilité</strong> : Navigation clavier, contrastes optimaux</li></ul><h3 id="5fd9842f-be33-422c-9c53-f54c2c18772d" class="">🎨 Qualité créative</h3><ul id="1a267fad-dd5e-4a80-b71b-41512c27a405" class="bulleted-list"><li style="list-style-type:disc"><strong>Design cohérent</strong> : Palette, typographie, espacement</li></ul><ul id="78705e74-3f54-47f9-8f5d-f85d481caada" class="bulleted-list"><li style="list-style-type:disc"><strong>Originalité</strong> : Concept unique et personnel</li></ul><ul id="777b8c68-0f8e-436d-99a0-2bee246dae23" class="bulleted-list"><li style="list-style-type:disc"><strong>Attention aux détails</strong> : Finitions soignées</li></ul><ul id="1409ea0c-a445-4b88-87c3-91f82fede7c2" class="bulleted-list"><li style="list-style-type:disc"><strong>Expérience utilisateur</strong> : Navigation intuitive</li></ul><h3 id="4f2cce75-1e37-40c7-aa8f-45fe4c880428" class="">📖 Documentation exemplaire</h3><ul id="0b71f310-337f-4206-899f-62d32909ad94" class="bulleted-list"><li style="list-style-type:disc"><strong>README détaillé</strong> : Réflexion approfondie</li></ul><ul id="56e2bb16-1299-49e3-937b-1812bbd78e38" class="bulleted-list"><li style="list-style-type:disc"><strong>Code commenté</strong> : Explications des parties complexes, notamment en CSS</li></ul><ul id="542153ce-1ad2-4186-bc48-2191d09a1ac5" class="bulleted-list"><li style="list-style-type:disc"><strong>Transparence totale</strong> : Usage d&#x27;IA documenté</li></ul><ul id="2ac72a2a-613d-4574-a761-c38df3808a65" class="bulleted-list"><li style="list-style-type:disc"><strong>Auto-évaluation</strong> : Analyse critique de votre travail</li></ul></div></details><p id="25a6d616-a82f-8043-a395-f3ab7d6f6ff4" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

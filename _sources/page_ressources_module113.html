@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressources - Module 113</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+        }
+
+        /* Main content */
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Section styles */
+        .resource-section {
+            margin: 3rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .resource-section.formation {
+            background: #f8f9ff;
+            border-left-color: #667eea;
+        }
+
+        .resource-section.outils {
+            background: #f0f8ff;
+            border-left-color: #3498db;
+        }
+
+        .resource-section.design {
+            background: #fff5f5;
+            border-left-color: #e74c3c;
+        }
+
+        .resource-section.git {
+            background: #f5f5f5;
+            border-left-color: #2c3e50;
+        }
+
+        .resource-section.jeux {
+            background: #f9f7ff;
+            border-left-color: #9b59b6;
+        }
+
+        .resource-section.validation {
+            background: #f0fff4;
+            border-left-color: #27ae60;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title .icon {
+            font-size: 2rem;
+        }
+
+        /* Resource grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .resource-card h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .resource-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: linear-gradient(45deg, #5a67d8, #6b46c1);
+            transform: scale(1.05);
+        }
+
+        .resource-link.external::after {
+            content: " 🔗";
+        }
+
+        /* Priority indicators */
+        .priority {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .priority.essentiel {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .priority.recommande {
+            background: #feca57;
+            color: #2c3e50;
+        }
+
+        .priority.bonus {
+            background: #48dbfb;
+            color: white;
+        }
+
+        /* Special sections */
+        .quick-start {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .quick-start h3 {
+            margin-bottom: 1rem;
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .quick-link {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+
+        .quick-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📚 Ressources</h1>
+            <p class="subtitle">Tous les outils pour réussir votre projet</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 Accueil</a>
+                <a href="#" class="nav-link active">📚 Ressources</a>
+                <a href="readme.html" class="nav-link">📝 Modèle README</a>
+                <a href="evaluation.html" class="nav-link">📊 Évaluation</a>
+                <a href="galerie.html" class="nav-link">🎨 Galerie</a>
+                <a href="faq.html" class="nav-link">❓ FAQ</a>
+            </div>
+        </nav>
+
+        <!-- Quick start -->
+        <section class="quick-start">
+            <h3>🚀 Démarrage rapide</h3>
+            <p>Commencez par ces ressources essentielles pour votre apprentissage</p>
+            <div class="quick-links">
+                <a href="#formation" class="quick-link">📖 Formation de base</a>
+                <a href="#outils" class="quick-link">🛠️ Configurer mes outils</a>
+                <a href="#design" class="quick-link">🎨 Design et polices</a>
+                <a href="#validation" class="quick-link">✅ Valider mon code</a>
+            </div>
+        </section>
+
+        <!-- Main content -->
+        <main class="main-content">
+            
+            <!-- Formation et apprentissage -->
+            <section id="formation" class="resource-section formation">
+                <h2 class="section-title">
+                    <span class="icon">📖</span>
+                    Formation et apprentissage
+                </h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>OpenClassroom - HTML5 & CSS3</h4>
+                        <p>Le cours de référence utilisé en classe. Suivez les parties 1, 2, 3 et 4.</p>
+                        <a href="https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3" class="resource-link external">Accéder au cours</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>MDN Web Docs</h4>
+                        <p>Documentation officielle Mozilla. LA référence pour HTML, CSS et JavaScript.</p>
+                        <a href="https://developer.mozilla.org/fr/" class="resource-link external">Consulter MDN</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>CSS-Tricks</h4>
+                        <p>Guides pratiques, astuces et exemples CSS. Excellents articles sur Flexbox et Grid.</p>
+                        <a href="https://css-tricks.com/" class="resource-link external">Visiter CSS-Tricks</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Learn Layout (FR)</h4>
+                        <p>Apprenez les différents types de positionnement CSS de manière interactive.</p>
+                        <a href="https://fr.learnlayout.com/" class="resource-link external">Apprendre les layouts</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Outils de développement -->
+            <section id="outils" class="resource-section outils">
+                <h2 class="section-title">
+                    <span class="icon">🛠️</span>
+                    Outils de développement
+                </h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>WebStorm (JetBrains)</h4>
+                        <p>IDE recommandé pour le cours. Licence gratuite avec votre email étudiant.</p>
+                        <a href="https://www.jetbrains.com/webstorm/" class="resource-link external">Télécharger WebStorm</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>Git & GitHub</h4>
+                        <p>Outils de versioning obligatoires pour le projet.</p>
+                        <a href="https://git-scm.com/" class="resource-link external">Installer Git</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Visual Studio Code</h4>
+                        <p>Alternative gratuite à WebStorm. Très populaire avec d'excellentes extensions.</p>
+                        <a href="https://code.visualstudio.com/" class="resource-link external">Télécharger VS Code</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>GitHub Desktop</h4>
+                        <p>Interface graphique pour Git si vous préférez éviter la ligne de commande.</p>
+                        <a href="https://desktop.github.com/" class="resource-link external">Télécharger GitHub Desktop</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design, polices et couleurs -->
+            <section id="design" class="resource-section design">
+                <h2 class="section-title">
+                    <span class="icon">🎨</span>
+                    Design, polices et couleurs
+                </h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>Google Fonts</h4>
+                        <p>Bibliothèque de polices web gratuites. Facile à intégrer avec @import ou link.</p>
+                        <a href="https://fonts.google.com/" class="resource-link external">Choisir des polices</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Google Web Fonts Helper</h4>
+                        <p>Téléchargez les polices Google Fonts en local pour de meilleures performances.</p>
+                        <a href="https://gwfh.mranftl.com/fonts" class="resource-link external">Télécharger des polices</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>Coolors.co</h4>
+                        <p>Générateur de palettes de couleurs harmonieuses. Indispensable pour votre design.</p>
+                        <a href="https://coolors.co/" class="resource-link external">Créer une palette</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Adobe Color</h4>
+                        <p>Outil avancé de création de palettes avec roue chromatique.</p>
+                        <a href="https://color.adobe.com/fr/create/color-wheel" class="resource-link external">Adobe Color</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>Picsum Photos</h4>
+                        <p>Images de placeholder de qualité pour vos maquettes et tests.</p>
+                        <a href="https://picsum.photos/" class="resource-link external">Générer des images</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>Unsplash</h4>
+                        <p>Photos gratuites haute qualité pour enrichir votre contenu.</p>
+                        <a href="https://unsplash.com/" class="resource-link external">Télécharger des photos</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Git et GitHub -->
+            <section id="git" class="resource-section git">
+                <h2 class="section-title">
+                    <span class="icon">🔄</span>
+                    Git et GitHub
+                </h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>Intro Git & GitHub (Vidéo)</h4>
+                        <p>Introduction complète en français pour comprendre les concepts de base.</p>
+                        <a href="https://www.youtube.com/watch?v=BCQHnlnPusY" class="resource-link external">Regarder la vidéo</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Git and GitHub for Poets</h4>
+                        <p>Série de vidéos en anglais très accessible pour débuter avec Git.</p>
+                        <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV" class="resource-link external">Voir la série</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Les branches Git (Vidéo)</h4>
+                        <p>Comprendre et maîtriser le système de branches Git.</p>
+                        <a href="https://www.youtube.com/watch?v=oPpnCh7InLY" class="resource-link external">Apprendre les branches</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>GitHub Pages</h4>
+                        <p>Documentation officielle pour publier votre site gratuitement.</p>
+                        <a href="https://pages.github.com/" class="resource-link external">Guide GitHub Pages</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jeux éducatifs -->
+            <section id="jeux" class="resource-section jeux">
+                <h2 class="section-title">
+                    <span class="icon">🎮</span>
+                    Apprendre en jouant
+                </h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Flexbox Froggy</h4>
+                        <p>Apprenez Flexbox en aidant Froggy la grenouille à rentrer chez elle.</p>
+                        <a href="https://flexboxfroggy.com/#fr" class="resource-link external">Jouer à Flexbox Froggy</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>CSS Diner</h4>
+                        <p>Maîtrisez les sélecteurs CSS en jouant avec des assiettes et des plats.</p>
+                        <a href="https://flukeout.github.io/" class="resource-link external">Jouer à CSS Diner</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>Grid Garden</h4>
+                        <p>Apprenez CSS Grid en prenant soin de votre jardin de carottes.</p>
+                        <a href="https://cssgridgarden.com/#fr" class="resource-link external">Jouer à Grid Garden</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>CSS Battle</h4>
+                        <p>Défi avancé : reproduisez des designs avec le moins de CSS possible.</p>
+                        <a href="https://cssbattle.dev/" class="resource-link external">Relever le défi</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Validation et tests -->
+            <section id="validation" class="resource-section validation">
+                <h2 class="section-title">
+                    <span class="icon">✅</span>
+                    Validation et tests
+                </h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>W3C Validator HTML</h4>
+                        <p>Validez la syntaxe de votre code HTML pour éviter les erreurs.</p>
+                        <a href="https://validator.w3.org/" class="resource-link external">Valider mon HTML</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority essentiel">ESSENTIEL</span>
+                        <h4>W3C Validator CSS</h4>
+                        <p>Vérifiez que votre CSS respecte les standards du web.</p>
+                        <a href="https://jigsaw.w3.org/css-validator/" class="resource-link external">Valider mon CSS</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority recommande">RECOMMANDÉ</span>
+                        <h4>Can I Use</h4>
+                        <p>Vérifiez la compatibilité des propriétés CSS avec les navigateurs.</p>
+                        <a href="https://caniuse.com/" class="resource-link external">Vérifier la compatibilité</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <span class="priority bonus">BONUS</span>
+                        <h4>WAVE Accessibility</h4>
+                        <p>Testez l'accessibilité de votre site pour tous les utilisateurs.</p>
+                        <a href="https://wave.webaim.org/" class="resource-link external">Tester l'accessibilité</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer style="text-align: center; color: white; margin-top: 2rem; opacity: 0.8;">
+            <p><strong>💡 Conseil :</strong> Bookmarkez cette page, elle sera votre compagnon tout au long du projet !</p>
+        </footer>
+    </div>
+</body>
+</html>
