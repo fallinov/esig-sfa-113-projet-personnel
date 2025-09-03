@@ -55,11 +55,11 @@
   --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
   /* Tailles de police */
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-xs: 1.125rem;   /* 18px - taille minimum */
+  --font-size-sm: 1.125rem;   /* 18px - taille minimum */
+  --font-size-base: 1.125rem; /* 18px - taille minimum */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.375rem;   /* 22px */
   --font-size-2xl: 1.5rem;    /* 24px */
   --font-size-3xl: 1.875rem;  /* 30px */
   --font-size-4xl: 2.25rem;   /* 36px */
@@ -200,7 +200,7 @@ img {
 
 /* Base typographique */
 html {
-  font-size: 16px;
+  font-size: 18px;
   scroll-behavior: smooth;
 }
 
@@ -317,7 +317,6 @@ a:focus {
 }
 
 .logo-link:hover {
-  opacity: 0.9;
   transform: scale(1.02);
   transition: all var(--transition-fast);
 }
@@ -567,7 +566,7 @@ a:focus {
 
 /* Section Hero */
 .hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: var(--color-primary);
   color: var(--color-white);
   padding: var(--spacing-3xl) 0;
   position: relative;
@@ -580,16 +579,7 @@ a:focus {
   gap: var(--spacing-2xl);
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  opacity: 0.3;
-}
+
 
 .hero-content {
   position: relative;
@@ -644,13 +634,9 @@ a:focus {
   height: auto;
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-xl);
-  opacity: 0.9;
-  transition: opacity var(--transition-fast);
 }
 
-.hero-illustration:hover {
-  opacity: 1;
-}
+
 
 .hero-card {
   background: rgba(255, 255, 255, 0.9);
@@ -717,8 +703,24 @@ a:focus {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Style spécifique pour les boutons secondaires dans les sections avec fond sombre */
+.screenshot-section .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-primary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Style pour les boutons secondaires dans la section CTA (fond sombre) */
+.cta-section .btn-secondary,
+.cta-actions .btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 .btn-secondary:hover {
-  background-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.9);
   color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
@@ -742,7 +744,7 @@ a:focus {
    ======================================== */
 
 .screenshot-section {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: var(--color-primary);
   color: var(--color-white);
   padding: var(--spacing-3xl) 0;
   min-height: 80vh;
@@ -759,8 +761,9 @@ a:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  opacity: 0.3;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
 }
 
 .screenshot-content {
@@ -821,7 +824,7 @@ a:focus {
   }
   
   .screenshot-description {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
   }
 }
 
@@ -840,14 +843,10 @@ a:focus {
   transition: all var(--transition-fast);
 }
 
-.screenshot-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-primary);
-}
+
 
 .screenshot-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: var(--color-primary);
   color: var(--color-white);
   padding: var(--spacing-2xl);
   text-align: center;
@@ -980,16 +979,10 @@ section {
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
   text-align: center;
-  transition: transform var(--transition-fast);
   border: 3px solid var(--color-border-medium);
 }
 
-.mission-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-primary);
-  background-color: var(--color-white);
-}
+
 
 .mission-card .card-icon {
   font-size: var(--font-size-4xl);
@@ -1018,16 +1011,10 @@ section {
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
   position: relative;
-  transition: transform var(--transition-fast);
   border: 3px solid var(--color-border-medium);
 }
 
-.objectif-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-primary);
-  background-color: var(--color-white);
-}
+
 
 .objectif-number {
   position: absolute;
@@ -1070,16 +1057,10 @@ section {
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition-fast);
   border: 3px solid var(--color-border-medium);
 }
 
-.livrable-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-primary);
-  background-color: var(--color-white);
-}
+
 
 .livrable-icon {
   font-size: var(--font-size-4xl);
@@ -1225,7 +1206,7 @@ section {
 
 /* Section CTA */
 .cta-section {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background: var(--color-primary);
   color: var(--color-white);
   text-align: center;
   position: relative;
@@ -1238,7 +1219,9 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: 
+    radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
   z-index: 1;
 }
 
@@ -1482,11 +1465,7 @@ section {
   border: 3px solid var(--color-border-medium);
 }
 
-.consigne-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-primary);
-}
+
 
 .consigne-card h3 {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
@@ -1554,12 +1533,7 @@ section {
   transition: all var(--transition-fast);
 }
 
-.eval-item:hover {
-  border: 3px solid var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  background-color: var(--color-gray-50);
-}
+
 
 .eval-points {
   display: inline-block;
@@ -1673,7 +1647,7 @@ section {
 
 /* Page Ressources */
 .quick-start {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: var(--color-primary);
   color: var(--color-white);
   padding: var(--spacing-3xl) 0;
   margin: var(--spacing-2xl) 0;
@@ -1704,15 +1678,10 @@ section {
   border-radius: var(--border-radius-xl);
   border: 3px solid rgba(255, 255, 255, 0.3);
   text-align: center;
-  transition: transform var(--transition-fast);
+
 }
 
-.quick-start-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.2);
-  border: 3px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
+
 
 .quick-start-card .card-icon {
   font-size: var(--font-size-4xl);
@@ -1786,17 +1755,11 @@ section {
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-fast);
   border: 3px solid var(--color-border-medium);
   position: relative;
 }
 
-.resource-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-primary);
-  background-color: var(--color-white);
-}
+
 
 .resource-card .card-icon {
   font-size: var(--font-size-4xl);
@@ -2020,11 +1983,7 @@ section {
   transition: all var(--transition-fast);
 }
 
-.projet-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border: 3px solid var(--color-border-primary);
-}
+
 
 .projet-header {
   display: grid;
