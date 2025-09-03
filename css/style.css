@@ -558,6 +558,12 @@ a:focus {
   overflow: hidden;
 }
 
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xl);
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -573,6 +579,7 @@ a:focus {
   position: relative;
   z-index: 1;
   max-width: 600px;
+  flex: 1;
 }
 
 .hero-title {
@@ -605,6 +612,28 @@ a:focus {
   top: 50%;
   transform: translateY(-50%);
   opacity: 0.3;
+}
+
+/* Styles pour l'image de la hero section */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.hero-illustration {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-xl);
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+}
+
+.hero-illustration:hover {
+  opacity: 1;
 }
 
 .hero-card {
@@ -1633,6 +1662,34 @@ section {
   .container {
     max-width: none;
     padding: 0;
+  }
+}
+
+/* Responsive design pour la hero section */
+@media (max-width: 1024px) {
+  .hero .container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-xl);
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-image {
+    max-width: 400px;
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 300px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-4xl);
   }
 }
 

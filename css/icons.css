@@ -166,3 +166,15 @@
         color: #f9fafb;
     }
 }
+
+/* Styles pour l'icône du logo */
+.logo-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.logo-icon:hover {
+    color: #0056b3;
+}
