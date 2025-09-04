@@ -268,7 +268,7 @@ a:focus {
 /* Skip link pour l'accessibilité */
 .skip-link {
   position: absolute;
-  top: -100px;
+  top: -40px;
   left: 6px;
   background: var(--color-primary);
   color: var(--color-white);
@@ -276,15 +276,11 @@ a:focus {
   text-decoration: none;
   border-radius: var(--border-radius-md);
   z-index: var(--z-tooltip);
-  opacity: 0;
-  visibility: hidden;
-  transition: none;
+  transition: top var(--transition-fast);
 }
 
 .skip-link:focus {
   top: 6px;
-  opacity: 1;
-  visibility: visible;
 }
 
 /* ========================================
@@ -304,8 +300,8 @@ a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-lg) 0;
-  min-height: 72px;
+  padding: var(--spacing-md) 0;
+  min-height: 64px;
   position: relative;
 }
 
@@ -371,19 +367,19 @@ a:focus {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
   align-items: center;
 }
 
 .nav-link {
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-md);
   font-weight: var(--font-weight-medium);
   transition: all var(--transition-fast);
   position: relative;
   text-decoration: none !important;
   color: var(--color-gray-700);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   white-space: nowrap;
   border: 2px solid transparent;
 }
@@ -477,7 +473,7 @@ a:focus {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-sm) 0;
   }
   
   .nav-toggle {
@@ -510,7 +506,7 @@ a:focus {
     right: 0;
     background: var(--color-white);
     border-top: 1px solid var(--color-gray-200);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
     z-index: var(--z-dropdown);
     border-radius: 0 0 var(--border-radius-2xl) var(--border-radius-2xl);
@@ -536,11 +532,11 @@ a:focus {
   .nav-link {
     display: block;
     width: 100%;
-    padding: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-lg);
     border-radius: var(--border-radius-lg);
     margin: var(--spacing-xs) 0;
     text-align: left;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
     border: 2px solid transparent;
     transition: all var(--transition-fast);
