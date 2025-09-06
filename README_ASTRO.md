@@ -154,6 +154,4 @@ Le site est maintenant prêt pour :
 - **Gestion de contenu** : CMS ou API backend
 - **Authentification** : Système d'utilisateurs
 
-## 📝 Licence
-
-Ce projet est développé pour le Module 113 - ESIG Suisse.
+La migration vers Astro a résolu le problème de maintenance tout en préparant le site pour l'évolution future !

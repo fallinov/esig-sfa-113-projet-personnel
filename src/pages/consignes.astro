@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout 
+    title="Consignes" 
+    description="Consignes détaillées pour le Module 113 - Projet Personnel HTML/CSS"
+    keywords="consignes, projet personnel, HTML, CSS, ESIG, module 113, instructions"
+>
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <div class="hero-content">
+                <h2 id="hero-title" class="hero-title">
+                    📋 Consignes du projet
+                </h2>
+                <p class="hero-description">
+                    Découvrez toutes les consignes détaillées pour réussir votre projet personnel HTML/CSS.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consignes Section -->
+    <section class="consignes" aria-labelledby="consignes-title">
+        <div class="container">
+            <h2 id="consignes-title" class="section-title">📝 Consignes détaillées</h2>
+            
+            <div class="consignes-placeholder">
+                <h3>🚧 Page en cours de construction</h3>
+                <p>
+                    Cette page contiendra toutes les consignes détaillées du projet personnel.
+                    Elle sera mise à jour avec les informations spécifiques du cours.
+                </p>
+                <p>
+                    <strong>En attendant :</strong><br>
+                    Consultez la page des ressources pour commencer votre apprentissage 
+                    et préparez-vous à créer votre site web personnel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+        <div class="container">
+            <h2 id="cta-title" class="cta-title">🚀 Prêt à commencer ?</h2>
+            <p class="cta-description">
+                Consultez les ressources d'apprentissage et commencez votre projet personnel.
+            </p>
+            <div class="cta-actions">
+                <Button href="/ressources" variant="primary" size="large">📚 Voir les ressources</Button>
+                <Button href="/" variant="secondary" size="large">🏠 Retour à l'accueil</Button>
+            </div>
+        </div>
+    </section>
+</Layout>

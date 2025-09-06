@@ -1,0 +1,7 @@
+[
+    { "title": "Accueil", "url": "/" },
+    { "title": "Ressources", "url": "/ressources" },
+    { "title": "Consignes", "url": "/consignes" },
+    { "title": "Galerie", "url": "/galerie" },
+    { "title": "FAQ", "url": "/faq" }
+]

@@ -1,0 +1,14 @@
+---
+export interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary';
+  size?: 'normal' | 'large';
+}
+
+const { href, variant = 'primary', size = 'normal' } = Astro.props;
+const buttonClass = `btn btn-${variant} ${size === 'large' ? 'btn-large' : ''}`;
+---
+
+<a href={href} class={buttonClass}>
+    <slot />
+</a>
