@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import Button from '../components/Button.astro';
+import resources from '../data/resources.json';
+---
+
+<Layout 
+    title="Ressources d'apprentissage" 
+    description="Tous les outils, tutoriels et ressources pour réussir votre projet personnel et développer votre autonomie d'apprentissage"
+>
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <div class="hero-content">
+                <h2 id="hero-title" class="hero-title">
+                    📚 Ressources d'apprentissage
+                </h2>
+                <p class="hero-description">
+                    Tous les outils, tutoriels et ressources pour réussir votre projet personnel 
+                    et développer votre autonomie d'apprentissage.
+                </p>
+                <div class="hero-actions">
+                    <Button href="#formation" variant="primary">🎓 Commencer à apprendre</Button>
+                    <Button href="#outils" variant="secondary">🛠️ Voir les outils</Button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="quick-start" aria-labelledby="quick-start-title">
+        <div class="container">
+            <h2 id="quick-start-title" class="section-title">🚀 Démarrage rapide</h2>
+            <p class="section-subtitle">Commencez par ces ressources essentielles pour votre apprentissage</p>
+            
+            <div class="quick-start-grid">
+                <div class="quick-start-card">
+                    <div class="card-icon">📖</div>
+                    <h3>Formation de base</h3>
+                    <p>OpenClassrooms, MDN Web Docs et autres cours structurés</p>
+                    <Button href="#formation" variant="primary">Commencer</Button>
+                </div>
+                
+                <div class="quick-start-card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Configurer mes outils</h3>
+                    <p>WebStorm, Git, GitHub et autres outils de développement</p>
+                    <Button href="#outils" variant="primary">Configurer</Button>
+                </div>
+                
+                <div class="quick-start-card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Design et polices</h3>
+                    <p>Palettes de couleurs, typographie et ressources visuelles</p>
+                    <Button href="#design" variant="primary">Découvrir</Button>
+                </div>
+                
+                <div class="quick-start-card">
+                    <div class="card-icon">✅</div>
+                    <h3>Valider mon code</h3>
+                    <p>Outils de validation HTML/CSS et tests de performance</p>
+                    <Button href="#validation" variant="primary">Tester</Button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formation Section -->
+    <section id="formation" class="resource-section formation" aria-labelledby="formation-title">
+        <div class="container">
+            <h2 id="formation-title" class="section-title">
+                <span class="section-icon">📖</span>
+                Formation et apprentissage
+            </h2>
+            
+            <div class="resource-grid">
+                {resources.formation.map(resource => (
+                    <ResourceCard {...resource} />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Outils Section -->
+    <section id="outils" class="resource-section outils" aria-labelledby="outils-title">
+        <div class="container">
+            <h2 id="outils-title" class="section-title">
+                <span class="section-icon">🛠️</span>
+                Outils de développement
+            </h2>
+            
+            <div class="resource-grid">
+                {resources.outils.map(resource => (
+                    <ResourceCard {...resource} />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Section -->
+    <section id="design" class="resource-section design" aria-labelledby="design-title">
+        <div class="container">
+            <h2 id="design-title" class="section-title">
+                <span class="section-icon">🎨</span>
+                Design, polices et couleurs
+            </h2>
+            
+            <div class="resource-grid">
+                {resources.design.map(resource => (
+                    <ResourceCard {...resource} />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Jeux Section -->
+    <section id="jeux" class="resource-section jeux" aria-labelledby="jeux-title">
+        <div class="container">
+            <h2 id="jeux-title" class="section-title">
+                <span class="section-icon">🎮</span>
+                Apprendre en jouant
+            </h2>
+            
+            <div class="resource-grid">
+                {resources.jeux.map(resource => (
+                    <ResourceCard {...resource} />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Section -->
+    <section id="validation" class="resource-section validation" aria-labelledby="validation-title">
+        <div class="container">
+            <h2 id="validation-title" class="section-title">
+                <span class="section-icon">✅</span>
+                Validation et tests
+            </h2>
+            
+            <div class="resource-grid">
+                {resources.validation.map(resource => (
+                    <ResourceCard {...resource} />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+        <div class="container">
+            <h2 id="cta-title" class="cta-title">🚀 Prêt à commencer votre apprentissage ?</h2>
+            <p class="cta-description">
+                Maintenant que vous avez toutes les ressources, commencez par la formation de base 
+                et progressez étape par étape vers votre projet personnel.
+            </p>
+            <div class="cta-actions">
+                <Button href="#formation" variant="primary" size="large">📖 Commencer la formation</Button>
+                <Button href="/consignes" variant="secondary" size="large">📋 Voir les consignes</Button>
+            </div>
+            <div class="cta-tip">
+                <p><strong>💡 Conseil :</strong> Commencez par OpenClassrooms puis utilisez MDN pour approfondir les concepts qui vous intéressent.</p>
+            </div>
+        </div>
+    </section>
+</Layout>
