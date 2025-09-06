@@ -22,16 +22,16 @@ const { title, description = "Module 113 - Projet Personnel HTML/CSS - Développ
     <title>{title} | Module 113 - ESIG</title>
     
     <!-- Polices locales -->
-    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/poppins-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href={`${import.meta.env.BASE_URL}fonts/inter-var.woff2`} as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href={`${import.meta.env.BASE_URL}fonts/poppins-var.woff2`} as="font" type="font/woff2" crossorigin>
     
     <!-- CSS principal -->
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href={`${import.meta.env.BASE_URL}css/normalize.css`}>
+    <link rel="stylesheet" href={`${import.meta.env.BASE_URL}css/style.css`}>
+    <link rel="stylesheet" href={`${import.meta.env.BASE_URL}css/icons.css`}>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/img/divcom-logo.png">
+    <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}img/divcom-logo.png`}>
 </head>
 <body>
     <!-- Skip to main content pour l'accessibilité -->
@@ -49,7 +49,7 @@ const { title, description = "Module 113 - Projet Personnel HTML/CSS - Développ
     <Footer />
     
     <!-- Scripts -->
-    <script src="/js/lucide.js" is:inline></script>
-    <script src="/js/emoji-replacer.js" is:inline></script>
+    <script src={`${import.meta.env.BASE_URL}js/lucide.js`} is:inline></script>
+    <script src={`${import.meta.env.BASE_URL}js/emoji-replacer.js`} is:inline></script>
 </body>
 </html>

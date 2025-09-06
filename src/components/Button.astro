@@ -7,8 +7,18 @@ export interface Props {
 
 const { href, variant = 'primary', size = 'normal' } = Astro.props;
 const buttonClass = `btn btn-${variant} ${size === 'large' ? 'btn-large' : ''}`;
+
+// Fonction pour gérer les URLs avec la base URL
+function getUrl(url: string): string {
+  // Si l'URL commence par /, on la traite comme une URL relative au site
+  if (url.startsWith('/')) {
+    return `${import.meta.env.BASE_URL}${url.slice(1)}`;
+  }
+  // Sinon, on retourne l'URL telle quelle (pour les URLs externes)
+  return url;
+}
 ---
 
-<a href={href} class={buttonClass}>
+<a href={getUrl(href)} class={buttonClass}>
     <slot />
 </a>

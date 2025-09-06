@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
         {navigation.map(item => (
             <li>
                 <a 
-                    href={item.url} 
+                    href={`${import.meta.env.BASE_URL}${item.url === '/' ? '' : item.url.slice(1)}`} 
                     class={`nav-link ${currentPath === item.url ? 'active' : ''}`}
                     aria-current={currentPath === item.url ? 'page' : undefined}
                 >
