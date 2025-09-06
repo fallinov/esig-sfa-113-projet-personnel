@@ -4,24 +4,24 @@
    ======================================== */
 
 /* Variables CSS - Palette de couleurs et espacements */
-/* Palette: https://coolors.co/palette/8b4513-1e3a8a-ff8c00-0066cc-f5f5dc-ffffff */
+/* Palette: https://coolors.co/palette/ff8c00-1e3a8a-ff8c00-0066cc-f5f5dc-ffffff */
 
 :root {
   /* Couleurs principales - Palette officielle */
   --color-primary: #1E3A8A;       /* Bleu marine */
-  --color-primary-dark: #8B4513;  /* Marron selle */
+  --color-primary-dark: #FF8C00;  /* Orange vif */
   --color-primary-light: #0066CC; /* Bleu ciel */
   --color-secondary: #0066CC;     /* Bleu ciel */
-  --color-secondary-dark: #8B4513; /* Marron selle */
+  --color-secondary-dark: #FF8C00; /* Orange vif */
   --color-secondary-light: #FF8C00; /* Orange foncé */
   
   /* Couleurs d'accent - Palette officielle */
   --color-accent: #FF8C00;        /* Orange foncé */
-  --color-accent-dark: #8B4513;   /* Marron selle */
+  --color-accent-dark: #FF8C00;   /* Orange vif */
   --color-accent-light: #F5F5DC;  /* Beige clair */
   --color-success: #0066CC;       /* Bleu ciel (remplace le vert) */
   --color-warning: #FF8C00;       /* Orange foncé */
-  --color-error: #8B4513;         /* Marron selle (remplace le rouge) */
+  --color-error: #FF8C00;         /* Orange vif (remplace le rouge) */
   
   /* Couleurs neutres - Palette officielle */
   --color-white: #FFFFFF;
@@ -31,7 +31,7 @@
   --color-gray-300: #F5F5DC;      /* Beige clair */
   --color-gray-400: #F5F5DC;      /* Beige clair (même que gray-300) */
   --color-gray-500: #F5F5DC;      /* Beige clair (même que gray-300) */
-  --color-gray-600: #8B4513;      /* Marron selle */
+  --color-gray-600: #FF8C00;      /* Orange vif */
   --color-gray-700: #1E3A8A;      /* Bleu marine */
   --color-gray-800: #1E3A8A;      /* Bleu marine */
   --color-gray-900: #1E3A8A;      /* Bleu marine */
@@ -40,7 +40,7 @@
   --color-bg-primary: #FFFFFF;
   --color-bg-secondary: #F5F5DC;
   --color-bg-tertiary: #F5F5DC;
-  --color-bg-dark: #8B4513;
+  --color-bg-dark: #FF8C00;
   
   /* Couleurs de bordures - Contraste optimal */
   --color-border-light: #E5E5D0;      /* Beige plus foncé pour fond beige */
@@ -55,20 +55,18 @@
   --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
   /* Tailles de police */
-  --font-size-xs: 0.875rem;   /* 14px */
-  --font-size-sm: 1rem;       /* 16px - taille de base */
-  --font-size-base: 1rem;     /* 16px - taille de base */
-  --font-size-lg: 1.125rem;   /* 18px - pour les paragraphes sur grands écrans */
+  --font-size-xs: 1rem;       /* 16px - minimum sur tous les écrans */
+  --font-size-sm: 1rem;       /* 16px - mobile seulement */
+  --font-size-base: 1rem;     /* 16px - mobile seulement */
+  --font-size-lg: 1.125rem;   /* 18px - minimum sur grands écrans */
   --font-size-xl: 1.25rem;    /* 20px */
   --font-size-2xl: 1.5rem;    /* 24px */
   --font-size-3xl: 1.875rem;  /* 30px */
   --font-size-4xl: 2.25rem;   /* 36px */
   --font-size-5xl: 3rem;      /* 48px */
   
-  /* Poids de police */
+  /* Poids de police - correspondant aux polices disponibles */
   --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
   --font-weight-bold: 700;
   
   /* Hauteur de ligne */
@@ -183,18 +181,32 @@ img {
    TYPOGRAPHIE
    ======================================== */
 
-/* Chargement des polices */
+/* Chargement des polices locales */
 @font-face {
   font-family: 'Inter';
-  src: url('../fonts/inter-var.woff2') format('woff2-variations');
-  font-weight: 100 900;
+  src: url('../fonts/inter-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter-bold.woff2') format('woff2');
+  font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('../fonts/poppins-var.woff2') format('woff2-variations');
-  font-weight: 100 900;
+  src: url('../fonts/poppins-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/poppins-bold.woff2') format('woff2');
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -214,10 +226,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Configuration des polices locales */
+strong, b, .btn, .btn-primary {
+  font-weight: 700;
+}
+
+/* Règle pour s'assurer qu'aucun texte ne soit en dessous de 16px */
+small, .text-xs, .text-sm, .meta-item, .priority, .nav-item {
+  font-size: 1rem !important; /* Minimum 16px */
+}
+
 /* Titres */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   color: var(--color-gray-900);
   margin-bottom: var(--spacing-md);
@@ -236,11 +258,25 @@ p {
   color: var(--color-gray-700);
 }
 
-/* Paragraphes plus grands sur les grands écrans */
+/* Tous les textes minimum 18px sur les grands écrans */
 @media (min-width: 1024px) {
-  p {
-    font-size: var(--font-size-lg); /* 18px sur grands écrans */
+  /* Forcer 18px sur tous les textes */
+  p, .btn, a, label, small, .text-sm, .text-xs, .meta-item, .priority, .nav-item, li, td, th {
+    font-size: var(--font-size-lg) !important; /* 18px minimum sur grands écrans */
   }
+  
+  /* Exclure les spans dans les titres pour qu'ils héritent de la taille du parent */
+  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+    font-size: inherit !important;
+  }
+  
+  /* Titres - garder leurs tailles relatives mais s'assurer qu'ils sont assez grands */
+  h1 { font-size: max(var(--font-size-5xl), 3rem) !important; }
+  h2 { font-size: max(var(--font-size-4xl), 2.25rem) !important; }
+  h3 { font-size: max(var(--font-size-3xl), 1.875rem) !important; }
+  h4 { font-size: max(var(--font-size-2xl), 1.5rem) !important; }
+  h5 { font-size: max(var(--font-size-xl), 1.25rem) !important; }
+  h6 { font-size: max(var(--font-size-lg), 1.125rem) !important; }
 }
 
 /* Liens */
@@ -253,7 +289,7 @@ a {
 a:hover {
   color: var(--color-primary-dark);
   text-decoration: none;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
 }
 
 a:focus {
@@ -322,9 +358,10 @@ a:focus {
   color: inherit;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-lg);
+  justify-content: flex-start;
+  gap: var(--spacing-md);
   transition: opacity var(--transition-fast);
+  min-height: 60px;
 }
 
 .logo-link:hover {
@@ -336,6 +373,8 @@ a:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+  flex: 1;
 }
 
 .logo-title {
@@ -354,10 +393,12 @@ a:focus {
 }
 
 .logo-icon {
-  width: 50px;
-  height: 50px;
+  width: auto;
+  height: auto;
+  max-height: 80px;
   object-fit: contain;
   flex-shrink: 0;
+  align-self: center;
 }
 
 .logo-subtitle {
@@ -385,7 +426,7 @@ a:focus {
 .nav-link {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-md);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
   transition: all var(--transition-fast);
   position: relative;
   text-decoration: none !important;
@@ -400,7 +441,7 @@ a:focus {
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
   text-decoration: none !important;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
   box-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
 }
 
@@ -548,7 +589,7 @@ a:focus {
     margin: var(--spacing-xs) 0;
     text-align: left;
     font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-normal);
     border: 2px solid transparent;
     transition: all var(--transition-fast);
     color: var(--color-gray-700);
@@ -559,7 +600,7 @@ a:focus {
     border: 2px solid var(--color-primary);
     transform: translateX(8px);
     color: var(--color-primary);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-normal);
     box-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
   }
   
@@ -675,7 +716,9 @@ a:focus {
   justify-content: center;
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--border-radius-lg);
-  font-weight: var(--font-weight-medium);
+  font-weight: 700; /* Bold avec Inter */
+  font-family: var(--font-family-primary); /* Utiliser Inter pour les boutons */
+  font-size: var(--font-size-base); /* 16px par défaut */
   text-decoration: none;
   transition: all var(--transition-fast);
   cursor: pointer;
@@ -687,7 +730,7 @@ a:focus {
   background-color: var(--color-accent);
   color: var(--color-white);
   border: 3px solid var(--color-accent);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 700; /* Bold avec Inter */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -710,7 +753,7 @@ a:focus {
   background-color: transparent;
   color: var(--color-white);
   border: 3px solid var(--color-white);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -888,7 +931,7 @@ a:focus {
   z-index: 1;
   font-size: var(--font-size-lg);
   color: var(--color-gray-100);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
   margin: 0;
 }
 
@@ -1067,7 +1110,7 @@ section {
 .evaluation-table th {
   background-color: var(--color-primary);
   color: var(--color-white);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   position: sticky;
   top: 0;
 }
@@ -1192,7 +1235,7 @@ section {
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-xl);
   color: var(--color-white);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
 }
 
 .cta-actions {
@@ -1217,7 +1260,7 @@ section {
 .deadline-info p {
   margin-bottom: var(--spacing-sm);
   color: var(--color-gray-800);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
 }
 
 /* ========================================
@@ -1435,7 +1478,7 @@ section {
 .consigne-content h4 {
   color: var(--color-primary);
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   margin: var(--spacing-xl) 0 var(--spacing-md) 0;
   border-bottom: 2px solid var(--color-gray-200);
   padding-bottom: var(--spacing-sm);
@@ -1581,9 +1624,9 @@ section {
 /* Contraste élevé */
 @media (prefers-contrast: high) {
   :root {
-    --color-gray-200: #8B4513;
-    --color-gray-300: #8B4513;
-    --color-gray-400: #8B4513;
+    --color-gray-200: #FF8C00;
+    --color-gray-300: #FF8C00;
+    --color-gray-400: #FF8C00;
   }
 }
 
@@ -1768,7 +1811,7 @@ section {
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
   border: 2px solid var(--color-primary);
   transition: all var(--transition-fast);
 }
@@ -1787,7 +1830,7 @@ section {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-lg);
   text-decoration: none;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-normal);
   transition: all var(--transition-fast);
   text-align: center;
   min-width: 120px;
@@ -1799,7 +1842,7 @@ section {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   color: var(--color-white);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border: 3px solid var(--color-primary-dark);
 }

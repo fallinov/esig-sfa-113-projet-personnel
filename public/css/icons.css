@@ -77,7 +77,7 @@
 
 /* Icônes dans les métadonnées - Style subtil */
 .meta-item .icon {
-    font-size: 0.875rem;
+    font-size: 1rem; /* 16px minimum */
     margin-right: 0.375rem;
     opacity: 0.7;
 }
@@ -167,14 +167,4 @@
     }
 }
 
-/* Styles pour l'icône du logo */
-.logo-icon {
-    width: 2rem;
-    height: 2rem;
-    color: var(--color-primary);
-    transition: color 0.3s ease;
-}
-
-.logo-icon:hover {
-    color: var(--color-primary-dark);
-}
+/* Styles pour l'icône du logo - supprimés car en conflit avec l'image PNG */
