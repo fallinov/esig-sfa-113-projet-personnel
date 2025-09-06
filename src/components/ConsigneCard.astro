@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  icon?: string;
+}
+
+const { title, icon } = Astro.props;
+---
+
+<div class="consigne-card">
+  <h3>
+    {icon && <span class="card-icon">{icon}</span>}
+    {title}
+  </h3>
+  <div class="consigne-content">
+    <slot />
+  </div>
+</div>

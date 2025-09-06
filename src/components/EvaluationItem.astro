@@ -1,0 +1,15 @@
+---
+export interface Props {
+  points: string;
+  title: string;
+  description: string;
+}
+
+const { points, title, description } = Astro.props;
+---
+
+<div class="eval-item">
+  <span class="eval-points">{points}</span>
+  <h4>{title}</h4>
+  <p>{description}</p>
+</div>

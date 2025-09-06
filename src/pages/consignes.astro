@@ -1,6 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
+import ConsigneCard from '../components/ConsigneCard.astro';
+import EvaluationGrid from '../components/EvaluationGrid.astro';
+
+// Données des critères d'évaluation
+const evaluationCriteria = [
+  {
+    points: "4 pts",
+    title: "Code HTML/CSS",
+    description: "Validité W3C, propreté, sémantique, commentaires"
+  },
+  {
+    points: "4 pts",
+    title: "Design responsive",
+    description: "Mobile-first, breakpoints, navigation adaptée"
+  },
+  {
+    points: "3 pts",
+    title: "Contenu et design",
+    description: "Cohérence, originalité, qualité visuelle"
+  },
+  {
+    points: "3 pts",
+    title: "Git/GitHub",
+    description: "Commits réguliers, messages clairs, organisation"
+  },
+  {
+    points: "2 pts",
+    title: "Notion avancée",
+    description: "Flexbox/Grid/Animations bien maîtrisée"
+  },
+  {
+    points: "4 pts",
+    title: "Portfolio (README.md)",
+    description: "Réflexion approfondie, transparence, qualité"
+  }
+];
 ---
 
 <Layout 
@@ -29,192 +65,140 @@ import Button from '../components/Button.astro';
             <h2 id="consignes-title" class="section-title">🎯 Consignes du projet</h2>
             
             <!-- Choix du thème -->
-            <div class="consigne-card">
-                <h3>🎨 Choix du thème</h3>
-                <div class="consigne-content">
-                    <p><strong>Liberté totale</strong> dans le choix du thème de votre site web :</p>
-                    <ul>
-                        <li>Vos passions, hobbies, projets personnels</li>
-                        <li>Un sujet qui vous intéresse vraiment</li>
-                        <li>Un thème original et créatif</li>
-                        <li>Quelque chose qui vous motive à travailler</li>
-                    </ul>
-                    <p><em>⚠️ Important :</em> Le thème doit être validé par le formateur avant le 10 septembre.</p>
-                </div>
-            </div>
+            <ConsigneCard title="Choix du thème" icon="🎨">
+                <p><strong>Liberté totale</strong> dans le choix du thème de votre site web :</p>
+                <ul>
+                    <li>Vos passions, hobbies, projets personnels</li>
+                    <li>Un sujet qui vous intéresse vraiment</li>
+                    <li>Un thème original et créatif</li>
+                    <li>Quelque chose qui vous motive à travailler</li>
+                </ul>
+                <p><em>⚠️ Important :</em> Le thème doit être validé par le formateur avant le 10 septembre.</p>
+            </ConsigneCard>
 
             <!-- Contraintes techniques -->
-            <div class="consigne-card">
-                <h3>⚙️ Contraintes techniques obligatoires</h3>
-                <div class="consigne-content">
-                    <h4>Structure HTML5</h4>
-                    <ul>
-                        <li>Code HTML5 sémantique et valide W3C</li>
-                        <li>Structure logique avec header, main, footer, sections</li>
-                        <li>Navigation claire et accessible</li>
-                        <li>Contenu riche et pertinent (minimum 3-4 pages ou sections)</li>
-                    </ul>
-                    
-                    <h4>Stylisation CSS3</h4>
-                    <ul>
-                        <li>CSS3 moderne avec variables CSS</li>
-                        <li>Design responsive (mobile-first)</li>
-                        <li>Palette de couleurs cohérente et accessible</li>
-                        <li>Typographie soignée et lisible</li>
-                    </ul>
-                    
-                    <h4>Notion avancée obligatoire</h4>
-                    <p>Choisir et maîtriser <strong>une seule</strong> de ces notions :</p>
-                    <ul>
-                        <li><strong>Flexbox :</strong> Layouts flexibles et navigation</li>
-                        <li><strong>CSS Grid :</strong> Grilles complexes et layouts avancés</li>
-                        <li><strong>Animations CSS :</strong> Transitions, keyframes, transformations</li>
-                    </ul>
-                </div>
-            </div>
+            <ConsigneCard title="Contraintes techniques obligatoires" icon="⚙️">
+                <h4>Structure HTML5</h4>
+                <ul>
+                    <li>Code HTML5 sémantique et valide W3C</li>
+                    <li>Structure logique avec header, main, footer, sections</li>
+                    <li>Navigation claire et accessible</li>
+                    <li>Contenu riche et pertinent (minimum 3-4 pages ou sections)</li>
+                </ul>
+                
+                <h4>Stylisation CSS3</h4>
+                <ul>
+                    <li>CSS3 moderne avec variables CSS</li>
+                    <li>Design responsive (mobile-first)</li>
+                    <li>Palette de couleurs cohérente et accessible</li>
+                    <li>Typographie soignée et lisible</li>
+                </ul>
+                
+                <h4>Notion avancée obligatoire</h4>
+                <p>Choisir et maîtriser <strong>une seule</strong> de ces notions :</p>
+                <ul>
+                    <li><strong>Flexbox :</strong> Layouts flexibles et navigation</li>
+                    <li><strong>CSS Grid :</strong> Grilles complexes et layouts avancés</li>
+                    <li><strong>Animations CSS :</strong> Transitions, keyframes, transformations</li>
+                </ul>
+            </ConsigneCard>
 
             <!-- Outils et méthodes -->
-            <div class="consigne-card">
-                <h3>🛠️ Outils et méthodes professionnelles</h3>
-                <div class="consigne-content">
-                    <h4>Environnement de développement</h4>
-                    <ul>
-                        <li><strong>WebStorm</strong> comme IDE principal</li>
-                        <li>Configuration des raccourcis et plugins</li>
-                        <li>Utilisation des outils de validation intégrés</li>
-                    </ul>
-                    
-                    <h4>Versioning Git/GitHub</h4>
-                    <ul>
-                        <li>Commits réguliers et descriptifs</li>
-                        <li>Messages de commit en français et clairs</li>
-                        <li>Organisation des branches si nécessaire</li>
-                        <li>Historique de développement visible</li>
-                    </ul>
-                    
-                    <h4>Publication</h4>
-                    <ul>
-                        <li>Déploiement via GitHub Pages</li>
-                        <li>URL publique accessible</li>
-                        <li>Site fonctionnel et responsive</li>
-                    </ul>
-                </div>
-            </div>
+            <ConsigneCard title="Outils et méthodes professionnelles" icon="🛠️">
+                <h4>Environnement de développement</h4>
+                <ul>
+                    <li><strong>WebStorm</strong> comme IDE principal</li>
+                    <li>Configuration des raccourcis et plugins</li>
+                    <li>Utilisation des outils de validation intégrés</li>
+                </ul>
+                
+                <h4>Versioning Git/GitHub</h4>
+                <ul>
+                    <li>Commits réguliers et descriptifs</li>
+                    <li>Messages de commit en français et clairs</li>
+                    <li>Organisation des branches si nécessaire</li>
+                    <li>Historique de développement visible</li>
+                </ul>
+                
+                <h4>Publication</h4>
+                <ul>
+                    <li>Déploiement via GitHub Pages</li>
+                    <li>URL publique accessible</li>
+                    <li>Site fonctionnel et responsive</li>
+                </ul>
+            </ConsigneCard>
 
             <!-- Livrables attendus -->
-            <div class="consigne-card">
-                <h3>📦 Livrables obligatoires</h3>
-                <div class="consigne-content">
-                    <h4>1. Site web fonctionnel</h4>
-                    <ul>
-                        <li>Site publié et accessible via GitHub Pages</li>
-                        <li>Code source complet sur GitHub</li>
-                        <li>Validation W3C HTML et CSS réussie</li>
-                        <li>Design responsive testé sur différents appareils</li>
-                    </ul>
-                    
-                    <h4>2. Portfolio réflexif (README.md)</h4>
-                    <ul>
-                        <li>Description détaillée de votre projet</li>
-                        <li>Réflexion sur votre apprentissage</li>
-                        <li>Difficultés rencontrées et solutions trouvées</li>
-                        <li>Transparence sur l'usage d'outils d'IA (si applicable)</li>
-                        <li>Bilan personnel et perspectives d'amélioration</li>
-                    </ul>
-                    
-                    <h4>3. Organisation GitHub</h4>
-                    <ul>
-                        <li>Repository bien structuré</li>
-                        <li>Commits réguliers et organisés</li>
-                        <li>Historique de développement clair</li>
-                        <li>Documentation complète</li>
-                    </ul>
-                </div>
-            </div>
+            <ConsigneCard title="Livrables obligatoires" icon="📦">
+                <h4>1. Site web fonctionnel</h4>
+                <ul>
+                    <li>Site publié et accessible via GitHub Pages</li>
+                    <li>Code source complet sur GitHub</li>
+                    <li>Validation W3C HTML et CSS réussie</li>
+                    <li>Design responsive testé sur différents appareils</li>
+                </ul>
+                
+                <h4>2. Portfolio réflexif (README.md)</h4>
+                <ul>
+                    <li>Description détaillée de votre projet</li>
+                    <li>Réflexion sur votre apprentissage</li>
+                    <li>Difficultés rencontrées et solutions trouvées</li>
+                    <li>Transparence sur l'usage d'outils d'IA (si applicable)</li>
+                    <li>Bilan personnel et perspectives d'amélioration</li>
+                </ul>
+                
+                <h4>3. Organisation GitHub</h4>
+                <ul>
+                    <li>Repository bien structuré</li>
+                    <li>Commits réguliers et organisés</li>
+                    <li>Historique de développement clair</li>
+                    <li>Documentation complète</li>
+                </ul>
+            </ConsigneCard>
 
             <!-- Critères d'évaluation -->
-            <div class="consigne-card">
-                <h3>📊 Critères d'évaluation (20 points)</h3>
-                <div class="consigne-content">
-                    <div class="evaluation-grid">
-                        <div class="eval-item">
-                            <span class="eval-points">4 pts</span>
-                            <h4>Code HTML/CSS</h4>
-                            <p>Validité W3C, propreté, sémantique, commentaires</p>
-                        </div>
-                        <div class="eval-item">
-                            <span class="eval-points">4 pts</span>
-                            <h4>Design responsive</h4>
-                            <p>Mobile-first, breakpoints, navigation adaptée</p>
-                        </div>
-                        <div class="eval-item">
-                            <span class="eval-points">3 pts</span>
-                            <h4>Contenu et design</h4>
-                            <p>Cohérence, originalité, qualité visuelle</p>
-                        </div>
-                        <div class="eval-item">
-                            <span class="eval-points">3 pts</span>
-                            <h4>Git/GitHub</h4>
-                            <p>Commits réguliers, messages clairs, organisation</p>
-                        </div>
-                        <div class="eval-item">
-                            <span class="eval-points">2 pts</span>
-                            <h4>Notion avancée</h4>
-                            <p>Flexbox/Grid/Animations bien maîtrisée</p>
-                        </div>
-                        <div class="eval-item">
-                            <span class="eval-points">4 pts</span>
-                            <h4>Portfolio (README.md)</h4>
-                            <p>Réflexion approfondie, transparence, qualité</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ConsigneCard title="Critères d'évaluation (20 points)" icon="📊">
+                <EvaluationGrid criteria={evaluationCriteria} />
+            </ConsigneCard>
 
             <!-- Conseils et bonnes pratiques -->
-            <div class="consigne-card">
-                <h3>💡 Conseils et bonnes pratiques</h3>
-                <div class="consigne-content">
-                    <h4>Organisation du travail</h4>
-                    <ul>
-                        <li>Commencez tôt et avancez régulièrement</li>
-                        <li>Testez votre site sur différents appareils</li>
-                        <li>Validez votre code HTML/CSS régulièrement</li>
-                        <li>Documentez votre progression</li>
-                    </ul>
-                    
-                    <h4>Qualité du code</h4>
-                    <ul>
-                        <li>Code commenté et bien structuré</li>
-                        <li>Noms de classes et IDs explicites</li>
-                        <li>CSS organisé et maintenable</li>
-                        <li>Accessibilité et standards web respectés</li>
-                    </ul>
-                    
-                    <h4>Créativité et originalité</h4>
-                    <ul>
-                        <li>N'hésitez pas à sortir des sentiers battus</li>
-                        <li>Expérimentez avec les nouvelles fonctionnalités CSS</li>
-                        <li>Créez quelque chose d'unique et personnel</li>
-                        <li>Montrez votre personnalité dans le design</li>
-                    </ul>
-                </div>
-            </div>
+            <ConsigneCard title="Conseils et bonnes pratiques" icon="💡">
+                <h4>Organisation du travail</h4>
+                <ul>
+                    <li>Commencez tôt et avancez régulièrement</li>
+                    <li>Testez votre site sur différents appareils</li>
+                    <li>Validez votre code HTML/CSS régulièrement</li>
+                    <li>Documentez votre progression</li>
+                </ul>
+                
+                <h4>Qualité du code</h4>
+                <ul>
+                    <li>Code commenté et bien structuré</li>
+                    <li>Noms de classes et IDs explicites</li>
+                    <li>CSS organisé et maintenable</li>
+                    <li>Accessibilité et standards web respectés</li>
+                </ul>
+                
+                <h4>Créativité et originalité</h4>
+                <ul>
+                    <li>N'hésitez pas à sortir des sentiers battus</li>
+                    <li>Expérimentez avec les nouvelles fonctionnalités CSS</li>
+                    <li>Créez quelque chose d'unique et personnel</li>
+                    <li>Montrez votre personnalité dans le design</li>
+                </ul>
+            </ConsigneCard>
 
             <!-- Support et ressources -->
-            <div class="consigne-card">
-                <h3>🆘 Support et ressources</h3>
-                <div class="consigne-content">
-                    <p>N'oubliez pas que vous n'êtes pas seul(e) !</p>
-                    <ul>
-                        <li><strong>Support formateur :</strong> Via Teams, réponse sous 48h</li>
-                        <li><strong>Ressources documentaires :</strong> Voir la page Ressources</li>
-                        <li><strong>Communauté :</strong> Entraide entre étudiants encouragée</li>
-                        <li><strong>Documentation officielle :</strong> MDN Web Docs, W3Schools</li>
-                    </ul>
-                    <p><em>💪 Soyez ambitieux mais réalistes, et n'hésitez pas à demander de l'aide !</em></p>
-                </div>
-            </div>
+            <ConsigneCard title="Support et ressources" icon="🆘">
+                <p>N'oubliez pas que vous n'êtes pas seul(e) !</p>
+                <ul>
+                    <li><strong>Support formateur :</strong> Via Teams, réponse sous 48h</li>
+                    <li><strong>Ressources documentaires :</strong> Voir la page Ressources</li>
+                    <li><strong>Communauté :</strong> Entraide entre étudiants encouragée</li>
+                    <li><strong>Documentation officielle :</strong> MDN Web Docs, W3Schools</li>
+                </ul>
+                <p><em>💪 Soyez ambitieux mais réalistes, et n'hésitez pas à demander de l'aide !</em></p>
+            </ConsigneCard>
         </div>
     </section>
 
