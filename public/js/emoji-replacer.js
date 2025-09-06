@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const emojiToIconMap = {
         // Apprentissage et ressources
         '📚': 'book-open',
-        '💡': 'lightbulb',
         '📖': 'book-open',
+        '💡': 'lightbulb',
         '📝': 'file-text',
         '📄': 'file',
         '📋': 'clipboard-list',
@@ -23,14 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Technologie
         '💻': 'monitor',
+        '🖥️': 'monitor',
         '📱': 'smartphone',
         '📷': 'camera',
+        '📸': 'camera',
         '📞': 'phone',
         '📧': 'mail',
         '🌐': 'globe',
         '🔧': 'wrench',
-        '⚙️': 'settings',
         '🛠️': 'wrench',
+        '⚙️': 'settings',
         
         // Outils et recherche
         '🔍': 'search',
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '🏠': 'home',
         '❓': 'help-circle',
         '⏰': 'clock',
+        '⏱️': 'clock',
         '🎤': 'mic',
         '🏆': 'trophy',
         '♿': 'wheelchair',
@@ -72,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Images et médias
         '🖼️': 'image',
-        '📸': 'camera',
         '🎥': 'video',
         
         // Statuts et priorités
@@ -83,13 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Construction et développement
         '🏗️': 'building-2',
+        '🔗': 'link',
+        '🚧': 'construction',
         
-        // Autres
-        '📋': 'clipboard-list',
-        
-        // Emojis supplémentaires identifiés
+        // Emojis supplémentaires
         '🔄': 'refresh-cw',
-        '🖥️': 'monitor',
         '📥': 'download',
         '🔤': 'type',
         '🎡': 'ferris-wheel',
@@ -99,29 +99,14 @@ document.addEventListener('DOMContentLoaded', function() {
         '⚔️': 'swords',
         '📦': 'package',
         '📁': 'folder',
-        '⏰': 'clock',
         '🆘': 'sos',
-        '🚧': 'construction',
-        '🔗': 'link',
-        
-        // Emojis supplémentaires trouvés dans le contenu
-        '⏱️': 'clock',
-        '🏗️': 'building-2',
         '⚖️': 'scale',
         '🗓️': 'calendar',
         '🚫': 'x-circle',
-        '📋': 'clipboard-list',
-        
-        // Icônes spécifiques pour les outils
-        '🎮': 'gamepad-2',
-        '🎯': 'target',
-        '🌐': 'globe',
-        '♿': 'accessibility',
-        '⚡': 'zap',
-        
-        // Emojis supplémentaires identifiés
         '💰': 'coins',
-        '🔌': 'plug'
+        '🔌': 'plug',
+        '🧠': 'brain',
+        '💼': 'briefcase'
     };
 
     // Fonction pour remplacer les emojis dans le texte

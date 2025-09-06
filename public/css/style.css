@@ -966,14 +966,10 @@ section {
 }
 
 /* Cartes sur fond beige - Bordures plus foncées */
-.mission .mission-card,
-.objectifs .objectif-item,
 .livrables .livrable-card {
   border: 3px solid var(--color-primary);
 }
 
-.mission .mission-card:hover,
-.objectifs .objectif-item:hover,
 .livrables .livrable-card:hover {
   border: 3px solid var(--color-border-primary);
 }
@@ -984,26 +980,6 @@ section {
   gap: var(--spacing-xl);
 }
 
-.mission-card {
-  background: var(--color-white);
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-md);
-  text-align: center;
-  border: 3px solid var(--color-border-medium);
-}
-
-
-
-.mission-card .card-icon {
-  font-size: var(--font-size-4xl);
-  margin-bottom: var(--spacing-md);
-}
-
-.mission-card h3 {
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
-}
 
 /* Section Objectifs */
 .objectifs {
@@ -1016,41 +992,6 @@ section {
   gap: var(--spacing-lg);
 }
 
-.objectif-item {
-  background: var(--color-white);
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-md);
-  position: relative;
-  border: 3px solid var(--color-border-medium);
-}
-
-
-
-.objectif-number {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-primary);
-  color: var(--color-white);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xl);
-  box-shadow: var(--shadow-lg);
-}
-
-.objectif-item h3 {
-  color: var(--color-primary);
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-md);
-  text-align: center;
-}
 
 /* Section Livrables */
 .livrables {
@@ -1576,16 +1517,12 @@ section {
    ======================================== */
 
 /* Transitions simples et hover effects */
-.mission-card,
 .livrable-card,
-.objectif-item,
 .quick-start-card {
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.mission-card:hover,
 .livrable-card:hover,
-.objectif-item:hover,
 .quick-start-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
@@ -1611,8 +1548,6 @@ section {
 }
 
 /* Focus amélioré pour les cartes */
-.mission-card:focus-within,
-.objectif-item:focus-within,
 .livrable-card:focus-within,
 .resource-card:focus-within,
 .consigne-card:focus-within {

@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import MissionCard from '../components/MissionCard.astro';
-import ObjectifItem from '../components/ObjectifItem.astro';
 import LivrableCard from '../components/LivrableCard.astro';
 import Button from '../components/Button.astro';
 ---
@@ -35,17 +33,17 @@ import Button from '../components/Button.astro';
         <div class="container">
             <h2 id="mission-title" class="section-title">🎯 Notre révolution pédagogique</h2>
             <div class="mission-grid">
-                <MissionCard 
+                <LivrableCard 
                     icon="🔄"
                     title="Problème identifié"
                     description="L'enseignement traditionnel ex-cathedra ne développe pas suffisamment l'autonomie des futurs informaticiens."
                 />
-                <MissionCard 
+                <LivrableCard 
                     icon="💡"
                     title="Notre solution"
                     description="Pédagogie par projet personnel où vous apprenez en construisant votre propre site web."
                 />
-                <MissionCard 
+                <LivrableCard 
                     icon="🎯"
                     title="Objectif principal"
                     description="Transformer nos étudiants en apprenants autonomes capables de se former continuellement."
@@ -59,28 +57,28 @@ import Button from '../components/Button.astro';
         <div class="container">
             <h2 id="objectifs-title" class="section-title">🎓 Objectifs d'apprentissage</h2>
             <div class="objectifs-grid">
-                <ObjectifItem 
-                    number={1}
+                <LivrableCard 
+                    icon="🎓"
                     title="Autonomie d'apprentissage"
                     description="Capacité à chercher, sélectionner et assimiler de nouvelles connaissances"
                 />
-                <ObjectifItem 
-                    number={2}
+                <LivrableCard 
+                    icon="🎨"
                     title="Créativité technique"
                     description="Liberté d'expression dans le respect des contraintes techniques"
                 />
-                <ObjectifItem 
-                    number={3}
+                <LivrableCard 
+                    icon="⚙️"
                     title="Maîtrise pratique"
                     description="HTML5, CSS3, Git/GitHub, responsive design"
                 />
-                <ObjectifItem 
-                    number={4}
+                <LivrableCard 
+                    icon="🧠"
                     title="Compréhension profonde"
                     description="100% du code produit doit être compris (y compris si généré par IA)"
                 />
-                <ObjectifItem 
-                    number={5}
+                <LivrableCard 
+                    icon="💼"
                     title="Méthodes professionnelles"
                     description="Utilisation d'IDE (WebStorm), versioning, publication"
                 />
