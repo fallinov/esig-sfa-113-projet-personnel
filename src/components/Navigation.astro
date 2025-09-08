@@ -1,23 +1,47 @@
 ---
 import navigation from '../data/navigation.json';
 const currentPath = Astro.url.pathname;
+const currentHash = Astro.url.hash;
+
+// Debug: afficher les valeurs actuelles
+console.log('Current Path:', currentPath);
+console.log('Current Hash:', currentHash);
+
+// Fonction pour vérifier si un lien de sous-menu est actif
+function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: string) {
+    const subItemPath = subItemUrl.split('#')[0];
+    const subItemHash = subItemUrl.split('#')[1];
+    
+    console.log('Checking:', subItemUrl, 'vs', currentPath + currentHash);
+    console.log('SubItem Path:', subItemPath, 'SubItem Hash:', subItemHash);
+    
+    // Si on est sur la même page
+    if (currentPath === subItemPath) {
+        // Si le sous-menu a une ancre et qu'on est sur cette ancre
+        if (subItemHash && currentHash === `#${subItemHash}`) {
+            console.log('Match with hash!');
+            return true;
+        }
+        // Si le sous-menu n'a pas d'ancre et qu'on n'est pas sur une ancre
+        if (!subItemHash && !currentHash) {
+            console.log('Match without hash!');
+            return true;
+        }
+    }
+    console.log('No match');
+    return false;
+}
 ---
 
 <nav class="main-nav" role="navigation" aria-label="Navigation principale">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
-    <label for="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-        <span class="hamburger"></span>
-        <span class="sr-only">Menu</span>
-    </label>
-    
-    <ul class="nav-menu" id="nav-menu">
+    <ul class="nav-menu">
         {navigation.map(item => (
             <li class={`nav-item ${item.submenu ? 'has-submenu' : ''}`}>
                 {item.submenu ? (
                     <!-- Élément avec sous-menu -->
                     <div class="dropdown-container">
                         <button 
-                            class="nav-link dropdown-toggle" 
+                            class={`nav-link dropdown-toggle ${currentPath === item.url ? 'active' : ''}`}
                             aria-expanded="false" 
                             aria-controls={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                             data-dropdown-trigger
@@ -35,6 +59,7 @@ const currentPath = Astro.url.pathname;
                                     <a 
                                         href={`${import.meta.env.BASE_URL}${subItem.url === '/' ? '' : subItem.url.slice(1)}`} 
                                         class="dropdown-link"
+                                        data-url={subItem.url}
                                         role="menuitem"
                                     >
                                         {subItem.title}
@@ -57,3 +82,36 @@ const currentPath = Astro.url.pathname;
         ))}
     </ul>
 </nav>
+
+<script>
+// Gestion des liens actifs côté client
+function updateActiveLinks() {
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+    const currentUrl = currentPath + currentHash;
+    
+    console.log('Client - Current Path:', currentPath);
+    console.log('Client - Current Hash:', currentHash);
+    console.log('Client - Current URL:', currentUrl);
+    
+    // Mettre à jour les liens de sous-menu
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        const linkUrl = link.getAttribute('data-url');
+        console.log('Checking link:', linkUrl, 'vs', currentUrl);
+        
+        if (linkUrl === currentUrl) {
+            link.classList.add('active');
+            console.log('Added active class to:', link.textContent);
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Exécuter au chargement de la page
+document.addEventListener('DOMContentLoaded', updateActiveLinks);
+
+// Exécuter lors des changements d'URL (pour les ancres)
+window.addEventListener('hashchange', updateActiveLinks);
+</script>

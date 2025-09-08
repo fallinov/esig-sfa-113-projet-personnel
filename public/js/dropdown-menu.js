@@ -7,7 +7,6 @@ class DropdownMenu {
     constructor() {
         this.dropdowns = [];
         this.activeDropdown = null;
-        this.isMobile = window.innerWidth <= 1023;
         
         this.init();
         this.bindEvents();
@@ -57,9 +56,9 @@ class DropdownMenu {
             });
         });
 
-        // Fermeture au clic extérieur (desktop seulement)
+        // Fermeture au clic extérieur
         document.addEventListener('click', (e) => {
-            if (!this.isMobile && !e.target.closest('.dropdown-container')) {
+            if (!e.target.closest('.dropdown-container')) {
                 this.closeAllDropdowns();
             }
         });
@@ -71,16 +70,6 @@ class DropdownMenu {
             }
         });
 
-        // Gestion du redimensionnement de la fenêtre
-        window.addEventListener('resize', () => {
-            const wasMobile = this.isMobile;
-            this.isMobile = window.innerWidth <= 1023;
-            
-            // Si on passe de desktop à mobile ou vice versa, fermer tous les dropdowns
-            if (wasMobile !== this.isMobile) {
-                this.closeAllDropdowns();
-            }
-        });
     }
 
     /**
@@ -106,12 +95,10 @@ class DropdownMenu {
         dropdown.menu.classList.add('show');
         this.activeDropdown = dropdown;
 
-        // Focus sur le premier lien du sous-menu (desktop seulement)
-        if (!this.isMobile) {
-            const firstLink = dropdown.menu.querySelector('.dropdown-link');
-            if (firstLink) {
-                firstLink.focus();
-            }
+        // Focus sur le premier lien du sous-menu
+        const firstLink = dropdown.menu.querySelector('.dropdown-link');
+        if (firstLink) {
+            firstLink.focus();
         }
     }
 
@@ -136,6 +123,7 @@ class DropdownMenu {
             this.closeDropdown(dropdown);
         });
     }
+
 
     /**
      * Gestion des touches pour le bouton dropdown

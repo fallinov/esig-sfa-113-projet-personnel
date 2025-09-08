@@ -1,6 +1,6 @@
 [
     { 
-        "title": "Accueil", 
+        "title": "Le Projet", 
         "url": "/",
         "submenu": [
             { "title": "Mission", "url": "/#mission-title" },
@@ -9,6 +9,10 @@
             { "title": "Évaluation", "url": "/#evaluation-title" },
             { "title": "Planning", "url": "/#planning-title" }
         ]
+    },
+    { 
+        "title": "Consignes", 
+        "url": "/consignes"
     },
     { 
         "title": "Ressources", 
@@ -20,13 +24,6 @@
             { "title": "Design", "url": "/ressources#design-title" },
             { "title": "Jeux", "url": "/ressources#jeux-title" },
             { "title": "Validation", "url": "/ressources#validation-title" }
-        ]
-    },
-    { 
-        "title": "Consignes", 
-        "url": "/consignes",
-        "submenu": [
-            { "title": "Consignes du projet", "url": "/consignes#consignes-title" }
         ]
     },
     { "title": "Galerie", "url": "/galerie" },
