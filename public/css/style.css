@@ -338,6 +338,7 @@ html {
   display: none;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 32px;
   height: 32px;
   background: transparent;
@@ -404,6 +405,7 @@ html {
 /* Conteneur pour logo et bouton hamburger */
 .header-left {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 10px 0;
