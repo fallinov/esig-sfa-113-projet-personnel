@@ -61,8 +61,23 @@ function updateActiveLinks() {
     const dropdownLinks = document.querySelectorAll('.dropdown-link');
     dropdownLinks.forEach(link => {
         const linkUrl = link.getAttribute('data-url');
+        let isActive = false;
         
+        // Comparaison exacte d'abord
         if (linkUrl === currentUrl) {
+            isActive = true;
+        } else {
+            // Comparaison sans hash si l'URL du lien n'a pas de hash
+            if (linkUrl && !linkUrl.includes('#') && linkUrl === currentPath) {
+                isActive = true;
+            }
+            // Comparaison avec hash si on est sur la page principale
+            else if (linkUrl && linkUrl.includes('#') && currentPath === '/' && currentHash) {
+                isActive = true;
+            }
+        }
+        
+        if (isActive) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -75,6 +90,9 @@ document.addEventListener('DOMContentLoaded', updateActiveLinks);
 
 // Exécuter lors des changements d'URL (pour les ancres)
 window.addEventListener('hashchange', updateActiveLinks);
+
+// Exécuter lors du scroll pour mettre à jour les liens actifs
+window.addEventListener('scroll', updateActiveLinks);
 
 // Gestion du scroll offset pour le header sticky
 function handleScrollOffset() {
