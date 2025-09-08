@@ -33,13 +33,6 @@ function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: s
 }
 ---
 
-<!-- Bouton hamburger pour mobile -->
-<button class="mobile-menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-    <span class="hamburger-line"></span>
-</button>
-
 <nav class="main-nav" role="navigation" aria-label="Navigation principale">
     <ul class="nav-menu">
         {navigation.map(item => (
@@ -47,7 +40,8 @@ function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: s
                 {item.submenu ? (
                     <!-- Élément avec sous-menu -->
                     <div class="dropdown-container">
-                        <button 
+                        <a 
+                            href={`${import.meta.env.BASE_URL}${item.url === '/' ? '' : item.url.slice(1)}`}
                             class="nav-link dropdown-toggle"
                             aria-expanded="false" 
                             aria-controls={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
@@ -55,7 +49,7 @@ function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: s
                         >
                             {item.title}
                             <span class="dropdown-arrow" aria-hidden="true">▼</span>
-                        </button>
+                        </a>
                         <ul 
                             class="dropdown-menu" 
                             id={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
@@ -159,5 +153,136 @@ document.addEventListener('click', function(e: Event) {
             });
         }
     }
+});
+
+// Gestion du menu mobile
+class MobileMenu {
+    private toggleButton: HTMLElement | null;
+    private nav: HTMLElement | null;
+    private isOpen: boolean = false;
+
+    constructor() {
+        this.toggleButton = document.querySelector('.mobile-menu-toggle');
+        this.nav = document.querySelector('.main-nav');
+        this.init();
+    }
+
+    init() {
+        if (this.toggleButton && this.nav) {
+            this.toggleButton.addEventListener('click', () => this.toggle());
+            
+            // Gestion des dropdowns en mobile (AVANT les autres événements)
+            this.initMobileDropdowns();
+            
+            // Fermer le menu au clic sur un lien (sauf les dropdowns)
+            const links = this.nav.querySelectorAll('a:not(.dropdown-toggle)');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Vérifier si c'est un lien de sous-menu
+                    if (link.classList.contains('dropdown-link')) {
+                        console.log('Submenu link clicked, closing menu:', link.textContent);
+                        this.close();
+                    } else {
+                        console.log('Regular link clicked, closing menu:', link.textContent);
+                        this.close();
+                    }
+                });
+            });
+
+            // Fermer le menu au clic sur l'overlay (style SonarSource)
+            this.nav.addEventListener('click', (e) => {
+                if (this.isOpen && e.target === this.nav) {
+                    this.close();
+                }
+            });
+
+            // Fermer le menu avec la touche Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.isOpen) {
+                    this.close();
+                }
+            });
+        }
+    }
+
+    initMobileDropdowns() {
+        const dropdownToggles = this.nav?.querySelectorAll('.dropdown-toggle');
+        console.log('Found dropdown toggles:', dropdownToggles?.length);
+        dropdownToggles?.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                // En mobile, empêcher la navigation et ouvrir/fermer le sous-menu
+                if (window.innerWidth <= 1023) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation(); // Empêcher d'autres gestionnaires
+                    
+                    const menu = toggle.nextElementSibling as HTMLElement;
+                    const isOpen = menu?.classList.contains('show');
+                    
+                    console.log('Dropdown clicked:', toggle.textContent, 'Menu:', menu, 'IsOpen:', isOpen);
+                    
+                    // Fermer tous les autres sous-menus
+                    const allMenus = this.nav?.querySelectorAll('.dropdown-menu');
+                    allMenus?.forEach(m => {
+                        if (m !== menu) {
+                            m.classList.remove('show');
+                            // Réinitialiser l'aria-expanded des autres toggles
+                            const otherToggle = m.previousElementSibling as HTMLElement;
+                            if (otherToggle && otherToggle.classList.contains('dropdown-toggle')) {
+                                otherToggle.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    });
+                    
+                    // Toggle le sous-menu actuel
+                    if (menu) {
+                        if (isOpen) {
+                            menu.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        } else {
+                            menu.classList.add('show');
+                            toggle.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                    
+                    return false; // Empêcher la propagation
+                }
+                // En desktop, laisser la navigation normale
+            }, true); // Utiliser capture pour être exécuté en premier
+        });
+    }
+
+    toggle() {
+        if (this.isOpen) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+
+    open() {
+        if (this.toggleButton && this.nav) {
+            this.isOpen = true;
+            this.toggleButton.setAttribute('aria-expanded', 'true');
+            this.toggleButton.classList.add('active');
+            this.nav.classList.add('mobile-open');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    close() {
+        if (this.toggleButton && this.nav) {
+            this.isOpen = false;
+            this.toggleButton.setAttribute('aria-expanded', 'false');
+            this.toggleButton.classList.remove('active');
+            this.nav.classList.remove('mobile-open');
+            document.body.style.overflow = '';
+        }
+    }
+}
+
+// Initialiser le menu mobile
+document.addEventListener('DOMContentLoaded', () => {
+    new MobileMenu();
 });
 </script>
