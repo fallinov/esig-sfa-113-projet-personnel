@@ -395,20 +395,18 @@ html {
 
 .header-content {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   padding: 0;
-  min-height: 60px;
-  max-height: 80px;
   position: relative;
 }
 
 /* Conteneur pour logo et bouton hamburger */
 .header-left {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 10px 0;
 }
 
 /* Logo */
@@ -467,8 +465,7 @@ html {
 /* Navigation principale */
 .main-nav {
   display: flex;
-  align-items: center;
-  position: relative;
+  align-items: stretch;
   background: var(--color-white);
 }
 
