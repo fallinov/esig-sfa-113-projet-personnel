@@ -188,15 +188,8 @@ img {
 /* Chargement des polices locales */
 @font-face {
   font-family: 'Inter';
-  src: url('../fonts/inter-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/inter-bold.woff2') format('woff2');
-  font-weight: 700;
+  src: url('../fonts/inter-var.woff2') format('woff2-variations');
+  font-weight: 100 900;
   font-display: swap;
 }
 
