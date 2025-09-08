@@ -13,9 +13,13 @@ import Button from '../components/Button.astro';
                     Transformez votre apprentissage en <span class="highlight">création concrète</span>
                 </h1>
                 <p class="hero-description">
-                    Abandonnez les cours magistraux traditionnels. Créez votre <strong>propre site web</strong> 
-                    en développant votre autonomie d'apprentissage, compétence essentielle pour tout informaticien.
+                    Créez votre <strong>propre site web</strong> en développant votre autonomie d'apprentissage.
                 </p>
+                <ul class="hero-benefits">
+                    <li>Compétence essentielle pour tout informaticien</li>
+                    <li>Approche pédagogique innovante et pratique</li>
+                    <li>Projet concret et valorisant</li>
+                </ul>
                 <div class="hero-actions">
                     <Button href="/consignes" variant="primary">🚀 Commencer le projet</Button>
                     <Button href="/ressources" variant="secondary">📚 Voir les ressources</Button>
@@ -23,7 +27,13 @@ import Button from '../components/Button.astro';
             </div>
             
             <div class="hero-image">
-                <img src={`${import.meta.env.BASE_URL}img/formateur-devant-tableau.png`} alt="Formateur enseignant le développement web HTML et CSS" class="hero-illustration">
+                <img src={`${import.meta.env.BASE_URL}img/formateur-devant-tableau.png`} 
+                     alt="Formateur professionnel expliquant les concepts de développement web devant un tableau blanc" 
+                     class="hero-illustration"
+                     loading="lazy"
+                     decoding="async"
+                     width="1024"
+                     height="1024">
             </div>
         </div>
     </section>
@@ -282,12 +292,15 @@ import Button from '../components/Button.astro';
         <div class="container">
             <h2 id="cta-title" class="cta-title">🚀 Prêt à révolutionner votre apprentissage ?</h2>
             <p class="cta-description">
-                Rejoignez cette approche pédagogique innovante et développez les compétences 
-                qui feront de vous un informaticien autonome et créatif.
+                Développez les compétences qui feront de vous un informaticien autonome et créatif.
             </p>
+            <ul class="cta-benefits">
+                <li>Approche pédagogique innovante et pratique</li>
+                <li>Projet concret valorisant vos compétences</li>
+            </ul>
             <div class="cta-actions">
                 <Button href="/consignes" variant="primary" size="large">📋 Lire les consignes complètes</Button>
-                <Button href="/ressources" variant="secondary" size="large">📚 Découvrir les ressources</Button>
+                <Button href="/ressources" variant="secondary">📚 Découvrir les ressources</Button>
             </div>
             <div class="deadline-info">
                 <p><strong>⏰ Deadline finale : 9 janvier 2026 à 22h</strong></p>
