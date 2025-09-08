@@ -58,28 +58,28 @@ function updateActiveLinks() {
     // Mettre à jour tous les liens de navigation
     const allLinks = document.querySelectorAll('.nav-link, .dropdown-link');
     allLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href) {
+        // Pour les liens de sous-menu, utiliser data-url, sinon href
+        const linkUrl = link.getAttribute('data-url') || link.getAttribute('href');
+        if (linkUrl) {
             // Normaliser les URLs pour la comparaison
-            let linkUrl = href.replace(window.location.origin, '');
+            let normalizedLinkUrl = linkUrl.replace(window.location.origin, '');
             
             // Gérer le cas où le site est dans un sous-dossier
-            // Si l'URL actuelle contient le nom du repo, on doit l'enlever pour la comparaison
             const repoName = '/esig-sfa-113-projet-personnel';
             if (currentUrl.startsWith(repoName)) {
                 const normalizedCurrentUrl = currentUrl.replace(repoName, '') || '/';
-                if (linkUrl.startsWith(repoName)) {
-                    linkUrl = linkUrl.replace(repoName, '') || '/';
+                if (normalizedLinkUrl.startsWith(repoName)) {
+                    normalizedLinkUrl = normalizedLinkUrl.replace(repoName, '') || '/';
                 }
                 
-                if (linkUrl === normalizedCurrentUrl) {
+                if (normalizedLinkUrl === normalizedCurrentUrl) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');
                 }
             } else {
                 // Comparaison normale si pas de sous-dossier
-                if (linkUrl === currentUrl) {
+                if (normalizedLinkUrl === currentUrl) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');
