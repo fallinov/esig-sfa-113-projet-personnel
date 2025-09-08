@@ -1,42 +1,12 @@
 ---
 import navigation from '../data/navigation.json';
 const currentPath = Astro.url.pathname;
-const currentHash = Astro.url.hash;
-
-// Debug: afficher les valeurs actuelles
-console.log('Current Path:', currentPath);
-console.log('Current Hash:', currentHash);
-
-// Fonction pour vérifier si un lien de sous-menu est actif
-function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: string) {
-    const subItemPath = subItemUrl.split('#')[0];
-    const subItemHash = subItemUrl.split('#')[1];
-    
-    console.log('Checking:', subItemUrl, 'vs', currentPath + currentHash);
-    console.log('SubItem Path:', subItemPath, 'SubItem Hash:', subItemHash);
-    
-    // Si on est sur la même page
-    if (currentPath === subItemPath) {
-        // Si le sous-menu a une ancre et qu'on est sur cette ancre
-        if (subItemHash && currentHash === `#${subItemHash}`) {
-            console.log('Match with hash!');
-            return true;
-        }
-        // Si le sous-menu n'a pas d'ancre et qu'on n'est pas sur une ancre
-        if (!subItemHash && !currentHash) {
-            console.log('Match without hash!');
-            return true;
-        }
-    }
-    console.log('No match');
-    return false;
-}
 ---
 
 <nav class="main-nav" role="navigation" aria-label="Navigation principale">
     <ul class="nav-menu">
         {navigation.map(item => (
-            <li class={`nav-item ${item.submenu ? 'has-submenu' : ''} ${currentPath === item.url ? 'active' : ''}`}>
+            <li class={`${item.submenu ? 'has-submenu' : ''} ${currentPath === item.url ? 'active' : ''}`}>
                 {item.submenu ? (
                     <!-- Élément avec sous-menu -->
                     <div class="dropdown-container">
@@ -45,7 +15,6 @@ function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: s
                             class="nav-link dropdown-toggle"
                             aria-expanded="false" 
                             aria-controls={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
-                            data-dropdown-trigger
                         >
                             {item.title}
                             <span class="dropdown-arrow" aria-hidden="true">▼</span>
@@ -53,15 +22,13 @@ function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: s
                         <ul 
                             class="dropdown-menu" 
                             id={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
-                            role="menu"
                         >
                             {item.submenu.map(subItem => (
-                                <li role="none">
+                                <li>
                                     <a 
                                         href={`${import.meta.env.BASE_URL}${subItem.url === '/' ? '' : subItem.url.slice(1)}`} 
                                         class="dropdown-link"
                                         data-url={subItem.url}
-                                        role="menuitem"
                                     >
                                         {subItem.title}
                                     </a>
@@ -74,7 +41,6 @@ function isSubmenuActive(subItemUrl: string, currentPath: string, currentHash: s
                     <a 
                         href={`${import.meta.env.BASE_URL}${item.url === '/' ? '' : item.url.slice(1)}`} 
                         class="nav-link"
-                        aria-current={currentPath === item.url ? 'page' : undefined}
                     >
                         {item.title}
                     </a>
@@ -91,9 +57,7 @@ function updateActiveLinks() {
     const currentHash = window.location.hash;
     const currentUrl = currentPath + currentHash;
     
-    console.log('Client - Current Path:', currentPath);
-    console.log('Client - Current Hash:', currentHash);
-    console.log('Client - Current URL:', currentUrl);
+    console.log('Current URL:', currentUrl);
     
     // Mettre à jour les liens de sous-menu
     const dropdownLinks = document.querySelectorAll('.dropdown-link');
@@ -177,15 +141,8 @@ class MobileMenu {
             // Fermer le menu au clic sur un lien (sauf les dropdowns)
             const links = this.nav.querySelectorAll('a:not(.dropdown-toggle)');
             links.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    // Vérifier si c'est un lien de sous-menu
-                    if (link.classList.contains('dropdown-link')) {
-                        console.log('Submenu link clicked, closing menu:', link.textContent);
-                        this.close();
-                    } else {
-                        console.log('Regular link clicked, closing menu:', link.textContent);
-                        this.close();
-                    }
+                link.addEventListener('click', () => {
+                    this.close();
                 });
             });
 
@@ -207,26 +164,22 @@ class MobileMenu {
 
     initMobileDropdowns() {
         const dropdownToggles = this.nav?.querySelectorAll('.dropdown-toggle');
-        console.log('Found dropdown toggles:', dropdownToggles?.length);
         dropdownToggles?.forEach(toggle => {
             toggle.addEventListener('click', (e) => {
                 // En mobile, empêcher la navigation et ouvrir/fermer le sous-menu
                 if (window.innerWidth <= 1023) {
                     e.preventDefault();
                     e.stopPropagation();
-                    e.stopImmediatePropagation(); // Empêcher d'autres gestionnaires
+                    e.stopImmediatePropagation();
                     
                     const menu = toggle.nextElementSibling as HTMLElement;
                     const isOpen = menu?.classList.contains('show');
-                    
-                    console.log('Dropdown clicked:', toggle.textContent, 'Menu:', menu, 'IsOpen:', isOpen);
                     
                     // Fermer tous les autres sous-menus
                     const allMenus = this.nav?.querySelectorAll('.dropdown-menu');
                     allMenus?.forEach(m => {
                         if (m !== menu) {
                             m.classList.remove('show');
-                            // Réinitialiser l'aria-expanded des autres toggles
                             const otherToggle = m.previousElementSibling as HTMLElement;
                             if (otherToggle && otherToggle.classList.contains('dropdown-toggle')) {
                                 otherToggle.setAttribute('aria-expanded', 'false');
@@ -245,10 +198,9 @@ class MobileMenu {
                         }
                     }
                     
-                    return false; // Empêcher la propagation
+                    return false;
                 }
-                // En desktop, laisser la navigation normale
-            }, true); // Utiliser capture pour être exécuté en premier
+            }, true);
         });
     }
 
@@ -281,8 +233,64 @@ class MobileMenu {
     }
 }
 
-// Initialiser le menu mobile
+// Gestion des dropdowns desktop
+class DesktopDropdowns {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            const dropdown = toggle.nextElementSibling as HTMLElement;
+            
+            // Gestion du clic uniquement
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth > 1023) {
+                    e.preventDefault();
+                    const isOpen = dropdown.classList.contains('show');
+                    this.closeAllDropdowns();
+                    if (!isOpen) {
+                        dropdown.classList.add('show');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                }
+            });
+        });
+
+        // Fermer les dropdowns au clic sur un lien de sous-menu
+        const dropdownLinks = document.querySelectorAll('.dropdown-link');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth > 1023) {
+                    this.closeAllDropdowns();
+                }
+            });
+        });
+
+        // Fermer les dropdowns en cliquant ailleurs
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth > 1023) {
+                const target = e.target as HTMLElement;
+                if (!target.closest('.dropdown-container')) {
+                    this.closeAllDropdowns();
+                }
+            }
+        });
+    }
+
+    closeAllDropdowns() {
+        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        const toggles = document.querySelectorAll('.dropdown-toggle');
+        
+        dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
+        toggles.forEach(toggle => toggle.setAttribute('aria-expanded', 'false'));
+    }
+}
+
+// Initialiser les menus
 document.addEventListener('DOMContentLoaded', () => {
     new MobileMenu();
+    new DesktopDropdowns();
 });
 </script>

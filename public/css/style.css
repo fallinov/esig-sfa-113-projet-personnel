@@ -9,48 +9,35 @@
 :root {
   /* Offset pour le header sticky */
   --header-height: 70px;
-  /* Couleurs principales - Palette officielle */
+  /* Couleurs principales */
   --color-primary: #1E3A8A;       /* Bleu marine */
-  --color-primary-dark: #FF8C00;  /* Orange vif */
   --color-primary-light: #0066CC; /* Bleu ciel */
-  --color-primary-very-light: #E6F0FF; /* Bleu très clair pour contraste AAA */
+  --color-primary-very-light: #E6F0FF; /* Bleu très clair */
   --color-secondary: #0066CC;     /* Bleu ciel */
-  --color-secondary-dark: #FF8C00; /* Orange vif */
-  --color-secondary-light: #FF8C00; /* Orange foncé */
+  --color-secondary-dark: #FF8C00; /* Orange */
   
-  /* Couleurs d'accent - Palette officielle */
-  --color-accent: #FF8C00;        /* Orange foncé */
-  --color-accent-dark: #FF8C00;   /* Orange vif */
-  --color-accent-light: #FFD9B3;  /* Orange très clair basé sur #FF8C00 */
-  --color-success: #0066CC;       /* Bleu ciel (remplace le vert) */
-  --color-warning: #FF8C00;       /* Orange foncé */
-  --color-error: #FF8C00;         /* Orange vif (remplace le rouge) */
+  /* Couleurs d'accent */
+  --color-accent: #FF8C00;        /* Orange */
+  --color-accent-light: #FFD9B3;  /* Orange très clair */
+  --color-success: #0066CC;       /* Bleu ciel */
+  --color-warning: #FF8C00;       /* Orange */
+  --color-error: #FF8C00;         /* Orange */
   
-  /* Couleurs neutres - Palette officielle */
+  /* Couleurs neutres */
   --color-white: #FFFFFF;
   --color-gray-50: #F5F5DC;       /* Beige clair */
-  --color-gray-100: #F5F5DC;      /* Beige clair */
   --color-gray-200: #F5F5DC;      /* Beige clair */
-  --color-gray-300: #F5F5DC;      /* Beige clair */
-  --color-gray-400: #F5F5DC;      /* Beige clair (même que gray-300) */
-  --color-gray-500: #F5F5DC;      /* Beige clair (même que gray-300) */
-  --color-gray-600: #FF8C00;      /* Orange vif */
+  --color-gray-500: #F5F5DC;      /* Beige clair */
   --color-gray-700: #1E3A8A;      /* Bleu marine */
-  --color-gray-800: #1E3A8A;      /* Bleu marine */
-  --color-gray-900: #1E3A8A;      /* Bleu marine */
   
-  /* Couleurs de fond - Palette officielle */
+  /* Couleurs de fond */
   --color-bg-primary: #FFFFFF;
   --color-bg-secondary: #F5F5DC;
-  --color-bg-tertiary: #F5F5DC;
-  --color-bg-dark: #FF8C00;
   
-  /* Couleurs de bordures - Contraste optimal */
-  --color-border-light: #E5E5D0;      /* Beige plus foncé pour fond beige */
-  --color-border-medium: #D4D4C0;     /* Beige encore plus foncé */
-  --color-border-dark: var(--color-primary);       /* Couleur primaire pour contraste fort */
-  --color-border-primary: #1E3A8A;    /* Bleu marine pour contraste */
-  --color-border-accent: #FF8C00;     /* Orange pour contraste */
+  /* Couleurs de bordures */
+  --color-border-light: #E5E5D0;
+  --color-border-medium: #D4D4C0;
+  --color-border-dark: var(--color-primary);
   
   /* Typographie */
   --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -58,10 +45,9 @@
   --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
   /* Tailles de police */
-  --font-size-xs: 1rem;       /* 16px - minimum sur tous les écrans */
-  --font-size-sm: 1rem;       /* 16px - mobile seulement */
-  --font-size-base: 1rem;     /* 16px - mobile seulement */
-  --font-size-lg: 1.125rem;   /* 18px - minimum sur grands écrans */
+  --font-size-sm: 1rem;       /* 16px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
   --font-size-xl: 1.25rem;    /* 20px */
   --font-size-2xl: 1.5rem;    /* 24px */
   --font-size-3xl: 1.875rem;  /* 30px */
@@ -101,9 +87,9 @@
   --shadow-xl: 0 20px 25px -5px rgba(139, 69, 19, 0.15), 0 8px 10px -6px rgba(139, 69, 19, 0.1);
   
   /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-normal: 250ms ease-in-out;
-  --transition-slow: 350ms ease-in-out;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
   
   /* Z-index */
   --z-dropdown: 1000;
@@ -235,7 +221,7 @@ strong, b, .btn, .btn-primary {
 }
 
 /* Règle pour s'assurer qu'aucun texte ne soit en dessous de 16px */
-small, .text-xs, .text-sm, .meta-item, .priority, .nav-item {
+small, .text-xs, .text-sm, .meta-item, .priority {
   font-size: 1rem !important; /* Minimum 16px */
 }
 
@@ -264,7 +250,7 @@ p {
 /* Tous les textes minimum 18px sur les grands écrans */
 @media (min-width: 1024px) {
   /* Forcer 18px sur tous les textes */
-  p, .btn, a, label, small, .text-sm, .text-xs, .meta-item, .priority, .nav-item, li, td, th {
+  p, .btn, a, label, small, .text-sm, .text-xs, .meta-item, .priority, li, td, th {
     font-size: var(--font-size-lg) !important; /* 18px minimum sur grands écrans */
   }
   
@@ -508,7 +494,7 @@ html {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: 0;
   font-weight: var(--font-weight-bold);
-  transition: all 0.2s ease;
+  transition: all var(--transition-normal);
   position: relative;
   text-decoration: none !important;
   color: var(--color-gray-700);
@@ -578,7 +564,7 @@ html {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: 0;
   font-weight: var(--font-weight-bold);
-  transition: all 0.2s ease;
+  transition: all var(--transition-normal);
   position: relative;
   text-decoration: none !important;
   color: var(--color-gray-700);
@@ -614,10 +600,16 @@ html {
   font-size: 0.8em;
   transition: transform var(--transition-fast);
   margin-left: var(--spacing-xs);
+  color: var(--color-primary);
 }
 
 .dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
   transform: rotate(180deg);
+}
+
+/* Icône blanche pour les liens actifs */
+.nav-menu li.active .dropdown-arrow {
+  color: var(--color-white);
 }
 
 /* Menu déroulant */
@@ -634,7 +626,7 @@ html {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: all 0.2s ease;
+  transition: all var(--transition-normal);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -646,22 +638,10 @@ html {
   transform: translateY(0);
 }
 
-/* Éléments li du sous-menu - suppression des marges */
+/* Éléments li du sous-menu */
 .dropdown-menu li {
   margin: 0;
   padding: 0;
-}
-
-/* Premier élément du sous-menu */
-.dropdown-menu li:first-child .dropdown-link {
-  border-top-left-radius: var(--border-radius-lg);
-  border-top-right-radius: var(--border-radius-lg);
-}
-
-/* Dernier élément du sous-menu */
-.dropdown-menu li:last-child .dropdown-link {
-  border-bottom-left-radius: var(--border-radius-lg);
-  border-bottom-right-radius: var(--border-radius-lg);
 }
 
 /* Liens du sous-menu */
@@ -670,13 +650,25 @@ html {
   padding: var(--spacing-md) var(--spacing-lg);
   color: var(--color-gray-700);
   text-decoration: none !important;
-  transition: all 0.2s ease;
+  transition: all var(--transition-normal);
   font-size: var(--font-size-base);
   border: none;
   background: none;
   width: 100%;
   text-align: left;
   margin: 0;
+}
+
+/* Premier élément du sous-menu - arrondis en haut */
+.dropdown-menu li:first-child .dropdown-link {
+  border-top-left-radius: calc(var(--border-radius-lg) - 4px);
+  border-top-right-radius: calc(var(--border-radius-lg) - 4px);
+}
+
+/* Dernier élément du sous-menu - arrondis en bas */
+.dropdown-menu li:last-child .dropdown-link {
+  border-bottom-left-radius: calc(var(--border-radius-lg) - 4px);
+  border-bottom-right-radius: calc(var(--border-radius-lg) - 4px);
 }
 
 .dropdown-link:hover {
@@ -687,10 +679,10 @@ html {
 }
 
 .dropdown-link.active {
-  background-color: var(--color-primary-very-light);
-  color: var(--color-primary);
+  background-color: var(--color-accent-light) !important;
+  color: var(--color-primary) !important;
   text-decoration: none !important;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold) !important;
 }
 
 .dropdown-link:focus {
@@ -1401,7 +1393,7 @@ section {
     box-sizing: border-box;
     color: var(--color-gray-700);
     font-weight: var(--font-weight-bold);
-    transition: all 0.2s ease;
+    transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
   }
 
@@ -1421,15 +1413,11 @@ section {
     text-decoration: none !important;
     color: var(--color-gray-700) !important;
     font-weight: var(--font-weight-bold) !important;
-    transition: all 0.2s ease;
+    transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
     align-items: center;
   }
 
-  /* Forcer la visibilité du texte des dropdowns sur mobile */
-  .dropdown-toggle * {
-    color: var(--color-gray-700) !important;
-  }
 
   /* Container dropdown mobile - Pleine largeur */
   .dropdown-container {
@@ -1467,7 +1455,7 @@ section {
     max-height: 1000px;
   }
 
-  /* Liens de sous-menu mobile - Style cohérent avec desktop */
+  /* Liens de sous-menu mobile */
   .dropdown-link {
     width: 100vw;
     padding: var(--spacing-lg) var(--spacing-3xl);
@@ -1479,16 +1467,22 @@ section {
     color: var(--color-gray-700) !important;
     box-sizing: border-box;
     font-weight: var(--font-weight-bold) !important;
-    transition: all 0.2s ease;
+    transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
   }
 
-  /* Forcer la visibilité du texte des liens de sous-menu sur mobile */
-  .dropdown-link * {
-    color: var(--color-gray-700) !important;
+  /* Annuler les arrondis sur mobile */
+  .dropdown-menu li:first-child .dropdown-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
-  /* Style actif mobile - Cohérent avec desktop */
+  .dropdown-menu li:last-child .dropdown-link {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  /* Style actif mobile */
   .nav-menu li.active {
     background-color: var(--color-accent);
   }
@@ -1498,12 +1492,7 @@ section {
     color: var(--color-white) !important;
   }
 
-  /* Forcer la visibilité du texte des liens actifs */
-  .nav-menu li.active .dropdown-toggle * {
-    color: var(--color-white) !important;
-  }
-
-  /* Survol mobile - Cohérent avec desktop */
+  /* Survol mobile */
   .nav-link:hover,
   .dropdown-toggle:hover {
     background-color: var(--color-accent-light);
@@ -1515,36 +1504,31 @@ section {
     color: var(--color-primary);
   }
 
-  /* Survol pour les liens actifs mobile */
+  /* Survol liens actifs mobile */
   .nav-menu li.active:hover .nav-link,
   .nav-menu li.active:hover .dropdown-toggle {
     background-color: transparent;
     color: var(--color-white);
   }
 
-  /* Flèche dropdown mobile - Animation SonarSource */
+  /* Flèche dropdown mobile */
   .dropdown-arrow {
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     font-size: 0.8em;
-    color: var(--color-gray-500) !important;
+    color: var(--color-primary) !important;
   }
 
   .dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
     transform: rotate(180deg);
   }
 
-  /* Règle de secours pour forcer la visibilité des textes */
-  .main-nav.mobile-open .dropdown-toggle,
-  .main-nav.mobile-open .dropdown-link {
-    color: var(--color-gray-700) !important;
-    font-weight: var(--font-weight-bold) !important;
+  /* Icône blanche liens actifs mobile */
+  .nav-menu li.active .dropdown-arrow {
+    color: var(--color-white) !important;
   }
 
-  .main-nav.mobile-open .dropdown-toggle *,
-  .main-nav.mobile-open .dropdown-link * {
-    color: inherit !important;
-  }
 }
+
 
 /* ========================================
    RESPONSIVE DESIGN
