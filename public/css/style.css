@@ -91,6 +91,10 @@
   --shadow-lg: 0 10px 15px -3px rgba(139, 69, 19, 0.15), 0 4px 6px -4px rgba(139, 69, 19, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(139, 69, 19, 0.15), 0 8px 10px -6px rgba(139, 69, 19, 0.1);
   
+  /* Ombres de texte */
+  --text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --text-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.3);
+  
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.2s ease;
@@ -130,9 +134,15 @@
 }
 
 /* Reset des listes */
-ul,
-ol {
-  list-style: none;
+/* Reset des listes - mais on garde les puces pour les listes normales */
+ul:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks),
+ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks) {
+  list-style: disc;
+  padding-left: var(--spacing-lg);
+}
+
+ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks) {
+  list-style: decimal;
 }
 
 /* Reset des liens */
@@ -401,7 +411,7 @@ html {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .header-content {
@@ -820,7 +830,8 @@ html {
 
 
 .hero-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-bg-primary);
+  opacity: 0.9;
   color: var(--color-primary);
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-xl);
@@ -861,20 +872,20 @@ html {
   color: var(--color-white);
   border: 3px solid var(--color-accent);
   font-weight: 700; /* Bold avec Inter */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--text-shadow-sm);
 }
 
 .btn-primary:hover {
-  background-color: #E67E00; /* Orange plus clair et plus lisible */
-  border: 3px solid #E67E00;
+  background-color: var(--color-accent-dark);
+  border: 3px solid var(--color-accent-dark);
   color: var(--color-white);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--text-shadow-md);
 }
 
 .btn-primary:focus {
   outline: 3px solid var(--color-white);
   outline-offset: 3px;
-  box-shadow: 0 0 0 6px rgba(255, 140, 0, 0.3);
+  box-shadow: 0 0 0 6px var(--color-accent-light);
 }
 
 .btn-primary:active {
@@ -895,14 +906,15 @@ html {
   color: var(--color-white);
   border: 4px solid var(--color-white);
   font-weight: var(--font-weight-bold);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--text-shadow-sm);
 }
 
 /* Style spécifique pour les boutons secondaires dans les sections avec fond sombre */
 .screenshot-section .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--color-bg-primary);
+  opacity: 0.1;
   color: var(--color-primary);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--text-shadow-md);
   backdrop-filter: blur(10px);
 }
 
@@ -911,11 +923,12 @@ html {
 .cta-actions .btn-secondary {
   background-color: transparent;
   color: var(--color-white);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--text-shadow-sm);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--color-bg-primary);
+  opacity: 0.9;
   color: var(--color-primary);
   text-shadow: none;
   border: 4px solid var(--color-white);
@@ -924,11 +937,13 @@ html {
 .btn-secondary:focus {
   outline: 3px solid var(--color-white);
   outline-offset: 3px;
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 6px var(--color-bg-primary);
+  opacity: 0.3;
 }
 
 .btn-secondary:active {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--color-bg-primary);
+  opacity: 0.8;
   color: var(--color-primary);
   transform: translateY(1px);
 }
@@ -1090,7 +1105,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border: 1px solid var(--color-primary-light);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .timeline-tasks {
@@ -1171,14 +1186,9 @@ section {
 }
 
 .evaluation-table tbody tr:nth-child(odd) {
-  background-color: #F8FBFF; /* Blanc très légèrement bleuté */
+  background-color: var(--color-white);
 }
 
-.evaluation-table tbody tr:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-white);
-  transition: all var(--transition-fast);
-}
 
 .evaluation-table .points {
   font-weight: var(--font-weight-bold);
@@ -1254,18 +1264,6 @@ section {
   position: relative;
 }
 
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 25%, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
-  z-index: 1;
-}
 
 .cta-section > .container {
   position: relative;
@@ -1275,7 +1273,7 @@ section {
 .cta-title {
   color: var(--color-white);
   margin-bottom: var(--spacing-lg);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--text-shadow-md);
 }
 
 .cta-description {
@@ -1342,7 +1340,8 @@ section {
 }
 
 .deadline-info {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-bg-primary);
+  opacity: 0.95;
   color: var(--color-text-primary);
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-lg);
@@ -1394,7 +1393,8 @@ section {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--color-bg-primary);
+  opacity: 0.2;
   padding-top: var(--spacing-lg);
   text-align: center;
 }
@@ -1453,7 +1453,7 @@ section {
     padding: 0;
     display: flex;
     flex-direction: column;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
   }
 
   /* Menu ouvert */
@@ -2007,7 +2007,8 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 .consigne-card:focus-within {
   outline: 3px solid var(--color-primary);
   outline-offset: 6px;
-  box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.1);
+  box-shadow: 0 0 0 6px var(--color-primary);
+  opacity: 0.1;
 }
 
 /* Focus pour les liens de navigation */
@@ -2034,9 +2035,9 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 /* Contraste élevé */
 @media (prefers-contrast: high) {
   :root {
-    --color-gray-200: #FF8C00;
-    --color-gray-300: #FF8C00;
-    --color-gray-400: #FF8C00;
+    --color-gray-200: var(--color-accent);
+    --color-gray-300: var(--color-accent);
+    --color-gray-400: var(--color-accent);
   }
 }
 
@@ -2071,13 +2072,13 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 }
 
 .quick-start-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-primary);
+  opacity: 0.1;
   backdrop-filter: blur(10px);
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-xl);
-  border: 4px solid rgba(255, 255, 255, 0.3);
+  border: 4px solid var(--color-bg-primary);
   text-align: center;
-
 }
 
 
@@ -2202,7 +2203,7 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
   background: var(--color-warning);
   color: var(--color-white);
   font-weight: var(--font-weight-bold);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--text-shadow-md);
 }
 
 .priority.bonus {
@@ -2252,7 +2253,7 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 .resource-link:hover {
   background: var(--color-primary-dark);
   color: var(--color-white);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--text-shadow-sm);
   border: 3px solid var(--color-primary-dark);
 }
 
