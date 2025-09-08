@@ -1,7 +1,34 @@
 [
-    { "title": "Accueil", "url": "/" },
-    { "title": "Ressources", "url": "/ressources" },
-    { "title": "Consignes", "url": "/consignes" },
+    { 
+        "title": "Accueil", 
+        "url": "/",
+        "submenu": [
+            { "title": "Mission", "url": "/#mission-title" },
+            { "title": "Objectifs", "url": "/#objectifs-title" },
+            { "title": "Livrables", "url": "/#livrables-title" },
+            { "title": "Évaluation", "url": "/#evaluation-title" },
+            { "title": "Planning", "url": "/#planning-title" }
+        ]
+    },
+    { 
+        "title": "Ressources", 
+        "url": "/ressources",
+        "submenu": [
+            { "title": "Démarrage rapide", "url": "/ressources#quick-start-title" },
+            { "title": "Formation", "url": "/ressources#formation-title" },
+            { "title": "Outils", "url": "/ressources#outils-title" },
+            { "title": "Design", "url": "/ressources#design-title" },
+            { "title": "Jeux", "url": "/ressources#jeux-title" },
+            { "title": "Validation", "url": "/ressources#validation-title" }
+        ]
+    },
+    { 
+        "title": "Consignes", 
+        "url": "/consignes",
+        "submenu": [
+            { "title": "Consignes du projet", "url": "/consignes#consignes-title" }
+        ]
+    },
     { "title": "Galerie", "url": "/galerie" },
     { "title": "FAQ", "url": "/faq" }
 ]

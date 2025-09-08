@@ -12,14 +12,47 @@ const currentPath = Astro.url.pathname;
     
     <ul class="nav-menu" id="nav-menu">
         {navigation.map(item => (
-            <li>
-                <a 
-                    href={`${import.meta.env.BASE_URL}${item.url === '/' ? '' : item.url.slice(1)}`} 
-                    class={`nav-link ${currentPath === item.url ? 'active' : ''}`}
-                    aria-current={currentPath === item.url ? 'page' : undefined}
-                >
-                    {item.title}
-                </a>
+            <li class={`nav-item ${item.submenu ? 'has-submenu' : ''}`}>
+                {item.submenu ? (
+                    <!-- Élément avec sous-menu -->
+                    <div class="dropdown-container">
+                        <button 
+                            class="nav-link dropdown-toggle" 
+                            aria-expanded="false" 
+                            aria-controls={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
+                            data-dropdown-trigger
+                        >
+                            {item.title}
+                            <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                        </button>
+                        <ul 
+                            class="dropdown-menu" 
+                            id={`submenu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
+                            role="menu"
+                        >
+                            {item.submenu.map(subItem => (
+                                <li role="none">
+                                    <a 
+                                        href={`${import.meta.env.BASE_URL}${subItem.url === '/' ? '' : subItem.url.slice(1)}`} 
+                                        class="dropdown-link"
+                                        role="menuitem"
+                                    >
+                                        {subItem.title}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <!-- Élément simple sans sous-menu -->
+                    <a 
+                        href={`${import.meta.env.BASE_URL}${item.url === '/' ? '' : item.url.slice(1)}`} 
+                        class={`nav-link ${currentPath === item.url ? 'active' : ''}`}
+                        aria-current={currentPath === item.url ? 'page' : undefined}
+                    >
+                        {item.title}
+                    </a>
+                )}
             </li>
         ))}
     </ul>
