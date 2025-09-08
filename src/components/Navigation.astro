@@ -61,12 +61,29 @@ function updateActiveLinks() {
         const href = link.getAttribute('href');
         if (href) {
             // Normaliser les URLs pour la comparaison
-            const linkUrl = href.replace(window.location.origin, '');
+            let linkUrl = href.replace(window.location.origin, '');
             
-            if (linkUrl === currentUrl) {
-                link.classList.add('active');
+            // Gérer le cas où le site est dans un sous-dossier
+            // Si l'URL actuelle contient le nom du repo, on doit l'enlever pour la comparaison
+            const repoName = '/esig-sfa-113-projet-personnel';
+            if (currentUrl.startsWith(repoName)) {
+                const normalizedCurrentUrl = currentUrl.replace(repoName, '') || '/';
+                if (linkUrl.startsWith(repoName)) {
+                    linkUrl = linkUrl.replace(repoName, '') || '/';
+                }
+                
+                if (linkUrl === normalizedCurrentUrl) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             } else {
-                link.classList.remove('active');
+                // Comparaison normale si pas de sous-dossier
+                if (linkUrl === currentUrl) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             }
         }
     });
