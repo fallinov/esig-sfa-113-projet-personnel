@@ -60,6 +60,11 @@ function updateActiveLinks() {
         li.classList.remove('active');
     });
     
+    // Retirer toutes les classes active des liens de sous-menu
+    document.querySelectorAll('.dropdown-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
     // Trouver le li de niveau 1 qui correspond à la page/section active
     const navLinks = document.querySelectorAll('.nav-menu > li');
     navLinks.forEach(li => {
@@ -83,11 +88,33 @@ function updateActiveLinks() {
                         // Pour la page d'accueil, vérifier qu'on est exactement sur / ou avec une ancre
                         if (normalizedCurrentUrl === '/' || normalizedCurrentUrl.startsWith('/#')) {
                             li.classList.add('active');
+                            
+                            // Activer aussi le lien de sous-menu spécifique si on est sur une ancre
+                            if (normalizedCurrentUrl.startsWith('/#')) {
+                                const dropdownLinks = li.querySelectorAll('.dropdown-link');
+                                dropdownLinks.forEach(dropdownLink => {
+                                    const dropdownUrl = dropdownLink.getAttribute('data-url');
+                                    if (dropdownUrl && dropdownUrl === normalizedCurrentUrl) {
+                                        dropdownLink.classList.add('active');
+                                    }
+                                });
+                            }
                         }
                     } else {
                         // Pour les autres pages, vérifier qu'on commence par cette URL
                         if (normalizedCurrentUrl.startsWith(normalizedLinkUrl)) {
                             li.classList.add('active');
+                            
+                            // Activer aussi le lien de sous-menu spécifique si on est sur une ancre
+                            if (normalizedCurrentUrl.includes('#')) {
+                                const dropdownLinks = li.querySelectorAll('.dropdown-link');
+                                dropdownLinks.forEach(dropdownLink => {
+                                    const dropdownUrl = dropdownLink.getAttribute('data-url');
+                                    if (dropdownUrl && dropdownUrl === normalizedCurrentUrl) {
+                                        dropdownLink.classList.add('active');
+                                    }
+                                });
+                            }
                         }
                     }
                 } else {
@@ -96,11 +123,33 @@ function updateActiveLinks() {
                         // Pour la page d'accueil, vérifier qu'on est exactement sur / ou avec une ancre
                         if (currentUrl === '/' || currentUrl.startsWith('/#')) {
                             li.classList.add('active');
+                            
+                            // Activer aussi le lien de sous-menu spécifique si on est sur une ancre
+                            if (currentUrl.startsWith('/#')) {
+                                const dropdownLinks = li.querySelectorAll('.dropdown-link');
+                                dropdownLinks.forEach(dropdownLink => {
+                                    const dropdownUrl = dropdownLink.getAttribute('data-url');
+                                    if (dropdownUrl && dropdownUrl === currentUrl) {
+                                        dropdownLink.classList.add('active');
+                                    }
+                                });
+                            }
                         }
                     } else {
                         // Pour les autres pages, vérifier qu'on commence par cette URL
                         if (currentUrl.startsWith(normalizedLinkUrl)) {
                             li.classList.add('active');
+                            
+                            // Activer aussi le lien de sous-menu spécifique si on est sur une ancre
+                            if (currentUrl.includes('#')) {
+                                const dropdownLinks = li.querySelectorAll('.dropdown-link');
+                                dropdownLinks.forEach(dropdownLink => {
+                                    const dropdownUrl = dropdownLink.getAttribute('data-url');
+                                    if (dropdownUrl && dropdownUrl === currentUrl) {
+                                        dropdownLink.classList.add('active');
+                                    }
+                                });
+                            }
                         }
                     }
                 }
