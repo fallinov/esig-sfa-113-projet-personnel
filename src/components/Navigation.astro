@@ -55,7 +55,15 @@ const currentPath = Astro.url.pathname;
 function updateActiveLinks() {
     const currentUrl = window.location.pathname + window.location.hash;
     
-    // Mettre à jour tous les liens de navigation
+    // D'abord, retirer toutes les classes active
+    document.querySelectorAll('.nav-menu li').forEach(li => {
+        li.classList.remove('active');
+    });
+    document.querySelectorAll('.dropdown-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Mettre à jour les liens de navigation
     const allLinks = document.querySelectorAll('.nav-link, .dropdown-link');
     allLinks.forEach(link => {
         // Pour les liens de sous-menu, utiliser data-url, sinon href
@@ -73,16 +81,30 @@ function updateActiveLinks() {
                 }
                 
                 if (normalizedLinkUrl === normalizedCurrentUrl) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
+                    if (link.classList.contains('dropdown-link')) {
+                        // Pour les liens de sous-menu, activer le lien
+                        link.classList.add('active');
+                    } else {
+                        // Pour les liens principaux, activer le li parent
+                        const li = link.closest('li');
+                        if (li) {
+                            li.classList.add('active');
+                        }
+                    }
                 }
             } else {
                 // Comparaison normale si pas de sous-dossier
                 if (normalizedLinkUrl === currentUrl) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
+                    if (link.classList.contains('dropdown-link')) {
+                        // Pour les liens de sous-menu, activer le lien
+                        link.classList.add('active');
+                    } else {
+                        // Pour les liens principaux, activer le li parent
+                        const li = link.closest('li');
+                        if (li) {
+                            li.classList.add('active');
+                        }
+                    }
                 }
             }
         }
