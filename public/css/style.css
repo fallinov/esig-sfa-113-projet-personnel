@@ -679,6 +679,15 @@ html {
   text-decoration: none !important;
 }
 
+/* Liens actifs de niveau 1 */
+.nav-link.active {
+  background-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  text-decoration: none !important;
+  font-weight: var(--font-weight-bold) !important;
+}
+
+/* Liens actifs de sous-menu */
 .dropdown-link.active {
   background-color: var(--color-accent-light) !important;
   color: var(--color-primary) !important;

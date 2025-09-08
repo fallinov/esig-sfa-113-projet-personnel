@@ -53,41 +53,21 @@ const currentPath = Astro.url.pathname;
 <script>
 // Gestion des liens actifs côté client
 function updateActiveLinks() {
-    const currentPath = window.location.pathname;
-    const currentHash = window.location.hash;
-    const currentUrl = currentPath + currentHash;
+    const currentUrl = window.location.pathname + window.location.hash;
     
-    // Mettre à jour les liens de sous-menu
-    const dropdownLinks = document.querySelectorAll('.dropdown-link');
-    dropdownLinks.forEach(link => {
-        const linkUrl = link.getAttribute('data-url');
-        let isActive = false;
-        
-        if (linkUrl) {
-            // Comparaison exacte
+    // Mettre à jour tous les liens de navigation
+    const allLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+            // Normaliser les URLs pour la comparaison
+            const linkUrl = href.replace(window.location.origin, '');
+            
             if (linkUrl === currentUrl) {
-                isActive = true;
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
-            // Pour les liens avec hash, vérifier si on est sur la bonne page avec le bon hash
-            else if (linkUrl.includes('#')) {
-                const linkPath = linkUrl.split('#')[0];
-                const linkHash = '#' + linkUrl.split('#')[1];
-                
-                // Si on est sur la même page et avec le même hash
-                if (linkPath === currentPath && linkHash === currentHash) {
-                    isActive = true;
-                }
-            }
-            // Pour les liens sans hash, vérifier si on est sur la même page
-            else if (linkUrl === currentPath) {
-                isActive = true;
-            }
-        }
-        
-        if (isActive) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
         }
     });
 }
