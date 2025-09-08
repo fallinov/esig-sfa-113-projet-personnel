@@ -81,29 +81,27 @@ function updateActiveLinks() {
                 }
                 
                 if (normalizedLinkUrl === normalizedCurrentUrl) {
+                    // Toujours activer le li parent pour le fond orange
+                    const li = link.closest('li');
+                    if (li) {
+                        li.classList.add('active');
+                    }
+                    // Et aussi activer le lien de sous-menu pour son style spécifique
                     if (link.classList.contains('dropdown-link')) {
-                        // Pour les liens de sous-menu, activer le lien
                         link.classList.add('active');
-                    } else {
-                        // Pour les liens principaux, activer le li parent
-                        const li = link.closest('li');
-                        if (li) {
-                            li.classList.add('active');
-                        }
                     }
                 }
             } else {
                 // Comparaison normale si pas de sous-dossier
                 if (normalizedLinkUrl === currentUrl) {
+                    // Toujours activer le li parent pour le fond orange
+                    const li = link.closest('li');
+                    if (li) {
+                        li.classList.add('active');
+                    }
+                    // Et aussi activer le lien de sous-menu pour son style spécifique
                     if (link.classList.contains('dropdown-link')) {
-                        // Pour les liens de sous-menu, activer le lien
                         link.classList.add('active');
-                    } else {
-                        // Pour les liens principaux, activer le li parent
-                        const li = link.closest('li');
-                        if (li) {
-                            li.classList.add('active');
-                        }
                     }
                 }
             }
