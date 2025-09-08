@@ -79,13 +79,29 @@ function updateActiveLinks() {
                     }
                     
                     // Vérifier si on est sur cette page ou dans ses sous-sections
-                    if (normalizedCurrentUrl.startsWith(normalizedLinkUrl)) {
-                        li.classList.add('active');
+                    if (normalizedLinkUrl === '/') {
+                        // Pour la page d'accueil, vérifier qu'on est exactement sur / ou avec une ancre
+                        if (normalizedCurrentUrl === '/' || normalizedCurrentUrl.startsWith('/#')) {
+                            li.classList.add('active');
+                        }
+                    } else {
+                        // Pour les autres pages, vérifier qu'on commence par cette URL
+                        if (normalizedCurrentUrl.startsWith(normalizedLinkUrl)) {
+                            li.classList.add('active');
+                        }
                     }
                 } else {
                     // Comparaison normale si pas de sous-dossier
-                    if (currentUrl.startsWith(normalizedLinkUrl)) {
-                        li.classList.add('active');
+                    if (normalizedLinkUrl === '/') {
+                        // Pour la page d'accueil, vérifier qu'on est exactement sur / ou avec une ancre
+                        if (currentUrl === '/' || currentUrl.startsWith('/#')) {
+                            li.classList.add('active');
+                        }
+                    } else {
+                        // Pour les autres pages, vérifier qu'on commence par cette URL
+                        if (currentUrl.startsWith(normalizedLinkUrl)) {
+                            li.classList.add('active');
+                        }
                     }
                 }
             }
