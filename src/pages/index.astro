@@ -175,75 +175,104 @@ import Button from '../components/Button.astro';
     <!-- Planning Section -->
     <section class="planning" aria-labelledby="planning-title">
         <div class="container">
-            <h2 id="planning-title" class="section-title">🚀 Planning recommandé</h2>
-            <div class="timeline">
-                <div class="timeline-item">
+            <header class="section-header">
+                <h2 id="planning-title" class="section-title">🚀 Planning recommandé</h2>
+                <p class="section-description">
+                    Un parcours structuré en 6 étapes pour réussir votre projet personnel
+                </p>
+            </header>
+            
+            <div class="timeline" role="list" aria-label="Planning du projet personnel">
+                <article class="timeline-item" role="listitem">
                     <div class="timeline-content">
-                        <h3>Préparation & Choix du thème (3-10 septembre)</h3>
-                        <ul>
-                            <li><span class="emoji">🎯</span>Auto-formation : Commencer l'apprentissage des bases HTML/CSS</li>
-                            <li><span class="emoji">💡</span>Réflexion sur le thème : Explorer vos passions, hobbies, projets</li>
-                            <li><span class="emoji">🛠️</span>Configurer votre environnement (GitHub + WebStorm)</li>
-                            <li><span class="emoji">✅</span>Choix définitif du thème (deadline : 10 septembre)</li>
+                        <header class="timeline-header">
+                            <time class="timeline-date" datetime="2024-09-03/2024-09-10">3-10 septembre</time>
+                            <h3>Préparation & Choix du thème</h3>
+                        </header>
+                        <ul class="timeline-tasks">
+                            <li><span class="emoji" aria-hidden="true">🎯</span>Auto-formation : Commencer l'apprentissage des bases HTML/CSS</li>
+                            <li><span class="emoji" aria-hidden="true">💡</span>Réflexion sur le thème : Explorer vos passions, hobbies, projets</li>
+                            <li><span class="emoji" aria-hidden="true">🛠️</span>Configurer votre environnement (GitHub + WebStorm)</li>
+                            <li><span class="emoji" aria-hidden="true">✅</span>Choix définitif du thème (deadline : 10 septembre)</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                
+                <article class="timeline-item" role="listitem">
                     <div class="timeline-content">
-                        <h3>Formation & Développement HTML (11 septembre - 1er octobre)</h3>
-                        <ul>
-                            <li><span class="emoji">📚</span>Formation intensive HTML5 + Git/GitHub</li>
-                            <li><span class="emoji">🏗️</span>Développer le HTML de base (structure sémantique)</li>
-                            <li><span class="emoji">🔗</span>Créer la navigation (si multi-pages) ou les sections (si page unique)</li>
-                            <li><span class="emoji">📝</span>Intégrer le contenu réel</li>
-                            <li><span class="emoji">✅</span>Valider le HTML (W3C Validator)</li>
+                        <header class="timeline-header">
+                            <time class="timeline-date" datetime="2024-09-11/2024-10-01">11 septembre - 1er octobre</time>
+                            <h3>Formation & Développement HTML</h3>
+                        </header>
+                        <ul class="timeline-tasks">
+                            <li><span class="emoji" aria-hidden="true">📚</span>Formation intensive HTML5 + Git/GitHub</li>
+                            <li><span class="emoji" aria-hidden="true">🏗️</span>Développer le HTML de base (structure sémantique)</li>
+                            <li><span class="emoji" aria-hidden="true">🔗</span>Créer la navigation (si multi-pages) ou les sections (si page unique)</li>
+                            <li><span class="emoji" aria-hidden="true">📝</span>Intégrer le contenu réel</li>
+                            <li><span class="emoji" aria-hidden="true">✅</span>Valider le HTML (W3C Validator)</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                
+                <article class="timeline-item" role="listitem">
                     <div class="timeline-content">
-                        <h3>Formation CSS & Stylisation (2 octobre - 19 novembre)</h3>
-                        <ul>
-                            <li><span class="emoji">📚</span>Formation CSS3 + responsive design</li>
-                            <li><span class="emoji">🎨</span>Appliquer le CSS fondamental</li>
-                            <li><span class="emoji">📱</span>Implémenter le responsive design</li>
-                            <li><span class="emoji">⚡</span>Apprendre et intégrer votre notion avancée choisie (Flexbox/Grid/Animations...)</li>
-                            <li><span class="emoji">🎯</span>Peaufiner le design</li>
+                        <header class="timeline-header">
+                            <time class="timeline-date" datetime="2024-10-02/2024-11-19">2 octobre - 19 novembre</time>
+                            <h3>Formation CSS & Stylisation</h3>
+                        </header>
+                        <ul class="timeline-tasks">
+                            <li><span class="emoji" aria-hidden="true">📚</span>Formation CSS3 + responsive design</li>
+                            <li><span class="emoji" aria-hidden="true">🎨</span>Appliquer le CSS fondamental</li>
+                            <li><span class="emoji" aria-hidden="true">📱</span>Implémenter le responsive design</li>
+                            <li><span class="emoji" aria-hidden="true">⚡</span>Apprendre et intégrer votre notion avancée choisie (Flexbox/Grid/Animations...)</li>
+                            <li><span class="emoji" aria-hidden="true">🎯</span>Peaufiner le design</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                
+                <article class="timeline-item" role="listitem">
                     <div class="timeline-content">
-                        <h3>Finalisation & Perfectionnement (20 novembre - 7 janvier)</h3>
-                        <ul>
-                            <li><span class="emoji">🧪</span>Tests sur différents appareils/navigateurs</li>
-                            <li><span class="emoji">🔧</span>Corrections et optimisations</li>
-                            <li><span class="emoji">📝</span>Rédaction du README complet (bilan de formation)</li>
-                            <li><span class="emoji">🚀</span>Publication finale sur GitHub Pages</li>
-                            <li><span class="emoji">🎤</span>Préparation de la présentation pour le 7 janvier</li>
+                        <header class="timeline-header">
+                            <time class="timeline-date" datetime="2024-11-20/2025-01-07">20 novembre - 7 janvier</time>
+                            <h3>Finalisation & Perfectionnement</h3>
+                        </header>
+                        <ul class="timeline-tasks">
+                            <li><span class="emoji" aria-hidden="true">🧪</span>Tests sur différents appareils/navigateurs</li>
+                            <li><span class="emoji" aria-hidden="true">🔧</span>Corrections et optimisations</li>
+                            <li><span class="emoji" aria-hidden="true">📝</span>Rédaction du README complet (bilan de formation)</li>
+                            <li><span class="emoji" aria-hidden="true">🚀</span>Publication finale sur GitHub Pages</li>
+                            <li><span class="emoji" aria-hidden="true">🎤</span>Préparation de la présentation pour le 7 janvier</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                
+                <article class="timeline-item" role="listitem">
                     <div class="timeline-content">
-                        <h3>Présentation & Rendu final (7-9 janvier)</h3>
-                        <ul>
-                            <li><span class="emoji">🎤</span>Présentation du site à la classe (7 janvier 2026)</li>
-                            <li><span class="emoji">🔧</span>Derniers ajustements suite aux retours</li>
-                            <li><span class="emoji">⏰</span>RENDU FINAL : 9 janvier 2026 à 22h00</li>
+                        <header class="timeline-header">
+                            <time class="timeline-date" datetime="2025-01-07/2025-01-09">7-9 janvier</time>
+                            <h3>Présentation & Rendu final</h3>
+                        </header>
+                        <ul class="timeline-tasks">
+                            <li><span class="emoji" aria-hidden="true">🎤</span>Présentation du site à la classe (7 janvier 2026)</li>
+                            <li><span class="emoji" aria-hidden="true">🔧</span>Derniers ajustements suite aux retours</li>
+                            <li><span class="emoji" aria-hidden="true">⏰</span>RENDU FINAL : 9 janvier 2026 à 22h00</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
+                </article>
+                
+                <article class="timeline-item" role="listitem">
                     <div class="timeline-content">
-                        <h3>Évaluation (après le 9 janvier)</h3>
-                        <ul>
-                            <li><span class="emoji">📋</span>Correction par le formateur</li>
-                            <li><span class="emoji">💬</span>Feedback individualisé</li>
-                            <li><span class="emoji">🏆</span>Attribution des notes finales</li>
+                        <header class="timeline-header">
+                            <time class="timeline-date" datetime="2025-01-09">après le 9 janvier</time>
+                            <h3>Évaluation</h3>
+                        </header>
+                        <ul class="timeline-tasks">
+                            <li><span class="emoji" aria-hidden="true">📋</span>Correction par le formateur</li>
+                            <li><span class="emoji" aria-hidden="true">💬</span>Feedback individualisé</li>
+                            <li><span class="emoji" aria-hidden="true">🏆</span>Attribution des notes finales</li>
                         </ul>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
