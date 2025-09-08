@@ -53,6 +53,11 @@ class DropdownMenu {
                 link.addEventListener('keydown', (e) => {
                     this.handleSubmenuKeydown(e, dropdown);
                 });
+                
+                // Fermer le sous-menu au clic sur un lien
+                link.addEventListener('click', () => {
+                    this.closeDropdown(dropdown);
+                });
             });
         });
 
