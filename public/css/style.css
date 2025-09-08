@@ -474,7 +474,6 @@ html {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--spacing-lg);
   align-items: stretch;
   height: 100%;
 }
@@ -488,7 +487,7 @@ html {
 }
 
 .nav-link {
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: 0;
   font-weight: var(--font-weight-bold);
   transition: all var(--transition-normal);
@@ -645,7 +644,7 @@ html {
 .dropdown-link {
   display: block;
   padding: var(--spacing-md) var(--spacing-lg);
-  color: var(--color-gray-700);
+  color: var(--color-primary);
   text-decoration: none !important;
   transition: all var(--transition-normal);
   font-size: var(--font-size-base);
@@ -1366,7 +1365,6 @@ section {
     display: block;
     width: 100vw;
     text-decoration: none;
-    color: inherit;
     margin-left: calc(-50vw + 50%);
     box-sizing: border-box;
   }
@@ -1388,7 +1386,7 @@ section {
     border: none;
     background: transparent;
     box-sizing: border-box;
-    color: var(--color-gray-700);
+    color: var(--color-primary);
     font-weight: var(--font-weight-bold);
     transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
@@ -1408,7 +1406,7 @@ section {
     background: transparent;
     box-sizing: border-box;
     text-decoration: none !important;
-    color: var(--color-gray-700) !important;
+    color: var(--color-primary) !important;
     font-weight: var(--font-weight-bold) !important;
     transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
@@ -1461,7 +1459,7 @@ section {
     display: block;
     cursor: pointer;
     text-decoration: none !important;
-    color: var(--color-gray-700) !important;
+    color: var(--color-primary) !important;
     box-sizing: border-box;
     font-weight: var(--font-weight-bold) !important;
     transition: all var(--transition-normal);
