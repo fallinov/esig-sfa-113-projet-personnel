@@ -63,16 +63,23 @@ function updateActiveLinks() {
         const linkUrl = link.getAttribute('data-url');
         let isActive = false;
         
-        // Comparaison exacte d'abord
-        if (linkUrl === currentUrl) {
-            isActive = true;
-        } else {
-            // Comparaison sans hash si l'URL du lien n'a pas de hash
-            if (linkUrl && !linkUrl.includes('#') && linkUrl === currentPath) {
+        if (linkUrl) {
+            // Comparaison exacte
+            if (linkUrl === currentUrl) {
                 isActive = true;
             }
-            // Comparaison avec hash si on est sur la page principale
-            else if (linkUrl && linkUrl.includes('#') && currentPath === '/' && currentHash) {
+            // Pour les liens avec hash, vérifier si on est sur la bonne page avec le bon hash
+            else if (linkUrl.includes('#')) {
+                const linkPath = linkUrl.split('#')[0];
+                const linkHash = '#' + linkUrl.split('#')[1];
+                
+                // Si on est sur la même page et avec le même hash
+                if (linkPath === currentPath && linkHash === currentHash) {
+                    isActive = true;
+                }
+            }
+            // Pour les liens sans hash, vérifier si on est sur la même page
+            else if (linkUrl === currentPath) {
                 isActive = true;
             }
         }
