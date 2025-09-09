@@ -9,34 +9,28 @@
 :root {
   /* Offset pour le header sticky */
   --header-height: 70px;
+  
   /* Couleurs principales */
   --color-primary: #1E3A8A;       /* Bleu marine */
   --color-primary-light: #0066CC; /* Bleu ciel */
   --color-primary-very-light: #E6F0FF; /* Bleu très clair */
   --color-primary-dark: #0F1F4A;  /* Bleu marine foncé */
   --color-primary-darker: #0A1429; /* Bleu marine très foncé */
-  --color-secondary: #0066CC;     /* Bleu ciel */
-  --color-secondary-dark: #FF8C00; /* Orange */
   
   /* Couleurs d'accent */
   --color-accent: #FF8C00;        /* Orange */
   --color-accent-light: #FFD9B3;  /* Orange très clair */
   --color-accent-dark: #E67E00;   /* Orange foncé */
-  --color-success: #0066CC;       /* Bleu ciel */
-  --color-warning: #FF8C00;       /* Orange */
-  --color-error: #FF8C00;         /* Orange */
   
-  /* Couleurs neutres - basées sur la palette */
+  /* Couleurs neutres */
   --color-white: #FFFFFF;
-  --color-text-primary: #1E3A8A;  /* Bleu marine pour texte principal */
-  --color-text-secondary: #0066CC; /* Bleu ciel pour texte secondaire */
-  --color-text-light: #4A6FA5;    /* Bleu moyen pour texte clair */
-  --color-text-muted: #1E3A8A;    /* Bleu foncé pour texte atténué */
+  --color-text-primary: var(--color-primary);
+  --color-text-secondary: var(--color-primary-light);
+  --color-text-light: #4A6FA5;
+  --color-text-muted: var(--color-primary);
   --color-bg-light: #F5F5DC;      /* Beige clair */
-  --color-bg-medium: #E6F0FF;     /* Bleu très clair */
-  
-  /* Couleurs de fond */
-  --color-bg-primary: #FFFFFF;
+  --color-bg-medium: var(--color-primary-very-light);
+  --color-bg-primary: var(--color-white);
   --color-bg-secondary: var(--color-bg-light);
   
   /* Couleurs de bordures */
@@ -136,19 +130,19 @@
 /* Reset des listes - Éviter les doubles puces */
 /* Suppression des puces par défaut pour toutes les listes */
 ul, ol {
-  list-style: none !important;
+  list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
-/* Ajout des puces uniquement pour les listes de contenu (pas navigation/menus) */
-ul:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks):not(.nav-list) {
+/* Ajout des puces uniquement pour les listes de contenu (pas navigation/menus/cartes) */
+ul:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul) {
   list-style: disc;
   padding-left: var(--spacing-lg);
   margin: var(--spacing-sm) 0;
 }
 
-ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks):not(.nav-list) {
+ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul) {
   list-style: decimal;
   padding-left: var(--spacing-lg);
   margin: var(--spacing-sm) 0;
@@ -161,7 +155,7 @@ li {
 
 /* Reset des liens */
 a {
-  text-decoration: none !important;
+  text-decoration: none;
   color: inherit;
 }
 
@@ -170,7 +164,7 @@ a:hover,
 a:focus,
 a:active,
 a:visited {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /* Reset des boutons */
@@ -261,102 +255,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Configuration des polices locales - Éléments en gras */
-/* SOLUTION FORCÉE - Règles avec spécificité maximale */
-* strong, 
-* b, 
-strong, 
-b {
-  font-weight: bold !important;
-  font-weight: 700 !important;
-  font-family: var(--font-family-primary) !important;
-  font-style: normal !important;
-  text-decoration: none !important;
-}
-
-/* Règles ultra-spécifiques pour tous les contextes */
-body strong, 
-body b, 
-p strong, 
-p b, 
-div strong, 
-div b, 
-span strong, 
-span b,
-.hero-description strong,
-.hero-description b,
-.hero .hero-description strong,
-.hero .hero-description b,
-section strong,
-section b,
-main strong,
-main b {
-  font-weight: bold !important;
-  font-weight: 700 !important;
-  font-family: var(--font-family-primary) !important;
-  font-style: normal !important;
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* SOLUTION FINALE - Forcer avec Inter et fallbacks robustes */
+/* Configuration des polices - Éléments en gras */
 strong, b {
-  font-family: var(--font-family-primary) !important;
-  font-weight: bold !important;
-  font-weight: 700 !important;
-  font-style: normal !important;
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* Règle ultra-spécifique pour le strong problématique */
-.hero-description strong,
-.hero .hero-description strong,
-p.hero-description strong {
-  font-family: var(--font-family-primary) !important;
-  font-weight: bold !important;
-  font-weight: 700 !important;
-  font-style: normal !important;
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* Liens des sous-menus en gras */
-.dropdown-link {
-  font-weight: bold !important;
-  font-weight: 700 !important;
-  font-family: var(--font-family-primary) !important;
-}
-
-/* Boutons en gras */
-.btn, .btn-primary {
-  font-weight: 700;
   font-family: var(--font-family-primary);
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Titres en gras */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700 !important;
-  font-family: var(--font-family-heading) !important;
-  /* Forcer le chargement de Poppins */
+  font-weight: 700;
+  font-family: var(--font-family-heading);
   font-display: swap;
 }
 
-/* Éléments de navigation en gras */
-.nav-link, .dropdown-toggle {
+/* Éléments de navigation et boutons en gras */
+.nav-link, .dropdown-toggle, .dropdown-link, .btn, .btn-primary {
   font-weight: 700;
   font-family: var(--font-family-primary);
 }
 
 /* Classes utilitaires pour le gras */
 .bold, .font-bold, .font-weight-bold {
-  font-weight: 700 !important;
+  font-weight: 700;
   font-family: var(--font-family-primary);
 }
 
-/* Règle pour s'assurer qu'aucun texte ne soit en dessous de 16px */
+/* Taille de police minimum pour l'accessibilité */
 small, .text-xs, .text-sm, .meta-item, .priority {
-  font-size: 1rem !important; /* Minimum 16px */
+  font-size: 1rem; /* Minimum 16px */
 }
 
 /* Titres */
@@ -397,11 +326,10 @@ p {
   line-height: 1.6; /* Interlignage cohérent avec le body */
 }
 
-/* Règle pour s'assurer qu'aucun texte ne soit en dessous de 16px */
+/* Héritage de taille pour les spans dans les titres */
 @media (min-width: 1024px) {
-  /* Exclure les spans dans les titres pour qu'ils héritent de la taille du parent */
   h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
-    font-size: inherit !important;
+    font-size: inherit;
   }
 }
 
@@ -610,7 +538,7 @@ html {
 
 .nav-menu {
   display: flex;
-  list-style: none !important;
+  list-style: none;
   margin: 0;
   padding: 0;
   align-items: stretch;
@@ -631,7 +559,7 @@ html {
   font-weight: var(--font-weight-bold);
   transition: all var(--transition-normal);
   position: relative;
-  text-decoration: none !important;
+  text-decoration: none;
   color: var(--color-primary);
   font-size: var(--font-size-base);
   white-space: nowrap;
@@ -645,7 +573,7 @@ html {
   background-color: var(--color-accent-light);
   color: var(--color-primary);
   border: none;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /* Survol pour les liens actifs - pas de changement de style */
@@ -662,13 +590,13 @@ html {
 
 .nav-menu li.active .nav-link {
   color: var(--color-white);
-  text-decoration: none !important;
+  text-decoration: none;
   font-weight: var(--font-weight-bold);
 }
 
 .nav-menu li.active .dropdown-toggle {
   color: var(--color-white);
-  text-decoration: none !important;
+  text-decoration: none;
   font-weight: var(--font-weight-bold);
 }
 
@@ -700,7 +628,7 @@ html {
   font-weight: var(--font-weight-bold);
   transition: all var(--transition-normal);
   position: relative;
-  text-decoration: none !important;
+  text-decoration: none;
   color: var(--color-primary);
   font-size: var(--font-size-base);
   white-space: nowrap;
@@ -712,7 +640,7 @@ html {
   background-color: var(--color-accent-light);
   color: var(--color-primary);
   border: none;
-  text-decoration: none !important;
+  text-decoration: none;
   transform: none;
 }
 
@@ -760,7 +688,7 @@ html {
   visibility: hidden;
   transform: translateY(-10px);
   transition: all var(--transition-normal);
-  list-style: none !important;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -782,7 +710,7 @@ html {
   display: block;
   padding: var(--spacing-md) var(--spacing-lg);
   color: var(--color-primary);
-  text-decoration: none !important;
+  text-decoration: none;
   transition: all var(--transition-normal);
   font-size: var(--font-size-base);
   border: none;
@@ -807,23 +735,23 @@ html {
 .dropdown-link:hover {
   background-color: var(--color-accent-light);
   color: var(--color-primary);
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /* Liens actifs de niveau 1 */
 .nav-link.active {
-  background-color: var(--color-accent) !important;
-  color: var(--color-white) !important;
-  text-decoration: none !important;
-  font-weight: var(--font-weight-bold) !important;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
 }
 
 /* Liens actifs de sous-menu */
 .dropdown-link.active {
-  background-color: var(--color-accent-light) !important;
-  color: var(--color-primary) !important;
-  text-decoration: none !important;
-  font-weight: var(--font-weight-bold) !important;
+  background-color: var(--color-accent-light);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
 }
 
 .dropdown-link:focus {
@@ -881,7 +809,7 @@ html {
 }
 
 .hero-benefits {
-  list-style: none !important;
+  list-style: none;
   padding: 0;
   margin: 0 0 var(--spacing-xl) 0;
   color: var(--color-white);
@@ -1103,28 +1031,20 @@ section {
   color: var(--color-text-primary);
 }
 
-/* Section Mission */
-.mission {
+/* Sections avec alternance de fond */
+.mission, .livrables {
   background-color: var(--color-bg-secondary);
 }
 
-/* Grilles uniformes pour toutes les sections de cartes */
-.mission-grid,
-.objectifs-grid,
-.livrables-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
-}
-
-/* Section Objectifs */
 .objectifs {
   background-color: var(--color-bg-primary);
 }
 
-/* Section Livrables */
-.livrables {
-  background-color: var(--color-bg-secondary);
+/* Grilles uniformes pour toutes les sections de cartes */
+.mission-grid, .objectifs-grid, .livrables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
 }
 
 /* Section Planning - Timeline améliorée */
@@ -1237,7 +1157,7 @@ section {
 .timeline-tasks {
   margin: 0;
   padding-left: 0;
-  list-style: none !important;
+  list-style: none;
 }
 
 .timeline-tasks li {
@@ -1323,23 +1243,19 @@ section {
   min-width: 80px;
 }
 
-/* Style uniforme pour toutes les cartes dans toutes les sections */
-.mission .livrable-card,
-.objectifs .livrable-card,
-.livrables .livrable-card {
+/* Style uniforme pour toutes les cartes */
+.livrable-card, .resource-card, .consigne-card, .quick-start-card {
   background: var(--color-white);
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-xl);
   box-shadow: var(--shadow-md);
   border: 4px solid var(--color-primary);
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
 
-.mission .livrable-card:hover,
-.objectifs .livrable-card:hover,
-.livrables .livrable-card:hover {
+.livrable-card:hover, .resource-card:hover, .consigne-card:hover, .quick-start-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-accent);
@@ -1361,19 +1277,67 @@ section {
 .livrable-card ul {
   margin-left: 0;
   padding-left: 0;
+  list-style: none;
 }
 
 .livrable-card li {
   margin-bottom: var(--spacing-sm);
   position: relative;
   padding-left: 20px;
+  list-style: none;
 }
 
 .livrable-card li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-success);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--spacing-md);
+}
+
+/* Styles pour les listes dans les cartes de ressources */
+.resource-card ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.resource-card li {
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.resource-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--spacing-md);
+}
+
+/* Styles pour les listes dans les cartes de consignes */
+.consigne-card ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.consigne-card li {
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.consigne-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   margin-right: var(--spacing-md);
 }
@@ -1413,7 +1377,7 @@ section {
 }
 
 .cta-benefits {
-  list-style: none !important;
+  list-style: none;
   padding: 0;
   margin: 0 auto var(--spacing-xl) auto;
   color: var(--color-white);
@@ -1602,7 +1566,7 @@ section {
 
   .nav-menu li {
     width: 100%;
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-border-light);
     display: block;
     opacity: 0;
     transform: translateX(20px);
@@ -1653,6 +1617,7 @@ section {
     font-weight: var(--font-weight-bold);
     transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
+    text-decoration: none;
   }
 
   /* Liens dropdown mobile - Style fonctionnel */
@@ -1668,9 +1633,9 @@ section {
     border: none;
     background: transparent;
     box-sizing: border-box;
-    text-decoration: none !important;
-    color: var(--color-primary) !important;
-    font-weight: var(--font-weight-bold) !important;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
     transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
     align-items: center;
@@ -1706,7 +1671,7 @@ section {
   .dropdown-menu li {
     width: 100%;
     display: block;
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-border-light);
   }
 
   .dropdown-menu.show {
@@ -1721,10 +1686,10 @@ section {
     border-radius: 0;
     display: block;
     cursor: pointer;
-    text-decoration: none !important;
-    color: var(--color-primary) !important;
+    text-decoration: none;
+    color: var(--color-primary);
     box-sizing: border-box;
-    font-weight: var(--font-weight-bold) !important;
+    font-weight: var(--font-weight-bold);
     transition: all var(--transition-normal);
     margin-left: calc(-50vw + 50%);
   }
@@ -1747,7 +1712,7 @@ section {
 
   .nav-menu li.active .nav-link,
   .nav-menu li.active .dropdown-toggle {
-    color: var(--color-white) !important;
+    color: var(--color-white);
   }
 
   /* Survol mobile */
@@ -1782,7 +1747,7 @@ section {
 
   /* Icône blanche liens actifs mobile */
   .nav-menu li.active .dropdown-arrow {
-    color: var(--color-white) !important;
+    color: var(--color-white);
   }
 
 }
@@ -1970,18 +1935,8 @@ section {
 }
 
 .consigne-card {
-  background: var(--color-white);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-md);
   margin-bottom: var(--spacing-2xl);
   overflow: hidden;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-  border: 4px solid var(--color-primary);
-}
-
-.consigne-card:hover {
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-lg);
 }
 
 
@@ -2008,7 +1963,7 @@ section {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   margin: var(--spacing-xl) 0 var(--spacing-md) 0;
-  border-bottom: 2px solid var(--color-gray-200);
+  border-bottom: 2px solid var(--color-border-light);
   padding-bottom: var(--spacing-sm);
 }
 
@@ -2088,21 +2043,13 @@ section {
    TRANSITIONS ESSENTIELLES
    ======================================== */
 
-/* Transitions minimales pour l'ergonomie */
+/* Transitions unifiées */
 .btn {
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
-.livrable-card,
-.quick-start-card,
-.resource-card {
-  transition: box-shadow var(--transition-fast);
-}
-
-.quick-start-card:hover,
-.resource-card:hover {
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
+.livrable-card, .resource-card, .consigne-card, .quick-start-card {
+  transition: all var(--transition-normal);
 }
 
 /* ========================================
@@ -2121,16 +2068,8 @@ section {
   outline-offset: 3px;
 }
 
-/* Focus pour les liens - sauf navigation */
-a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Focus amélioré pour les cartes */
-.livrable-card:focus-within,
-.resource-card:focus-within,
-.consigne-card:focus-within {
+/* Focus pour les cartes */
+.livrable-card:focus-within, .resource-card:focus-within, .consigne-card:focus-within {
   outline: 3px solid var(--color-primary);
   outline-offset: 6px;
   box-shadow: 0 0 0 6px var(--color-primary);
@@ -2138,7 +2077,7 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 }
 
 /* Focus pour les liens de navigation */
-.nav-link:focus {
+.nav-link:focus, .dropdown-link:focus, .dropdown-toggle:focus {
   outline: none;
   box-shadow: none;
 }
@@ -2148,9 +2087,9 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
   }
   
   html {
@@ -2161,9 +2100,8 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 /* Contraste élevé */
 @media (prefers-contrast: high) {
   :root {
-    --color-gray-200: var(--color-accent);
-    --color-gray-300: var(--color-accent);
-    --color-gray-400: var(--color-accent);
+    --color-border-light: var(--color-accent);
+    --color-border-medium: var(--color-accent);
   }
 }
 
@@ -2201,10 +2139,8 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
   background: var(--color-bg-primary);
   opacity: 0.1;
   backdrop-filter: blur(10px);
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-xl);
-  border: 4px solid var(--color-bg-primary);
   text-align: center;
+  border: 4px solid var(--color-bg-primary);
 }
 
 
@@ -2233,8 +2169,8 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 }
 
 .quick-start-card .btn:hover {
-  background: var(--color-gray-100);
-  border: 3px solid var(--color-gray-100);
+  background: var(--color-bg-medium);
+  border: 3px solid var(--color-bg-medium);
 }
 
 /* Sections de ressources */
@@ -2243,24 +2179,12 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
   margin: var(--spacing-2xl) 0;
 }
 
-.resource-section.formation {
+.resource-section.formation, .resource-section.design, .resource-section.validation {
   background: var(--color-bg-secondary);
 }
 
-.resource-section.outils {
-  background: var(--color-bg-tertiary);
-}
-
-.resource-section.design {
-  background: var(--color-bg-secondary);
-}
-
-.resource-section.jeux {
-  background: var(--color-bg-tertiary);
-}
-
-.resource-section.validation {
-  background: var(--color-bg-secondary);
+.resource-section.outils, .resource-section.jeux {
+  background: var(--color-bg-primary);
 }
 
 .section-icon {
@@ -2275,15 +2199,6 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-2xl);
-}
-
-.resource-card {
-  background: var(--color-white);
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-md);
-  border: 4px solid var(--color-primary);
-  position: relative;
 }
 
 
@@ -2346,7 +2261,7 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 }
 
 .meta-item {
-  background: var(--color-gray-100);
+  background: var(--color-bg-medium);
   color: var(--color-text-light);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius-md);
@@ -2357,8 +2272,8 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
 }
 
 .meta-item:hover {
-  background: var(--color-gray-200);
-  border: 2px solid var(--color-border-primary);
+  background: var(--color-bg-medium);
+  border: 2px solid var(--color-primary);
 }
 
 /* Liens des ressources */
@@ -2413,12 +2328,12 @@ a:not(.nav-link):not(.dropdown-link):not(.dropdown-toggle):focus-visible {
   }
   
   .hero {
-    background: none !important;
-    color: var(--color-gray-900) !important;
+    background: none;
+    color: var(--color-primary);
   }
   
   .hero-title {
-    color: var(--color-gray-900) !important;
+    color: var(--color-primary);
   }
   
   .btn {
