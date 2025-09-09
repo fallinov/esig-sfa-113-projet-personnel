@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '❓': 'help-circle',
         '⏰': 'clock',
         '⏱️': 'clock',
+        '📅': 'calendar',
         '🎤': 'mic',
         '🏆': 'trophy',
         '♿': 'wheelchair',
@@ -106,7 +107,13 @@ document.addEventListener('DOMContentLoaded', function() {
         '💰': 'coins',
         '🔌': 'plug',
         '🧠': 'brain',
-        '💼': 'briefcase'
+        '💼': 'briefcase',
+        
+        // Emojis pour la page consignes
+        '👨‍🏫': 'user-graduate',
+        '👨\u200d🏫': 'user-graduate', // Version alternative avec ZWJ
+        '🤝': 'handshake',
+        '📖': 'book-open'
     };
 
     // Fonction pour remplacer les emojis dans le texte
@@ -115,7 +122,9 @@ document.addEventListener('DOMContentLoaded', function() {
         Object.keys(emojiToIconMap).forEach(emoji => {
             const iconName = emojiToIconMap[emoji];
             const iconHtml = `<i data-lucide="${iconName}" class="icon icon-sm"></i>`;
-            result = result.replace(new RegExp(emoji, 'g'), iconHtml);
+            // Utiliser une regex plus robuste pour les emojis
+            const escapedEmoji = emoji.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            result = result.replace(new RegExp(escapedEmoji, 'g'), iconHtml);
         });
         return result;
     }
@@ -128,7 +137,16 @@ document.addEventListener('DOMContentLoaded', function() {
         textNodes.forEach(element => {
             // Vérifier si l'élément contient des emojis
             const text = element.textContent;
-            if (Object.keys(emojiToIconMap).some(emoji => text.includes(emoji))) {
+            let hasEmojis = false;
+            
+            // Vérification plus robuste pour les emojis composés
+            Object.keys(emojiToIconMap).forEach(emoji => {
+                if (text.includes(emoji)) {
+                    hasEmojis = true;
+                }
+            });
+            
+            if (hasEmojis) {
                 // Remplacer les emojis tout en préservant le formatage
                 element.innerHTML = replaceEmojisInText(text);
             }
@@ -167,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour remplacer les emojis dans les divs avec classe card-icon
     function replaceEmojisInCardIcons() {
-        const cardIcons = document.querySelectorAll('.card-icon, .livrable-icon');
+        const cardIcons = document.querySelectorAll('.card-icon, .livrable-icon, .step-icon, .constraint-icon, .deliverable-icon, .tool-icon, .tip-icon, .support-icon, .support-item-icon, .consigne-card__icon');
         cardIcons.forEach(iconDiv => {
             const text = iconDiv.textContent;
             Object.keys(emojiToIconMap).forEach(emoji => {
@@ -193,8 +211,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Fonction de débogage pour voir les emojis détectés
+    function debugEmojis() {
+        const allText = document.body.textContent;
+        const foundEmojis = [];
+        Object.keys(emojiToIconMap).forEach(emoji => {
+            if (allText.includes(emoji)) {
+                foundEmojis.push(emoji);
+            }
+        });
+        if (foundEmojis.length > 0) {
+            console.log('Emojis détectés:', foundEmojis);
+        }
+    }
+
     // Fonction principale de remplacement
     function replaceAllEmojis() {
+        debugEmojis(); // Débogage
         replaceEmojisInElements();
         replaceEmojisInCardIcons();
         replaceEmojisInEmojiSpans();
