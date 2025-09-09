@@ -133,16 +133,30 @@
   padding: 0;
 }
 
-/* Reset des listes */
-/* Reset des listes - mais on garde les puces pour les listes normales */
-ul:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks),
-ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks) {
-  list-style: disc;
-  padding-left: var(--spacing-lg);
+/* Reset des listes - Éviter les doubles puces */
+/* Suppression des puces par défaut pour toutes les listes */
+ul, ol {
+  list-style: none !important;
+  padding-left: 0;
+  margin: 0;
 }
 
-ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks) {
+/* Ajout des puces uniquement pour les listes de contenu (pas navigation/menus) */
+ul:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks):not(.nav-list) {
+  list-style: disc;
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-sm) 0;
+}
+
+ol:not(.hero-benefits):not(.cta-benefits):not(.nav-menu):not(.dropdown-menu):not(.timeline-tasks):not(.nav-list) {
   list-style: decimal;
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-sm) 0;
+}
+
+/* Espacement des éléments de liste */
+li {
+  margin-bottom: var(--spacing-xs);
 }
 
 /* Reset des liens */
@@ -596,7 +610,7 @@ html {
 
 .nav-menu {
   display: flex;
-  list-style: none;
+  list-style: none !important;
   margin: 0;
   padding: 0;
   align-items: stretch;
@@ -746,7 +760,7 @@ html {
   visibility: hidden;
   transform: translateY(-10px);
   transition: all var(--transition-normal);
-  list-style: none;
+  list-style: none !important;
   margin: 0;
   padding: 0;
 }
@@ -867,7 +881,7 @@ html {
 }
 
 .hero-benefits {
-  list-style: none;
+  list-style: none !important;
   padding: 0;
   margin: 0 0 var(--spacing-xl) 0;
   color: var(--color-white);
@@ -1223,7 +1237,7 @@ section {
 .timeline-tasks {
   margin: 0;
   padding-left: 0;
-  list-style: none;
+  list-style: none !important;
 }
 
 .timeline-tasks li {
@@ -1399,7 +1413,7 @@ section {
 }
 
 .cta-benefits {
-  list-style: none;
+  list-style: none !important;
   padding: 0;
   margin: 0 auto var(--spacing-xl) auto;
   color: var(--color-white);
