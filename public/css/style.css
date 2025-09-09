@@ -27,7 +27,6 @@
   --color-text-primary: var(--color-primary);
   --color-text-secondary: var(--color-primary-light);
   --color-text-light: #4A6FA5;
-  --color-text-muted: var(--color-primary);
   --color-bg-light: #F5F5DC;      /* Beige clair */
   --color-bg-medium: var(--color-primary-very-light);
   --color-bg-primary: var(--color-white);
@@ -41,7 +40,6 @@
   /* Typographie */
   --font-family-primary: Arial, Helvetica, 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-heading: 'Poppins', Arial, Helvetica, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
   /* Tailles de police avec gradations fluides */
   --font-size-sm: clamp(0.875rem, 0.8rem + 0.5vw, 1rem);       /* 14-16px */
@@ -92,22 +90,14 @@
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.2s ease;
-  --transition-slow: 0.3s ease;
   
   /* Z-index */
   --z-dropdown: 1000;
   --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal: 1040;
-  --z-popover: 1050;
   --z-tooltip: 1060;
   
   /* Breakpoints */
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
 }
 
 /* ========================================
@@ -452,7 +442,7 @@ html {
 
 .header {
   background: var(--color-white);
-  border-bottom: 4px solid var(--color-secondary-dark);
+  border-bottom: 4px solid var(--color-accent);
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
@@ -512,7 +502,7 @@ html {
 
 .logo-subtitle {
   font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  color: var(--color-primary);
   margin: 0;
   margin-bottom: var(--spacing-sm);
   font-weight: var(--font-weight-normal);
@@ -905,34 +895,33 @@ html {
    BOUTONS
    ======================================== */
 
+/* Boutons unifiés */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--border-radius-lg);
-  font-weight: 700; /* Bold avec Inter */
-  font-family: var(--font-family-primary); /* Utiliser Inter pour les boutons */
-  font-size: var(--font-size-base); /* 16px par défaut */
+  font-weight: 700;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
   text-decoration: none;
   transition: all var(--transition-fast);
   cursor: pointer;
   border: 3px solid transparent;
-  min-height: 44px; /* Accessibilité */
+  min-height: 44px;
 }
 
 .btn-primary {
   background-color: var(--color-accent);
   color: var(--color-white);
-  border: 3px solid var(--color-accent);
-  font-weight: 700; /* Bold avec Inter */
+  border-color: var(--color-accent);
   text-shadow: var(--text-shadow-sm);
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-dark);
-  border: 3px solid var(--color-accent-dark);
-  color: var(--color-white);
+  border-color: var(--color-accent-dark);
   text-shadow: var(--text-shadow-md);
 }
 
@@ -948,9 +937,8 @@ html {
 }
 
 .btn-primary:disabled {
-  background-color: var(--color-text-muted);
-  border: 3px solid var(--color-text-muted);
-  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -959,24 +947,6 @@ html {
   background-color: transparent;
   color: var(--color-white);
   border: 4px solid var(--color-white);
-  font-weight: var(--font-weight-bold);
-  text-shadow: var(--text-shadow-sm);
-}
-
-/* Style spécifique pour les boutons secondaires dans les sections avec fond sombre */
-.screenshot-section .btn-secondary {
-  background-color: var(--color-bg-primary);
-  opacity: 0.1;
-  color: var(--color-primary);
-  text-shadow: var(--text-shadow-md);
-  backdrop-filter: blur(10px);
-}
-
-/* Style pour les boutons secondaires dans la section CTA (fond sombre) */
-.cta-section .btn-secondary,
-.cta-actions .btn-secondary {
-  background-color: transparent;
-  color: var(--color-white);
   text-shadow: var(--text-shadow-sm);
 }
 
@@ -985,7 +955,6 @@ html {
   opacity: 0.9;
   color: var(--color-primary);
   text-shadow: none;
-  border: 4px solid var(--color-white);
 }
 
 .btn-secondary:focus {
@@ -1004,8 +973,8 @@ html {
 
 .btn-secondary:disabled {
   background-color: transparent;
-  color: var(--color-text-muted);
-  border: 4px solid var(--color-text-muted);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -1059,7 +1028,7 @@ section {
 }
 
 .section-description {
-  color: var(--color-text-muted);
+  color: var(--color-primary);
   font-size: var(--font-size-lg);
   margin-top: var(--spacing-md);
   max-width: 65ch; /* Mesure optimale pour les descriptions de section */
@@ -1243,7 +1212,7 @@ section {
   min-width: 80px;
 }
 
-/* Style uniforme pour toutes les cartes */
+/* Cartes unifiées */
 .livrable-card, .resource-card, .consigne-card, .quick-start-card {
   background: var(--color-white);
   padding: var(--spacing-xl);
@@ -1296,44 +1265,21 @@ section {
   margin-right: var(--spacing-md);
 }
 
-/* Styles pour les listes dans les cartes de ressources */
-.resource-card ul {
+/* Listes dans les cartes - styles unifiés */
+.resource-card ul, .consigne-card ul {
   margin-left: 0;
   padding-left: 0;
   list-style: none;
 }
 
-.resource-card li {
+.resource-card li, .consigne-card li {
   margin-bottom: var(--spacing-sm);
   position: relative;
   padding-left: 20px;
   list-style: none;
 }
 
-.resource-card li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
-  margin-right: var(--spacing-md);
-}
-
-/* Styles pour les listes dans les cartes de consignes */
-.consigne-card ul {
-  margin-left: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.consigne-card li {
-  margin-bottom: var(--spacing-sm);
-  position: relative;
-  padding-left: 20px;
-  list-style: none;
-}
-
-.consigne-card li::before {
+.resource-card li::before, .consigne-card li::before {
   content: "•";
   position: absolute;
   left: 0;
@@ -2034,21 +1980,17 @@ section {
 }
 
 .eval-item p {
-  color: var(--color-text-muted);
+  color: var(--color-primary);
   font-size: var(--font-size-sm);
   margin: 0;
 }
 
 /* ========================================
-   TRANSITIONS ESSENTIELLES
+   TRANSITIONS UNIFIÉES
    ======================================== */
 
-/* Transitions unifiées */
-.btn {
-  transition: all var(--transition-fast);
-}
-
-.livrable-card, .resource-card, .consigne-card, .quick-start-card {
+/* Transitions pour tous les éléments interactifs */
+.btn, .livrable-card, .resource-card, .consigne-card, .quick-start-card {
   transition: all var(--transition-normal);
 }
 
@@ -2236,12 +2178,12 @@ section {
 }
 
 .priority.essentiel {
-  background: var(--color-error);
+  background: var(--color-accent);
   color: var(--color-white);
 }
 
 .priority.recommande {
-  background: var(--color-warning);
+  background: var(--color-accent);
   color: var(--color-white);
   font-weight: var(--font-weight-bold);
   text-shadow: var(--text-shadow-md);
