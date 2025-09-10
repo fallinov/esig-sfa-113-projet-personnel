@@ -31,33 +31,7 @@
     color: var(--color-primary);
 }
 
-.icon-success {
-    color: var(--color-success);
-}
-
-.icon-warning {
-    color: var(--color-warning);
-}
-
-.icon-danger {
-    color: var(--color-error);
-}
-
-.icon-info {
-    color: var(--color-secondary);
-}
-
-.icon-muted {
-    color: var(--color-gray-600);
-}
-
-.icon-light {
-    color: var(--color-gray-100);
-}
-
-.icon-dark {
-    color: var(--color-gray-900);
-}
+/* Couleurs détaillées inutilisées retirées pour simplification */
 
 /* Icônes dans les cartes - Style moderne */
 .card-icon .icon {

@@ -53,24 +53,61 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
         <h1 id="hero-title" class="hero-title">
-          Transformez votre apprentissage en <span class="highlight">création concrète</span>
+          Projet personnel <span class="highlight">HTML5 + CSS3</span>
         </h1>
         <p class="hero-description">
-          Créez votre <strong>propre site web</strong> en développant votre autonomie d'apprentissage.
+          Module 113 - Développement web front-end
         </p>
-        <ul class="hero-benefits">
-          <li>Compétence essentielle pour tout informaticien</li>
-          <li>Approche pédagogique innovante et pratique</li>
-          <li>Projet concret et valorisant</li>
-        </ul>
+        
+        <div class="project-info-grid">
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="award" class="icon icon-lg"></i>
+            </div>
+            <div class="info-content">
+              <h3>Évaluation</h3>
+              <p><strong>20 pts</strong> projet · <strong>20 pts</strong> écrit</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="clock" class="icon icon-lg"></i>
+            </div>
+            <div class="info-content">
+              <h3>Durée</h3>
+              <p><strong>9 semaines</strong></p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="calendar-check" class="icon icon-lg"></i>
+            </div>
+            <div class="info-content">
+              <h3>Suivi</h3>
+              <p><strong>Toutes les 2 semaines</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-tasks">
+          <h3>Ce que tu dois faire :</h3>
+          <ul class="task-list">
+            <li><i data-lucide="check" class="icon icon-sm"></i> Construire et publier un site en <strong>HTML5 + CSS3</strong></li>
+            <li><i data-lucide="check" class="icon icon-sm"></i> Versionner et publier via <strong>GitHub</strong> (GitHub Pages)</li>
+            <li><i data-lucide="check" class="icon icon-sm"></i> Tenir un <strong>README.md</strong> réflexif</li>
+          </ul>
+        </div>
+
         <div class="hero-actions">
-          <a href="#objectif" class="btn btn-primary">
-            <i data-lucide="rocket" class="icon icon-sm"></i>
-            Commencer le projet
+          <a href="#exigences" class="btn btn-primary">
+            <i data-lucide="check-circle" class="icon icon-sm"></i>
+            Voir les exigences
           </a>
-          <a href="#ressources" class="btn btn-secondary">
-            <i data-lucide="book-open" class="icon icon-sm"></i>
-            Voir les ressources
+          <a href="#jalons" class="btn btn-secondary">
+            <i data-lucide="calendar" class="icon icon-sm"></i>
+            Planning des jalons
           </a>
         </div>
       </div>
@@ -127,21 +164,6 @@
         </div>
       </div>
       
-      <div class="kpi">
-        <div class="box"><div class="muted">Évaluation</div><div><strong>20 pts</strong> projet · <strong>20 pts</strong> écrit</div></div>
-        <div class="box"><div class="muted">Durée</div><div><strong>9 semaines</strong></div></div>
-        <div class="box"><div class="muted">Suivi</div><div>Toutes les <strong>2 semaines</strong></div></div>
-      </div>
-      
-      <h3>Ce que tu dois faire</h3>
-      <ul>
-        <li>Construire et publier un site en <span class="mono">HTML5</span> + <span class="mono">CSS3</span>.</li>
-        <li>Versionner et publier via <strong>GitHub</strong> (<span class="mono">GitHub Pages</span>).</li>
-        <li>Tenir un <strong>README.md</strong> réflexif.</li>
-      </ul>
-      <div class="chips" aria-label="Thèmes">
-        <span class="chip">HTML sémantique</span><span class="chip">CSS variables</span><span class="chip">Responsive</span><span class="chip">Accessibilité</span><span class="chip">Performance</span><span class="chip">Git/GitHub</span>
-      </div>
     </section>
 
     <!-- Section À rendre -->
@@ -635,6 +657,36 @@
       window.addEventListener('resize', handleMobile);
       handleMobile(); // Appel initial
       
+      // Détection de section active pour le menu vertical
+      function updateActiveSection() {
+        const sections = document.querySelectorAll('section[id]');
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop; // pas d'offset
+          const sectionHeight = section.offsetHeight;
+          const scrollTop = window.pageYOffset;
+          
+          if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        // Mettre à jour les liens actifs
+        sidebarLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      // Écouter le scroll pour mettre à jour la section active
+      window.addEventListener('scroll', updateActiveSection);
+      
+      // Mettre à jour au chargement
+      updateActiveSection();
+      
       // Initialisation de l'icône au chargement
       setTimeout(() => {
         sidebarToggleLink.innerHTML = '<i data-lucide="chevron-left"></i> <span class="link-text">Réduire</span>';
@@ -648,6 +700,21 @@
       const sidebarLinks = document.querySelectorAll('.sidebar-link:not(.sidebar-toggle-link)');
       sidebarLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            // Calculer l'offset pour aligner le haut de la section
+            const offsetTop = targetSection.offsetTop; // pas d'offset
+            
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+          
           // Sur mobile, fermer le menu après clic
           if (window.innerWidth <= 768) {
             sidebarNav.classList.remove('open');
