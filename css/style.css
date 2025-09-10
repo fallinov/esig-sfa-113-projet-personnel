@@ -344,6 +344,20 @@ a {
   text-decoration: none;
 }
 
+/* Liens dans les cartes de la section outils */
+.card ul li a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-light);
+  transition: all var(--transition-fast);
+}
+
+.card ul li a:hover {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
+  text-decoration-thickness: 2px;
+}
+
 a:hover {
   color: var(--color-primary-dark);
   text-decoration: none;
