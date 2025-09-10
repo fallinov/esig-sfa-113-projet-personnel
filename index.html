@@ -5,49 +5,50 @@
   <title>Projet personnel – Module 113</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Référence apprenants : objectifs, consignes, jalons, outils, checklist et ressources pour le projet personnel HTML/CSS.">
-  <link rel="stylesheet" href="public/css/normalize.css">
-  <link rel="stylesheet" href="public/css/style.css">
-  <link rel="stylesheet" href="public/css/icons.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/icons.css">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <header class="header" aria-label="Navigation principale">
-    <div class="container">
-      <div class="header-content">
-        <div class="header-left">
-          <a href="/" class="logo-link">
-            <img src="public/img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
-            <div class="logo-text">
-              <h1 class="logo-title">Projet personnel – Module 113</h1>
-              <p class="logo-subtitle">CEJEF / ESIG</p>
-            </div>
-          </a>
-          <button class="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </button>
+
+  <!-- Bouton menu mobile -->
+  <button class="mobile-menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <!-- Menu vertical sticky -->
+  <nav class="sidebar-nav" aria-label="Navigation des sections">
+    <div class="sidebar-logo">
+      <a href="/" class="logo-link">
+        <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
+        <div class="logo-text">
+          <h1 class="logo-title">Projet personnel</h1>
+          <p class="logo-subtitle">ESIG - Module 113</p>
         </div>
-        <nav class="main-nav" aria-label="Sections">
-          <ul class="nav-menu">
-            <li><a href="#objectif" class="nav-link">Objectifs</a></li>
-            <li><a href="#modele-readme" class="nav-link">README</a></li>
-            <li><a href="#a-rendre" class="nav-link">À rendre</a></li>
-            <li><a href="#exigences" class="nav-link">Exigences</a></li>
-            <li><a href="#jalons" class="nav-link">Jalons</a></li>
-            <li><a href="#outils" class="nav-link">Outils</a></li>
-            <li><a href="#validation" class="nav-link">Validation</a></li>
-            <li><a href="#ressources" class="nav-link">Ressources</a></li>
-            <li><a href="#support" class="nav-link">Support</a></li>
-            <li><a href="#ia" class="nav-link">IA</a></li>
-            <li><a href="#checklist" class="nav-link">Checklist</a></li>
-            <li><a href="#faq" class="nav-link">FAQ</a></li>
-          </ul>
-        </nav>
-      </div>
+      </a>
     </div>
-  </header>
+    <div class="sidebar-header">
+      <h2 class="sidebar-title">Navigation</h2>
+      <button class="sidebar-close" aria-label="Fermer le menu">×</button>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="#objectif" class="sidebar-link" data-section="objectif"><i data-lucide="target"></i> Objectifs</a></li>
+      <li><a href="#a-rendre" class="sidebar-link" data-section="a-rendre"><i data-lucide="clipboard-list"></i> À rendre</a></li>
+      <li><a href="#exigences" class="sidebar-link" data-section="exigences"><i data-lucide="check-circle"></i> Exigences</a></li>
+      <li><a href="#jalons" class="sidebar-link" data-section="jalons"><i data-lucide="calendar"></i> Jalons</a></li>
+      <li><a href="#outils" class="sidebar-link" data-section="outils"><i data-lucide="wrench"></i> Outils</a></li>
+      <li><a href="#validation" class="sidebar-link" data-section="validation"><i data-lucide="search"></i> Validation</a></li>
+      <li><a href="#ressources" class="sidebar-link" data-section="ressources"><i data-lucide="book"></i> Ressources</a></li>
+      <li><a href="#support" class="sidebar-link" data-section="support"><i data-lucide="message-circle"></i> Support</a></li>
+      <li><a href="#ia" class="sidebar-link" data-section="ia"><i data-lucide="bot"></i> IA</a></li>
+      <li><a href="#checklist" class="sidebar-link" data-section="checklist"><i data-lucide="check-square"></i> Checklist</a></li>
+      <li><a href="#faq" class="sidebar-link" data-section="faq"><i data-lucide="help-circle"></i> FAQ</a></li>
+    </ul>
+  </nav>
 
   <main id="contenu" class="container">
     <!-- Hero Section -->
@@ -66,13 +67,19 @@
             <li>Projet concret et valorisant</li>
           </ul>
           <div class="hero-actions">
-            <a href="#consignes" class="btn btn-primary">🚀 Commencer le projet</a>
-            <a href="#ressources" class="btn btn-secondary">📚 Voir les ressources</a>
+            <a href="#consignes" class="btn btn-primary">
+              <i data-lucide="rocket" class="icon icon-sm"></i>
+              Commencer le projet
+            </a>
+            <a href="#ressources" class="btn btn-secondary">
+              <i data-lucide="book-open" class="icon icon-sm"></i>
+              Voir les ressources
+            </a>
           </div>
         </div>
         
         <div class="hero-image">
-          <img src="public/img/formateur-devant-tableau.png" 
+          <img src="img/formateur-devant-tableau.png" 
                alt="Formateur professionnel expliquant les concepts de développement web devant un tableau blanc" 
                class="hero-illustration"
                loading="lazy"
@@ -83,57 +90,46 @@
       </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission" aria-labelledby="mission-title">
-      <div class="container">
-        <h2 id="mission-title" class="section-title">🎯 Notre révolution pédagogique</h2>
-        <div class="mission-grid">
-          <div class="livrable-card">
-            <div class="livrable-icon">🔄</div>
-            <h3>Problème identifié</h3>
-            <p>L'enseignement traditionnel ex-cathedra ne développe pas suffisamment l'autonomie des futurs informaticiens.</p>
-          </div>
-          <div class="livrable-card">
-            <div class="livrable-icon">💡</div>
-            <h3>Notre solution</h3>
-            <p>Pédagogie par projet personnel où vous apprenez en construisant votre propre site web.</p>
-          </div>
-          <div class="livrable-card">
-            <div class="livrable-icon">🎯</div>
-            <h3>Objectif principal</h3>
-            <p>Transformer nos étudiants en apprenants autonomes capables de se former continuellement.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Objectifs Section -->
     <section class="objectifs" aria-labelledby="objectifs-title">
       <div class="container">
-        <h2 id="objectifs-title" class="section-title">🎓 Objectifs d'apprentissage</h2>
+        <h2 id="objectifs-title" class="section-title">
+          <i data-lucide="graduation-cap" class="icon icon-lg"></i>
+          Objectifs d'apprentissage
+        </h2>
         <div class="objectifs-grid">
           <div class="livrable-card">
-            <div class="livrable-icon">🎓</div>
+            <div class="livrable-icon">
+              <i data-lucide="graduation-cap" class="icon icon-xl"></i>
+            </div>
             <h3>Autonomie d'apprentissage</h3>
             <p>Capacité à chercher, sélectionner et assimiler de nouvelles connaissances</p>
           </div>
           <div class="livrable-card">
-            <div class="livrable-icon">🎨</div>
+            <div class="livrable-icon">
+              <i data-lucide="palette" class="icon icon-xl"></i>
+            </div>
             <h3>Créativité technique</h3>
             <p>Liberté d'expression dans le respect des contraintes techniques</p>
           </div>
           <div class="livrable-card">
-            <div class="livrable-icon">⚙️</div>
+            <div class="livrable-icon">
+              <i data-lucide="settings" class="icon icon-xl"></i>
+            </div>
             <h3>Maîtrise pratique</h3>
             <p>HTML5, CSS3, Git/GitHub, responsive design</p>
           </div>
           <div class="livrable-card">
-            <div class="livrable-icon">🧠</div>
+            <div class="livrable-icon">
+              <i data-lucide="brain" class="icon icon-xl"></i>
+            </div>
             <h3>Compréhension profonde</h3>
             <p>100% du code produit doit être compris (y compris si généré par IA)</p>
           </div>
           <div class="livrable-card">
-            <div class="livrable-icon">💼</div>
+            <div class="livrable-icon">
+              <i data-lucide="briefcase" class="icon icon-xl"></i>
+            </div>
             <h3>Méthodes professionnelles</h3>
             <p>Utilisation d'IDE (WebStorm), versioning, publication</p>
           </div>
@@ -159,48 +155,14 @@
       </div>
     </section>
 
-    <!-- Livrables Section -->
-    <section class="livrables" aria-labelledby="livrables-title">
-      <div class="container">
-        <h2 id="livrables-title" class="section-title">📦 Livrables attendus</h2>
-        <div class="livrables-grid">
-          <div class="livrable-card">
-            <div class="livrable-icon">🌐</div>
-            <h3>Site web fonctionnel</h3>
-            <ul>
-              <li>Publication via GitHub Pages</li>
-              <li>Structure GitHub organisée</li>
-              <li>Code HTML5 et CSS3 validé W3C</li>
-            </ul>
-          </div>
-          <div class="livrable-card">
-            <div class="livrable-icon">📝</div>
-            <h3>Portfolio réflexif</h3>
-            <ul>
-              <li>README.md documentant votre parcours</li>
-              <li>Réflexion sur l'apprentissage</li>
-              <li>Transparence sur l'usage d'IA</li>
-            </ul>
-          </div>
-          <div class="livrable-card">
-            <div class="livrable-icon">📁</div>
-            <h3>Organisation GitHub</h3>
-            <ul>
-              <li>Commits réguliers et organisés</li>
-              <li>Branches utilisées</li>
-              <li>Historique de développement</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section id="modele-readme" class="card">
       <h2>README de base</h2>
       <p>Télécharge et utilise ce modèle comme point de départ pour ton <span class="mono">README.md</span>.</p>
       <p>
         <a class="btn" target="_blank" href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
-          📥 Télécharger le README de base
+          <i data-lucide="download" class="icon icon-sm"></i>
+          Télécharger le README de base
         </a>
       </p>
     </section>
@@ -230,33 +192,6 @@
           <li>Bilan, difficultés, améliorations.</li>
           <li>Transparence sur l'usage d'IA.</li>
         </ul>
-        <article class="card" style="margin-top:1rem">
-          <h3>README – structure attendue</h3>
-          <ul>
-            <li><strong>Concept</strong> : thème, public, objectifs.</li>
-            <li><strong>Fonctionnalités</strong> : navigation, sections, contenus.</li>
-            <li><strong>Aperçu</strong> : capture dans <span class="mono">img/screenshot.png</span>.</li>
-            <li><strong>Ressources</strong> : cours, docs, vidéos (liens).</li>
-            <li><strong>Progression</strong> : jalons semaine par semaine.</li>
-            <li><strong>Outils</strong> : IDE, navigateurs, Git, validateurs.</li>
-            <li><strong>Design</strong> :
-              <ul>
-                <li><em>Palette</em> : 3–5 couleurs avec hex + lien générateur.</li>
-                <li><em>Typographies</em> : fichiers dans <span class="mono">/fonts</span>, déclaration <span class="mono">@font-face</span>, fallbacks.</li>
-              </ul>
-            </li>
-            <li><strong>Tests & validations</strong> :
-              <ul>
-                <li>HTML/CSS W3C : résultats.</li>
-                <li>PageSpeed mobile/bureau : <span class="mono">Perf/Accessibilité/Best Practices/SEO</span> /100.</li>
-                <li>Accessibilité : points WAVE corrigés.</li>
-                <li>Compatibilité : navigateurs + versions; appareils testés.</li>
-              </ul>
-            </li>
-            <li><strong>Transparence IA</strong> : outil, version, domaines d'aide (%), explications.</li>
-            <li><strong>Bilan</strong> : acquis, difficultés/solutions, améliorations.</li>
-          </ul>
-        </article>
       </article>
     </section>
 
@@ -297,55 +232,6 @@
       </article>
     </section>
 
-    <!-- Évaluation Section -->
-    <section class="evaluation" aria-labelledby="evaluation-title">
-      <div class="container">
-        <h2 id="evaluation-title" class="section-title">📊 Grille d'évaluation (20 points)</h2>
-        <div class="evaluation-table-wrapper">
-          <table class="evaluation-table" role="table" aria-labelledby="evaluation-title">
-            <thead>
-              <tr>
-                <th scope="col">Critère</th>
-                <th scope="col">Points</th>
-                <th scope="col">Détail</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Code HTML/CSS</strong></td>
-                <td class="points">4 pts</td>
-                <td>Validité W3C, propreté, sémantique, commentaires</td>
-              </tr>
-              <tr>
-                <td><strong>Design responsive</strong></td>
-                <td class="points">4 pts</td>
-                <td>Mobile-first, breakpoints, navigation adaptée</td>
-              </tr>
-              <tr>
-                <td><strong>Contenu et design</strong></td>
-                <td class="points">3 pts</td>
-                <td>Cohérence, originalité, qualité visuelle</td>
-              </tr>
-              <tr>
-                <td><strong>Git/GitHub</strong></td>
-                <td class="points">3 pts</td>
-                <td>Commits réguliers, messages clairs, organisation</td>
-              </tr>
-              <tr>
-                <td><strong>Notion avancée</strong></td>
-                <td class="points">2 pts</td>
-                <td>Flexbox/Grid/Animations bien maîtrisée</td>
-              </tr>
-              <tr>
-                <td><strong>Portfolio (README.md)</strong></td>
-                <td class="points">4 pts</td>
-                <td>Réflexion approfondie, transparence, qualité</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
 
     <section id="jalons" class="card">
       <h2>Planning et jalons</h2>
@@ -371,110 +257,6 @@
       </ul>
     </section>
 
-    <!-- Planning Section -->
-    <section class="planning" aria-labelledby="planning-title">
-      <div class="container">
-        <header class="section-header">
-          <h2 id="planning-title" class="section-title">🚀 Planning recommandé</h2>
-          <p class="section-description">
-            Un parcours structuré en 6 étapes pour réussir votre projet personnel
-          </p>
-        </header>
-        
-        <div class="timeline" role="list" aria-label="Planning du projet personnel">
-          <article class="timeline-item" role="listitem">
-            <div class="timeline-content">
-              <header class="timeline-header">
-                <time class="timeline-date" datetime="2024-09-03/2024-09-10">3-10 septembre</time>
-                <h3>Préparation & Choix du thème</h3>
-              </header>
-              <ul class="timeline-tasks">
-                <li><span class="emoji" aria-hidden="true">🎯</span>Auto-formation : Commencer l'apprentissage des bases HTML/CSS</li>
-                <li><span class="emoji" aria-hidden="true">💡</span>Réflexion sur le thème : Explorer vos passions, hobbies, projets</li>
-                <li><span class="emoji" aria-hidden="true">🛠️</span>Configurer votre environnement (GitHub + WebStorm)</li>
-                <li><span class="emoji" aria-hidden="true">✅</span>Choix définitif du thème (deadline : 10 septembre)</li>
-              </ul>
-            </div>
-          </article>
-          
-          <article class="timeline-item" role="listitem">
-            <div class="timeline-content">
-              <header class="timeline-header">
-                <time class="timeline-date" datetime="2024-09-11/2024-10-01">11 septembre - 1er octobre</time>
-                <h3>Formation & Développement HTML</h3>
-              </header>
-              <ul class="timeline-tasks">
-                <li><span class="emoji" aria-hidden="true">📚</span>Formation intensive HTML5 + Git/GitHub</li>
-                <li><span class="emoji" aria-hidden="true">🏗️</span>Développer le HTML de base (structure sémantique)</li>
-                <li><span class="emoji" aria-hidden="true">🔗</span>Créer la navigation (si multi-pages) ou les sections (si page unique)</li>
-                <li><span class="emoji" aria-hidden="true">📝</span>Intégrer le contenu réel</li>
-                <li><span class="emoji" aria-hidden="true">✅</span>Valider le HTML (W3C Validator)</li>
-              </ul>
-            </div>
-          </article>
-          
-          <article class="timeline-item" role="listitem">
-            <div class="timeline-content">
-              <header class="timeline-header">
-                <time class="timeline-date" datetime="2024-10-02/2024-11-19">2 octobre - 19 novembre</time>
-                <h3>Formation CSS & Stylisation</h3>
-              </header>
-              <ul class="timeline-tasks">
-                <li><span class="emoji" aria-hidden="true">📚</span>Formation CSS3 + responsive design</li>
-                <li><span class="emoji" aria-hidden="true">🎨</span>Appliquer le CSS fondamental</li>
-                <li><span class="emoji" aria-hidden="true">📱</span>Implémenter le responsive design</li>
-                <li><span class="emoji" aria-hidden="true">⚡</span>Apprendre et intégrer votre notion avancée choisie (Flexbox/Grid/Animations...)</li>
-                <li><span class="emoji" aria-hidden="true">🎯</span>Peaufiner le design</li>
-              </ul>
-            </div>
-          </article>
-          
-          <article class="timeline-item" role="listitem">
-            <div class="timeline-content">
-              <header class="timeline-header">
-                <time class="timeline-date" datetime="2024-11-20/2025-01-07">20 novembre - 7 janvier</time>
-                <h3>Finalisation & Perfectionnement</h3>
-              </header>
-              <ul class="timeline-tasks">
-                <li><span class="emoji" aria-hidden="true">🧪</span>Tests sur différents appareils/navigateurs</li>
-                <li><span class="emoji" aria-hidden="true">🔧</span>Corrections et optimisations</li>
-                <li><span class="emoji" aria-hidden="true">📝</span>Rédaction du README complet (bilan de formation)</li>
-                <li><span class="emoji" aria-hidden="true">🚀</span>Publication finale sur GitHub Pages</li>
-                <li><span class="emoji" aria-hidden="true">🎤</span>Préparation de la présentation pour le 7 janvier</li>
-              </ul>
-            </div>
-          </article>
-          
-          <article class="timeline-item" role="listitem">
-            <div class="timeline-content">
-              <header class="timeline-header">
-                <time class="timeline-date" datetime="2025-01-07/2025-01-09">7-9 janvier</time>
-                <h3>Présentation & Rendu final</h3>
-              </header>
-              <ul class="timeline-tasks">
-                <li><span class="emoji" aria-hidden="true">🎤</span>Présentation du site à la classe (7 janvier 2026)</li>
-                <li><span class="emoji" aria-hidden="true">🔧</span>Derniers ajustements suite aux retours</li>
-                <li><span class="emoji" aria-hidden="true">⏰</span>RENDU FINAL : 9 janvier 2026 à 22h00</li>
-              </ul>
-            </div>
-          </article>
-          
-          <article class="timeline-item" role="listitem">
-            <div class="timeline-content">
-              <header class="timeline-header">
-                <time class="timeline-date" datetime="2025-01-09">après le 9 janvier</time>
-                <h3>Évaluation</h3>
-              </header>
-              <ul class="timeline-tasks">
-                <li><span class="emoji" aria-hidden="true">📋</span>Correction par le formateur</li>
-                <li><span class="emoji" aria-hidden="true">💬</span>Feedback individualisé</li>
-                <li><span class="emoji" aria-hidden="true">🏆</span>Attribution des notes finales</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <section id="outils" class="grid cols-2">
       <article class="card">
@@ -633,27 +415,6 @@
       </article>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" aria-labelledby="cta-title">
-      <div class="container">
-        <h2 id="cta-title" class="cta-title">🚀 Prêt à révolutionner votre apprentissage ?</h2>
-        <p class="cta-description">
-          Développez les compétences qui feront de vous un informaticien autonome et créatif.
-        </p>
-        <ul class="cta-benefits">
-          <li>Approche pédagogique innovante et pratique</li>
-          <li>Projet concret valorisant vos compétences</li>
-        </ul>
-        <div class="cta-actions">
-          <a href="#consignes" class="btn btn-primary btn-large">📋 Lire les consignes complètes</a>
-          <a href="#ressources" class="btn btn-secondary">📚 Découvrir les ressources</a>
-        </div>
-        <div class="deadline-info">
-          <p><strong>⏰ Deadline finale : 9 janvier 2026 à 22h</strong></p>
-          <p>Commencez dès maintenant pour maximiser vos chances de réussite !</p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
@@ -670,7 +431,7 @@
             <li><a href="#objectif">Objectifs</a></li>
             <li><a href="#a-rendre">À rendre</a></li>
             <li><a href="#jalons">Jalons</a></li>
-            <li><a href="#ressources">Ressources</a></li>
+            <li><a href="#checklist">Checklist</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -685,8 +446,63 @@
     </div>
   </footer>
 
-  <script src="public/js/dropdown-menu.js"></script>
+  <script src="js/lucide.js"></script>
   <script>
+    // Initialiser les icônes Lucide
+    lucide.createIcons();
+    
+    // Détection de section active pour le menu vertical
+    (function() {
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      const sections = document.querySelectorAll('section[id]');
+      
+      function updateActiveSection() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          const scrollTop = window.pageYOffset;
+          
+          if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        // Mettre à jour les liens actifs
+        sidebarLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === currentSection) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      // Écouter le scroll
+      window.addEventListener('scroll', updateActiveSection);
+      
+      // Mettre à jour au chargement
+      updateActiveSection();
+      
+      // Gestion des clics sur les liens
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    })();
+    
+    // Checklist progress
     (function(){
       const boxes=[...document.querySelectorAll('#checklist input[type="checkbox"]')];
       const bar=document.getElementById('bar');
@@ -700,6 +516,53 @@
       }
       boxes.forEach(b=>b.addEventListener('change',update));
       update();
+    })();
+    
+    // Gestion du menu mobile
+    (function() {
+      const mobileToggle = document.querySelector('.mobile-menu-toggle');
+      const sidebarNav = document.querySelector('.sidebar-nav');
+      const sidebarClose = document.querySelector('.sidebar-close');
+      
+      if (!mobileToggle || !sidebarNav) return;
+      
+      // Ouvrir le menu
+      mobileToggle.addEventListener('click', function() {
+        sidebarNav.classList.add('open');
+        mobileToggle.classList.add('active');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+      });
+      
+      // Fermer le menu
+      function closeMenu() {
+        sidebarNav.classList.remove('open');
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+      
+      if (sidebarClose) {
+        sidebarClose.addEventListener('click', closeMenu);
+      }
+      
+      // Fermer le menu en cliquant sur un lien
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            closeMenu();
+          }
+        });
+      });
+      
+      // Fermer le menu en cliquant à l'extérieur
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            !sidebarNav.contains(e.target) && 
+            !mobileToggle.contains(e.target) &&
+            sidebarNav.classList.contains('open')) {
+          closeMenu();
+        }
+      });
     })();
   </script>
 </body>
