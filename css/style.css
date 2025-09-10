@@ -142,6 +142,27 @@ ul, ol {
   margin: 0;
 }
 
+/* Icône code par défaut pour toutes les listes ul (sauf exclusions spécifiques) */
+ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.sidebar-menu):not(.task-list):not(.checklist-items) li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.sidebar-menu):not(.task-list):not(.checklist-items) li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rocket-bounce 2s ease-in-out infinite;
+}
+
 /* Interdiction de l'alignement justifié pour le texte */
 *[style*="text-align: justify"],
 .text-justify,
@@ -163,17 +184,56 @@ p, div, span, article, section, main, aside, header, footer, nav, h1, h2, h3, h4
   text-align: right;
 }
 
-/* Ajout des puces uniquement pour les listes de contenu (pas navigation/menus/cartes) */
-ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list) {
-  list-style: disc;
+/* Ajout des icônes globe pour les listes de contenu (pas navigation/menus/cartes) */
+ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.checklist-items):not(.card ul) {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--spacing-sm) 0;
+}
+
+ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.checklist-items):not(.card ul) li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.checklist-items):not(.card ul) li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rocket-bounce 2s ease-in-out infinite;
+}
+
+ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.card ol) {
+  list-style: decimal;
   padding-left: var(--spacing-lg);
   margin: var(--spacing-sm) 0;
 }
 
-ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list) {
-  list-style: decimal;
-  padding-left: var(--spacing-lg);
-  margin: var(--spacing-sm) 0;
+ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.card ol) li {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.card ol) li::after {
+  content: "";
+  position: absolute;
+  right: -1.5em;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
 /* Espacement des éléments de liste */
@@ -356,6 +416,90 @@ a {
   color: var(--color-secondary);
   text-decoration-color: var(--color-secondary);
   text-decoration-thickness: 2px;
+}
+
+/* Icônes des cartes */
+.card-icon {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.card-icon .icon {
+  color: var(--color-primary);
+}
+
+/* Dates des phases */
+.phase-dates {
+  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  padding: var(--spacing-sm);
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--color-accent);
+}
+
+/* Styles pour les listes dans les cartes */
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.card ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rocket-bounce 2s ease-in-out infinite;
+}
+
+@keyframes rocket-bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+.card ul li a {
+  text-decoration: underline;
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+.card ul li a:hover {
+  color: var(--color-accent);
+}
+
+/* Éléments recommandés avec icône étoile */
+.card ul li.recommended {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.card ul li.recommended::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* Styles pour les tableaux */
@@ -1277,6 +1421,26 @@ section {
   list-style: none;
 }
 
+.livrable-card ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.livrable-card ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rocket-bounce 2s ease-in-out infinite;
+}
+
 .livrable-card li {
   margin-bottom: var(--spacing-sm);
   position: relative;
@@ -1298,6 +1462,26 @@ section {
   margin-left: 0;
   padding-left: 0;
   list-style: none;
+}
+
+.resource-card ul li, .consigne-card ul li, article ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.resource-card ul li::before, .consigne-card ul li::before, article ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
 .resource-card li, .consigne-card li, article li {
@@ -1549,11 +1733,11 @@ section {
 /* Checklist interactive (supprimée car doublon avec la section CHECKLIST PROFESSIONNELLE) */
 
 .grid.cols-2 {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .grid.cols-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   align-items: start; /* Permet aux articles de s'ajuster à leur contenu */
 }
 
@@ -1619,9 +1803,17 @@ section {
 /* Container principal de la checklist */
 .checklist-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
+  max-width: 100%;
+}
+
+/* Limiter à 2 colonnes maximum sur grands écrans */
+@media (min-width: 1200px) {
+  .checklist-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Catégorie de la checklist */
@@ -1822,7 +2014,7 @@ details[open] summary {
 /* Responsive pour les grilles */
 @media (max-width: 1200px) {
   .grid.cols-3 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
   
   .grid.cols-4 {
