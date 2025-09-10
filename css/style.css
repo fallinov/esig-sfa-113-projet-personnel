@@ -1545,29 +1545,6 @@ section {
   gap: var(--spacing-lg);
 }
 
-/* FAQ */
-.faq-item {
-  margin-bottom: var(--spacing-lg);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border-light);
-}
-
-.faq-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.faq-item h4 {
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-lg);
-}
-
-.faq-item p {
-  margin: 0;
-  color: var(--color-text-light);
-}
 
 /* Checklist interactive (supprimée car doublon avec la section CHECKLIST PROFESSIONNELLE) */
 
