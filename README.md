@@ -115,19 +115,16 @@ Créer un nouveau fichier `.astro` dans `src/pages/`
 ## 🚀 Déploiement
 
 ### GitHub Pages
-Le site est configuré pour se déployer automatiquement sur GitHub Pages via GitHub Actions.
+Déploiement automatique sur GitHub Pages via GitHub Actions.
 
-**Configuration :**
-- Fichier de workflow : `.github/workflows/deploy.yml`
-- Configuration production : `astro.config.prod.mjs`
+**Configuration simplifiée :**
+- Workflow : `.github/workflows/deploy.yml` (optimisé et simplifié)
 - Base path : `/esig-sfa-113-projet-personnel/`
 
 ### Déploiement manuel
 ```bash
-# Build pour production
 npm run build:prod
-
-# Les fichiers sont dans le dossier dist/
+# Fichiers générés dans dist/
 ```
 
 ## ✅ Avantages obtenus

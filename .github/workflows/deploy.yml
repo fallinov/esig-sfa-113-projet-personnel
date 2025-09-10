@@ -1,64 +1,50 @@
-# Workflow de déploiement automatique sur GitHub Pages
-# Ce workflow se déclenche à chaque push sur la branche main
-# et construit le site Astro avec la configuration de production
 name: Deploy to GitHub Pages
 
-# Déclencheurs du workflow
 on:
   push:
-    branches: [ main ]  # Se déclenche sur chaque push vers main
-  workflow_dispatch:    # Permet de déclencher manuellement depuis l'interface GitHub
+    branches: [ main ]
+  workflow_dispatch:
 
-# Permissions nécessaires pour le déploiement
 permissions:
-  contents: read        # Lecture du code source
-  pages: write          # Écriture sur GitHub Pages
-  id-token: write       # Authentification OIDC pour GitHub Pages
+  contents: read
+  pages: write
+  id-token: write
 
-# Gestion de la concurrence pour éviter les déploiements simultanés
 concurrency:
-  group: "pages"        # Groupe de concurrence pour les pages
-  cancel-in-progress: false  # Ne pas annuler les déploiements en cours
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  # Job de construction du site
   build:
-    runs-on: ubuntu-latest  # Environnement Ubuntu pour la construction
+    runs-on: ubuntu-latest
     steps:
-      # Étape 1: Récupération du code source
-      - name: Checkout your repository using git
+      - name: Checkout
         uses: actions/checkout@v4
       
-      # Étape 2: Configuration de Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20    # Version Node.js 20 (LTS)
-          cache: 'npm'        # Cache des dépendances npm pour accélérer les builds
+          node-version: 20
+          cache: 'npm'
       
-      # Étape 3: Installation des dépendances
       - name: Install dependencies
-        run: npm ci           # Installation propre basée sur package-lock.json
+        run: npm ci
       
-      # Étape 4: Construction du site pour la production
-      - name: Build for production
-        run: npm run build:prod  # Utilise astro.config.prod.mjs avec le bon base path
+      - name: Build
+        run: npm run build:prod
       
-      # Étape 5: Upload de l'artifact pour le déploiement
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist        # Dossier de sortie du build Astro
+          path: ./dist
 
-  # Job de déploiement sur GitHub Pages
   deploy:
-    needs: build             # Attend que le job build soit terminé
-    runs-on: ubuntu-latest   # Environnement Ubuntu pour le déploiement
+    needs: build
+    runs-on: ubuntu-latest
     environment:
-      name: github-pages     # Environnement GitHub Pages (nécessite approbation)
-      url: ${{ steps.deployment.outputs.page_url }}  # URL de la page déployée
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Déploiement final sur GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment       # ID pour récupérer l'URL de déploiement
-        uses: actions/deploy-pages@v4  # Action officielle de déploiement GitHub Pages
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

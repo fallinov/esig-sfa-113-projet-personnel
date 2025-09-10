@@ -180,7 +180,14 @@
             <li>Images <strong>locales</strong> &lt; 1&nbsp;Mo dans <span class="mono">/img</span>.</li>
             <li>Dépôt <strong>propre</strong> et structuré.</li>
           </ul>
-          <p class="muted">Arborescence minimale : <span class="mono">index.html</span>, <span class="mono">css/</span>, <span class="mono">fonts/</span>, <span class="mono">img/</span>, <span class="mono">README.md</span>.</p>
+          <h4>Arborescence minimale :</p>
+          <ul>
+            <li><span class="mono">index.html</span></li>
+            <li><span class="mono">css/</span></li>
+            <li><span class="mono">fonts/</span></li>
+            <li><span class="mono">img/</span></li>
+            <li><span class="mono">README.md</span></li>
+          </ul>
         </article>
         <article class="card">
           <h3>Livrable 2 · README.md</h3>
@@ -194,20 +201,13 @@
             <li>Bilan, difficultés, améliorations.</li>
             <li>Transparence sur l'usage d'IA.</li>
           </ul>
-        </article>
-      </div>
-      
-      <div class="card">
-        <h3>Modèle de README</h3>
-        <p>Télécharge et utilise ce modèle comme point de départ pour ton <span class="mono">README.md</span>.</p>
-        <p>
-          <a class="btn" target="_blank" href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
+          <a class="btn btn-primary" target="_blank" href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
             <i data-lucide="download" class="icon icon-sm"></i>
             Télécharger le README de base
           </a>
-        </p>
+        </article>
       </div>
-    </section>
+      
 
 
     <!-- Section Exigences -->
@@ -559,45 +559,8 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Projet personnel</h3>
-          <p>Module 113 - ESIG Suisse</p>
-          <p>Développement web HTML/CSS</p>
-        </div>
-        <div class="footer-section">
-          <h3>Navigation</h3>
-          <ul>
-            <li><a href="#objectif">Objectifs</a></li>
-            <li><a href="#a-rendre">À rendre</a></li>
-            <li><a href="#exigences">Exigences</a></li>
-            <li><a href="#jalons">Jalons</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Ressources</h3>
-          <ul>
-            <li><a href="#outils">Outils</a></li>
-            <li><a href="#validation">Validation</a></li>
-            <li><a href="#ressources">Ressources</a></li>
-            <li><a href="#support">Support</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Aide</h3>
-          <ul>
-            <li><a href="#ia">IA</a></li>
-            <li><a href="#checklist">Checklist</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 ESIG Suisse - Module 113. Tous droits réservés.</p>
-      </div>
-    </div>
+  <footer class="mini-footer">
+    <p>&copy; 2024 ESIG Suisse - Module 113. Tous droits réservés.</p>
   </footer>
 
   <!-- Scripts -->
@@ -644,18 +607,21 @@
         });
       }
       
-      // Gestion mobile
+      // Gestion mobile - commencer en mode réduit sur mobile
       function handleMobile() {
         if (window.innerWidth <= 768) {
-          sidebarNav.classList.add('mobile');
+          sidebarNav.classList.add('collapsed'); // Commencer réduit sur mobile
         } else {
-          sidebarNav.classList.remove('mobile');
+          sidebarNav.classList.remove('collapsed'); // Mode normal sur desktop
         }
       }
       
       // Gestion du redimensionnement
       window.addEventListener('resize', handleMobile);
       handleMobile(); // Appel initial
+      
+      // Déclaration des liens de la sidebar (avant leur utilisation)
+      const sidebarLinks = document.querySelectorAll('.sidebar-link:not(.sidebar-toggle-link)');
       
       // Détection de section active pour le menu vertical
       function updateActiveSection() {
@@ -687,17 +653,27 @@
       // Mettre à jour au chargement
       updateActiveSection();
       
-      // Initialisation de l'icône au chargement
+      // Initialisation de l'icône au chargement - cohérente avec l'état de la sidebar
       setTimeout(() => {
-        sidebarToggleLink.innerHTML = '<i data-lucide="chevron-left"></i> <span class="link-text">Réduire</span>';
-        sidebarToggleLink.setAttribute('data-tooltip', 'Réduire le menu');
+        const isMobile = window.innerWidth <= 768;
+        const isCollapsed = sidebarNav.classList.contains('collapsed');
+        
+        if (isCollapsed) {
+          // Sidebar réduite : chevron à droite pour agrandir
+          sidebarToggleLink.innerHTML = '<i data-lucide="chevron-right"></i> <span class="link-text">Agrandir</span>';
+          sidebarToggleLink.setAttribute('data-tooltip', 'Agrandir le menu');
+        } else {
+          // Sidebar étendue : chevron à gauche pour réduire
+          sidebarToggleLink.innerHTML = '<i data-lucide="chevron-left"></i> <span class="link-text">Réduire</span>';
+          sidebarToggleLink.setAttribute('data-tooltip', 'Réduire le menu');
+        }
+        
         if (typeof lucide !== 'undefined') {
           lucide.createIcons();
         }
       }, 100);
       
       // Gestion des clics sur les liens (sauf le toggle)
-      const sidebarLinks = document.querySelectorAll('.sidebar-link:not(.sidebar-toggle-link)');
       sidebarLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
