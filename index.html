@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Projet personnel – Module 113</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Référence apprenants : objectifs, consignes, jalons, outils, checklist et ressources pour le projet personnel HTML/CSS.">
+  <link rel="stylesheet" href="public/css/normalize.css">
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/icons.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="header" aria-label="Navigation principale">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <a href="/" class="logo-link">
+            <img src="public/img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
+            <div class="logo-text">
+              <h1 class="logo-title">Projet personnel – Module 113</h1>
+              <p class="logo-subtitle">CEJEF / ESIG</p>
+            </div>
+          </a>
+          <button class="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+        <nav class="main-nav" aria-label="Sections">
+          <ul class="nav-menu">
+            <li><a href="#objectif" class="nav-link">Objectifs</a></li>
+            <li><a href="#modele-readme" class="nav-link">README</a></li>
+            <li><a href="#a-rendre" class="nav-link">À rendre</a></li>
+            <li><a href="#exigences" class="nav-link">Exigences</a></li>
+            <li><a href="#jalons" class="nav-link">Jalons</a></li>
+            <li><a href="#outils" class="nav-link">Outils</a></li>
+            <li><a href="#validation" class="nav-link">Validation</a></li>
+            <li><a href="#ressources" class="nav-link">Ressources</a></li>
+            <li><a href="#support" class="nav-link">Support</a></li>
+            <li><a href="#ia" class="nav-link">IA</a></li>
+            <li><a href="#checklist" class="nav-link">Checklist</a></li>
+            <li><a href="#faq" class="nav-link">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu" class="container">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title">
+            Transformez votre apprentissage en <span class="highlight">création concrète</span>
+          </h1>
+          <p class="hero-description">
+            Créez votre <strong>propre site web</strong> en développant votre autonomie d'apprentissage.
+          </p>
+          <ul class="hero-benefits">
+            <li>Compétence essentielle pour tout informaticien</li>
+            <li>Approche pédagogique innovante et pratique</li>
+            <li>Projet concret et valorisant</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="#consignes" class="btn btn-primary">🚀 Commencer le projet</a>
+            <a href="#ressources" class="btn btn-secondary">📚 Voir les ressources</a>
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <img src="public/img/formateur-devant-tableau.png" 
+               alt="Formateur professionnel expliquant les concepts de développement web devant un tableau blanc" 
+               class="hero-illustration"
+               loading="lazy"
+               decoding="async"
+               width="1024"
+               height="1024">
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" aria-labelledby="mission-title">
+      <div class="container">
+        <h2 id="mission-title" class="section-title">🎯 Notre révolution pédagogique</h2>
+        <div class="mission-grid">
+          <div class="livrable-card">
+            <div class="livrable-icon">🔄</div>
+            <h3>Problème identifié</h3>
+            <p>L'enseignement traditionnel ex-cathedra ne développe pas suffisamment l'autonomie des futurs informaticiens.</p>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">💡</div>
+            <h3>Notre solution</h3>
+            <p>Pédagogie par projet personnel où vous apprenez en construisant votre propre site web.</p>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">🎯</div>
+            <h3>Objectif principal</h3>
+            <p>Transformer nos étudiants en apprenants autonomes capables de se former continuellement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objectifs Section -->
+    <section class="objectifs" aria-labelledby="objectifs-title">
+      <div class="container">
+        <h2 id="objectifs-title" class="section-title">🎓 Objectifs d'apprentissage</h2>
+        <div class="objectifs-grid">
+          <div class="livrable-card">
+            <div class="livrable-icon">🎓</div>
+            <h3>Autonomie d'apprentissage</h3>
+            <p>Capacité à chercher, sélectionner et assimiler de nouvelles connaissances</p>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">🎨</div>
+            <h3>Créativité technique</h3>
+            <p>Liberté d'expression dans le respect des contraintes techniques</p>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">⚙️</div>
+            <h3>Maîtrise pratique</h3>
+            <p>HTML5, CSS3, Git/GitHub, responsive design</p>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">🧠</div>
+            <h3>Compréhension profonde</h3>
+            <p>100% du code produit doit être compris (y compris si généré par IA)</p>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">💼</div>
+            <h3>Méthodes professionnelles</h3>
+            <p>Utilisation d'IDE (WebStorm), versioning, publication</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objectif Section -->
+    <section id="objectif" class="card">
+      <div class="kpi">
+        <div class="box"><div class="muted">Évaluation</div><div><strong>20 pts</strong> projet · <strong>20 pts</strong> écrit</div></div>
+        <div class="box"><div class="muted">Durée</div><div><strong>9 semaines</strong></div></div>
+        <div class="box"><div class="muted">Suivi</div><div>Toutes les <strong>2 semaines</strong></div></div>
+      </div>
+      <h2>Ce que tu dois faire</h2>
+      <ul>
+        <li>Construire et publier un site en <span class="mono">HTML5</span> + <span class="mono">CSS3</span>.</li>
+        <li>Versionner et publier via <strong>GitHub</strong> (<span class="mono">GitHub Pages</span>).</li>
+        <li>Tenir un <strong>README.md</strong> réflexif.</li>
+      </ul>
+      <div class="chips" aria-label="Thèmes">
+        <span class="chip">HTML sémantique</span><span class="chip">CSS variables</span><span class="chip">Responsive</span><span class="chip">Accessibilité</span><span class="chip">Performance</span><span class="chip">Git/GitHub</span>
+      </div>
+    </section>
+
+    <!-- Livrables Section -->
+    <section class="livrables" aria-labelledby="livrables-title">
+      <div class="container">
+        <h2 id="livrables-title" class="section-title">📦 Livrables attendus</h2>
+        <div class="livrables-grid">
+          <div class="livrable-card">
+            <div class="livrable-icon">🌐</div>
+            <h3>Site web fonctionnel</h3>
+            <ul>
+              <li>Publication via GitHub Pages</li>
+              <li>Structure GitHub organisée</li>
+              <li>Code HTML5 et CSS3 validé W3C</li>
+            </ul>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">📝</div>
+            <h3>Portfolio réflexif</h3>
+            <ul>
+              <li>README.md documentant votre parcours</li>
+              <li>Réflexion sur l'apprentissage</li>
+              <li>Transparence sur l'usage d'IA</li>
+            </ul>
+          </div>
+          <div class="livrable-card">
+            <div class="livrable-icon">📁</div>
+            <h3>Organisation GitHub</h3>
+            <ul>
+              <li>Commits réguliers et organisés</li>
+              <li>Branches utilisées</li>
+              <li>Historique de développement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modele-readme" class="card">
+      <h2>README de base</h2>
+      <p>Télécharge et utilise ce modèle comme point de départ pour ton <span class="mono">README.md</span>.</p>
+      <p>
+        <a class="btn" target="_blank" href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
+          📥 Télécharger le README de base
+        </a>
+      </p>
+    </section>
+
+    <section id="a-rendre" class="grid cols-2">
+      <article class="card">
+        <h2>Livrable 1 · Site en ligne</h2>
+        <ul>
+          <li>Hébergé (GitHub Pages ou équivalent).</li>
+          <li>HTML/CSS <strong>valides W3C</strong>.</li>
+          <li>Design <strong>responsive</strong> mobile → desktop.</li>
+          <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de CDN).</li>
+          <li>Images <strong>locales</strong> &lt; 1&nbsp;Mo dans <span class="mono">/img</span>.</li>
+          <li>Dépôt <strong>propre</strong> et structuré.</li>
+        </ul>
+        <p class="muted">Arborescence minimale : <span class="mono">index.html</span>, <span class="mono">css/</span>, <span class="mono">fonts/</span>, <span class="mono">img/</span>, <span class="mono">README.md</span>.</p>
+      </article>
+      <article class="card">
+        <h2>Livrable 2 · README.md</h2>
+        <ul>
+          <li>Concept, public cible, objectifs.</li>
+          <li>Fonctionnalités et sections du site.</li>
+          <li>Capture d'écran du site.</li>
+          <li>Ressources et progression.</li>
+          <li>Outils et méthodologie (mobile-first, commits).</li>
+          <li>Tests et validations.</li>
+          <li>Bilan, difficultés, améliorations.</li>
+          <li>Transparence sur l'usage d'IA.</li>
+        </ul>
+        <article class="card" style="margin-top:1rem">
+          <h3>README – structure attendue</h3>
+          <ul>
+            <li><strong>Concept</strong> : thème, public, objectifs.</li>
+            <li><strong>Fonctionnalités</strong> : navigation, sections, contenus.</li>
+            <li><strong>Aperçu</strong> : capture dans <span class="mono">img/screenshot.png</span>.</li>
+            <li><strong>Ressources</strong> : cours, docs, vidéos (liens).</li>
+            <li><strong>Progression</strong> : jalons semaine par semaine.</li>
+            <li><strong>Outils</strong> : IDE, navigateurs, Git, validateurs.</li>
+            <li><strong>Design</strong> :
+              <ul>
+                <li><em>Palette</em> : 3–5 couleurs avec hex + lien générateur.</li>
+                <li><em>Typographies</em> : fichiers dans <span class="mono">/fonts</span>, déclaration <span class="mono">@font-face</span>, fallbacks.</li>
+              </ul>
+            </li>
+            <li><strong>Tests & validations</strong> :
+              <ul>
+                <li>HTML/CSS W3C : résultats.</li>
+                <li>PageSpeed mobile/bureau : <span class="mono">Perf/Accessibilité/Best Practices/SEO</span> /100.</li>
+                <li>Accessibilité : points WAVE corrigés.</li>
+                <li>Compatibilité : navigateurs + versions; appareils testés.</li>
+              </ul>
+            </li>
+            <li><strong>Transparence IA</strong> : outil, version, domaines d'aide (%), explications.</li>
+            <li><strong>Bilan</strong> : acquis, difficultés/solutions, améliorations.</li>
+          </ul>
+        </article>
+      </article>
+    </section>
+
+    <section id="exigences" class="grid cols-3">
+      <article class="card">
+        <h2>Structure HTML</h2>
+        <ul>
+          <li><span class="mono">&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;footer&gt;</span>.</li>
+          <li>Titres hiérarchisés <span class="mono">h1…h6</span>.</li>
+          <li><span class="mono">&lt;p&gt;</span>, <span class="mono">&lt;ul/ol/li&gt;</span>, <span class="mono">&lt;a&gt;</span>.</li>
+          <li><span class="mono">&lt;strong&gt;</span>, <span class="mono">&lt;em&gt;</span>.</li>
+          <li><span class="mono">&lt;img alt&gt;</span>, <span class="mono">&lt;figure&gt;/&lt;figcaption&gt;</span> si pertinent.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>CSS requis</h2>
+        <ul>
+          <li>Variables : ≥3 couleurs, ≥2 polices, ≥3 espacements.</li>
+          <li>Typo : <span class="mono">font-family/size/weight/line-height</span>.</li>
+          <li>Couleurs, marges, paddings.</li>
+          <li>Boîte : <span class="mono">width/height/max-width/border/radius/box-sizing</span>.</li>
+          <li>Layout : <span class="mono">display</span>, <span class="mono">position</span>, <strong>Flexbox</strong> ou <strong>Grid</strong> (ou float).</li>
+          <li>Interactions : <span class="mono">:hover</span>, <span class="mono">:focus</span>, <span class="mono">:visited</span>.</li>
+          <li>Bonus : <span class="mono">transition</span>, <span class="mono">filter</span>.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Responsive & Qualité</h2>
+        <ul>
+          <li>Mobile-first 320&nbsp;px+.</li>
+          <li>≥2 <span class="mono">@media</span> (tablette ≥768, desktop ≥1024).</li>
+          <li>Images adaptatives <span class="mono">max-width:100%</span>.</li>
+          <li>Accessibilité : <span class="mono">alt</span>, contrastes, navigation clavier.</li>
+          <li>Compatibilité : Chrome 120+, Firefox 120+, Safari 16+ (ou versions testées).</li>
+          <li>Performance : audit PageSpeed mobile et desktop.</li>
+          <li>Pas de CDN (polices/images locales).</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Évaluation Section -->
+    <section class="evaluation" aria-labelledby="evaluation-title">
+      <div class="container">
+        <h2 id="evaluation-title" class="section-title">📊 Grille d'évaluation (20 points)</h2>
+        <div class="evaluation-table-wrapper">
+          <table class="evaluation-table" role="table" aria-labelledby="evaluation-title">
+            <thead>
+              <tr>
+                <th scope="col">Critère</th>
+                <th scope="col">Points</th>
+                <th scope="col">Détail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Code HTML/CSS</strong></td>
+                <td class="points">4 pts</td>
+                <td>Validité W3C, propreté, sémantique, commentaires</td>
+              </tr>
+              <tr>
+                <td><strong>Design responsive</strong></td>
+                <td class="points">4 pts</td>
+                <td>Mobile-first, breakpoints, navigation adaptée</td>
+              </tr>
+              <tr>
+                <td><strong>Contenu et design</strong></td>
+                <td class="points">3 pts</td>
+                <td>Cohérence, originalité, qualité visuelle</td>
+              </tr>
+              <tr>
+                <td><strong>Git/GitHub</strong></td>
+                <td class="points">3 pts</td>
+                <td>Commits réguliers, messages clairs, organisation</td>
+              </tr>
+              <tr>
+                <td><strong>Notion avancée</strong></td>
+                <td class="points">2 pts</td>
+                <td>Flexbox/Grid/Animations bien maîtrisée</td>
+              </tr>
+              <tr>
+                <td><strong>Portfolio (README.md)</strong></td>
+                <td class="points">4 pts</td>
+                <td>Réflexion approfondie, transparence, qualité</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="jalons" class="card">
+      <h2>Planning et jalons</h2>
+      <h3>Phase 1 · Fondations (Sem. 1–3)</h3>
+      <ul>
+        <li>Comptes <strong>GitHub</strong> et <strong>JetBrains</strong> créés.</li>
+        <li>Premier "Hello World" publié (GitHub Pages).</li>
+        <li>Config IDE (WebStorm/VS Code).</li>
+        <li>Choix du <strong>sujet</strong> et de la <strong>plateforme d'apprentissage</strong>.</li>
+        <li>Palette de couleurs + polices locales.</li>
+      </ul>
+      <h3>Phase 2 · Développement (Sem. 4–10)</h3>
+      <ol>
+        <li><strong>S4 – Jalon 1</strong> : Concept validé + structure de base.</li>
+        <li><strong>S6 – Jalon 2</strong> : HTML complet + navigation. <span class="muted">(Suivi)</span></li>
+        <li><strong>S8 – Jalon 3</strong> : CSS de base + début responsive. <span class="muted">(Suivi)</span></li>
+        <li><strong>S10 – Jalon 4</strong> : Responsive fonctionnel + tests multi-devices. <span class="muted">(Suivi)</span></li>
+      </ol>
+      <h3>Phase 3 · Finalisation (Sem. 11–12)</h3>
+      <ul>
+        <li><strong>S11 – Optimisation</strong> : W3C OK, images optimisées, audits perf.</li>
+        <li><strong>S12 – Livraison</strong> : Site publié + README complet. <span class="muted">(Suivi final)</span></li>
+      </ul>
+    </section>
+
+    <!-- Planning Section -->
+    <section class="planning" aria-labelledby="planning-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="planning-title" class="section-title">🚀 Planning recommandé</h2>
+          <p class="section-description">
+            Un parcours structuré en 6 étapes pour réussir votre projet personnel
+          </p>
+        </header>
+        
+        <div class="timeline" role="list" aria-label="Planning du projet personnel">
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-content">
+              <header class="timeline-header">
+                <time class="timeline-date" datetime="2024-09-03/2024-09-10">3-10 septembre</time>
+                <h3>Préparation & Choix du thème</h3>
+              </header>
+              <ul class="timeline-tasks">
+                <li><span class="emoji" aria-hidden="true">🎯</span>Auto-formation : Commencer l'apprentissage des bases HTML/CSS</li>
+                <li><span class="emoji" aria-hidden="true">💡</span>Réflexion sur le thème : Explorer vos passions, hobbies, projets</li>
+                <li><span class="emoji" aria-hidden="true">🛠️</span>Configurer votre environnement (GitHub + WebStorm)</li>
+                <li><span class="emoji" aria-hidden="true">✅</span>Choix définitif du thème (deadline : 10 septembre)</li>
+              </ul>
+            </div>
+          </article>
+          
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-content">
+              <header class="timeline-header">
+                <time class="timeline-date" datetime="2024-09-11/2024-10-01">11 septembre - 1er octobre</time>
+                <h3>Formation & Développement HTML</h3>
+              </header>
+              <ul class="timeline-tasks">
+                <li><span class="emoji" aria-hidden="true">📚</span>Formation intensive HTML5 + Git/GitHub</li>
+                <li><span class="emoji" aria-hidden="true">🏗️</span>Développer le HTML de base (structure sémantique)</li>
+                <li><span class="emoji" aria-hidden="true">🔗</span>Créer la navigation (si multi-pages) ou les sections (si page unique)</li>
+                <li><span class="emoji" aria-hidden="true">📝</span>Intégrer le contenu réel</li>
+                <li><span class="emoji" aria-hidden="true">✅</span>Valider le HTML (W3C Validator)</li>
+              </ul>
+            </div>
+          </article>
+          
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-content">
+              <header class="timeline-header">
+                <time class="timeline-date" datetime="2024-10-02/2024-11-19">2 octobre - 19 novembre</time>
+                <h3>Formation CSS & Stylisation</h3>
+              </header>
+              <ul class="timeline-tasks">
+                <li><span class="emoji" aria-hidden="true">📚</span>Formation CSS3 + responsive design</li>
+                <li><span class="emoji" aria-hidden="true">🎨</span>Appliquer le CSS fondamental</li>
+                <li><span class="emoji" aria-hidden="true">📱</span>Implémenter le responsive design</li>
+                <li><span class="emoji" aria-hidden="true">⚡</span>Apprendre et intégrer votre notion avancée choisie (Flexbox/Grid/Animations...)</li>
+                <li><span class="emoji" aria-hidden="true">🎯</span>Peaufiner le design</li>
+              </ul>
+            </div>
+          </article>
+          
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-content">
+              <header class="timeline-header">
+                <time class="timeline-date" datetime="2024-11-20/2025-01-07">20 novembre - 7 janvier</time>
+                <h3>Finalisation & Perfectionnement</h3>
+              </header>
+              <ul class="timeline-tasks">
+                <li><span class="emoji" aria-hidden="true">🧪</span>Tests sur différents appareils/navigateurs</li>
+                <li><span class="emoji" aria-hidden="true">🔧</span>Corrections et optimisations</li>
+                <li><span class="emoji" aria-hidden="true">📝</span>Rédaction du README complet (bilan de formation)</li>
+                <li><span class="emoji" aria-hidden="true">🚀</span>Publication finale sur GitHub Pages</li>
+                <li><span class="emoji" aria-hidden="true">🎤</span>Préparation de la présentation pour le 7 janvier</li>
+              </ul>
+            </div>
+          </article>
+          
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-content">
+              <header class="timeline-header">
+                <time class="timeline-date" datetime="2025-01-07/2025-01-09">7-9 janvier</time>
+                <h3>Présentation & Rendu final</h3>
+              </header>
+              <ul class="timeline-tasks">
+                <li><span class="emoji" aria-hidden="true">🎤</span>Présentation du site à la classe (7 janvier 2026)</li>
+                <li><span class="emoji" aria-hidden="true">🔧</span>Derniers ajustements suite aux retours</li>
+                <li><span class="emoji" aria-hidden="true">⏰</span>RENDU FINAL : 9 janvier 2026 à 22h00</li>
+              </ul>
+            </div>
+          </article>
+          
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-content">
+              <header class="timeline-header">
+                <time class="timeline-date" datetime="2025-01-09">après le 9 janvier</time>
+                <h3>Évaluation</h3>
+              </header>
+              <ul class="timeline-tasks">
+                <li><span class="emoji" aria-hidden="true">📋</span>Correction par le formateur</li>
+                <li><span class="emoji" aria-hidden="true">💬</span>Feedback individualisé</li>
+                <li><span class="emoji" aria-hidden="true">🏆</span>Attribution des notes finales</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="outils" class="grid cols-2">
+      <article class="card">
+        <h2>Outils de travail</h2>
+        <ul>
+          <li>IDE : WebStorm (étudiants) ou VS Code.</li>
+          <li>Versioning : Git + GitHub.</li>
+          <li>Navigateurs : Chrome DevTools, Firefox, Safari.</li>
+          <li>Typo : Google Web Fonts Helper (téléchargement local).</li>
+          <li>Couleurs : Coolors, Adobe Color.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Validation & tests</h2>
+        <ul>
+          <li>HTML : W3C Markup Validator / Nu Html Checker.</li>
+          <li>CSS : W3C CSS Validator.</li>
+          <li>Accessibilité : WAVE.</li>
+          <li>Performance/UX : PageSpeed Insights.</li>
+          <li>Responsive : outils intégrés navigateurs.</li>
+          <li>Compatibilité : Chrome 120+, Firefox 120+, Safari 16+ (ou versions testées).</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="validation" class="card">
+      <h2>Grille d'évaluation (20 pts)</h2>
+      <ul>
+        <li><strong>HTML/CSS</strong> : validité, propreté, sémantique – 4&nbsp;pts</li>
+        <li><strong>Responsive</strong> : mobile-first, breakpoints, navigation – 4&nbsp;pts</li>
+        <li><strong>Contenu & design</strong> : cohérence, originalité – 3&nbsp;pts</li>
+        <li><strong>Git/GitHub</strong> : commits, messages, organisation – 3&nbsp;pts</li>
+        <li><strong>Tech. avancées</strong> : Flexbox/Grid/Animations – 2&nbsp;pts</li>
+        <li><strong>README.md</strong> : réflexion, qualité – 4&nbsp;pts</li>
+      </ul>
+      <p class="muted">Interdits : plagiat, templates, frameworks CSS, CDN polices/images, JavaScript hors périmètre.</p>
+    </section>
+
+    <section id="ressources" class="grid cols-2">
+      <article class="card">
+        <h2>Ressources de formation</h2>
+        <ul>
+          <li>MDN Web Docs.</li>
+          <li>OpenClassrooms HTML/CSS.</li>
+          <li>freeCodeCamp.</li>
+          <li>Grafikart (FR).</li>
+          <li>CSS Diner, Flexbox Froggy, Grid Garden.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Idées de projets</h2>
+        <ul>
+          <li>Portfolio personnel.</li>
+          <li>Site d'entreprise fictive.</li>
+          <li>Blog thématique.</li>
+          <li>Site fan / associatif.</li>
+          <li>Galerie artistique.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="support" class="card">
+      <h2>Support et aide</h2>
+      <ul>
+        <li><strong>Rendez-vous</strong> : toutes les 2 semaines, 10–15 min.</li>
+        <li><strong>Canal</strong> : Teams du cours pour les questions.</li>
+        <li><strong>Délai</strong> : réponse sous 48 h en période de cours.</li>
+        <li><strong>Format attendu</strong> : capture de code, lien GitHub, URL du site, message clair.</li>
+      </ul>
+    </section>
+
+    <section id="ia" class="card">
+      <h2>Usage d'IA · transparence obligatoire</h2>
+      <ul>
+        <li>Outil et version (ex. ChatGPT GPT-4 / Claude / Copilot).</li>
+        <li>Domaines d'aide et % estimés : texte, HTML/CSS, recherche, debugging.</li>
+        <li>Explication du code généré : ce que fait le code, pourquoi il fonctionne, adaptations.</li>
+        <li>Parts codées manuellement vs assistées.</li>
+      </ul>
+    </section>
+
+    <section id="checklist" class="card">
+      <h2>Checklist d'auto-évaluation</h2>
+      <div class="progress" aria-label="Progression checklist"><i id="bar"></i></div>
+      <p class="muted"><span id="pct">0%</span> complété</p>
+      <div class="grid cols-4 checklist">
+        <ul class="list-clean">
+          <li><input type="checkbox"> Site publié (GitHub Pages/équivalent)</li>
+          <li><input type="checkbox"> Dépôt propre, arborescence conforme</li>
+          <li><input type="checkbox"> HTML valide W3C</li>
+          <li><input type="checkbox"> CSS valide W3C</li>
+          <li><input type="checkbox"> Balises sémantiques complètes</li>
+          <li><input type="checkbox"> Titres h1–h6 hiérarchisés</li>
+          <li><input type="checkbox"> Images avec <span class="mono">alt</span></li>
+          <li><input type="checkbox"> <span class="mono">figure/figcaption</span> si pertinent</li>
+        </ul>
+        <ul class="list-clean">
+          <li><input type="checkbox"> ≥3 variables couleurs</li>
+          <li><input type="checkbox"> ≥2 variables polices</li>
+          <li><input type="checkbox"> ≥3 variables espacements</li>
+          <li><input type="checkbox"> Layout Flexbox ou Grid</li>
+          <li><input type="checkbox"> ≥2 media queries (≥768/≥1024)</li>
+          <li><input type="checkbox"> Navigation mobile adaptée</li>
+          <li><input type="checkbox"> Images adaptatives (<span class="mono">max-width:100%</span>)</li>
+          <li><input type="checkbox"> Transitions/filters si utilisés</li>
+        </ul>
+        <ul class="list-clean">
+          <li><input type="checkbox"> Polices locales dans <span class="mono">/fonts</span></li>
+          <li><input type="checkbox"> Images locales &lt; 1 Mo (WebP si possible)</li>
+          <li><input type="checkbox"> PageSpeed mobile/bureau renseigné</li>
+          <li><input type="checkbox"> Accessibilité WAVE corrigée</li>
+          <li><input type="checkbox"> Tests Chrome/Firefox/Safari</li>
+          <li><input type="checkbox"> Tests sur mobile/tablette/desktop</li>
+          <li><input type="checkbox"> README complet selon structure</li>
+          <li><input type="checkbox"> Section IA renseignée</li>
+        </ul>
+        <ul class="list-clean">
+          <li><input type="checkbox"> Interdits respectés (templates/frameworks/CDN/JS)</li>
+          <li><input type="checkbox"> Commits réguliers et messages clairs</li>
+          <li><input type="checkbox"> Jalons S4/S6/S8/S10/S11/S12 tenus</li>
+          <li><input type="checkbox"> Support utilisé au besoin (Teams/RDV)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="grid cols-2">
+      <article class="card">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Puis-je utiliser Bootstrap ou Tailwind ?</summary>
+          <p>Non. Le but est de maîtriser le CSS natif.</p>
+        </details>
+        <details>
+          <summary>Puis-je lier Google Fonts en CDN ?</summary>
+          <p>Non. Télécharge et héberge les polices dans <span class="mono">/fonts</span>.</p>
+        </details>
+        <details>
+          <summary>Combien de breakpoints ?</summary>
+          <p>Au minimum deux : tablette et desktop.</p>
+        </details>
+        <details>
+          <summary>Que mettre dans le README ?</summary>
+          <p>Concept, ressources, progression, outils, tests, bilan, transparence IA.</p>
+        </details>
+      </article>
+      <article class="card">
+        <h2>Liens rapides</h2>
+        <ul>
+          <li><a href="#a-rendre">À rendre</a></li>
+          <li><a href="#exigences">Exigences</a></li>
+          <li><a href="#jalons">Jalons</a></li>
+          <li><a href="#checklist">Checklist</a></li>
+          <li><a href="#outils">Outils</a></li>
+          <li><a href="#validation">Grille d'évaluation</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="cta-title">🚀 Prêt à révolutionner votre apprentissage ?</h2>
+        <p class="cta-description">
+          Développez les compétences qui feront de vous un informaticien autonome et créatif.
+        </p>
+        <ul class="cta-benefits">
+          <li>Approche pédagogique innovante et pratique</li>
+          <li>Projet concret valorisant vos compétences</li>
+        </ul>
+        <div class="cta-actions">
+          <a href="#consignes" class="btn btn-primary btn-large">📋 Lire les consignes complètes</a>
+          <a href="#ressources" class="btn btn-secondary">📚 Découvrir les ressources</a>
+        </div>
+        <div class="deadline-info">
+          <p><strong>⏰ Deadline finale : 9 janvier 2026 à 22h</strong></p>
+          <p>Commencez dès maintenant pour maximiser vos chances de réussite !</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Module 113</h3>
+          <p>Projet personnel HTML/CSS</p>
+          <p>CEJEF / ESIG</p>
+        </div>
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#objectif">Objectifs</a></li>
+            <li><a href="#a-rendre">À rendre</a></li>
+            <li><a href="#jalons">Jalons</a></li>
+            <li><a href="#ressources">Ressources</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <p>Teams du cours</p>
+          <p>Rendez-vous toutes les 2 semaines</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Page de référence du projet personnel · Module 113 · CEJEF / ESIG.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="public/js/dropdown-menu.js"></script>
+  <script>
+    (function(){
+      const boxes=[...document.querySelectorAll('#checklist input[type="checkbox"]')];
+      const bar=document.getElementById('bar');
+      const pct=document.getElementById('pct');
+      function update(){
+        const done=boxes.filter(b=>b.checked).length;
+        const total=boxes.length||1;
+        const p=Math.round(100*done/total);
+        bar.style.width=p+'%';
+        pct.textContent=p+'%';
+      }
+      boxes.forEach(b=>b.addEventListener('change',update));
+      update();
+    })();
+  </script>
+</body>
+</html>
