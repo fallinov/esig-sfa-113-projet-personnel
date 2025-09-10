@@ -142,6 +142,27 @@ ul, ol {
   margin: 0;
 }
 
+/* Interdiction de l'alignement justifié pour le texte */
+*[style*="text-align: justify"],
+.text-justify,
+[class*="justify"] {
+  text-align: left !important;
+}
+
+/* Règle générale pour empêcher l'alignement justifié */
+p, div, span, article, section, main, aside, header, footer, nav, h1, h2, h3, h4, h5, h6, li, td, th {
+  text-align: left;
+}
+
+/* Exceptions pour les éléments qui doivent être centrés */
+.section-title, .hero-title, .btn, .hero-actions, .hero-benefits.center, .hero-benefits[style*="text-align: center"] {
+  text-align: center;
+}
+
+.hero-benefits.right, .hero-benefits[style*="text-align: right"] {
+  text-align: right;
+}
+
 /* Ajout des puces uniquement pour les listes de contenu (pas navigation/menus/cartes) */
 ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list) {
   list-style: disc;
