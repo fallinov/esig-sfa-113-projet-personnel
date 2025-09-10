@@ -326,16 +326,17 @@ html {
 .container {
   max-width: var(--breakpoint-xl);
   margin: 0 auto;
-  padding: var(--spacing-lg);
-  margin-left: 270px; /* Espace pour le menu vertical */
+  padding: 0;
+  margin-left: 250px; /* Largeur de la sidebar */
   margin-top: var(--header-height); /* Espace pour le header */
   transition: margin-left var(--transition-normal);
 }
 
 /* Ajustement quand la sidebar est réduite */
 .sidebar-nav.collapsed ~ .container {
-  margin-left: 80px;
+  margin-left: 60px; /* Largeur de la sidebar réduite */
 }
+
 
 @media (max-width: 768px) {
   .main-header {
@@ -352,11 +353,16 @@ html {
   
   .container {
     margin-left: 0;
-    padding: var(--spacing-md);
+    padding: 0;
   }
   
   .sidebar-nav.collapsed ~ .container {
     margin-left: 0;
+  }
+  
+  /* Ajustement des sections sur mobile */
+  section {
+    padding: var(--spacing-3xl) var(--spacing-md);
   }
 }
 
@@ -494,7 +500,7 @@ html {
   opacity: 1;
   visibility: visible;
   position: absolute;
-  top: 56px;
+  top: 0;
   left: 0;
   right: 0;
   padding: 6px 0;
@@ -696,66 +702,31 @@ html {
 }
 
 /* ========================================
-   BOUTON TOGGLE SIDEBAR
+   LIEN TOGGLE SIDEBAR
    ======================================== */
 
-.sidebar-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: calc(var(--z-sticky) + 1);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
+.sidebar-toggle-link {
+  border-top: 1px solid var(--color-border-light);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-md);
 }
 
-.sidebar-toggle:hover {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+.sidebar-toggle-link:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
-.sidebar-toggle:focus {
-  outline: none;
+.sidebar-toggle-link i {
+  transition: transform var(--transition-normal);
 }
 
-.sidebar-toggle:active {
-  outline: none;
+/* Animation de l'icône quand la sidebar est réduite */
+.sidebar-nav.collapsed .sidebar-toggle-link i {
+  transform: rotate(180deg);
 }
 
-.sidebar-toggle.animating .hamburger-line {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hamburger-line {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--color-primary);
-  margin: 3px 0;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-/* Animation du burger vers croix */
-.sidebar-nav.collapsed .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.sidebar-nav.collapsed .hamburger-line:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.sidebar-nav.collapsed .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+.sidebar-nav.collapsed .sidebar-toggle-link .link-text {
+  display: none;
 }
 
 
@@ -793,12 +764,9 @@ html {
 .hero {
   background: var(--color-primary);
   color: var(--color-white);
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-3xl) var(--spacing-lg);
   position: relative;
   overflow: hidden;
-}
-
-.hero .container {
   display: flex;
   align-items: center;
   gap: var(--spacing-2xl);
@@ -996,12 +964,15 @@ html {
 
 
 /* ========================================
-   SECTIONS DE CONTENU
+   SECTIONS DE CONTENU (style minimal)
    ======================================== */
 
-/* Section générique */
+/* Section générique - style minimal sans bordures ni ombres */
 section {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .section-title {
@@ -1015,17 +986,63 @@ section {
   background-color: var(--color-bg-primary);
 }
 
+/* Alternance des couleurs de fond pour les sections */
+.section-bg-primary {
+  background-color: var(--color-bg-primary);
+}
+
+.section-bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+.section-bg-medium {
+  background-color: var(--color-bg-medium);
+}
+
+/* Couleurs de fond spécifiques pour chaque section */
+#accueil {
+  background-color: var(--color-bg-primary);
+}
+
+#objectifs {
+  background-color: var(--color-bg-secondary);
+}
+
+#livrables {
+  background-color: var(--color-bg-medium);
+}
+
+#evaluation {
+  background-color: var(--color-bg-primary);
+}
+
+#ressources {
+  background-color: var(--color-bg-secondary);
+}
+
+#galerie {
+  background-color: var(--color-bg-medium);
+}
+
+#faq {
+  background-color: var(--color-bg-primary);
+}
+
 /* Grilles uniformes pour toutes les sections de cartes */
 .objectifs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
 }
 
 
 
 
-/* Cartes unifiées */
+/* ========================================
+   CARTES D'ARTICLES (style carte conservé)
+   ======================================== */
+
+/* Cartes unifiées pour les articles - style carte avec bordures et ombres */
 .livrable-card, .resource-card, .consigne-card {
   background: var(--color-white);
   padding: var(--spacing-xl);
@@ -1308,18 +1325,18 @@ section {
 /* Styles pour les cartes et grilles */
 .card {
   background: var(--color-white);
-  border: 4px solid var(--color-primary);
-  border-radius: var(--border-radius-xl);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
-  margin-bottom: var(--spacing-xl);
+  border: none;
+  border-radius: 0;
+  padding: var(--spacing-lg);
+  box-shadow: none;
+  transition: none;
+  margin-bottom: var(--spacing-lg);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
 }
 
 .card h2, .card h3 {
@@ -1331,7 +1348,126 @@ section {
 /* Grilles */
 .grid {
   display: grid;
+  gap: var(--spacing-lg);
+}
+
+/* FAQ */
+.faq-item {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.faq-item h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+/* Checklist interactive */
+.checklist-progress {
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: var(--color-border-light);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+.progress-text {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.checklist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-xl);
+}
+
+.checklist-category {
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  border: 2px solid var(--color-border-light);
+}
+
+.checklist-category h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-sm);
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.checklist-item:hover {
+  background-color: var(--color-bg-medium);
+}
+
+.checklist-item.completed {
+  background-color: var(--color-accent-light);
+}
+
+.checklist-checkbox {
+  margin-right: var(--spacing-sm);
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
+}
+
+.checklist-label {
+  flex: 1;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.checklist-item.completed .checklist-label {
+  text-decoration: line-through;
+  color: var(--color-text-light);
 }
 
 .grid.cols-2 {
@@ -1397,45 +1533,187 @@ section {
   font-size: var(--font-size-sm);
 }
 
-/* Progress bar */
-.progress {
-  height: 12px;
-  background: var(--color-bg-medium);
-  border: 2px solid var(--color-primary);
-  border-radius: var(--border-radius-full);
-  overflow: hidden;
+/* ========================================
+   CHECKLIST PROFESSIONNELLE
+   ======================================== */
+
+/* Container principal de la checklist */
+.checklist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+/* Catégorie de la checklist */
+.checklist-category {
+  background: var(--color-white);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+}
+
+.checklist-category:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.checklist-category h3 {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
-.progress > i {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
-  transition: width var(--transition-normal);
+.checklist-category h3::before {
+  content: "✓";
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
 }
 
-/* Checklist */
-.checklist {
-  margin-top: var(--spacing-lg);
-}
-
-.list-clean {
+/* Liste des items */
+.checklist-items {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.checklist li {
+.checklist-item {
   display: flex;
-  gap: var(--spacing-sm);
   align-items: flex-start;
-  margin: var(--spacing-sm) 0;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-fast);
 }
 
-.checklist input[type="checkbox"] {
-  margin: 0;
+.checklist-item:hover {
+  background-color: var(--color-bg-medium);
+}
+
+/* Checkbox personnalisée */
+.checklist-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-white);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
   margin-top: 2px;
+  transition: all var(--transition-fast);
+}
+
+.checklist-checkbox:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+.checklist-checkbox:checked {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.checklist-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+}
+
+.checklist-checkbox:focus {
+  outline: 3px solid var(--color-accent-light);
+  outline-offset: 2px;
+}
+
+/* Label de la checkbox */
+.checklist-label {
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  flex: 1;
+  transition: color var(--transition-fast);
+}
+
+.checklist-checkbox:checked + .checklist-label {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Barre de progression */
+.checklist-progress {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background: var(--color-bg-medium);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  transition: width var(--transition-normal);
+  border-radius: var(--border-radius-full);
+}
+
+.progress-text {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+/* Animation de completion */
+.checklist-item.completed {
+  background-color: var(--color-bg-medium);
+  border-left: 4px solid var(--color-accent);
+  padding-left: calc(var(--spacing-sm) - 4px);
+}
+
+.checklist-item.completed .checklist-label {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checklist-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .checklist-category {
+    padding: var(--spacing-md);
+  }
+  
+  .checklist-item {
+    padding: var(--spacing-xs);
+  }
 }
 
 /* Details et summary */
