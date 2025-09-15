@@ -1,7 +1,9 @@
 // Initialisation des icônes Lucide
 // Remarque: les icônes sont chargées via CDN dans index.html,
 // ici on ne fait que remplacer les <i data-lucide> par des SVG.
-lucide.createIcons();
+if (window.lucide && typeof window.lucide.createIcons === 'function') {
+  window.lucide.createIcons();
+}
 
 // ============================================================
 // Gestion de la navigation (approche CSS-first)

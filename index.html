@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="css/icons.css">
 </head>
 <body id="top">
-  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <a class="skip-link" tabindex="1" href="#contenu">Aller au contenu</a>
   <!-- Contrôle CSS du menu (checkbox cachée) -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1" aria-hidden="true">
 
   <!-- Header principal (sorti de main-wrapper) -->
   <header class="main-header">
@@ -71,8 +71,11 @@
         
         <ul class="hero-info">
           <li class="manual-icons">
-            <i data-lucide="award"></i>
+            <i data-lucide="message-circle-code"></i>
             Projet personnel <strong>20 pts</strong><br>
+          </li>
+          <li class="manual-icons">
+            <i data-lucide="clipboard-pen"></i>
             Travail écrit <strong>20 pts</strong>
           </li>
           <li class="manual-icons">
@@ -94,7 +97,11 @@
             </li>
             <li class="manual-icons">
               <i data-lucide="check"></i>
-              Versionner ton code et publier ton site via <strong>GitHub</strong> (GitHub Pages)
+              Versionner ton code avec <strong>GitHub</strong>
+            </li>
+            <li class="manual-icons">
+              <i data-lucide="check"></i>
+              Publier ton site via <strong>GitHub Pages</strong>
             </li>
             <li class="manual-icons">
               <i data-lucide="check"></i>
@@ -172,7 +179,7 @@
             <li>HTML/CSS <strong>valides W3C</strong>.</li>
             <li>Design <strong>responsive</strong> mobile → desktop.</li>
             <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de <a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>).</li>
-            <li>Images <strong>locales</strong> &lt; 1&nbsp;Mo dans <span class="mono">/img</span>.</li>
+            <li>Images <strong>locales optimisées</strong> &lt; 1&nbsp;Mo dans <span class="mono">/img</span>.</li>
             <li>Dépôt <strong>propre</strong> et structuré.</li>
           </ul>
           <h4>Arborescence minimale :</h4>
@@ -589,8 +596,8 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Scripts (local, no CDN) -->
+  <script src="js/lucide.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
