@@ -651,7 +651,7 @@ html {
 .section-content {
   max-width: 2000px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md); /* Padding pour éviter le débordement */
+  padding: 0; /* Padding géré par les sections */
   box-sizing: border-box;
 }
 
@@ -683,7 +683,7 @@ html {
   
   /* Ajustement des sections sur mobile */
   section {
-    padding: var(--spacing-lg) var(--spacing-xs); /* Padding minimal sur mobile */
+    padding: var(--spacing-lg) var(--spacing-md); /* Aligné sur desktop */
   }
 }
 
@@ -993,7 +993,6 @@ html {
 .hero {
   background: var(--color-primary);
   color: var(--color-white);
-  padding: var(--spacing-xl) 0;
   position: relative;
   overflow: hidden;
 }
@@ -1276,7 +1275,6 @@ html {
 
 /* Section générique - style minimal sans bordures ni ombres */
 section {
-  padding: var(--spacing-lg) var(--spacing-sm);
   border: none;
   box-shadow: none;
   border-radius: 0;
@@ -1466,6 +1464,26 @@ section {
   opacity: 0.9;
 }
 
+/* Liens du footer lisibles et accessibles sur fond sombre */
+.mini-footer a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.mini-footer a:hover {
+  text-decoration: underline;
+}
+
+.mini-footer a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Safe-area pour iOS (barre système en bas) */
+.mini-footer {
+  padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+}
+
 /* ========================================
    UTILITAIRES
    ======================================== */
@@ -1510,7 +1528,7 @@ section {
   }
   
   .section-content {
-    padding: 0 var(--spacing-sm); /* Padding réduit sur très petit mobile */
+    padding: 0; /* Padding géré par les sections */
   }
   
   .hero .section-content {
