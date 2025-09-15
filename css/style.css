@@ -574,7 +574,12 @@ html {
   transition: margin-left var(--transition-normal);
 }
 
-/* Décalage du contenu piloté par l'état du menu sur desktop */
+/* ------------------------------------------------------------
+   Disposition du contenu vs. sidebar (desktop)
+   - Le state d'ouverture est piloté par la checkbox #nav-toggle
+   - Quand coché: la sidebar est visible et le contenu est décalé
+   - Quand décoché: la sidebar est masquée et le contenu reprend toute la largeur
+   ------------------------------------------------------------ */
 @media (min-width: 769px) {
   .nav-toggle:checked ~ .main-wrapper { margin-left: 250px; }
   .nav-toggle:not(:checked) ~ .main-wrapper { margin-left: 0; }
@@ -721,8 +726,11 @@ html {
 
 /* ========================================
    BURGER MENU
+   - Le bouton <button>.burger-menu contrôle la checkbox #nav-toggle
+   - L'animation des 3 lignes se base sur l'état :checked de la checkbox
    ======================================== */
 
+/* Checkbox de contrôle du menu (élément d'état, visuellement caché) */
 .nav-toggle {
   position: absolute;
   width: 1px;
@@ -762,7 +770,8 @@ html {
   transform-origin: center;
 }
 
-/* Animation du burger menu quand ouvert (toutes largeurs) */
+/* Animation du burger menu quand ouvert (toutes largeurs)
+   basée sur l'état de la checkbox #nav-toggle */
 .nav-toggle:checked ~ .main-header .burger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -792,7 +801,10 @@ html {
   transition: transform var(--transition-normal);
 }
 
-/* Mobile: plein écran sous le header (croix visible) */
+/* ------------------------------------------------------------
+   Mobile: la sidebar est hors-canvas par défaut et recouvre le contenu
+   Quand .nav-toggle:checked, la sidebar glisse en vue
+   ------------------------------------------------------------ */
 @media (max-width: 768px) {
   .sidebar-nav {
     top: var(--header-height); /* sous le header */
@@ -809,7 +821,7 @@ html {
   }
 }
 
-/* Desktop: permettre de fermer le menu */
+/* Desktop: permettre l'ouverture/fermeture de la sidebar */
 @media (min-width: 769px) {
   /* Par défaut le menu peut être masqué quand non coché */
   .nav-toggle:not(:checked) ~ .sidebar-nav {
@@ -1184,6 +1196,7 @@ li.checklist-item::before {
 
 .btn-primary:hover {
   background-color: var(--color-accent-dark);
+  color: var(--color-white);
   border-color: var(--color-accent-dark);
   text-shadow: var(--text-shadow-md);
 }

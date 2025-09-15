@@ -1,14 +1,26 @@
 // Initialisation des icônes Lucide
+// Remarque: les icônes sont chargées via CDN dans index.html,
+// ici on ne fait que remplacer les <i data-lucide> par des SVG.
 lucide.createIcons();
 
-// Gestion de la navigation (simplifiée CSS-first)
+// ============================================================
+// Gestion de la navigation (approche CSS-first)
+// - Le state "ouvert/fermé" du menu est piloté par une checkbox cachée (#nav-toggle)
+// - Le bouton burger (<button>.burger-menu) bascule la checkbox en JS
+// - Le CSS (sélecteurs .nav-toggle:checked ~ ...) affiche/masque la sidebar et anime le burger
+// - Le JS synchronise aria-expanded + évite tout retour à #top
+// ============================================================
 (function() {
   const navToggle = document.getElementById('nav-toggle');
-  const burgerLabel = document.querySelector('.burger-menu');
+  const burgerLabel = document.querySelector('.burger-menu'); // bouton visible
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
   let wasDesktop = window.innerWidth > 768;
 
-  // Scroll spy performant (rAF) + offset header
+  // ------------------------------------------------------------
+  // Scroll spy performant (rAF) + offset du header
+  // - Calcule la section active selon scrollY + hauteur du header
+  // - Met .active sur le lien correspondant (un seul actif)
+  // ------------------------------------------------------------
   (function initScrollSpy() {
     const sections = Array.from(document.querySelectorAll('section[id]'));
     if (!sections.length) return;
@@ -70,11 +82,12 @@ lucide.createIcons();
   }
 
   if (navToggle) {
+    // État initial: ouvert sur desktop, fermé sur mobile
     // Initialiser l'état du menu selon la largeur
     navToggle.checked = window.innerWidth > 768;
     syncAria();
 
-    // Gérer le clic sur le bouton burger (plus de label)
+    // Clic sur le bouton burger (bascule la checkbox sans navigation)
     if (burgerLabel) {
       burgerLabel.addEventListener('click', () => {
         navToggle.checked = !navToggle.checked;
@@ -101,6 +114,7 @@ lucide.createIcons();
   }
 
   // Smooth scroll programmatique sur clic des liens du menu
+  // (pour une expérience homogène même sans support natif)
   if (sidebarLinks) {
     function getHeaderHeight() {
       const v = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
@@ -136,7 +150,11 @@ lucide.createIcons();
   }
 })();
 
-// Checklist avec localStorage
+// ============================================================
+// Checklist avec localStorage (indépendant de la navigation)
+// - Sauvegarde l'état des cases
+// - Met à jour la barre de progression
+// ============================================================
 (function(){
   const STORAGE_KEY = 'module113_checklist';
   const checkboxes = document.querySelectorAll('.checklist-checkbox');
