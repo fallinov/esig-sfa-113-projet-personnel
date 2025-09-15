@@ -3,57 +3,32 @@ lucide.createIcons();
 
 // Gestion de la sidebar
 (function() {
-  const sidebarToggleLink = document.querySelector('.sidebar-toggle-link');
   const sidebarNav = document.querySelector('.sidebar-nav');
+  const burgerMenu = document.querySelector('.burger-menu');
   
-  if (!sidebarToggleLink || !sidebarNav) return;
+  if (!sidebarNav) return;
   
-  // Toggle de la sidebar
-  if (sidebarToggleLink) {
-    sidebarToggleLink.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
+  // Gestion du burger menu
+  if (burgerMenu) {
+    burgerMenu.addEventListener('click', function() {
+      const isOpen = sidebarNav.classList.contains('open');
       
-      sidebarNav.classList.toggle('collapsed');
-      const isCollapsed = sidebarNav.classList.contains('collapsed');
-      
-      // Mettre à jour le texte et l'icône
-      const text = sidebarToggleLink.querySelector('.link-text');
-      
-      if (text) {
-        if (isCollapsed) {
-          // Remplacer l'icône par chevron-right
-          sidebarToggleLink.innerHTML = '<i data-lucide="chevron-right"></i> <span class="link-text">Agrandir</span>';
-          sidebarToggleLink.setAttribute('data-tooltip', 'Agrandir le menu');
-        } else {
-          // Remplacer l'icône par chevron-left
-          sidebarToggleLink.innerHTML = '<i data-lucide="chevron-left"></i> <span class="link-text">Réduire</span>';
-          sidebarToggleLink.setAttribute('data-tooltip', 'Réduire le menu');
-        }
-        
-        // Recharger les icônes Lucide
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-        }
+      if (isOpen) {
+        // Fermer le menu
+        sidebarNav.classList.remove('open');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
+      } else {
+        // Ouvrir le menu
+        sidebarNav.classList.add('open');
+        burgerMenu.setAttribute('aria-expanded', 'true');
+        burgerMenu.setAttribute('aria-label', 'Fermer le menu');
       }
     });
   }
   
-  // Gestion mobile - commencer en mode réduit sur mobile
-  function handleMobile() {
-    if (window.innerWidth <= 768) {
-      sidebarNav.classList.add('collapsed'); // Commencer réduit sur mobile
-    } else {
-      sidebarNav.classList.remove('collapsed'); // Mode étendu sur desktop
-    }
-  }
-  
-  // Gestion du redimensionnement
-  window.addEventListener('resize', handleMobile);
-  handleMobile(); // Appel initial
-  
-  // Déclaration des liens de la sidebar (avant leur utilisation)
-  const sidebarLinks = document.querySelectorAll('.sidebar-link:not(.sidebar-toggle-link)');
+  // Déclaration des liens de la sidebar
+  const sidebarLinks = document.querySelectorAll('.sidebar-link');
   
   // Détection de section active pour le menu vertical
   function updateActiveSection() {
@@ -85,27 +60,8 @@ lucide.createIcons();
   // Mettre à jour au chargement
   updateActiveSection();
   
-  // Initialisation de l'icône au chargement - cohérente avec l'état de la sidebar
-  setTimeout(() => {
-    const isMobile = window.innerWidth <= 768;
-    const isCollapsed = sidebarNav.classList.contains('collapsed');
-    
-    if (isCollapsed) {
-      // Sidebar réduite : chevron à droite pour agrandir
-      sidebarToggleLink.innerHTML = '<i data-lucide="chevron-right"></i> <span class="link-text">Agrandir</span>';
-      sidebarToggleLink.setAttribute('data-tooltip', 'Agrandir le menu');
-    } else {
-      // Sidebar étendue : chevron à gauche pour réduire
-      sidebarToggleLink.innerHTML = '<i data-lucide="chevron-left"></i> <span class="link-text">Réduire</span>';
-      sidebarToggleLink.setAttribute('data-tooltip', 'Réduire le menu');
-    }
-    
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
-  }, 100);
   
-  // Gestion des clics sur les liens (sauf le toggle)
+  // Gestion des clics sur les liens
   sidebarLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -123,32 +79,25 @@ lucide.createIcons();
         });
       }
       
-      // Sur mobile, fermer le menu après clic
-      if (window.innerWidth <= 768) {
-        sidebarNav.classList.remove('open');
-      }
-      
-      // Sur desktop, si la sidebar est réduite, la rouvrir après navigation
-      if (window.innerWidth > 768 && sidebarNav.classList.contains('collapsed')) {
-        setTimeout(() => {
-          sidebarNav.classList.remove('collapsed');
-          // Remettre l'icône en état initial
-          sidebarToggleLink.innerHTML = '<i data-lucide="chevron-left"></i> <span class="link-text">Réduire</span>';
-          sidebarToggleLink.setAttribute('data-tooltip', 'Réduire le menu');
-          if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-          }
-        }, 100);
+      // Fermer le menu après clic sur un lien
+      sidebarNav.classList.remove('open');
+      if (burgerMenu) {
+        burgerMenu.setAttribute('aria-expanded', 'false');
+        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
       }
     });
   });
   
-  // Fermer le menu mobile en cliquant à l'extérieur
+  // Fermer le menu en cliquant à l'extérieur
   document.addEventListener('click', function(e) {
-    if (window.innerWidth <= 768 && 
-        !sidebarNav.contains(e.target) &&
+    if (!sidebarNav.contains(e.target) &&
+        !burgerMenu.contains(e.target) &&
         sidebarNav.classList.contains('open')) {
       sidebarNav.classList.remove('open');
+      if (burgerMenu) {
+        burgerMenu.setAttribute('aria-expanded', 'false');
+        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
+      }
     }
   });
 })();

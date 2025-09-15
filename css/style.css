@@ -128,6 +128,12 @@ html {
   box-sizing: border-box;
 }
 
+/* Éviter le scroll horizontal global */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* Scroll smooth pour la navigation */
 html {
   scroll-behavior: smooth;
@@ -606,28 +612,47 @@ html {
 
 /* Wrapper principal qui contient tout le contenu */
 .main-wrapper {
-  margin-left: 60px; /* Largeur de la sidebar réduite par défaut */
-  transition: margin-left var(--transition-normal);
+  margin-left: 0; /* Pas de marge par défaut */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: margin-left var(--transition-normal);
 }
 
-/* Ajustement quand la sidebar est étendue */
-.sidebar-nav:not(.collapsed) ~ .main-wrapper {
-  margin-left: 250px; /* Largeur de la sidebar étendue */
+/* Ajustement quand la sidebar est ouverte - sauf pour le header */
+.sidebar-nav.open ~ .main-wrapper {
+  margin-left: 250px; /* Marge quand la sidebar est ouverte */
+}
+
+/* Sur mobile, le menu s'affiche par-dessus le contenu */
+@media (max-width: 768px) {
+  .sidebar-nav.open ~ .main-wrapper {
+    margin-left: 0; /* Pas de décalage sur mobile */
+  }
+}
+
+/* Le header reste toujours à la même position */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
 }
 
 /* Container principal */
 .container {
   padding: 0;
   flex: 1; /* Prendre l'espace restant */
+  margin-top: var(--header-height); /* Éviter que le contenu soit caché sous le header fixe */
 }
 
 /* Limitation de largeur pour le contenu des sections */
 .section-content {
   max-width: 2000px;
   margin: 0 auto;
+  padding: 0 var(--spacing-md); /* Padding pour éviter le débordement */
+  box-sizing: border-box;
 }
 
 /* La section hero utilise maintenant le wrapper .section-content */
@@ -652,25 +677,13 @@ html {
     font-size: var(--font-size-xs);
   }
   
-  .main-wrapper {
-    margin-left: 60px; /* Marge pour la sidebar réduite par défaut sur mobile */
-  }
-  
-  .sidebar-nav.collapsed ~ .main-wrapper {
-    margin-left: 60px; /* Marge pour la sidebar réduite */
-  }
-  
-  .sidebar-nav:not(.collapsed) ~ .main-wrapper {
-    margin-left: 250px; /* Marge pour la sidebar étendue sur mobile */
-  }
-  
   .container {
     padding: 0;
   }
   
   /* Ajustement des sections sur mobile */
   section {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xs); /* Padding minimal sur mobile */
   }
 }
 
@@ -703,12 +716,10 @@ html {
    ======================================== */
 
 .main-header {
-  position: relative;
   height: var(--header-height);
   background: var(--color-white);
   border-bottom: 2px solid var(--color-primary);
   box-shadow: var(--shadow-md);
-  z-index: var(--z-sticky);
   display: flex;
   align-items: center;
 }
@@ -768,6 +779,57 @@ html {
 }
 
 /* ========================================
+   BURGER MENU
+   ======================================== */
+
+.burger-menu {
+  display: flex; /* Affiché sur toutes les tailles d'écran */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 4px;
+  transition: all var(--transition-normal);
+}
+
+.burger-menu:hover .burger-line,
+.burger-menu:focus .burger-line {
+  background: var(--color-accent);
+}
+
+.burger-menu:focus {
+  outline: none;
+}
+
+.burger-line {
+  width: 24px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+  transform-origin: center;
+}
+
+/* Animation du burger menu quand ouvert */
+.burger-menu[aria-expanded="true"] .burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-menu[aria-expanded="true"] .burger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burger-menu[aria-expanded="true"] .burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================
    MENU VERTICAL STICKY
    ======================================== */
 
@@ -780,149 +842,18 @@ html {
   background: var(--color-white);
   border-right: 2px solid var(--color-primary);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: var(--z-sticky);
+  z-index: calc(var(--z-sticky) + 1); /* Au-dessus du header */
   overflow: hidden;
-  transition: width var(--transition-normal);
+  transform: translateX(-100%); /* Caché par défaut */
+  transition: transform var(--transition-normal);
 }
 
-/* État réduit de la sidebar */
-.sidebar-nav.collapsed {
-  width: 60px;
-}
-
-.sidebar-nav.collapsed .sidebar-content {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Cacher uniquement les libellés en mode réduit */
-.sidebar-nav.collapsed .link-text {
-  display: none;
-}
-
-/* Affichage des icônes quand la sidebar est réduite */
-.sidebar-nav.collapsed .sidebar-menu {
-  opacity: 1;
-  visibility: visible;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 0;
-}
-
-.sidebar-nav.collapsed .sidebar-menu li {
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar-nav.collapsed .sidebar-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  margin: 4px 8px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.sidebar-nav.collapsed .sidebar-link i {
-  margin: 0;
-  width: 22px;
-  height: 22px;
-}
-
-.sidebar-nav.collapsed .sidebar-link .link-text {
-  display: none;
-}
-
-/* Tooltip pour les icônes */
-.sidebar-nav.collapsed .sidebar-link::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--color-dark);
-  color: var(--color-white);
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  margin-left: 8px;
-  pointer-events: none;
-}
-
-.sidebar-nav.collapsed .sidebar-link::before {
-  content: '';
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 5px solid transparent;
-  border-right-color: var(--color-dark);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  margin-left: 3px;
-  pointer-events: none;
-}
-
-.sidebar-nav.collapsed .sidebar-link:hover::after,
-.sidebar-nav.collapsed .sidebar-link:hover::before {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* État actif pour les icônes réduites */
-.sidebar-nav.collapsed .sidebar-link.active {
-  background: var(--color-primary);
-  color: var(--color-white);
-}
-
-.sidebar-nav.collapsed .sidebar-link.active i {
-  color: var(--color-white);
-}
-
-.sidebar-nav.collapsed .sidebar-link:hover {
-  background: var(--color-primary-light);
-  color: var(--color-white);
-}
-
-.sidebar-nav.collapsed .sidebar-link:hover i {
-  color: var(--color-white);
+.sidebar-nav.open {
+  transform: translateX(0); /* Visible quand ouvert */
 }
 
 
-@media (max-width: 768px) {
-  .sidebar-nav {
-    width: 60px; /* Commencer en mode réduit sur mobile */
-    transform: translateX(0); /* Toujours visible */
-  }
-  
-  .sidebar-nav.collapsed {
-    width: 60px;
-  }
-  
-  .sidebar-nav:not(.collapsed) {
-    width: 250px;
-  }
-  
-  /* Ajuster le contenu principal sur mobile */
-  .main-wrapper {
-    margin-left: 60px; /* Marge pour la sidebar réduite par défaut */
-  }
-  
-  .sidebar-nav:not(.collapsed) ~ .main-wrapper {
-    margin-left: 250px; /* Marge pour la sidebar étendue */
-  }
-}
+
 
 .sidebar-menu {
   list-style: none !important;
@@ -1015,33 +946,6 @@ html {
   visibility: visible;
 }
 
-/* ========================================
-   LIEN TOGGLE SIDEBAR
-   ======================================== */
-
-.sidebar-toggle-link {
-  border-top: 1px solid var(--color-border-light);
-  margin-top: var(--spacing-sm);
-  padding-top: var(--spacing-md);
-}
-
-.sidebar-toggle-link:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-}
-
-.sidebar-toggle-link i {
-  transition: transform var(--transition-normal);
-}
-
-/* Animation de l'icône quand la sidebar est réduite */
-.sidebar-nav.collapsed .sidebar-toggle-link i {
-  transform: rotate(180deg);
-}
-
-.sidebar-nav.collapsed .sidebar-toggle-link .link-text {
-  display: none;
-}
 
 
 
@@ -1078,7 +982,7 @@ html {
 .hero {
   background: var(--color-primary);
   color: var(--color-white);
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-xl) 0;
   position: relative;
   overflow: hidden;
 }
@@ -1361,7 +1265,7 @@ html {
 
 /* Section générique - style minimal sans bordures ni ombres */
 section {
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-sm);
   border: none;
   box-shadow: none;
   border-radius: 0;
@@ -1575,10 +1479,6 @@ section {
   .sidebar-nav {
     display: block; /* Garder la sidebar visible sur mobile */
   }
-  
-  .main-wrapper {
-    margin-left: 60px; /* Marge pour la sidebar réduite sur mobile */
-  }
 }
 
 
@@ -1589,7 +1489,16 @@ section {
 /* Mobile First - Breakpoint SM (640px) */
 @media (max-width: 639px) {
   .container {
-    padding: 0 var(--spacing-md);
+    padding: 0; /* Suppression du padding sur mobile */
+  }
+  
+  /* Éviter le scroll horizontal sur mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
+  .section-content {
+    padding: 0 var(--spacing-sm); /* Padding réduit sur très petit mobile */
   }
   
   .hero .section-content {
@@ -2050,6 +1959,17 @@ details[open] summary {
   .grid.cols-3,
   .grid.cols-4 {
     grid-template-columns: 1fr;
+  }
+  
+  /* Éviter le débordement des grilles sur mobile */
+  .grid {
+    gap: var(--spacing-md); /* Réduire l'espacement sur mobile */
+  }
+  
+  /* S'assurer que les cartes ne débordent pas */
+  .card, .livrable-card, .resource-card, .consigne-card, article {
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .kpi {
