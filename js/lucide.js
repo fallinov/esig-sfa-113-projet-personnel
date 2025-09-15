@@ -217,7 +217,8 @@
   const icons = {
     Target,
     ClipboardList,
-    CheckCircle, // check-circle
+    // Map kebab-case 'check-circle' to our 'CircleCheck' shape
+    CheckCircle: CircleCheck,
     Calendar,
     Book,
     Search,
@@ -249,4 +250,3 @@
 
   global.lucide = { createIcons };
 })(typeof window !== 'undefined' ? window : this);
-
