@@ -153,25 +153,24 @@ ul, ol {
   margin: 0;
 }
 
-/* Icône code par défaut pour toutes les listes ul (sauf exclusions spécifiques) */
-ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.sidebar-menu):not(.task-list):not(.checklist-items) li {
+/* Style uniforme pour toutes les listes ul */
+ul li {
   position: relative;
   padding-left: 1.5em;
   margin-bottom: 0.5em;
 }
 
-ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.sidebar-menu):not(.task-list):not(.checklist-items) li::before {
+ul li::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0.1em;
   width: 1em;
   height: 1em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%231E3A8A'%3E%3Cpolygon points='16,18 22,12 16,6 8,6 2,12 8,18'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
 /* Interdiction de l'alignement justifié pour le texte */
@@ -195,56 +194,17 @@ p, div, span, article, section, main, aside, header, footer, nav, h1, h2, h3, h4
   text-align: right;
 }
 
-/* Ajout des icônes globe pour les listes de contenu (pas navigation/menus/cartes) */
-ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.checklist-items):not(.card ul) {
-  list-style: none;
-  padding-left: 0;
-  margin: var(--spacing-sm) 0;
-}
 
-ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.checklist-items):not(.card ul) li {
-  position: relative;
-  padding-left: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-ul:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.checklist-items):not(.card ul) li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.1em;
-  width: 1em;
-  height: 1em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: rocket-bounce 2s ease-in-out infinite;
-}
-
-ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.card ol) {
+/* Style uniforme pour toutes les listes ol */
+ol {
   list-style: decimal;
   padding-left: var(--spacing-lg);
   margin: var(--spacing-sm) 0;
 }
 
-ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.card ol) li {
+ol li {
   position: relative;
   margin-bottom: 0.5em;
-}
-
-ol:not(.hero-benefits):not(.nav-menu):not(.dropdown-menu):not(.nav-list):not(.livrable-card ul):not(.resource-card ul):not(.consigne-card ul):not(.step-details):not(.constraint-requirements):not(.deliverable-items):not(.tool-items):not(.tip-items):not(.task-list):not(.card ol) li::after {
-  content: "";
-  position: absolute;
-  right: -1.5em;
-  top: 0.1em;
-  width: 1em;
-  height: 1em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
 /* Espacement des éléments de liste */
@@ -476,13 +436,8 @@ a {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
-@keyframes rocket-bounce {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-2px); }
-}
 
 .card ul li a {
   text-decoration: underline;
@@ -655,12 +610,11 @@ html {
   box-sizing: border-box;
 }
 
-/* La section hero utilise maintenant le wrapper .section-content */
+/* Section hero simplifiée */
 .hero .section-content {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3xl);
-  min-height: 80vh;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 
@@ -999,11 +953,71 @@ html {
 
 
 
-.hero-content {
+/* Style pour les li avec icônes manuelles */
+li.manual-icons {
   position: relative;
-  z-index: 1;
-  max-width: 600px;
-  flex: 1;
+  padding-left: 0 !important;
+  margin-bottom: 0.5em;
+}
+
+li.manual-icons::before {
+  display: none;
+}
+
+li.manual-icons i {
+  position: absolute;
+  left: 0.2em;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  color: var(--color-primary);
+}
+
+li.manual-icons svg {
+  position: relative;
+  top: 4px;
+  left: -4px;
+}
+
+/* Icônes blanches pour le hero */
+.hero-info li.manual-icons i {
+  color: var(--color-white);
+}
+
+.hero-tasks {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-tasks h3 {
+  color: var(--color-white);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+}
+
+.hero-tasks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-tasks li {
+  color: var(--color-white);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+  position: relative;
+}
+
+.hero-tasks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
 }
 
 .hero-title {
@@ -1011,7 +1025,7 @@ html {
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-lg);
   color: var(--color-white);
-  text-align: left;
+  text-align: center;
 }
 
 .highlight {
@@ -1021,67 +1035,20 @@ html {
 .hero-description {
   font-size: var(--font-size-lg);
   line-height: var(--line-height-relaxed);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
   color: var(--color-white);
-  max-width: 65ch; /* Mesure optimale pour les descriptions */
+  text-align: center;
 }
 
-.hero-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--spacing-xl) 0;
-  color: var(--color-white);
-}
-
-.hero-benefits li {
-  position: relative;
-  padding-left: var(--spacing-lg);
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-}
-
-.hero-benefits li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-}
-
-/* Adaptation des icônes selon l'alignement du texte */
-.hero-benefits {
-  text-align: left;
-}
-
-.hero-benefits[style*="text-align: center"] li::before,
-.hero-benefits.center li::before {
-  left: 50%;
-  transform: translateX(-50%);
-  margin-left: calc(-1 * var(--spacing-lg) - 0.5em);
-}
-
-.hero-benefits[style*="text-align: right"] li::before,
-.hero-benefits.right li::before {
-  left: auto;
-  right: 0;
-  margin-right: calc(-1 * var(--spacing-lg) - 0.5em);
-}
 
 .hero-actions {
   display: flex;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--spacing-xl);
 }
 
-/* Grille d'informations du projet */
-.project-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-lg);
-  margin: var(--spacing-xl) 0;
-}
 
 /* Carte vitrée réutilisable */
 .glass-card {
@@ -1275,6 +1242,7 @@ html {
 
 /* Section générique - style minimal sans bordures ni ombres */
 section {
+  padding: var(--spacing-lg) var(--spacing-md);
   border: none;
   box-shadow: none;
   border-radius: 0;
@@ -1376,7 +1344,6 @@ section {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
 .livrable-card li {
@@ -1419,7 +1386,6 @@ section {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: rocket-bounce 2s ease-in-out infinite;
 }
 
 .resource-card li, .consigne-card li, article li {
@@ -1531,20 +1497,9 @@ section {
     padding: 0; /* Padding géré par les sections */
   }
   
-  .hero .section-content {
+  .hero-info {
     flex-direction: column;
-    text-align: center;
-    gap: var(--spacing-lg);
-  }
-  
-  .hero-content {
-    max-width: 100%;
-    order: 2;
-  }
-  
-  .hero-image {
-    order: 1;
-    max-width: 100%;
+    gap: var(--spacing-md);
   }
   
   .hero-title {
@@ -1554,15 +1509,6 @@ section {
   .hero-actions {
     flex-direction: column;
     align-items: center;
-  }
-  
-  .project-info-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-  
-  .info-card {
-    padding: var(--spacing-md);
   }
   
   .project-tasks {

@@ -55,52 +55,31 @@
     <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="section-content">
-        <div class="hero-content">
         <h1 id="hero-title" class="hero-title">
           Projet personnel <span class="highlight">HTML5 + CSS3</span>
         </h1>
-        <p class="hero-description">
-          Module 113 - Développement web front-end
-        </p>
         
-        <div class="project-info-grid">
-          <div class="info-card glass-card">
-            <div class="info-icon">
-              <i data-lucide="award" class="icon icon-lg"></i>
-            </div>
-            <div class="info-content">
-              <h3>Évaluation</h3>
-              <p><strong>20 pts</strong> projet <br> <strong>20 pts</strong> écrit</p>
-            </div>
-          </div>
+        <ul class="hero-info">
+          <li class="manual-icons">
+            <i data-lucide="award"></i>
+            <strong>20 pts</strong> projet + <strong>20 pts</strong> écrit
+          </li>
+          <li class="manual-icons">
+            <i data-lucide="clock"></i>
+            <strong>9 semaines</strong>
+          </li>
+          <li class="manual-icons">
+            <i data-lucide="calendar-check"></i>
+            <strong>Suivi toutes les 2 semaines</strong>
+          </li>
+        </ul>
 
-          <div class="info-card glass-card">
-            <div class="info-icon">
-              <i data-lucide="clock" class="icon icon-lg"></i>
-            </div>
-            <div class="info-content">
-              <h3>Durée</h3>
-              <p><strong>9 semaines</strong></p>
-            </div>
-          </div>
-
-          <div class="info-card glass-card">
-            <div class="info-icon">
-              <i data-lucide="calendar-check" class="icon icon-lg"></i>
-            </div>
-            <div class="info-content">
-              <h3>Suivi</h3>
-              <p><strong>Toutes les 2 semaines</strong></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-tasks glass-card">
+        <div class="hero-tasks">
           <h3>Ce que tu dois faire :</h3>
-          <ul class="task-list">
-            <li><i data-lucide="check" class="icon icon-sm"></i> <span>Construire et publier un site en <strong>HTML5 + CSS3</strong></span></li>
-            <li><i data-lucide="check" class="icon icon-sm"></i> <span>Versionner et publier via <strong>GitHub</strong> (GitHub Pages)</span></li>
-            <li><i data-lucide="check" class="icon icon-sm"></i> <span>Tenir un <strong>README.md</strong> réflexif</span></li>
+          <ul>
+            <li>Construire et publier un site en <strong>HTML5 + CSS3</strong></li>
+            <li>Versionner et publier via <strong>GitHub</strong> (GitHub Pages)</li>
+            <li>Tenir un <strong>README.md</strong> réflexif</li>
           </ul>
         </div>
 
@@ -114,20 +93,6 @@
             Planning des jalons
           </a>
         </div>
-        </div>
-      </div>
-      
-      <div class="hero-image">
-        <picture>
-          <source srcset="img/formateur-devant-tableau.webp" type="image/webp">
-          <img src="img/formateur-devant-tableau.jpg" 
-               alt="Formateur professionnel expliquant les concepts de développement web devant un tableau blanc" 
-               class="hero-illustration"
-               loading="lazy"
-               decoding="async"
-               width="1024"
-               height="1024">
-        </picture>
       </div>
     </section>
 
@@ -184,6 +149,10 @@
           <h3>Livrable 1 · Site en ligne</h3>
           <ul>
             <li>Hébergé (GitHub Pages ou équivalent).</li>
+            <li class="manual-icons">
+              <i data-lucide="clock"></i>
+              <strong>9 semaines</strong>
+            </li>
             <li>HTML/CSS <strong>valides W3C</strong>.</li>
             <li>Design <strong>responsive</strong> mobile → desktop.</li>
             <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de CDN).</li>
