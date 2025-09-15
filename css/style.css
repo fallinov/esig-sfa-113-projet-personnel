@@ -92,6 +92,8 @@ html {
   --border-radius-xl: 1rem;
   --border-radius-2xl: 1.5rem;
   --border-radius-full: 9999px;
+  /* Alias par défaut pour compatibilité avec les usages existants */
+  --border-radius: var(--border-radius-lg);
   
   /* Ombres */
   --shadow-sm: 0 1px 2px 0 rgba(139, 69, 19, 0.1);
@@ -115,6 +117,13 @@ html {
   /* Breakpoints */
   --breakpoint-xl: 1280px;
   --header-height: 70px;
+
+  /* Alias et couleurs complémentaires */
+  --color-border: var(--color-border-light);
+  --color-text-muted: var(--color-gray-600);
+
+  /* Alias de graisse manquante dans les styles */
+  --font-weight-semibold: 600;
 }
 
 /* ========================================
@@ -212,19 +221,7 @@ li {
   margin-bottom: var(--spacing-xs);
 }
 
-/* Reset des liens */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Suppression globale des soulignements */
-a:hover,
-a:focus,
-a:active,
-a:visited {
-  text-decoration: none;
-}
+/* Reset des liens — géré plus bas dans la section Typographie */
 
 /* Reset des boutons */
 button {
@@ -272,11 +269,6 @@ img {
 /* Base typographique */
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
-  /* Forcer l'utilisation des polices préchargées */
-  font-family: var(--font-family-primary);
-  /* Forcer le chargement des polices */
-  font-weight: 400;
 }
 
 body {
@@ -438,16 +430,10 @@ a {
   background-position: center;
 }
 
+/* Les puces personnalisées globales couvrent aussi .card */
 
-.card ul li a {
-  text-decoration: underline;
-  color: var(--color-primary);
-  transition: color 0.2s ease;
-}
 
-.card ul li a:hover {
-  color: var(--color-accent);
-}
+/* Dé-doublonnage: styles de liens déjà définis plus haut */
 
 /* Éléments recommandés avec icône étoile */
 .card ul li.recommended {
@@ -585,14 +571,7 @@ html {
   .nav-toggle:not(:checked) ~ .main-wrapper { margin-left: 0; }
 }
 
-/* Le header reste toujours à la même position */
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-sticky);
-}
+/* Le header reste toujours à la même position (voir bloc .main-header plus bas) */
 
 /* Container principal */
 .container {
@@ -667,6 +646,11 @@ html {
    ======================================== */
 
 .main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
   height: var(--header-height);
   background: var(--color-white);
   border-bottom: 4px solid var(--color-primary);
@@ -880,13 +864,7 @@ html {
   content: none !important;
 }
 
-.sidebar-link:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-  border: none !important;
-  outline: none !important;
-}
-
+.sidebar-link:hover,
 .sidebar-link:focus {
   background-color: var(--color-primary-light);
   color: var(--color-primary);
@@ -1237,7 +1215,6 @@ li.checklist-item::before {
   outline: 3px solid var(--color-white);
   outline-offset: 3px;
   box-shadow: 0 0 0 6px var(--color-bg-primary);
-  opacity: 0.3;
 }
 
 .btn-secondary:active {
@@ -1357,18 +1334,7 @@ section {
   margin-bottom: 0.5em;
 }
 
-.livrable-card ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.1em;
-  width: 1em;
-  height: 1em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E3A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16,18 22,12 16,6'/%3E%3Cpolyline points='8,6 2,12 8,18'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+/* Dé-doublonnage: utilise la variante avec coche définie plus bas */
 
 .livrable-card li {
   margin-bottom: var(--spacing-sm);
@@ -1399,7 +1365,16 @@ section {
   margin-bottom: 0.5em;
 }
 
-.resource-card ul li::before, .consigne-card ul li::before, article ul li::before {
+/* Dé-doublonnage: utilise la variante simple en puce ci-dessous */
+
+.resource-card li, .consigne-card li, article li {
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.resource-card li::before, .consigne-card li::before, article li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1410,22 +1385,6 @@ section {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.resource-card li, .consigne-card li, article li {
-  margin-bottom: var(--spacing-sm);
-  position: relative;
-  padding-left: 20px;
-  list-style: none;
-}
-
-.resource-card li::before, .consigne-card li::before, article li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
-  margin-right: var(--spacing-md);
 }
 
 
@@ -1593,7 +1552,6 @@ section {
   outline: 3px solid var(--color-primary);
   outline-offset: 6px;
   box-shadow: 0 0 0 6px var(--color-primary);
-  opacity: 0.1;
 }
 
 /* Focus pour les liens de navigation */
