@@ -678,7 +678,6 @@ html {
 
 .header-content {
   width: 100%;
-  max-width: var(--breakpoint-xl);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
   display: flex;
