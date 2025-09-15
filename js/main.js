@@ -118,6 +118,19 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
   // Smooth scroll programmatique sur clic des liens du menu
   // (pour une expérience homogène même sans support natif)
   if (sidebarLinks) {
+    // Gestion explicite du lien "Fermer le menu"
+    const closeLinks = document.querySelectorAll('.sidebar-link[data-close-menu="true"]');
+    closeLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (navToggle) {
+          navToggle.checked = false;
+          syncAria();
+        }
+        if (burgerLabel) burgerLabel.focus();
+      });
+    });
+
     function getHeaderHeight() {
       const v = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
       const n = parseInt(v, 10);
