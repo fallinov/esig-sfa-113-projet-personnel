@@ -12,27 +12,11 @@
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-
-  <!-- Header principal -->
-  <header class="main-header">
-    <div class="header-content">
-      <div class="header-logo">
-        <a href="/" class="logo-link">
-          <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
-          <div class="logo-text">
-            <h1 class="logo-title">Projet personnel</h1>
-            <p class="logo-subtitle">ESIG - Module 113</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </header>
-
   <!-- Menu vertical sticky -->
-  <nav class="sidebar-nav" aria-label="Navigation des sections">
+  <nav class="sidebar-nav collapsed" aria-label="Navigation des sections">
     <div class="sidebar-content">
       <ul class="sidebar-menu">
-        <li><a href="#objectif" class="sidebar-link" data-section="objectif" data-tooltip="Objectifs"><i data-lucide="target"></i> <span class="link-text">Objectifs</span></a></li>
+        <li><a href="#objectifs" class="sidebar-link" data-section="objectifs" data-tooltip="Objectifs"><i data-lucide="target"></i> <span class="link-text">Objectifs</span></a></li>
         <li><a href="#a-rendre" class="sidebar-link" data-section="a-rendre" data-tooltip="À rendre"><i data-lucide="clipboard-list"></i> <span class="link-text">À rendre</span></a></li>
         <li><a href="#exigences" class="sidebar-link" data-section="exigences" data-tooltip="Exigences"><i data-lucide="check-circle"></i> <span class="link-text">Exigences</span></a></li>
         <li><a href="#planification" class="sidebar-link" data-section="planification" data-tooltip="Planification"><i data-lucide="calendar"></i> <span class="link-text">Planification</span></a></li>
@@ -45,10 +29,28 @@
     </div>
   </nav>
 
-  <main id="contenu" class="container">
+  <!-- Wrapper principal qui contient tout le contenu -->
+  <div class="main-wrapper">
+    <!-- Header principal -->
+    <header class="main-header">
+    <div class="header-content">
+      <div class="header-logo">
+        <a href="/" class="logo-link">
+          <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
+          <div class="logo-text">
+            <div class="logo-title">Projet personnel</div>
+            <p class="logo-subtitle">ESIG - Module 113</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    </header>
+
+    <main id="contenu" class="container">
     <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-content">
+      <div class="section-content">
+        <div class="hero-content">
         <h1 id="hero-title" class="hero-title">
           Projet personnel <span class="highlight">HTML5 + CSS3</span>
         </h1>
@@ -102,28 +104,33 @@
             <i data-lucide="check-circle" class="icon icon-sm"></i>
             Voir les exigences
           </a>
-          <a href="#jalons" class="btn btn-secondary">
+          <a href="#planification" class="btn btn-secondary">
             <i data-lucide="calendar" class="icon icon-sm"></i>
             Planning des jalons
           </a>
         </div>
+        </div>
       </div>
       
       <div class="hero-image">
-        <img src="img/formateur-devant-tableau.png" 
-             alt="Formateur professionnel expliquant les concepts de développement web devant un tableau blanc" 
-             class="hero-illustration"
-             loading="lazy"
-             decoding="async"
-             width="1024"
-             height="1024">
+        <picture>
+          <source srcset="img/formateur-devant-tableau.webp" type="image/webp">
+          <img src="img/formateur-devant-tableau.jpg" 
+               alt="Formateur professionnel expliquant les concepts de développement web devant un tableau blanc" 
+               class="hero-illustration"
+               loading="lazy"
+               decoding="async"
+               width="1024"
+               height="1024">
+        </picture>
       </div>
     </section>
 
     <!-- Section Objectifs -->
-    <section id="objectif" class="section-bg-primary">
-      <h2 class="section-title">Objectifs</h2>
-      <div class="objectifs-grid">
+    <section id="objectifs" class="section-bg-primary">
+      <div class="section-content">
+        <h2 class="section-title">Objectifs</h2>
+        <div class="objectifs-grid">
         <div class="livrable-card">
           <div class="livrable-icon">
             <i data-lucide="graduation-cap" class="icon icon-xl"></i>
@@ -159,14 +166,15 @@
           <h3>Méthodes professionnelles</h3>
           <p>Utilisation d'IDE (WebStorm), versioning, publication</p>
         </div>
+        </div>
       </div>
-      
     </section>
 
     <!-- Section À rendre -->
     <section id="a-rendre" class="section-bg-secondary">
-      <h2 class="section-title">À rendre</h2>
-      <div class="grid cols-2">
+      <div class="section-content">
+        <h2 class="section-title">À rendre</h2>
+        <div class="grid cols-2">
         <article class="card">
           <h3>Livrable 1 · Site en ligne</h3>
           <ul>
@@ -201,14 +209,15 @@
             Télécharger le README de base
           </a>
         </article>
+        </div>
       </div>
-      
-
+    </section>
 
     <!-- Section Exigences -->
     <section id="exigences" class="section-bg-medium">
-      <h2 class="section-title">Exigences</h2>
-      <div class="grid cols-3">
+      <div class="section-content">
+        <h2 class="section-title">Exigences</h2>
+        <div class="grid cols-3">
         <article class="card">
           <div class="card-icon">
             <i data-lucide="code" class="icon icon-xl"></i>
@@ -255,13 +264,15 @@
             <li><strong>Ressources locales</strong> : Polices et images hébergées localement (pas de CDN)</li>
           </ul>
         </article>
+        </div>
       </div>
     </section>
 
     <!-- Section Planification -->
     <section id="planification" class="section-bg-primary">
-      <h2 class="section-title">Planification</h2>
-      <div class="grid cols-1">
+      <div class="section-content">
+        <h2 class="section-title">Planification</h2>
+        <div class="grid cols-1">
         <article class="card">
           <div class="card-icon">
             <i data-lucide="layers" class="icon icon-xl"></i>
@@ -305,13 +316,15 @@
             <li><strong>9 janvier 2026 – Livraison finale</strong> : Site publié et README complet <span class="muted">(Suivi final)</span></li>
           </ul>
         </article>
+        </div>
       </div>
     </section>
 
     <!-- Section Ressources et outils -->
     <section id="outils" class="section-bg-secondary">
-      <h2 class="section-title">Ressources et outils</h2>
-      <div class="grid cols-2">
+      <div class="section-content">
+        <h2 class="section-title">Ressources et outils</h2>
+        <div class="grid cols-2">
         <article class="card">
           <h3>Ressources de formation</h3>
           <p>Découvrez les meilleures plateformes et ressources pour apprendre le développement web :</p>
@@ -375,13 +388,15 @@
             <li class="recommended"><strong>Optimisation d'images</strong> : <a href="https://tinypng.com/" target="_blank">TinyPNG</a>, <a href="https://squoosh.app/" target="_blank">Squoosh</a>, <a href="https://imageoptim.com/" target="_blank">ImageOptim</a></li>
           </ul>
         </article>
+        </div>
       </div>
     </section>
 
     <!-- Section Évaluation -->
     <section id="evaluation" class="section-bg-medium">
-      <h2 class="section-title">Évaluation</h2>
-      <div class="card">
+      <div class="section-content">
+        <h2 class="section-title">Évaluation</h2>
+        <div class="card">
         <h3>Grille d'évaluation (20 pts)</h3>
         <ul>
           <li><strong>HTML/CSS</strong> : validité, propreté, sémantique – 4&nbsp;pts</li>
@@ -391,15 +406,15 @@
           <li><strong>Performance</strong> : optimisations, audits – 3&nbsp;pts</li>
           <li><strong>Bonus</strong> : créativité, fonctionnalités avancées – 2&nbsp;pts</li>
         </ul>
+        </div>
       </div>
     </section>
 
-
-
     <!-- Section Support & IA -->
     <section id="support" class="section-bg-secondary">
-      <h2 class="section-title">Support & IA</h2>
-      <div class="grid cols-2">
+      <div class="section-content">
+        <h2 class="section-title">Support & IA</h2>
+        <div class="grid cols-2">
         <article class="card">
           <h3>Support et aide</h3>
           <ul>
@@ -420,13 +435,15 @@
             <li><strong>Validation</strong> : Testez et validez tout code généré</li>
           </ul>
         </article>
+        </div>
       </div>
     </section>
 
     <!-- Section Checklist -->
     <section id="checklist" class="section-bg-primary">
-      <h2 class="section-title">Checklist d'auto-évaluation</h2>
-      <div class="checklist-progress">
+      <div class="section-content">
+        <h2 class="section-title">Checklist d'auto-évaluation</h2>
+        <div class="checklist-progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progression de la checklist">
           <div class="progress-fill" id="progress-fill"></div>
         </div>
@@ -435,9 +452,9 @@
           <i data-lucide="refresh-cw" class="icon icon-sm"></i>
           Réinitialiser
         </button>
-      </div>
+        </div>
       
-      <div class="checklist-container">
+        <div class="checklist-container">
         <div class="checklist-category">
           <h3>Structure et validation</h3>
           <ul class="checklist-items">
@@ -573,15 +590,16 @@
             </li>
           </ul>
         </div>
+        </div>
       </div>
     </section>
 
+    </main>
 
-  </main>
-
-  <footer class="mini-footer">
-    <p>&copy; 2024 ESIG Suisse - Module 113. Tous droits réservés.</p>
-  </footer>
+    <footer class="mini-footer">
+      <p>&copy; 2024 ESIG Suisse - Module 113. Tous droits réservés.</p>
+    </footer>
+  </div>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>

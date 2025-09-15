@@ -44,7 +44,7 @@ lucide.createIcons();
     if (window.innerWidth <= 768) {
       sidebarNav.classList.add('collapsed'); // Commencer réduit sur mobile
     } else {
-      sidebarNav.classList.remove('collapsed'); // Mode normal sur desktop
+      sidebarNav.classList.remove('collapsed'); // Mode étendu sur desktop
     }
   }
   

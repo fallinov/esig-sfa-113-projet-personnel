@@ -3,6 +3,11 @@
    Styles principaux - ESIG Suisse
    ======================================== */
 
+/* Smooth scrolling pour la navigation par ancres */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Couleurs principales */
   --color-primary: #1E3A8A;
@@ -599,18 +604,38 @@ html {
   scroll-margin-top: 0;
 }
 
-/* Container principal */
-.container {
-  max-width: var(--breakpoint-xl);
-  margin: 0 auto;
-  padding: 0;
-  margin-left: 250px; /* Largeur de la sidebar */
+/* Wrapper principal qui contient tout le contenu */
+.main-wrapper {
+  margin-left: 60px; /* Largeur de la sidebar réduite par défaut */
   transition: margin-left var(--transition-normal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Ajustement quand la sidebar est réduite */
-.sidebar-nav.collapsed ~ .container {
-  margin-left: 60px; /* Largeur de la sidebar réduite */
+/* Ajustement quand la sidebar est étendue */
+.sidebar-nav:not(.collapsed) ~ .main-wrapper {
+  margin-left: 250px; /* Largeur de la sidebar étendue */
+}
+
+/* Container principal */
+.container {
+  padding: 0;
+  flex: 1; /* Prendre l'espace restant */
+}
+
+/* Limitation de largeur pour le contenu des sections */
+.section-content {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* La section hero utilise maintenant le wrapper .section-content */
+.hero .section-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xl);
+  min-height: 80vh;
 }
 
 
@@ -627,17 +652,20 @@ html {
     font-size: var(--font-size-xs);
   }
   
-  .container {
+  .main-wrapper {
     margin-left: 60px; /* Marge pour la sidebar réduite par défaut sur mobile */
-    padding: 0;
   }
   
-  .sidebar-nav.collapsed ~ .container {
+  .sidebar-nav.collapsed ~ .main-wrapper {
     margin-left: 60px; /* Marge pour la sidebar réduite */
   }
   
-  .sidebar-nav:not(.collapsed) ~ .container {
+  .sidebar-nav:not(.collapsed) ~ .main-wrapper {
     margin-left: 250px; /* Marge pour la sidebar étendue sur mobile */
+  }
+  
+  .container {
+    padding: 0;
   }
   
   /* Ajustement des sections sur mobile */
@@ -887,11 +915,11 @@ html {
   }
   
   /* Ajuster le contenu principal sur mobile */
-  .container {
+  .main-wrapper {
     margin-left: 60px; /* Marge pour la sidebar réduite par défaut */
   }
   
-  .sidebar-nav:not(.collapsed) ~ .container {
+  .sidebar-nav:not(.collapsed) ~ .main-wrapper {
     margin-left: 250px; /* Marge pour la sidebar étendue */
   }
 }
@@ -1050,12 +1078,9 @@ html {
 .hero {
   background: var(--color-primary);
   color: var(--color-white);
-  padding: var(--spacing-3xl) var(--spacing-lg);
+  padding: var(--spacing-3xl) 0;
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2xl);
 }
 
 
@@ -1551,7 +1576,7 @@ section {
     display: block; /* Garder la sidebar visible sur mobile */
   }
   
-  .container {
+  .main-wrapper {
     margin-left: 60px; /* Marge pour la sidebar réduite sur mobile */
   }
 }
@@ -1567,7 +1592,7 @@ section {
     padding: 0 var(--spacing-md);
   }
   
-  .hero {
+  .hero .section-content {
     flex-direction: column;
     text-align: center;
     gap: var(--spacing-lg);
@@ -1625,9 +1650,7 @@ section {
 
 /* Breakpoint LG (1024px) */
 @media (min-width: 1024px) {
-  .hero-content {
-    max-width: 50%;
-  }
+  /* Règles spécifiques pour les grands écrans si nécessaire */
 }
 
 
@@ -2097,7 +2120,6 @@ details[open] summary {
   }
   
   .container {
-    max-width: none;
     padding: 0;
   }
 }
