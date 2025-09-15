@@ -12,7 +12,27 @@
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <!-- Menu vertical sticky -->
+  <!-- Header principal (sorti de main-wrapper) -->
+  <header class="main-header">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link">
+        <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
+        <div class="logo-text">
+          <div class="logo-title">Projet personnel</div>
+          <p class="logo-subtitle">ESIG - Module 113</p>
+        </div>
+      </a>
+    </div>
+    <button class="burger-menu" aria-label="Ouvrir/Fermer le menu" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </div>
+  </header>
+
+  <!-- Menu vertical sticky (après le header) -->
   <nav class="sidebar-nav" aria-label="Navigation des sections">
     <div class="sidebar-content">
       <ul class="sidebar-menu">
@@ -30,25 +50,6 @@
 
   <!-- Wrapper principal qui contient tout le contenu -->
   <div class="main-wrapper">
-    <!-- Header principal -->
-    <header class="main-header">
-    <div class="header-content">
-      <div class="header-logo">
-        <a href="/" class="logo-link">
-          <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
-          <div class="logo-text">
-            <div class="logo-title">Projet personnel</div>
-            <p class="logo-subtitle">ESIG - Module 113</p>
-          </div>
-        </a>
-      </div>
-      <button class="burger-menu" aria-label="Ouvrir/Fermer le menu" aria-expanded="false">
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-      </button>
-    </div>
-    </header>
 
     <main id="contenu" class="container">
     <!-- Hero Section -->

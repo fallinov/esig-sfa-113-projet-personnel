@@ -187,7 +187,7 @@ p, div, span, article, section, main, aside, header, footer, nav, h1, h2, h3, h4
 }
 
 /* Exceptions pour les éléments qui doivent être centrés */
-.section-title, .btn, .hero-actions, .hero-benefits.center, .hero-benefits[style*="text-align: center"] {
+.section-title, .btn, .hero-actions, .hero-benefits.center, .hero-benefits[style*="text-align: center"], .mini-footer, .mini-footer p {
   text-align: center;
 }
 
@@ -836,13 +836,13 @@ html {
 .sidebar-nav {
   position: fixed;
   left: 0;
-  top: 0;
-  height: 100vh;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
   width: 250px;
   background: var(--color-white);
   border-right: 2px solid var(--color-primary);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: calc(var(--z-sticky) + 1); /* Au-dessus du header */
+  z-index: calc(var(--z-sticky) - 1); /* sous le header */
   overflow: hidden;
   transform: translateX(-100%); /* Caché par défaut */
   transition: transform var(--transition-normal);
@@ -850,6 +850,17 @@ html {
 
 .sidebar-nav.open {
   transform: translateX(0); /* Visible quand ouvert */
+}
+
+/* Mobile: plein écran sous le header (croix visible) */
+@media (max-width: 768px) {
+  .sidebar-nav {
+    top: var(--header-height); /* sous le header */
+    height: calc(100vh - var(--header-height)); /* hauteur restante */
+    width: 100vw; /* pleine largeur */
+    border-right: none;
+    z-index: calc(var(--z-sticky) - 1); /* sous le header */
+  }
 }
 
 
@@ -940,7 +951,7 @@ html {
    ======================================== */
 
 .sidebar-content {
-  padding: 0;
+  padding: 10px 0 0 0;
   transition: opacity var(--transition-normal), visibility var(--transition-normal);
   opacity: 1;
   visibility: visible;
@@ -1443,12 +1454,13 @@ section {
 .mini-footer {
   background-color: var(--color-primary-darker);
   color: var(--color-white);
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-lg) var(--spacing-md);
   text-align: center;
   border-top: 2px solid var(--color-primary);
 }
 
 .mini-footer p {
+  color: var(--color-white);
   margin: 0;
   font-size: var(--font-size-sm);
   opacity: 0.9;
