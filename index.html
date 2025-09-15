@@ -77,19 +77,26 @@
         <div class="hero-tasks">
           <h3>Ce que tu dois faire :</h3>
           <ul>
-            <li>Construire et publier un site en <strong>HTML5 + CSS3</strong></li>
-            <li>Versionner et publier via <strong>GitHub</strong> (GitHub Pages)</li>
-            <li>Tenir un <strong>README.md</strong> réflexif</li>
+            <li class="manual-icons">
+              <i data-lucide="check"></i>
+              Construire et publier un site en <strong>HTML5 + CSS3</strong>
+            </li>
+            <li class="manual-icons">
+              <i data-lucide="check"></i>
+              Versionner et publier via <strong>GitHub</strong> (GitHub Pages)
+            </li>
+            <li class="manual-icons">
+              <i data-lucide="check"></i>
+              Tenir un <strong>README.md</strong> réflexif
+            </li>
           </ul>
         </div>
 
         <div class="hero-actions">
           <a href="#exigences" class="btn btn-primary">
-            <i data-lucide="check-circle" class="icon icon-sm"></i>
             Voir les exigences
           </a>
           <a href="#planification" class="btn btn-secondary">
-            <i data-lucide="calendar" class="icon icon-sm"></i>
             Planning des jalons
           </a>
         </div>
@@ -149,10 +156,6 @@
           <h3>Livrable 1 · Site en ligne</h3>
           <ul>
             <li>Hébergé (GitHub Pages ou équivalent).</li>
-            <li class="manual-icons">
-              <i data-lucide="clock"></i>
-              <strong>9 semaines</strong>
-            </li>
             <li>HTML/CSS <strong>valides W3C</strong>.</li>
             <li>Design <strong>responsive</strong> mobile → desktop.</li>
             <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de CDN).</li>
@@ -179,8 +182,7 @@
             <li>Transparence sur l'usage d'IA.</li>
           </ul>
           <a class="btn btn-primary" target="_blank" href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
-            <i data-lucide="download" class="icon icon-sm"></i>
-            Télécharger le README de base
+            Télécharger le README
           </a>
         </article>
         </div>
@@ -423,7 +425,6 @@
         </div>
         <p class="progress-text" id="progress-text">0% complété</p>
         <button type="button" class="btn btn-secondary" onclick="resetChecklist()" style="margin-top: var(--spacing-md);">
-          <i data-lucide="refresh-cw" class="icon icon-sm"></i>
           Réinitialiser
         </button>
         </div>
