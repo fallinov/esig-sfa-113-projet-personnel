@@ -619,9 +619,7 @@ html {
 
 
 @media (max-width: 768px) {
-  .main-header {
-    padding: 0 var(--spacing-md);
-  }
+
   
   .header-logo .logo-title {
     font-size: var(--font-size-base);
@@ -682,7 +680,7 @@ html {
   width: 100%;
   max-width: var(--breakpoint-xl);
   margin: 0 auto;
-  padding: 0;
+  padding: 0 var(--spacing-md);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -699,12 +697,8 @@ html {
   gap: var(--spacing-md);
   text-decoration: none;
   color: inherit;
-  transition: transform var(--transition-normal);
 }
 
-.header-logo .logo-link:hover {
-  transform: scale(1.02);
-}
 
 .header-logo .logo-icon {
   width: 40px;
@@ -748,7 +742,6 @@ html {
   cursor: pointer;
   padding: 0;
   gap: 4px;
-  transition: all var(--transition-normal);
 }
 
 .burger-menu:focus {
