@@ -741,6 +741,36 @@ html {
   gap: 4px;
 }
 
+/* Languette flottante d'ouverture du menu (desktop) */
+.sidebar-tab {
+  position: fixed;
+  left: 15px; /* ressort de 10px de plus dans la page */
+  top: 50%;
+  transform: translate(-40%, -50%);
+  width: 48px;
+  height: 64px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-white);
+  border: var(--border-width) solid var(--color-primary);
+  border-left: none;
+  border-radius: 0 var(--border-radius-full) var(--border-radius-full) 0;
+  box-shadow: var(--shadow-md);
+  z-index: var(--z-sticky);
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  .main-header .burger-menu { display: none; }
+  .sidebar-tab { display: flex; }
+}
+
+/* Cacher la languette quand le menu est ouvert */
+.nav-toggle:checked ~ .sidebar-tab { display: none; }
+
 .burger-menu:focus {
   outline: none;
 }

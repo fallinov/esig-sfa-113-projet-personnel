@@ -16,6 +16,7 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
   const navToggle = document.getElementById('nav-toggle');
   const burgerLabel = document.querySelector('.burger-menu'); // bouton visible
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
+  const sidebarTab = document.querySelector('.sidebar-tab');
   let wasDesktop = window.innerWidth > 768;
 
   // ------------------------------------------------------------
@@ -112,6 +113,14 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
         syncAria();
         wasDesktop = isDesktop;
       }
+    });
+  }
+
+  // Languette flottante (desktop): ouvrir le menu au clic
+  if (sidebarTab && navToggle) {
+    sidebarTab.addEventListener('click', () => {
+      navToggle.checked = true;
+      syncAria();
     });
   }
 
