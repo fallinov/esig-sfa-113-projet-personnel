@@ -8,6 +8,29 @@ lucide.createIcons();
   
   if (!sidebarNav) return;
   
+  // Initialiser le menu ouvert sur les grands écrans
+  function initSidebarState() {
+    if (window.innerWidth > 768) {
+      sidebarNav.classList.add('open');
+      if (burgerMenu) {
+        burgerMenu.setAttribute('aria-expanded', 'true');
+        burgerMenu.setAttribute('aria-label', 'Fermer le menu');
+      }
+    } else {
+      sidebarNav.classList.remove('open');
+      if (burgerMenu) {
+        burgerMenu.setAttribute('aria-expanded', 'false');
+        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+    }
+  }
+  
+  // Initialiser au chargement
+  initSidebarState();
+  
+  // Réinitialiser au redimensionnement
+  window.addEventListener('resize', initSidebarState);
+  
   // Gestion du burger menu
   if (burgerMenu) {
     burgerMenu.addEventListener('click', function() {

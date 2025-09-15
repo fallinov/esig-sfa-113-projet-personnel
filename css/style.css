@@ -786,7 +786,7 @@ html {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: calc(var(--z-sticky) - 1); /* sous le header */
   overflow: hidden;
-  transform: translateX(-100%); /* Caché par défaut */
+  transform: translateX(0); /* Visible par défaut sur grand écran */
   transition: transform var(--transition-normal);
 }
 
@@ -802,6 +802,7 @@ html {
     width: 100vw; /* pleine largeur */
     border-right: none;
     z-index: calc(var(--z-sticky) - 1); /* sous le header */
+    transform: translateX(-100%); /* Caché par défaut sur mobile */
   }
 }
 
