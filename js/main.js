@@ -1,128 +1,139 @@
 // Initialisation des icônes Lucide
 lucide.createIcons();
 
-// Gestion de la sidebar
+// Gestion de la navigation (simplifiée CSS-first)
 (function() {
-  const sidebarNav = document.querySelector('.sidebar-nav');
-  const burgerMenu = document.querySelector('.burger-menu');
-  
-  if (!sidebarNav) return;
-  
-  // Initialiser le menu ouvert sur les grands écrans
-  function initSidebarState() {
-    if (window.innerWidth > 768) {
-      sidebarNav.classList.add('open');
-      if (burgerMenu) {
-        burgerMenu.setAttribute('aria-expanded', 'true');
-        burgerMenu.setAttribute('aria-label', 'Fermer le menu');
-      }
-    } else {
-      sidebarNav.classList.remove('open');
-      if (burgerMenu) {
-        burgerMenu.setAttribute('aria-expanded', 'false');
-        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
-      }
-    }
-  }
-  
-  // Initialiser au chargement
-  initSidebarState();
-  
-  // Réinitialiser au redimensionnement
-  window.addEventListener('resize', initSidebarState);
-  
-  // Gestion du burger menu
-  if (burgerMenu) {
-    burgerMenu.addEventListener('click', function() {
-      const isOpen = sidebarNav.classList.contains('open');
-      
-      if (isOpen) {
-        // Fermer le menu
-        sidebarNav.classList.remove('open');
-        burgerMenu.setAttribute('aria-expanded', 'false');
-        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
-      } else {
-        // Ouvrir le menu
-        sidebarNav.classList.add('open');
-        burgerMenu.setAttribute('aria-expanded', 'true');
-        burgerMenu.setAttribute('aria-label', 'Fermer le menu');
-      }
-    });
-  }
-  
-  // Déclaration des liens de la sidebar
+  const navToggle = document.getElementById('nav-toggle');
+  const burgerLabel = document.querySelector('.burger-menu');
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
-  
-  // Détection de section active pour le menu vertical
-  function updateActiveSection() {
-    const sections = document.querySelectorAll('section[id]');
-    let currentSection = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop; // pas d'offset
-      const sectionHeight = section.offsetHeight;
-      const scrollTop = window.pageYOffset;
-      
-      if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
-        currentSection = section.getAttribute('id');
-      }
+  let wasDesktop = window.innerWidth > 768;
+
+  // Scroll spy performant (rAF) + offset header
+  (function initScrollSpy() {
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    if (!sections.length) return;
+    const links = Array.from(document.querySelectorAll('.sidebar-link'));
+    const linkById = new Map(
+      sections.map(sec => [sec.id, document.querySelector('.sidebar-link[href="#' + sec.id + '"]')])
+    );
+
+    function setActive(id) {
+      links.forEach(l => l.classList.remove('active'));
+      const link = linkById.get(id);
+      if (link) link.classList.add('active');
+    }
+
+    function getHeaderHeight() {
+      const v = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+      const n = parseInt(v, 10);
+      return isNaN(n) ? 70 : n;
+    }
+
+    let ticking = false;
+    let sectionTops = [];
+    function recalc() {
+      sectionTops = sections.map(sec => sec.offsetTop);
+      onScroll();
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const pos = window.scrollY + getHeaderHeight() + 2; // 2px de marge
+        let activeId = sections[0].id;
+        for (let i = 0; i < sections.length; i++) {
+          if (sectionTops[i] <= pos) {
+            activeId = sections[i].id;
+          } else {
+            break;
+          }
+        }
+        setActive(activeId);
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', recalc);
+    // Recalcul après chargement complet (images, etc.)
+    window.addEventListener('load', recalc);
+    recalc();
+  })();
+
+  // Synchroniser ARIA avec l'état de la checkbox
+  function syncAria() {
+    if (!burgerLabel || !navToggle) return;
+    const expanded = navToggle.checked;
+    burgerLabel.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    burgerLabel.setAttribute('aria-label', expanded ? 'Fermer le menu' : 'Ouvrir le menu');
+  }
+
+  if (navToggle) {
+    // Initialiser l'état du menu selon la largeur
+    navToggle.checked = window.innerWidth > 768;
+    syncAria();
+
+    // Gérer le clic sur le bouton burger (plus de label)
+    if (burgerLabel) {
+      burgerLabel.addEventListener('click', () => {
+        navToggle.checked = !navToggle.checked;
+        syncAria();
+        burgerLabel.focus();
+      });
+    }
+
+    navToggle.addEventListener('change', () => {
+      syncAria();
+      // Ramener le focus sur le contrôle visible
+      if (burgerLabel) burgerLabel.focus();
     });
-    
-    // Mettre à jour les liens actifs
-    sidebarLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + currentSection) {
-        link.classList.add('active');
+
+    // Adapter l'état si on franchit un breakpoint (mobile <-> desktop)
+    window.addEventListener('resize', () => {
+      const isDesktop = window.innerWidth > 768;
+      if (isDesktop !== wasDesktop) {
+        navToggle.checked = isDesktop; // ouvert par défaut sur desktop, fermé sur mobile
+        syncAria();
+        wasDesktop = isDesktop;
       }
     });
   }
-  
-  // Écouter le scroll pour mettre à jour la section active
-  window.addEventListener('scroll', updateActiveSection);
-  
-  // Mettre à jour au chargement
-  updateActiveSection();
-  
-  
-  // Gestion des clics sur les liens
-  sidebarLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      
-      if (targetSection) {
-        // Calculer l'offset pour aligner le haut de la section
-        const offsetTop = targetSection.offsetTop; // pas d'offset
-        
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
-      
-      // Fermer le menu après clic sur un lien
-      sidebarNav.classList.remove('open');
-      if (burgerMenu) {
-        burgerMenu.setAttribute('aria-expanded', 'false');
-        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
-      }
-    });
-  });
-  
-  // Fermer le menu en cliquant à l'extérieur
-  document.addEventListener('click', function(e) {
-    if (!sidebarNav.contains(e.target) &&
-        !burgerMenu.contains(e.target) &&
-        sidebarNav.classList.contains('open')) {
-      sidebarNav.classList.remove('open');
-      if (burgerMenu) {
-        burgerMenu.setAttribute('aria-expanded', 'false');
-        burgerMenu.setAttribute('aria-label', 'Ouvrir le menu');
-      }
+
+  // Smooth scroll programmatique sur clic des liens du menu
+  if (sidebarLinks) {
+    function getHeaderHeight() {
+      const v = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+      const n = parseInt(v, 10);
+      return isNaN(n) ? 70 : n;
     }
-  });
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') || '';
+        if (href.startsWith('#')) {
+          const id = href.slice(1);
+          const target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            const y = target.offsetTop - 0; // sections déjà décalées sous le header
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  }
+
+  // Fermer le menu au clic sur un lien (mobile uniquement)
+  if (sidebarLinks && navToggle) {
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768 && navToggle.checked) {
+          navToggle.checked = false;
+          syncAria();
+        }
+      });
+    });
+  }
 })();
 
 // Checklist avec localStorage

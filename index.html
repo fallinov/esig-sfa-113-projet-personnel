@@ -18,6 +18,8 @@
 </head>
 <body id="top">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <!-- Contrôle CSS du menu (checkbox cachée) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1">
 
   <!-- Header principal (sorti de main-wrapper) -->
   <header class="main-header">
@@ -31,7 +33,7 @@
         </div>
       </a>
     </div>
-    <button class="burger-menu" aria-label="Ouvrir/Fermer le menu" aria-expanded="false">
+    <button type="button" class="burger-menu" aria-controls="sidebar-nav" aria-label="Ouvrir le menu" aria-expanded="false">
       <span class="burger-line"></span>
       <span class="burger-line"></span>
       <span class="burger-line"></span>
@@ -40,7 +42,7 @@
   </header>
 
   <!-- Menu vertical sticky (après le header) -->
-  <nav class="sidebar-nav" aria-label="Navigation des sections">
+  <nav id="sidebar-nav" class="sidebar-nav" aria-label="Navigation des sections">
     <div class="sidebar-content">
       <ul class="sidebar-menu">
         <li><a href="#objectifs" class="sidebar-link" data-section="objectifs" data-tooltip="Objectifs"><i data-lucide="target"></i> <span class="link-text">Objectifs</span></a></li>
@@ -84,7 +86,7 @@
         </ul>
 
         <div class="hero-tasks">
-          <h3>Ce que tu dois faire :</h3>
+          <h2>Tes tâhches</h2>
           <ul>
             <li class="manual-icons">
               <i data-lucide="check"></i>
@@ -96,7 +98,7 @@
             </li>
             <li class="manual-icons">
               <i data-lucide="check"></i>
-              Tenir un <strong>README.md</strong> réflexif
+              Tenir un <strong>mini-portefolio</strong> (README.md)
             </li>
           </ul>
         </div>
