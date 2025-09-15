@@ -187,17 +187,6 @@ lucide.createIcons();
     });
   }
   
-  // Fonction pour réinitialiser la checklist
-  window.resetChecklist = function() {
-    if (confirm('Êtes-vous sûr de vouloir réinitialiser toute la checklist ?')) {
-      checkboxes.forEach(checkbox => {
-        checkbox.checked = false;
-        updateItemState(checkbox);
-      });
-      localStorage.removeItem(STORAGE_KEY);
-      updateProgress();
-    }
-  };
   
   // Initialiser au chargement
   initChecklist();
