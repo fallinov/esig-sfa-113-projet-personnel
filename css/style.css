@@ -1136,57 +1136,34 @@ html {
   flex-wrap: wrap;
 }
 
-/* Grille d'informations du projet */
-.project-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-lg);
-  margin: var(--spacing-xl) 0;
+/* Liste d'informations simples */
+.hero-details {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-lg) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  color: var(--color-white);
 }
 
-/* Carte vitrée réutilisable */
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius-lg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.info-card {
+.hero-details li {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-base);
 }
 
-.info-icon {
-  flex-shrink: 0;
+.hero-details .icon {
   color: var(--color-accent);
 }
 
-.info-content h3 {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  margin: 0 0 var(--spacing-xs) 0;
-  color: var(--color-white);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.info-content p {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-  color: var(--color-white);
-}
-
 /* Section des tâches du projet */
-.project-tasks {
+.hero-tasks {
   margin: var(--spacing-xl) 0;
-  padding: var(--spacing-xl);
 }
 
-.project-tasks h3 {
+.hero-tasks h3 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   margin: 0 0 var(--spacing-lg) 0;
@@ -1561,8 +1538,8 @@ section {
    RESPONSIVE DESIGN
    ======================================== */
 
-/* Mobile First - Breakpoint SM (640px) */
-@media (max-width: 639px) {
+/* Layout adaptatif pour tablettes et mobiles */
+@media (max-width: 1023px) {
   .container {
     padding: 0 var(--spacing-md);
   }
@@ -1586,32 +1563,20 @@ section {
   .hero-title {
     font-size: var(--font-size-3xl);
   }
-  
+
   .hero-actions {
     flex-direction: column;
     align-items: center;
   }
-  
-  .project-info-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+
+  .hero-details li {
+    justify-content: center;
   }
-  
-  .info-card {
-    padding: var(--spacing-md);
-  }
-  
-  .project-tasks {
-    padding: var(--spacing-lg);
-  }
-  
+
   .btn {
     width: 100%;
     max-width: 300px;
   }
-  
-
-  
 }
 
 /* Breakpoint MD (768px) */
@@ -2058,21 +2023,10 @@ details[open] summary {
     color: var(--color-primary);
   }
   
-  .project-info-grid {
-    background: none;
-    border: 1px solid var(--color-primary);
-  }
-
-  .glass-card {
-    background: none;
-    border: 1px solid var(--color-primary);
+  .hero-details {
     color: var(--color-primary);
   }
 
-  .glass-card * {
-    color: var(--color-primary);
-  }
-  
   .btn {
     display: none;
   }
