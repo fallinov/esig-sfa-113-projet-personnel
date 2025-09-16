@@ -842,7 +842,9 @@ html {
   content: none !important;
 }
 
+
 .sidebar-link {
+  --link-fill: 0%;
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -851,21 +853,40 @@ html {
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
-  transition: background-color var(--transition-normal);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
   list-style: none !important;
   border: none !important;
   outline: none !important;
   position: relative;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .link-text {
   transition: opacity var(--transition-normal);
 }
 
-.sidebar-link::before,
-.sidebar-link::after {
+.sidebar-link::before {
   display: none !important;
   content: none !important;
+}
+
+.sidebar-link::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--link-fill);
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal);
+  z-index: 0;
+}
+
+.sidebar-link > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-link:hover,
@@ -876,19 +897,41 @@ html {
   outline: none !important;
 }
 
-.sidebar-link:active {
+.sidebar-link.is-progress:hover,
+.sidebar-link.is-progress:focus {
+  background-color: rgba(255, 140, 0, 0.18);
+  color: var(--color-text);
+}
+
+.sidebar-link.is-complete:hover,
+.sidebar-link.is-complete:focus {
   background-color: var(--color-accent);
   color: var(--color-white);
+}
+
+.sidebar-link:active {
+  background-color: rgba(255, 140, 0, 0.18);
   border: none !important;
   outline: none !important;
 }
 
 .sidebar-link.active {
-  background-color: var(--color-accent);
-  color: var(--color-white);
   font-weight: var(--font-weight-bold);
   border: none !important;
   outline: none !important;
+}
+
+.sidebar-link.is-progress {
+  background-color: rgba(255, 140, 0, 0.12);
+}
+
+.sidebar-link.is-complete {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.sidebar-link.is-complete::after {
+  background-color: var(--color-accent-dark);
 }
 
 .sidebar-link i {

@@ -37,6 +37,21 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
       if (link) link.classList.add('active');
     }
 
+    function updateLinkProgress(scrollPos) {
+      metrics.forEach((metric) => {
+        const link = linkById.get(metric.id);
+        if (!link) return;
+        const range = metric.bottom - metric.top || 1;
+        let progress = (scrollPos - metric.top) / range;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+        const percent = (progress * 100).toFixed(2) + '%';
+        link.style.setProperty('--link-fill', percent);
+        link.classList.toggle('is-progress', progress > 0);
+        link.classList.toggle('is-complete', progress >= 0.999);
+      });
+    }
+
     function getHeaderHeight() {
       const v = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
       const n = parseInt(v, 10);
@@ -44,9 +59,13 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
     }
 
     let ticking = false;
-    let sectionTops = [];
+    let metrics = [];
     function recalc() {
-      sectionTops = sections.map(sec => sec.offsetTop);
+      metrics = sections.map(sec => ({
+        id: sec.id,
+        top: sec.offsetTop,
+        bottom: sec.offsetTop + sec.offsetHeight
+      }));
       onScroll();
     }
 
@@ -55,15 +74,16 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
       ticking = true;
       requestAnimationFrame(() => {
         const pos = window.scrollY + getHeaderHeight() + 2; // 2px de marge
-        let activeId = sections[0].id;
-        for (let i = 0; i < sections.length; i++) {
-          if (sectionTops[i] <= pos) {
-            activeId = sections[i].id;
+        let activeId = metrics[0] ? metrics[0].id : null;
+        for (let i = 0; i < metrics.length; i++) {
+          if (metrics[i].top <= pos) {
+            activeId = metrics[i].id;
           } else {
             break;
           }
         }
-        setActive(activeId);
+        if (activeId) setActive(activeId);
+        updateLinkProgress(pos);
         ticking = false;
       });
     }
