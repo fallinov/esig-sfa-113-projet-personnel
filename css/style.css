@@ -1548,6 +1548,14 @@ section {
     opacity: 0.9;
 }
 
+.mini-footer img {
+    display: block;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    max-width: 800px;
+    margin-top: var(--spacing-2xl);
+}
+
 /* Liens du footer lisibles et accessibles sur fond sombre */
 .mini-footer a {
     color: var(--color-white);
