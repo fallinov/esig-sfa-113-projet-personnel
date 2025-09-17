@@ -1,608 +1,743 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Projet personnel – Module 113</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Référence apprenants : objectifs, consignes, jalons, outils, checklist et ressources pour le projet personnel HTML/CSS.">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="favicon.png">
-  
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/icons.css">
+    <meta charset="utf-8">
+    <title>Projet personnel – Module 113</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+          content="Référence apprenants : objectifs, consignes, jalons, outils, checklist et ressources pour le projet personnel HTML/CSS.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
 </head>
 <body id="top">
-  <a class="skip-link" tabindex="1" href="#contenu">Aller au contenu</a>
-  <!-- Contrôle CSS du menu (checkbox cachée) -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1" aria-hidden="true">
+<a class="skip-link" tabindex="1" href="#contenu">Aller au contenu</a>
+<!-- Contrôle CSS du menu (checkbox cachée) -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1" aria-hidden="true">
 
-  <!-- Header principal (sorti de main-wrapper) -->
-  <header class="main-header">
-  <div class="header-content">
-    <div class="header-logo">
-      <a href="#top" class="logo-link">
-        <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
-        <div class="logo-text">
-          <div class="logo-title">Projet personnel</div>
-          <p class="logo-subtitle">ESIG - Module 113</p>
+<!-- Header principal (sorti de main-wrapper) -->
+<header class="main-header">
+    <div class="header-content">
+        <div class="header-logo">
+            <a href="#top" class="logo-link">
+                <img src="img/divcom-logo.png" alt="Logo ESIG" class="logo-icon">
+                <div class="logo-text">
+                    <div class="logo-title">Projet personnel</div>
+                    <p class="logo-subtitle">ESIG - Module 113</p>
+                </div>
+            </a>
         </div>
-      </a>
+        <button type="button" class="burger-menu" aria-controls="sidebar-nav" aria-label="Ouvrir le menu"
+                aria-expanded="false">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
     </div>
-    <button type="button" class="burger-menu" aria-controls="sidebar-nav" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-    </button>
-  </div>
-  </header>
+</header>
 
-  <!-- Menu vertical sticky (après le header) -->
-  <nav id="sidebar-nav" class="sidebar-nav" aria-label="Navigation des sections">
+<!-- Menu vertical sticky (après le header) -->
+<nav id="sidebar-nav" class="sidebar-nav" aria-label="Navigation des sections">
     <div class="sidebar-content">
-      <ul class="sidebar-menu">
-        <li><a href="#objectifs" class="sidebar-link" data-section="objectifs" data-tooltip="Objectifs"><i data-lucide="target"></i> <span class="link-text">Objectifs</span></a></li>
-        <li><a href="#a-rendre" class="sidebar-link" data-section="a-rendre" data-tooltip="À rendre"><i data-lucide="clipboard-list"></i> <span class="link-text">À rendre</span></a></li>
-        <li><a href="#exigences" class="sidebar-link" data-section="exigences" data-tooltip="Exigences"><i data-lucide="check-circle"></i> <span class="link-text">Exigences</span></a></li>
-        <li><a href="#planification" class="sidebar-link" data-section="planification" data-tooltip="Planification"><i data-lucide="calendar"></i> <span class="link-text">Planification</span></a></li>
-        <li><a href="#outils" class="sidebar-link" data-section="outils" data-tooltip="Ressources et outils"><i data-lucide="book"></i> <span class="link-text">Ressources et outils</span></a></li>
-        <li><a href="#evaluation" class="sidebar-link" data-section="evaluation" data-tooltip="Évaluation"><i data-lucide="search"></i> <span class="link-text">Évaluation</span></a></li>
-        <li><a href="#support" class="sidebar-link" data-section="support" data-tooltip="Support & IA"><i data-lucide="message-circle"></i> <span class="link-text">Support & IA</span></a></li>
-        <li><a href="#checklist" class="sidebar-link" data-section="checklist" data-tooltip="Checklist"><i data-lucide="check-square"></i> <span class="link-text">Checklist</span></a></li>
-        <li class="sidebar-close-item"><a href="#" class="sidebar-link" data-close-menu="true"><i data-lucide="x"></i> <span class="link-text">Fermer le menu</span></a></li>
-      </ul>
+        <ul class="sidebar-menu">
+            <li><a href="#objectifs" class="sidebar-link" data-section="objectifs" data-tooltip="Objectifs"><i
+                    data-lucide="target"></i> <span class="link-text">Objectifs</span></a></li>
+            <li><a href="#a-rendre" class="sidebar-link" data-section="a-rendre" data-tooltip="À rendre"><i
+                    data-lucide="clipboard-list"></i> <span class="link-text">À rendre</span></a></li>
+            <li><a href="#exigences" class="sidebar-link" data-section="exigences" data-tooltip="Exigences"><i
+                    data-lucide="check-circle"></i> <span class="link-text">Exigences</span></a></li>
+            <li><a href="#planification" class="sidebar-link" data-section="planification" data-tooltip="Planification"><i
+                    data-lucide="calendar"></i> <span class="link-text">Planification</span></a></li>
+            <li><a href="#outils" class="sidebar-link" data-section="outils" data-tooltip="Ressources et outils"><i
+                    data-lucide="book"></i> <span class="link-text">Ressources et outils</span></a></li>
+            <li><a href="#evaluation" class="sidebar-link" data-section="evaluation" data-tooltip="Évaluation"><i
+                    data-lucide="search"></i> <span class="link-text">Évaluation</span></a></li>
+            <li><a href="#support" class="sidebar-link" data-section="support" data-tooltip="Support & IA"><i
+                    data-lucide="message-circle"></i> <span class="link-text">Support & IA</span></a></li>
+            <li><a href="#checklist" class="sidebar-link" data-section="checklist" data-tooltip="Checklist"><i
+                    data-lucide="check-square"></i> <span class="link-text">Checklist</span></a></li>
+            <li class="sidebar-close-item"><a href="#" class="sidebar-link" data-close-menu="true"><i
+                    data-lucide="x"></i> <span class="link-text">Fermer le menu</span></a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <!-- Wrapper principal qui contient tout le contenu -->
-  <div class="main-wrapper">
+<!-- Wrapper principal qui contient tout le contenu -->
+<div class="main-wrapper">
 
     <main id="contenu" class="container">
-    <!-- Hero Section -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="section-content">
-        <h1 id="hero-title" class="hero-title">
-          Projet personnel<br>
-          <span class="highlight">HTML5 + CSS3</span>
-        </h1>
-        
-        <ul class="hero-info">
-          <li class="manual-icons">
-            <i data-lucide="message-circle-code"></i>
-            Projet personnel <strong>20 pts</strong><br>
-          </li>
-          <li class="manual-icons">
-            <i data-lucide="clipboard-pen"></i>
-            Travail écrit <strong>20 pts</strong>
-          </li>
-          <li class="manual-icons">
-            <i data-lucide="clock"></i>
-            <strong>12 semaines</strong>
-          </li>
-          <li class="manual-icons">
-            <i data-lucide="calendar-check"></i>
-            <strong>Suivi toutes les 2 semaines</strong>
-          </li>
-        </ul>
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="section-content">
+                <h1 id="hero-title" class="hero-title">
+                    Projet personnel<br>
+                    <span class="highlight">HTML5 + CSS3</span>
+                </h1>
 
-        <div class="hero-tasks">
-          <h2>Ta mission</h2>
-          <ul>
-            <li class="manual-icons">
-              <i data-lucide="check"></i>
-              Construire et publier un site en <strong>HTML5 + CSS3</strong>
-            </li>
-            <li class="manual-icons">
-              <i data-lucide="check"></i>
-              Versionner ton code avec <strong>GitHub</strong>
-            </li>
-            <li class="manual-icons">
-              <i data-lucide="check"></i>
-              Publier ton site via <strong>GitHub Pages</strong>
-            </li>
-            <li class="manual-icons">
-              <i data-lucide="check"></i>
-              Tenir un <strong>mini portefolio</strong> (README.md)
-            </li>
-          </ul>
-        </div>
+                <ul class="hero-info">
+                    <li class="manual-icons">
+                        <i data-lucide="message-circle-code"></i>
+                        Projet personnel <strong>20 pts</strong><br>
+                    </li>
+                    <li class="manual-icons">
+                        <i data-lucide="clipboard-pen"></i>
+                        Travail écrit <strong>20 pts</strong>
+                    </li>
+                    <li class="manual-icons">
+                        <i data-lucide="clock"></i>
+                        <strong>12 semaines</strong>
+                    </li>
+                    <li class="manual-icons">
+                        <i data-lucide="calendar-check"></i>
+                        <strong>Suivi toutes les 2 semaines</strong>
+                    </li>
+                </ul>
 
-        <div class="hero-actions">
-          <a href="#exigences" class="btn btn-primary">
-            Voir les exigences
-          </a>
-          <a href="#planification" class="btn btn-secondary">
-            Planification
-          </a>
-        </div>
-      </div>
-    </section>
+                <div class="hero-tasks">
+                    <h2>Ta mission</h2>
+                    <ul>
+                        <li class="manual-icons">
+                            <i data-lucide="check"></i>
+                            Construire et publier un site en <strong>HTML5 + CSS3</strong>
+                        </li>
+                        <li class="manual-icons">
+                            <i data-lucide="check"></i>
+                            Versionner ton code avec <strong>GitHub</strong>
+                        </li>
+                        <li class="manual-icons">
+                            <i data-lucide="check"></i>
+                            Publier ton site via <strong>GitHub Pages</strong>
+                        </li>
+                        <li class="manual-icons">
+                            <i data-lucide="check"></i>
+                            Tenir un <strong>mini portefolio</strong> (README.md)
+                        </li>
+                    </ul>
+                </div>
 
-    <!-- Section Objectifs -->
-    <section id="objectifs" class="section-bg-primary">
-      <div class="section-content">
-        <h2 class="section-title">Objectifs</h2>
-        <div class="objectifs-grid">
-        <div class="livrable-card">
-          <div class="livrable-icon">
-            <i data-lucide="graduation-cap" class="icon icon-xl"></i>
-          </div>
-          <h3>Autonomie d'apprentissage</h3>
-          <p>Capacité à chercher, sélectionner et assimiler de nouvelles connaissances</p>
-        </div>
-        <div class="livrable-card">
-          <div class="livrable-icon">
-            <i data-lucide="palette" class="icon icon-xl"></i>
-          </div>
-          <h3>Créativité technique</h3>
-          <p>Liberté d'expression dans le respect des contraintes techniques</p>
-        </div>
-        <div class="livrable-card">
-          <div class="livrable-icon">
-            <i data-lucide="settings" class="icon icon-xl"></i>
-          </div>
-          <h3>Maîtrise pratique</h3>
-          <p>HTML5, CSS3, Git/GitHub, responsive design</p>
-        </div>
-        <div class="livrable-card">
-          <div class="livrable-icon">
-            <i data-lucide="brain" class="icon icon-xl"></i>
-          </div>
-          <h3>Compréhension profonde</h3>
-          <p>100% du code produit doit être compris (y compris si généré par IA)</p>
-        </div>
-        <div class="livrable-card">
-          <div class="livrable-icon">
-            <i data-lucide="briefcase" class="icon icon-xl"></i>
-          </div>
-          <h3>Méthodes professionnelles</h3>
-          <p>Utilisation d'IDE (WebStorm, VS Code),
-            versioning (Git, GitHub), publication (GitHub Pages),
-          DevOps (GitHub Actions)</p>
-        </div>
-        </div>
-      </div>
-    </section>
+                <div class="hero-actions">
+                    <a href="#exigences" class="btn btn-primary">
+                        Voir les exigences
+                    </a>
+                    <a href="#planification" class="btn btn-secondary">
+                        Planification
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Section À rendre -->
-    <section id="a-rendre" class="section-bg-secondary">
-      <div class="section-content">
-        <h2 class="section-title">À rendre</h2>
-        <div class="grid cols-2">
-        <article class="card">
-          <h3>Ton site en ligne</h3>
-          <ul>
-            <li>Hébergé (GitHub Pages ou équivalent).</li>
-            <li>HTML/CSS <strong>valides W3C</strong>.</li>
-            <li>Design <strong>responsive</strong> mobile → desktop.</li>
-            <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de <a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>).</li>
-            <li>Images <strong>locales optimisées</strong> &lt; 1&nbsp;Mo dans <span class="mono">/img</span>.</li>
-            <li>Dépôt <strong>propre</strong> et structuré.</li>
-          </ul>
-          <h4>Arborescence minimale :</h4>
-          <pre><code>projet-personnel/
+        <!-- Section Objectifs -->
+        <section id="objectifs" class="section-bg-primary">
+            <div class="section-content">
+                <h2 class="section-title">Objectifs</h2>
+                <div class="objectifs-grid">
+                    <div class="livrable-card">
+                        <div class="livrable-icon">
+                            <i data-lucide="graduation-cap" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Autonomie d'apprentissage</h3>
+                        <p>Capacité à chercher, sélectionner et assimiler de nouvelles connaissances</p>
+                    </div>
+                    <div class="livrable-card">
+                        <div class="livrable-icon">
+                            <i data-lucide="palette" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Créativité technique</h3>
+                        <p>Liberté d'expression dans le respect des contraintes techniques</p>
+                    </div>
+                    <div class="livrable-card">
+                        <div class="livrable-icon">
+                            <i data-lucide="settings" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Maîtrise pratique</h3>
+                        <p>HTML5, CSS3, Git/GitHub, responsive design, mobile first</p>
+                    </div>
+                    <div class="livrable-card">
+                        <div class="livrable-icon">
+                            <i data-lucide="brain" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Compréhension profonde</h3>
+                        <p>100% du code produit doit être compris, <strong>surtout si généré par IA</strong></p>
+                    </div>
+                    <div class="livrable-card">
+                        <div class="livrable-icon">
+                            <i data-lucide="briefcase" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Méthodes professionnelles</h3>
+                        <p>Utilisation d'IDE (WebStorm, VS Code),
+                            versioning (Git, GitHub), publication (GitHub Pages),
+                            DevOps (GitHub Actions)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section À rendre -->
+        <section id="a-rendre" class="section-bg-secondary">
+            <div class="section-content">
+                <h2 class="section-title">À rendre</h2>
+                <div class="grid cols-2">
+                    <article class="card">
+                        <h3>Ton site en ligne</h3>
+                        <ul>
+                            <li>Hébergé (GitHub Pages ou équivalent).</li>
+                            <li>HTML/CSS <strong>valides W3C</strong>.</li>
+                            <li>Design <strong>responsive</strong> mobile → desktop.</li>
+                            <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de <a
+                                    href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>).
+                            </li>
+                            <li>Images <strong>locales optimisées</strong> &lt; 1&nbsp;Mo dans <span
+                                    class="mono">/img</span>.
+                            </li>
+                            <li>Dépôt <strong>propre</strong> et structuré.</li>
+                        </ul>
+                        <h4>Arborescence minimale</h4>
+                        <pre><code>projet-personnel/
 ├── css/
 ├── fonts/
 ├── img/
 ├── index.html (page d'accueil)
 └── README.md  (mini portfolio)</code></pre>
-        </article>
-        <article class="card">
-          <h3>Un mini portfolio</h3>
-          <ul>
-            <li>Concept, public cible, objectifs.</li>
-            <li>Fonctionnalités et sections du site.</li>
-            <li>Ressources et progression.</li>
-            <li>Outils et méthodologie (mobile-first, commits).</li>
-            <li>Tests et validations.</li>
-            <li>Bilan, difficultés, améliorations.</li>
-            <li>Transparence sur l'usage d'IA.</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn btn-primary" target="_blank" href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
-              Télécharge le mini portfolio d'exemple
-            </a>
-          </div>
-        </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Exigences -->
-    <section id="exigences" class="section-bg-medium">
-      <div class="section-content">
-        <h2 class="section-title">Exigences</h2>
-        <div class="grid cols-3">
-        <article class="card">
-          <div class="card-icon">
-            <i data-lucide="code" class="icon icon-xl"></i>
-          </div>
-          <h3>Structure HTML</h3>
-          <p>Votre site doit utiliser les balises HTML5 sémantiques pour une structure claire :</p>
-          <ul>
-            <li><strong>Structure principale</strong> : <span class="mono">&lt;header&gt;</span>, <span class="mono">&lt;nav&gt;</span>, <span class="mono">&lt;main&gt;</span>, <span class="mono">&lt;section&gt;</span>, <span class="mono">&lt;footer&gt;</span></li>
-            <li><strong>Hiérarchie des titres</strong> : Un seul <span class="mono">&lt;h1&gt;</span> par page, puis <span class="mono">&lt;h2&gt;</span>, <span class="mono">&lt;h3&gt;</span>, etc.</li>
-            <li><strong>Contenu de base</strong> : <span class="mono">&lt;p&gt;</span>, <span class="mono">&lt;ul&gt;</span>/<span class="mono">&lt;ol&gt;</span>/<span class="mono">&lt;li&gt;</span>, <span class="mono">&lt;a&gt;</span></li>
-            <li><strong>Mise en forme</strong> : <span class="mono">&lt;strong&gt;</span>, <span class="mono">&lt;em&gt;</span></li>
-            <li><strong>Images</strong> : <span class="mono">&lt;img alt="..."&gt;</span> obligatoire, <span class="mono">&lt;figure&gt;</span>/<span class="mono">&lt;figcaption&gt;</span> si utile</li>
-          </ul>
-        </article>
-        <article class="card">
-          <div class="card-icon">
-            <i data-lucide="palette" class="icon icon-xl"></i>
-          </div>
-          <h3>CSS requis</h3>
-          <p>Votre CSS doit démontrer la maîtrise des concepts fondamentaux :</p>
-          <ul>
-            <li><strong>Variables CSS</strong> : Au moins 3 couleurs, 2 polices, 3 espacements</li>
-            <li><strong>Typographie</strong> : <span class="mono">font-family</span>, <span class="mono">font-size</span>, <span class="mono">font-weight</span>, <span class="mono">line-height</span></li>
-            <li><strong>Espacement</strong> : <span class="mono">margin</span>, <span class="mono">padding</span> pour structurer la mise en page</li>
-            <li><strong>Boîte CSS</strong> : <span class="mono">width</span>, <span class="mono">height</span>, <span class="mono">border</span>, <span class="mono">border-radius</span>, <span class="mono">box-sizing</span></li>
-            <li><strong>Layout moderne</strong> : <strong>Flexbox</strong> ou <strong>CSS Grid</strong> (évitez <span class="mono">float</span>)</li>
-            <li><strong>Interactions</strong> : <span class="mono">:hover</span>, <span class="mono">:focus</span>, <span class="mono">:visited</span></li>
-            <li><strong>Bonus</strong> : <span class="mono">transition</span>, <span class="mono">transform</span>, <span class="mono">filter</span></li>
-          </ul>
-        </article>
-        <article class="card">
-          <div class="card-icon">
-            <i data-lucide="smartphone" class="icon icon-xl"></i>
-          </div>
-          <h3>Responsive & Qualité</h3>
-          <p>Votre site doit fonctionner parfaitement sur tous les appareils :</p>
-          <ul>
-            <li><strong>Mobile-first</strong> : Conception à partir de 320px de largeur</li>
-            <li><strong>Breakpoints</strong> : Au moins 2 <span class="mono">@media</span> (tablette ≥768px, desktop ≥1024px)</li>
-            <li><strong>Images adaptatives</strong> : <span class="mono">max-width: 100%</span> pour éviter le débordement</li>
-            <li><strong>Accessibilité</strong> : Attributs <span class="mono">alt</span>, contrastes suffisants, navigation au clavier</li>
-            <li><strong>Compatibilité</strong> : Testé sur Chrome 120+, Firefox 120+, Safari 16+</li>
-            <li><strong>Performance</strong> : Audit PageSpeed Insights (mobile et desktop)</li>
-            <li><strong>Ressources locales</strong> : Polices et images hébergées localement
-              (pas de <a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>)</li>
-          </ul>
-        </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Planification (timeline) -->
-    <section id="planification" class="section-bg-primary">
-      <div class="section-content">
-        <h2 class="section-title">Planification</h2>
-        <ol class="timeline" role="list" aria-label="Planification du projet">
-          <li class="timeline-item" role="listitem">
-            <div class="timeline-marker" aria-hidden="true">
-              <i data-lucide="layers"></i>
+                    </article>
+                    <article class="card">
+                        <h3>Un mini portfolio</h3>
+                        <ul>
+                            <li>Concept, public cible, objectifs</li>
+                            <li>Fonctionnalités et sections du site</li>
+                            <li>Ressources et progression</li>
+                            <li>Outils et méthodologie</li>
+                            <li>Tests et validations</li>
+                            <li>Bilan, difficultés, améliorations</li>
+                            <li>Transparence sur l'usage d'IA</li>
+                        </ul>
+                        <div class="hero-actions">
+                            <h4>Portfolio d'exemple (README.md)</h4>
+                            <a class="btn btn-primary" target="_blank"
+                               href="https://gist.githubusercontent.com/fallinov/327d910825f0b8ebf9f9606779bf21c0/raw">
+                                Télécharge le portfolio
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <span class="timeline-date"><i data-lucide="calendar" aria-hidden="true"></i> 3–10 septembre 2025</span>
-            <div class="timeline-card">
-              <h3>Phase 1 — Fondations</h3>
-              <p>Se familiariser avec les outils et poser les bases du projet :</p>
-              <ul>
-                <li>Création des comptes <strong>GitHub</strong> et <strong>JetBrains</strong></li>
-                <li>Publication de votre premier "Hello World" sur GitHub Pages</li>
-                <li>Configuration de votre IDE (WebStorm ou VS Code)</li>
-                <li>Choix définitif du <strong>sujet</strong> et de la <strong>plateforme d'apprentissage</strong></li>
-                <li>Définition de la palette de couleurs et téléchargement des polices locales</li>
-              </ul>
-            </div>
-          </li>
-          <li class="timeline-item" role="listitem">
-            <div class="timeline-marker" aria-hidden="true">
-              <i data-lucide="code-2"></i>
-            </div>
-            <span class="timeline-date"><i data-lucide="calendar" aria-hidden="true"></i> 17 sept. – 3 déc. 2025</span>
-            <div class="timeline-card">
-              <h3>Phase 2 — Développement</h3>
-              <p>Développement actif avec jalons toutes les 2 semaines :</p>
-              <ul>
-                <li><strong>1er octobre – Jalon 1</strong> : Concept validé et structure HTML de base</li>
-                <li><strong>15 octobre – Jalon 2</strong> : HTML complet avec navigation fonctionnelle <span class="muted">(Suivi)</span></li>
-                <li><strong>5 novembre – Jalon 3</strong> : CSS de base et début du responsive design <span class="muted">(Suivi)</span></li>
-                <li><strong>26 novembre – Jalon 4</strong> : Responsive fonctionnel et tests multi‑appareils <span class="muted">(Suivi)</span></li>
-              </ul>
-            </div>
-          </li>
-          <li class="timeline-item" role="listitem">
-            <div class="timeline-marker" aria-hidden="true">
-              <i data-lucide="check-circle-2"></i>
-            </div>
-            <span class="timeline-date"><i data-lucide="calendar-check" aria-hidden="true"></i> 10 déc. 2025 – 9 janv. 2026</span>
-            <div class="timeline-card">
-              <h3>Phase 3 — Finalisation</h3>
-              <p>Finalisation et optimisations avant livraison :</p>
-              <ul>
-                <li><strong>17 décembre – Optimisation</strong> : Validation W3C, optimisation des images, audits de performance</li>
-                <li><strong>9 janvier 2026 – Livraison finale</strong> : Site publié et README complet <span class="muted">(Suivi final)</span></li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+        </section>
 
-    <!-- Section Ressources et outils -->
-    <section id="outils" class="section-bg-secondary">
-      <div class="section-content">
-        <h2 class="section-title">Ressources et outils</h2>
-        <div class="grid cols-2">
-        <article class="card">
-          <h3>Ressources de formation</h3>
-          <p>Découvrez les meilleures plateformes et ressources pour apprendre le développement web :</p>
-          <ul>
-            <li class="recommended"><a href="https://developer.mozilla.org/fr/" target="_blank">MDN Web Docs</a> - Documentation officielle et référence complète</li>
-            <li class="recommended"><a href="https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3" target="_blank">OpenClassrooms HTML/CSS</a> - Cours structuré avec projets pratiques</li>
-            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a> - Apprentissage gratuit avec certifications</li>
-            <li class="recommended"><a href="https://grafikart.fr/" target="_blank">Grafikart (FR)</a> - Tutoriels vidéo en français</li>
-            <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a> - Articles avancés et techniques CSS</li>
-            <li><a href="https://fr.learnlayout.com/" target="_blank">Learn Layout (FR)</a> - Comprendre les systèmes de mise en page</li>
-            <li class="recommended"><a href="https://flexboxfroggy.com/#fr" target="_blank">Flexbox Froggy</a> - Jeu interactif pour maîtriser Flexbox</li>
-            <li class="recommended"><a href="https://flukeout.github.io/" target="_blank">CSS Diner</a> - Jeu pour apprendre les sélecteurs CSS</li>
-            <li class="recommended"><a href="https://cssgridgarden.com/#fr" target="_blank">Grid Garden</a> - Jeu pour maîtriser CSS Grid</li>
-          </ul>
-        </article>
-        
-        <article class="card">
-          <h3>Environnement de développement</h3>
-          <p>Configurez votre environnement de développement avec ces outils essentiels :</p>
-          <ul>
-            <li class="recommended"><strong>Éditeurs de code</strong> : <a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a> (gratuit étudiants), <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>, <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
-            <li><strong>Extensions utiles</strong> : Live Server, Prettier, Emmet, Auto Rename Tag</li>
-            <li class="recommended"><strong>Gestion de versions</strong> : <a href="https://git-scm.com/" target="_blank">Git</a>, <a href="https://github.com/" target="_blank">GitHub</a>, <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a></li>
-            <li class="recommended"><strong>Débogage</strong> : <a href="https://developer.chrome.com/docs/devtools/" target="_blank">Chrome DevTools</a>, <a href="https://firefox-source-docs.mozilla.org/devtools-user/" target="_blank">Firefox DevTools</a>, <a href="https://webkit.org/web-inspector/" target="_blank">Safari Web Inspector</a></li>
-            <li class="recommended"><strong>Hébergement</strong> : <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>, <a href="https://netlify.com/" target="_blank">Netlify</a>, <a href="https://vercel.com/" target="_blank">Vercel</a></li>
-          </ul>
-        </article>
-        
-        <article class="card">
-          <h3>Validation & tests</h3>
-          <p>Vérifiez la qualité de votre site web avec ces outils de validation et de test :</p>
-          <ul>
-            <li class="recommended"><strong>Validation HTML</strong> : <a href="https://validator.w3.org/" target="_blank">W3C Markup Validator</a> ou <a href="https://validator.nu/" target="_blank">Nu Html Checker</a> pour un code conforme</li>
-            <li class="recommended"><strong>Validation CSS</strong> : <a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validator</a> pour détecter les erreurs de style</li>
-            <li class="recommended"><strong>Accessibilité</strong> : <a href="https://wave.webaim.org/" target="_blank">WAVE</a> pour rendre votre site accessible à tous</li>
-            <li class="recommended"><strong>Performance</strong> : <a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a> pour optimiser la vitesse de chargement</li>
-            <li><strong>Responsive design</strong> : Utilisez les outils intégrés des navigateurs (F12 → mode responsive)</li>
-            <li><strong>Compatibilité navigateurs</strong> : Testez sur Chrome 120+, Firefox 120+, Safari 16+ minimum</li>
-          </ul>
-        </article>
-        
-        <article class="card">
-          <h3>Design & typographie</h3>
-          <p>Créez une identité visuelle cohérente avec ces outils de design :</p>
-          <ul>
-            <li class="recommended"><strong>Palettes de couleurs</strong> : <a href="https://coolors.co/" target="_blank">Coolors</a>, <a href="https://color.adobe.com/" target="_blank">Adobe Color</a>, <a href="https://materialui.co/colors/" target="_blank">Material Design Colors</a></li>
-            <li class="recommended"><strong>Polices web</strong> : <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, <a href="https://www.dafont.com/" target="_blank">DaFont</a>, <a href="https://www.fontsquirrel.com/" target="_blank">Font Squirrel</a></li>
-            <li class="recommended"><strong>Optimisation polices</strong> : <a href="https://google-webfonts-helper.herokuapp.com/" target="_blank">Google Web Fonts Helper</a> pour téléchargement local</li>
-            <li><strong>Icônes</strong> : <a href="https://lucide.dev/" target="_blank">Lucide</a>, <a href="https://feathericons.com/" target="_blank">Feather Icons</a>, <a href="https://heroicons.com/" target="_blank">Heroicons</a></li>
-            <li><strong>Inspiration design</strong> : <a href="https://dribbble.com/" target="_blank">Dribbble</a>, <a href="https://www.behance.net/" target="_blank">Behance</a>, <a href="https://www.awwwards.com/" target="_blank">Awwwards</a></li>
-          </ul>
-        </article>
-        
-        <article class="card">
-          <h3>Tests & optimisation</h3>
-          <p>Assurez-vous de la qualité et des performances de votre site :</p>
-          <ul>
-            <li><strong>Tests de performance</strong> : <a href="https://gtmetrix.com/" target="_blank">GTmetrix</a>, <a href="https://webpagetest.org/" target="_blank">WebPageTest</a></li>
-            <li><strong>Tests d'accessibilité avancés</strong> : <a href="https://www.deque.com/axe/" target="_blank">axe DevTools</a>, <a href="https://www.accessibilitychecker.org/" target="_blank">Accessibility Checker</a></li>
-            <li><strong>Tests de compatibilité</strong> : <a href="https://www.browserstack.com/" target="_blank">BrowserStack</a>, <a href="https://crossbrowsertesting.com/" target="_blank">CrossBrowserTesting</a></li>
-            <li class="recommended"><strong>Optimisation d'images</strong> : <a href="https://tinypng.com/" target="_blank">TinyPNG</a>, <a href="https://squoosh.app/" target="_blank">Squoosh</a>, <a href="https://imageoptim.com/" target="_blank">ImageOptim</a></li>
-          </ul>
-        </article>
-        </div>
-      </div>
-    </section>
+        <!-- Section Exigences -->
+        <section id="exigences" class="section-bg-medium">
+            <div class="section-content">
+                <h2 class="section-title">Exigences</h2>
+                <div class="grid cols-3">
+                    <article class="card">
+                        <div class="card-icon">
+                            <i data-lucide="code" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Structure HTML</h3>
+                        <p>Votre site doit utiliser les balises HTML5 sémantiques pour une structure claire :</p>
+                        <ul>
+                            <li><strong>Structure principale</strong> : <span class="mono">&lt;header&gt;</span>, <span
+                                    class="mono">&lt;nav&gt;</span>, <span class="mono">&lt;main&gt;</span>, <span
+                                    class="mono">&lt;section&gt;</span>, <span class="mono">&lt;footer&gt;</span></li>
+                            <li><strong>Hiérarchie des titres</strong> : Un seul <span class="mono">&lt;h1&gt;</span>
+                                par page, puis <span class="mono">&lt;h2&gt;</span>, <span
+                                        class="mono">&lt;h3&gt;</span>, etc.
+                            </li>
+                            <li><strong>Contenu de base</strong> : <span class="mono">&lt;p&gt;</span>, <span
+                                    class="mono">&lt;ul&gt;</span>/<span class="mono">&lt;ol&gt;</span>/<span
+                                    class="mono">&lt;li&gt;</span>, <span class="mono">&lt;a&gt;</span></li>
+                            <li><strong>Mise en forme</strong> : <span class="mono">&lt;strong&gt;</span>, <span
+                                    class="mono">&lt;em&gt;</span></li>
+                            <li><strong>Images</strong> : <span class="mono">&lt;img alt="..."&gt;</span> obligatoire,
+                                <span class="mono">&lt;figure&gt;</span>/<span class="mono">&lt;figcaption&gt;</span> si
+                                utile
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">
+                            <i data-lucide="palette" class="icon icon-xl"></i>
+                        </div>
+                        <h3>CSS requis</h3>
+                        <p>Votre CSS doit démontrer la maîtrise des concepts fondamentaux :</p>
+                        <ul>
+                            <li><strong>Variables CSS</strong> : Au moins 3 couleurs, 2 polices, 3 espacements</li>
+                            <li><strong>Typographie</strong> : <span class="mono">font-family</span>, <span
+                                    class="mono">font-size</span>, <span class="mono">font-weight</span>, <span
+                                    class="mono">line-height</span></li>
+                            <li><strong>Espacement</strong> : <span class="mono">margin</span>, <span class="mono">padding</span>
+                                pour structurer la mise en page
+                            </li>
+                            <li><strong>Boîte CSS</strong> : <span class="mono">width</span>, <span
+                                    class="mono">height</span>, <span class="mono">border</span>, <span class="mono">border-radius</span>,
+                                <span class="mono">box-sizing</span></li>
+                            <li><strong>Layout moderne</strong> : <strong>Flexbox</strong> ou <strong>CSS Grid</strong>
+                                (évitez <span class="mono">float</span>)
+                            </li>
+                            <li><strong>Interactions</strong> : <span class="mono">:hover</span>, <span class="mono">:focus</span>,
+                                <span class="mono">:visited</span></li>
+                            <li><strong>Bonus</strong> : <span class="mono">transition</span>, <span class="mono">transform</span>,
+                                <span class="mono">filter</span></li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">
+                            <i data-lucide="smartphone" class="icon icon-xl"></i>
+                        </div>
+                        <h3>Responsive & Qualité</h3>
+                        <p>Votre site doit fonctionner parfaitement sur tous les appareils :</p>
+                        <ul>
+                            <li><strong>Mobile-first</strong> : À partir de 320px jusqu'à 768px de largeur</li>
+                            <li><strong>Breakpoints</strong> : Au moins 2 <span class="mono">@media</span> (tablette
+                                ≥768px, desktop ≥1024px)
+                            </li>
+                            <li><strong>Images adaptatives</strong> : <span class="mono">max-width: 100%</span> pour
+                                éviter le débordement
+                            </li>
+                            <li><strong>Accessibilité</strong> : Attributs <span class="mono">alt</span>, contrastes
+                                suffisants, navigation au clavier (tabulations, ect.)
+                            </li>
+                            <li><strong>Compatibilité</strong> : Testé sur Chrome 120+, Firefox 120+, Safari 16+</li>
+                            <li><strong>Performance</strong> : <a href="https://pagespeed.web.dev/">Audit PageSpeed Insights</a> (mobile et desktop)</li>
+                            <li><strong>Ressources locales</strong> : Polices et images hébergées localement
+                                (pas de <a
+                                        href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>)
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <!-- Section Évaluation -->
-    <section id="evaluation" class="section-bg-medium">
-      <div class="section-content">
-        <h2 class="section-title">Évaluation</h2>
-        <div class="card">
-        <h3>Grille d'évaluation (20 pts)</h3>
-        <ul>
-          <li><strong>HTML/CSS</strong> : validité, propreté, sémantique – 4&nbsp;pts</li>
-          <li><strong>Responsive</strong> : mobile-first, breakpoints, navigation – 4&nbsp;pts</li>
-          <li><strong>Design</strong> : cohérence, accessibilité, UX – 4&nbsp;pts</li>
-          <li><strong>Code</strong> : variables, organisation, commentaires – 3&nbsp;pts</li>
-          <li><strong>Performance</strong> : optimisations, audits – 3&nbsp;pts</li>
-          <li><strong>Bonus</strong> : créativité, fonctionnalités avancées – 2&nbsp;pts</li>
-        </ul>
-        </div>
-      </div>
-    </section>
+        <!-- Section Planification (timeline) -->
+        <section id="planification" class="section-bg-primary">
+            <div class="section-content">
+                <h2 class="section-title">Planification</h2>
+                <ol class="timeline" role="list" aria-label="Planification du projet">
+                    <li class="timeline-item" role="listitem">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <span class="timeline-date"><i data-lucide="calendar" aria-hidden="true"></i> 3–17 septembre 2025</span>
+                        <div class="timeline-card">
+                            <h3>Phase 1 — Fondations</h3>
+                            <p>Se familiariser avec les outils et poser les bases du projet :</p>
+                            <ul>
+                                <li>Création des comptes <strong>GitHub</strong> et <strong>JetBrains</strong></li>
+                                <li>Publication de votre premier "Hello World" sur GitHub Pages</li>
+                                <li>Configuration de votre IDE (WebStorm ou VS Code)</li>
+                                <li>Choix définitif du <strong>sujet</strong> et de la <strong>plateforme
+                                    d'apprentissage</strong></li>
+                                <li>Définition de la palette de couleurs et téléchargement des polices locales</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="timeline-item" role="listitem">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <span class="timeline-date"><i data-lucide="calendar" aria-hidden="true"></i> 17 sept. – 3 déc. 2025</span>
+                        <div class="timeline-card">
+                            <h3>Phase 2 — Développement</h3>
+                            <p>Développement actif avec jalons toutes les 2 semaines :</p>
+                            <ul>
+                                <li><strong>1er octobre – Jalon 1</strong> : Concept validé et structure HTML de base
+                                </li>
+                                <li><strong>15 octobre – Jalon 2</strong> : HTML complet avec navigation fonctionnelle</li>
+                                <li><strong>5 novembre – Jalon 3</strong> : CSS de base et début du responsive design</li>
+                                <li><strong>26 novembre – Jalon 4</strong> : Responsive fonctionnel et tests
+                                    multi‑appareils</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="timeline-item" role="listitem">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <span class="timeline-date"><i data-lucide="calendar-check" aria-hidden="true"></i> 10 déc. 2025 – 9 janv. 2026</span>
+                        <div class="timeline-card">
+                            <h3>Phase 3 — Finalisation</h3>
+                            <p>Finalisation et optimisations avant livraison :</p>
+                            <ul>
+                                <li><strong>17 décembre – Optimisation</strong> : Validation W3C, optimisation des
+                                    images, audits de performance
+                                </li>
+                                <li><strong>9 janvier 2026 – Livraison finale</strong> : Site publié et README complet</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-    <!-- Section Support & IA -->
-    <section id="support" class="section-bg-secondary">
-      <div class="section-content">
-        <h2 class="section-title">Support & IA</h2>
-        <div class="grid cols-2">
-        <article class="card">
-          <h3>Support et aide</h3>
-          <ul>
-            <li><strong>Rendez-vous</strong> : toutes les 2 semaines, 10–15 min.</li>
-            <li><strong>Canal</strong> : Teams du cours pour les questions.</li>
-            <li><strong>Délai</strong> : réponse sous 48 h en période de cours.</li>
-            <li><strong>Format attendu</strong> : capture de code, lien GitHub, URL du site, message clair.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Utilisation de l'IA autorisée</h3>
-          <p>L'utilisation d'outils d'IA (ChatGPT, GitHub Copilot, etc.) est <strong>autorisée</strong> sous certaines conditions :</p>
-          <ul>
-            <li><strong>Compréhension obligatoire</strong> : Vous devez comprendre 100% du code généré</li>
-            <li><strong>Transparence</strong> : Mentionnez l'usage d'IA dans votre README</li>
-            <li><strong>Personnalisation</strong> : Adaptez le code à votre projet</li>
-            <li><strong>Apprentissage</strong> : Utilisez l'IA comme outil d'apprentissage</li>
-            <li><strong>Validation</strong> : Testez et validez tout code généré</li>
-          </ul>
-        </article>
-        </div>
-      </div>
-    </section>
+        <!-- Section Ressources et outils -->
+        <section id="outils" class="section-bg-secondary">
+            <div class="section-content">
+                <h2 class="section-title">Ressources et outils</h2>
+                <div class="grid cols-2">
+                    <article class="card">
+                        <h3>Ressources de formation</h3>
+                        <p>Découvrez les meilleures plateformes et ressources pour apprendre le développement web :</p>
+                        <ul>
+                            <li class="recommended"><a href="https://developer.mozilla.org/fr/" target="_blank">MDN Web
+                                Docs</a> - Documentation officielle et référence complète
+                            </li>
+                            <li class="recommended"><a
+                                    href="https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3"
+                                    target="_blank">OpenClassrooms HTML/CSS</a> - Cours structuré avec projets pratiques
+                            </li>
+                            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a> - Apprentissage
+                                gratuit avec certifications
+                            </li>
+                            <li class="recommended"><a href="https://grafikart.fr/" target="_blank">Grafikart (FR)</a> -
+                                Tutoriels vidéo en français
+                            </li>
+                            <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a> - Articles avancés et
+                                techniques CSS
+                            </li>
+                            <li><a href="https://fr.learnlayout.com/" target="_blank">Learn Layout (FR)</a> - Comprendre
+                                les systèmes de mise en page
+                            </li>
+                            <li class="recommended"><a href="https://flexboxfroggy.com/#fr" target="_blank">Flexbox
+                                Froggy</a> - Jeu interactif pour maîtriser Flexbox
+                            </li>
+                            <li class="recommended"><a href="https://flukeout.github.io/" target="_blank">CSS Diner</a>
+                                - Jeu pour apprendre les sélecteurs CSS
+                            </li>
+                            <li class="recommended"><a href="https://cssgridgarden.com/#fr" target="_blank">Grid
+                                Garden</a> - Jeu pour maîtriser CSS Grid
+                            </li>
+                        </ul>
+                    </article>
 
-    <!-- Section Checklist -->
-    <section id="checklist" class="section-bg-primary">
-      <div class="section-content">
-        <h2 class="section-title">Checklist d'auto-évaluation</h2>
-        <div class="checklist-progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progression de la checklist">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <p class="progress-text" id="progress-text">0% complété</p>
-        </div>
-      
-        <div class="checklist-container">
-        <div class="checklist-category">
-          <h3>Structure et validation</h3>
-          <ul class="checklist-items">
-            <li class="checklist-item">
-              <input type="checkbox" id="check-1" class="checklist-checkbox">
-              <label for="check-1" class="checklist-label">Site publié (GitHub Pages/équivalent)</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-2" class="checklist-checkbox">
-              <label for="check-2" class="checklist-label">Dépôt propre, arborescence conforme</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-3" class="checklist-checkbox">
-              <label for="check-3" class="checklist-label">HTML valide W3C</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-4" class="checklist-checkbox">
-              <label for="check-4" class="checklist-label">CSS valide W3C</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-5" class="checklist-checkbox">
-              <label for="check-5" class="checklist-label">Balises sémantiques complètes</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-6" class="checklist-checkbox">
-              <label for="check-6" class="checklist-label">Titres h1–h6 hiérarchisés</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-7" class="checklist-checkbox">
-              <label for="check-7" class="checklist-label">Images avec <span class="mono">alt</span></label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-8" class="checklist-checkbox">
-              <label for="check-8" class="checklist-label"><span class="mono">figure/figcaption</span> si pertinent</label>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="checklist-category">
-          <h3>CSS et responsive</h3>
-          <ul class="checklist-items">
-            <li class="checklist-item">
-              <input type="checkbox" id="check-9" class="checklist-checkbox">
-              <label for="check-9" class="checklist-label">≥3 variables couleurs</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-10" class="checklist-checkbox">
-              <label for="check-10" class="checklist-label">≥2 variables polices</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-11" class="checklist-checkbox">
-              <label for="check-11" class="checklist-label">≥3 variables espacements</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-12" class="checklist-checkbox">
-              <label for="check-12" class="checklist-label">Layout Flexbox ou Grid</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-13" class="checklist-checkbox">
-              <label for="check-13" class="checklist-label">≥2 media queries (≥768/≥1024)</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-14" class="checklist-checkbox">
-              <label for="check-14" class="checklist-label">Navigation mobile adaptée</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-15" class="checklist-checkbox">
-              <label for="check-15" class="checklist-label">Images adaptatives (<span class="mono">max-width:100%</span>)</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-16" class="checklist-checkbox">
-              <label for="check-16" class="checklist-label">Transitions/filters si utilisés</label>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="checklist-category">
-          <h3>Performance et tests</h3>
-          <ul class="checklist-items">
-            <li class="checklist-item">
-              <input type="checkbox" id="check-17" class="checklist-checkbox">
-              <label for="check-17" class="checklist-label">Polices locales dans <span class="mono">/fonts</span></label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-18" class="checklist-checkbox">
-              <label for="check-18" class="checklist-label">Images locales &lt; 1 Mo (WebP si possible)</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-19" class="checklist-checkbox">
-              <label for="check-19" class="checklist-label">PageSpeed mobile/bureau renseigné</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-20" class="checklist-checkbox">
-              <label for="check-20" class="checklist-label">Accessibilité WAVE corrigée</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-21" class="checklist-checkbox">
-              <label for="check-21" class="checklist-label">Tests Chrome/Firefox/Safari</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-22" class="checklist-checkbox">
-              <label for="check-22" class="checklist-label">Tests sur mobile/tablette/desktop</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-23" class="checklist-checkbox">
-              <label for="check-23" class="checklist-label">README complet selon structure</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-24" class="checklist-checkbox">
-              <label for="check-24" class="checklist-label">Section IA renseignée</label>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="checklist-category">
-          <h3>Méthodologie</h3>
-          <ul class="checklist-items">
-            <li class="checklist-item">
-              <input type="checkbox" id="check-25" class="checklist-checkbox">
-              <label for="check-25" class="checklist-label">Interdits respectés (templates/frameworks/CDN/JS)</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-26" class="checklist-checkbox">
-              <label for="check-26" class="checklist-label">Commits réguliers et messages clairs</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-27" class="checklist-checkbox">
-              <label for="check-27" class="checklist-label">Jalons S4/S6/S8/S10/S11/S12 tenus</label>
-            </li>
-            <li class="checklist-item">
-              <input type="checkbox" id="check-28" class="checklist-checkbox">
-              <label for="check-28" class="checklist-label">Support utilisé au besoin (Teams/RDV)</label>
-            </li>
-          </ul>
-        </div>
-        </div>
-      </div>
-    </section>
+                    <article class="card">
+                        <h3>Environnement de développement</h3>
+                        <p>Configurez votre environnement de développement avec ces outils essentiels :</p>
+                        <ul>
+                            <li class="recommended"><strong>Éditeurs de code</strong> : <a
+                                    href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a> (gratuit
+                                étudiants), <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>, <a
+                                        href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
+                            <li><strong>Extensions utiles</strong> : Live Server, Prettier, Emmet, Auto Rename Tag</li>
+                            <li class="recommended"><strong>Gestion de versions</strong> : <a
+                                    href="https://git-scm.com/" target="_blank">Git</a>, <a href="https://github.com/"
+                                                                                            target="_blank">GitHub</a>,
+                                <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a></li>
+                            <li class="recommended"><strong>Débogage</strong> : <a
+                                    href="https://developer.chrome.com/docs/devtools/" target="_blank">Chrome
+                                DevTools</a>, <a href="https://firefox-source-docs.mozilla.org/devtools-user/"
+                                                 target="_blank">Firefox DevTools</a>, <a
+                                    href="https://webkit.org/web-inspector/" target="_blank">Safari Web Inspector</a>
+                            </li>
+                            <li class="recommended"><strong>Hébergement</strong> : <a href="https://pages.github.com/"
+                                                                                      target="_blank">GitHub Pages</a>,
+                                <a href="https://netlify.com/" target="_blank">Netlify</a>, <a
+                                        href="https://vercel.com/" target="_blank">Vercel</a></li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Validation & tests</h3>
+                        <p>Vérifiez la qualité de votre site web avec ces outils de validation et de test :</p>
+                        <ul>
+                            <li class="recommended"><strong>Validation HTML</strong> : <a
+                                    href="https://validator.w3.org/" target="_blank">W3C Markup Validator</a> ou <a
+                                    href="https://validator.nu/" target="_blank">Nu Html Checker</a> pour un code
+                                conforme
+                            </li>
+                            <li class="recommended"><strong>Validation CSS</strong> : <a
+                                    href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validator</a>
+                                pour détecter les erreurs de style
+                            </li>
+                            <li class="recommended"><strong>Accessibilité</strong> : <a href="https://wave.webaim.org/"
+                                                                                        target="_blank">WAVE</a> pour
+                                rendre votre site accessible à tous
+                            </li>
+                            <li class="recommended"><strong>Performance</strong> : <a href="https://pagespeed.web.dev/"
+                                                                                      target="_blank">PageSpeed
+                                Insights</a> pour optimiser la vitesse de chargement
+                            </li>
+                            <li><strong>Responsive design</strong> : Utilisez les outils intégrés des navigateurs (F12 →
+                                mode responsive)
+                            </li>
+                            <li><strong>Compatibilité navigateurs</strong> : Testez sur Chrome 120+, Firefox 120+,
+                                Safari 16+ minimum
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Design & typographie</h3>
+                        <p>Créez une identité visuelle cohérente avec ces outils de design :</p>
+                        <ul>
+                            <li class="recommended"><strong>Palettes de couleurs</strong> : <a
+                                    href="https://coolors.co/" target="_blank">Coolors</a>, <a
+                                    href="https://color.adobe.com/" target="_blank">Adobe Color</a>, <a
+                                    href="https://materialui.co/colors/" target="_blank">Material Design Colors</a></li>
+                            <li class="recommended"><strong>Polices web</strong> : <a href="https://fonts.google.com/"
+                                                                                      target="_blank">Google Fonts</a>,
+                                <a href="https://www.dafont.com/" target="_blank">DaFont</a>, <a
+                                        href="https://www.fontsquirrel.com/" target="_blank">Font Squirrel</a></li>
+                            <li class="recommended"><strong>Optimisation polices</strong> : <a
+                                    href="https://google-webfonts-helper.herokuapp.com/" target="_blank">Google Web
+                                Fonts Helper</a> pour téléchargement local
+                            </li>
+                            <li><strong>Icônes</strong> : <a href="https://lucide.dev/" target="_blank">Lucide</a>, <a
+                                    href="https://feathericons.com/" target="_blank">Feather Icons</a>, <a
+                                    href="https://heroicons.com/" target="_blank">Heroicons</a></li>
+                            <li><strong>Inspiration design</strong> : <a href="https://dribbble.com/" target="_blank">Dribbble</a>,
+                                <a href="https://www.behance.net/" target="_blank">Behance</a>, <a
+                                        href="https://www.awwwards.com/" target="_blank">Awwwards</a></li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Tests & optimisation</h3>
+                        <p>Assurez-vous de la qualité et des performances de votre site :</p>
+                        <ul>
+                            <li><strong>Tests de performance</strong> : <a href="https://gtmetrix.com/" target="_blank">GTmetrix</a>,
+                                <a href="https://webpagetest.org/" target="_blank">WebPageTest</a></li>
+                            <li><strong>Tests d'accessibilité avancés</strong> : <a href="https://www.deque.com/axe/"
+                                                                                    target="_blank">axe DevTools</a>, <a
+                                    href="https://www.accessibilitychecker.org/" target="_blank">Accessibility
+                                Checker</a></li>
+                            <li><strong>Tests de compatibilité</strong> : <a href="https://www.browserstack.com/"
+                                                                             target="_blank">BrowserStack</a>, <a
+                                    href="https://crossbrowsertesting.com/" target="_blank">CrossBrowserTesting</a></li>
+                            <li class="recommended"><strong>Optimisation d'images</strong> : <a
+                                    href="https://tinypng.com/" target="_blank">TinyPNG</a>, <a
+                                    href="https://squoosh.app/" target="_blank">Squoosh</a>, <a
+                                    href="https://imageoptim.com/" target="_blank">ImageOptim</a></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Évaluation -->
+        <section id="evaluation" class="section-bg-medium">
+            <div class="section-content">
+                <h2 class="section-title">Évaluation</h2>
+                <div class="card">
+                    <h3>Grille d'évaluation (20 pts)</h3>
+                    <ul>
+                        <li><strong>HTML/CSS</strong> : validité, propreté, sémantique – 4&nbsp;pts</li>
+                        <li><strong>Responsive</strong> : mobile-first, breakpoints, navigation – 4&nbsp;pts</li>
+                        <li><strong>Design</strong> : cohérence, accessibilité, UX – 4&nbsp;pts</li>
+                        <li><strong>Code</strong> : variables, organisation, commentaires – 3&nbsp;pts</li>
+                        <li><strong>Performance</strong> : optimisations, audits – 3&nbsp;pts</li>
+                        <li><strong>Bonus</strong> : créativité, fonctionnalités avancées – 2&nbsp;pts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Support & IA -->
+        <section id="support" class="section-bg-secondary">
+            <div class="section-content">
+                <h2 class="section-title">Support & IA</h2>
+                <div class="grid cols-2">
+                    <article class="card">
+                        <h3>Support et aide</h3>
+                        <ul>
+                            <li><strong>Rendez-vous</strong> : toutes les 2 semaines, 10–15 min.</li>
+                            <li><strong>Canal</strong> : Teams du cours pour les questions.</li>
+                            <li><strong>Délai</strong> : réponse sous 48 h en période de cours.</li>
+                            <li><strong>Format attendu</strong> : capture de code, lien GitHub, URL du site, message
+                                clair.
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Utilisation de l'IA autorisée</h3>
+                        <p>L'utilisation d'outils d'IA (ChatGPT, GitHub Copilot, etc.) est <strong>autorisée</strong>
+                            sous certaines conditions :</p>
+                        <ul>
+                            <li><strong>Compréhension obligatoire</strong> : Vous devez comprendre 100% du code généré
+                            </li>
+                            <li><strong>Transparence</strong> : Mentionnez l'usage d'IA dans votre README</li>
+                            <li><strong>Personnalisation</strong> : Adaptez le code à votre projet</li>
+                            <li><strong>Apprentissage</strong> : Utilisez l'IA comme outil d'apprentissage</li>
+                            <li><strong>Validation</strong> : Testez et validez tout code généré</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Checklist -->
+        <section id="checklist" class="section-bg-primary">
+            <div class="section-content">
+                <h2 class="section-title">Checklist d'auto-évaluation</h2>
+                <div class="checklist-progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                         aria-label="Progression de la checklist">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">0% complété</p>
+                </div>
+
+                <div class="checklist-container">
+                    <div class="checklist-category">
+                        <h3>Structure et validation</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-1" class="checklist-checkbox">
+                                <label for="check-1" class="checklist-label">Site publié (GitHub
+                                    Pages/équivalent)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-2" class="checklist-checkbox">
+                                <label for="check-2" class="checklist-label">Dépôt propre, arborescence conforme</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-3" class="checklist-checkbox">
+                                <label for="check-3" class="checklist-label">HTML valide W3C</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-4" class="checklist-checkbox">
+                                <label for="check-4" class="checklist-label">CSS valide W3C</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-5" class="checklist-checkbox">
+                                <label for="check-5" class="checklist-label">Balises sémantiques complètes</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-6" class="checklist-checkbox">
+                                <label for="check-6" class="checklist-label">Titres h1–h6 hiérarchisés</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-7" class="checklist-checkbox">
+                                <label for="check-7" class="checklist-label">Images avec <span
+                                        class="mono">alt</span></label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-8" class="checklist-checkbox">
+                                <label for="check-8" class="checklist-label"><span class="mono">figure/figcaption</span>
+                                    si pertinent</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3>CSS et responsive</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-9" class="checklist-checkbox">
+                                <label for="check-9" class="checklist-label">≥3 variables couleurs</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-10" class="checklist-checkbox">
+                                <label for="check-10" class="checklist-label">≥2 variables polices</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-11" class="checklist-checkbox">
+                                <label for="check-11" class="checklist-label">≥3 variables espacements</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-12" class="checklist-checkbox">
+                                <label for="check-12" class="checklist-label">Layout Flexbox ou Grid</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-13" class="checklist-checkbox">
+                                <label for="check-13" class="checklist-label">≥2 media queries (≥768/≥1024)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-14" class="checklist-checkbox">
+                                <label for="check-14" class="checklist-label">Navigation mobile adaptée</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-15" class="checklist-checkbox">
+                                <label for="check-15" class="checklist-label">Images adaptatives (<span class="mono">max-width:100%</span>)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-16" class="checklist-checkbox">
+                                <label for="check-16" class="checklist-label">Transitions/filters si utilisés</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3>Performance et tests</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-17" class="checklist-checkbox">
+                                <label for="check-17" class="checklist-label">Polices locales dans <span class="mono">/fonts</span></label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-18" class="checklist-checkbox">
+                                <label for="check-18" class="checklist-label">Images locales &lt; 1 Mo (WebP si
+                                    possible)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-19" class="checklist-checkbox">
+                                <label for="check-19" class="checklist-label">PageSpeed mobile/bureau renseigné</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-20" class="checklist-checkbox">
+                                <label for="check-20" class="checklist-label">Accessibilité WAVE corrigée</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-21" class="checklist-checkbox">
+                                <label for="check-21" class="checklist-label">Tests Chrome/Firefox/Safari</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-22" class="checklist-checkbox">
+                                <label for="check-22" class="checklist-label">Tests sur mobile/tablette/desktop</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-23" class="checklist-checkbox">
+                                <label for="check-23" class="checklist-label">README complet selon structure</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-24" class="checklist-checkbox">
+                                <label for="check-24" class="checklist-label">Section IA renseignée</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3>Méthodologie</h3>
+                        <ul class="checklist-items">
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-25" class="checklist-checkbox">
+                                <label for="check-25" class="checklist-label">Interdits respectés
+                                    (templates/frameworks/CDN/JS)</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-26" class="checklist-checkbox">
+                                <label for="check-26" class="checklist-label">Commits réguliers et messages
+                                    clairs</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-27" class="checklist-checkbox">
+                                <label for="check-27" class="checklist-label">Jalons S4/S6/S8/S10/S11/S12 tenus</label>
+                            </li>
+                            <li class="checklist-item">
+                                <input type="checkbox" id="check-28" class="checklist-checkbox">
+                                <label for="check-28" class="checklist-label">Support utilisé au besoin
+                                    (Teams/RDV)</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <footer class="mini-footer">
-      <p>&copy; 2024 ESIG Suisse - Module 113. Tous droits réservés.</p>
+        <p>&copy; 2024 ESIG Suisse - Module 113. Tous droits réservés.</p>
     </footer>
-  </div>
+</div>
 
-  <!-- Scripts (local, no CDN) -->
-  <script src="js/lucide.js"></script>
-  <script src="js/main.js"></script>
+<!-- Scripts (local, no CDN) -->
+<script src="js/lucide.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
