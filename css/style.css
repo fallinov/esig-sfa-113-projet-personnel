@@ -892,7 +892,7 @@ html {
 .sidebar-link:hover,
 .sidebar-link:focus {
   background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  color: var(--color-white);
   border: none !important;
   outline: none !important;
 }

@@ -91,6 +91,10 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
       ticking = true;
       requestAnimationFrame(() => {
         const pos = window.scrollY + getHeaderHeight() + 2; // 2px de marge
+        const activeEl = document.activeElement;
+        if (activeEl && activeEl.classList && activeEl.classList.contains('sidebar-link')) {
+          activeEl.blur();
+        }
         let activeId = metrics[0] ? metrics[0].id : null;
         for (let i = 0; i < metrics.length; i++) {
           if (metrics[i].top <= pos) {
