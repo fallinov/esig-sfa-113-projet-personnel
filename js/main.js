@@ -37,14 +37,22 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
       if (link) link.classList.add('active');
     }
 
-    function updateLinkProgress(scrollPos) {
+    function updateLinkProgress(scrollY) {
+      const headerOffset = getHeaderHeight();
+      const viewportHeight = Math.max(window.innerHeight || 0, headerOffset + 1);
+
       metrics.forEach((metric) => {
         const link = linkById.get(metric.id);
         if (!link) return;
-        const range = metric.bottom - metric.top || 1;
-        let progress = (scrollPos - metric.top) / range;
+
+        const start = Math.max(metric.titleTop - viewportHeight, 0);
+        const end = Math.max(metric.bottom - headerOffset, start + 1);
+        const range = end - start || 1;
+        let progress = (scrollY - start) / range;
+
         if (progress < 0) progress = 0;
         if (progress > 1) progress = 1;
+
         const percent = (progress * 100).toFixed(2) + '%';
         link.style.setProperty('--link-fill', percent);
         link.classList.toggle('is-progress', progress > 0);
@@ -61,11 +69,20 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
     let ticking = false;
     let metrics = [];
     function recalc() {
-      metrics = sections.map(sec => ({
-        id: sec.id,
-        top: sec.offsetTop,
-        bottom: sec.offsetTop + sec.offsetHeight
-      }));
+      const currentScroll = window.scrollY || window.pageYOffset;
+      metrics = sections.map(sec => {
+        const container = sec.querySelector('.section-content') || sec;
+        const containerRect = container.getBoundingClientRect();
+        const title = sec.querySelector('.section-title');
+        const titleRect = title ? title.getBoundingClientRect() : containerRect;
+
+        return {
+          id: sec.id,
+          top: containerRect.top + currentScroll,
+          bottom: containerRect.bottom + currentScroll,
+          titleTop: titleRect.top + currentScroll
+        };
+      });
       onScroll();
     }
 
@@ -166,6 +183,13 @@ if (window.lucide && typeof window.lucide.createIcons === 'function') {
             e.preventDefault();
             const y = target.offsetTop - 0; // sections déjà décalées sous le header
             window.scrollTo({ top: y, behavior: 'smooth' });
+            if (id) {
+              if (history.replaceState) {
+                history.replaceState(null, '', '#' + id);
+              } else {
+                window.location.hash = id;
+              }
+            }
           }
         }
       });

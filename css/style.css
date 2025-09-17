@@ -544,12 +544,12 @@ a:focus {
 
 /* Scroll offset pour les ancres */
 html {
-  scroll-padding-top: 0;
+  scroll-padding-top: var(--header-height);
 }
 
 /* Alternative pour les navigateurs qui ne supportent pas scroll-padding-top */
 [id] {
-  scroll-margin-top: 0;
+  scroll-margin-top: var(--header-height);
 }
 
 /* Wrapper principal qui contient tout le contenu */
@@ -879,7 +879,7 @@ html {
   left: 0;
   width: var(--link-fill);
   height: 100%;
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-light);
   transition: width var(--transition-normal);
   z-index: 0;
 }
@@ -898,15 +898,11 @@ html {
 }
 
 .sidebar-link.is-progress:hover,
-.sidebar-link.is-progress:focus {
-  background-color: rgba(255, 140, 0, 0.18);
-  color: var(--color-text);
-}
-
+.sidebar-link.is-progress:focus,
 .sidebar-link.is-complete:hover,
 .sidebar-link.is-complete:focus {
-  background-color: var(--color-accent);
-  color: var(--color-white);
+  background-color: transparent;
+  color: var(--color-primary);
 }
 
 .sidebar-link:active {
@@ -922,16 +918,12 @@ html {
 }
 
 .sidebar-link.is-progress {
-  background-color: rgba(255, 140, 0, 0.12);
+  background-color: transparent;
 }
 
 .sidebar-link.is-complete {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-}
-
-.sidebar-link.is-complete::after {
-  background-color: var(--color-accent-dark);
+  background-color: transparent;
+  color: var(--color-text);
 }
 
 .sidebar-link i {
@@ -1302,7 +1294,7 @@ section {
   border: none;
   box-shadow: none;
   border-radius: 0;
-  scroll-margin-top: 0; /* pas d'offset */
+  scroll-margin-top: var(--header-height); /* alignement avec le header sticky */
 }
 
 .section-title {
@@ -1453,6 +1445,7 @@ section {
    ======================================== */
 
 .mini-footer {
+  min-height: 200px;
   background-color: var(--color-primary-darker);
   color: var(--color-white);
   padding: var(--spacing-lg) var(--spacing-md);
