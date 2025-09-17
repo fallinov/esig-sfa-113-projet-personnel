@@ -879,7 +879,7 @@ html {
   left: 0;
   width: var(--link-fill);
   height: 100%;
-  background-color: var(--color-accent-light);
+  background-color: var(--color-bg-medium);
   transition: width var(--transition-normal);
   z-index: 0;
 }
