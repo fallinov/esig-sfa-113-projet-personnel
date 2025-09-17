@@ -531,15 +531,109 @@
             <div class="section-content">
                 <h2 class="section-title">Évaluation</h2>
                 <div class="card">
-                    <h3>Grille d'évaluation (20 pts)</h3>
-                    <ul>
-                        <li><strong>HTML/CSS</strong> : validité, propreté, sémantique – 4&nbsp;pts</li>
-                        <li><strong>Responsive</strong> : mobile-first, breakpoints, navigation – 4&nbsp;pts</li>
-                        <li><strong>Design</strong> : cohérence, accessibilité, UX – 4&nbsp;pts</li>
-                        <li><strong>Code</strong> : variables, organisation, commentaires – 3&nbsp;pts</li>
-                        <li><strong>Performance</strong> : optimisations, audits – 3&nbsp;pts</li>
-                        <li><strong>Bonus</strong> : créativité, fonctionnalités avancées – 2&nbsp;pts</li>
-                    </ul>
+                    <h3 id="evaluation-grid-title">Grille d'évaluation détaillée</h3>
+                    <p>Le projet est noté sur 20 points. Chaque axe évalue des compétences spécifiques en design web et développement front-end. Utilise cette grille pour valider ton livrable avant la remise.</p>
+                    <div class="table-responsive" role="region" aria-labelledby="evaluation-grid-title" tabindex="0">
+                        <table class="evaluation-table">
+                            <caption>Répartition des critères d'évaluation</caption>
+                            <thead>
+                            <tr>
+                                <th scope="col">Critère</th>
+                                <th scope="col">Focus</th>
+                                <th scope="col">Points</th>
+                                <th scope="col">Attendus</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Structure HTML&nbsp;/ CSS</th>
+                                <td>Validité, propreté du code, sémantique</td>
+                                <td>4</td>
+                                <td>HTML valide, CSS organisé, balises sémantiques cohérentes et styles réutilisables.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Responsive design</th>
+                                <td>Approche mobile-first, breakpoints, navigation</td>
+                                <td>4</td>
+                                <td>Layout fluide &lt;768px et desktop, navigation accessible, tests sur plusieurs largeurs.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Design &amp; accessibilité</th>
+                                <td>Cohérence visuelle, contrastes, UX</td>
+                                <td>4</td>
+                                <td>Palette harmonieuse, hiérarchie claire, contrastes conformes, parcours utilisateur fluide.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Qualité du code</th>
+                                <td>Organisation, variables, commentaires utiles</td>
+                                <td>3</td>
+                                <td>Gestion des variables CSS/JS, fichiers structurés, commentaires pertinents pour expliquer les choix.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Performance</th>
+                                <td>Optimisations, audits, assets</td>
+                                <td>3</td>
+                                <td>Images optimisées, chargement rapide, audit Lighthouse avec recommandations adressées.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Bonus</th>
+                                <td>Créativité et fonctionnalités avancées</td>
+                                <td>+2</td>
+                                <td>Valorisation du projet par des interactions soignées, intégrations techniques pertinentes ou doc de suivi.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="evaluation-cards" aria-label="Grille d'évaluation condensée">
+                        <article class="evaluation-card">
+                            <header class="evaluation-card-header">
+                                <h4>Structure HTML / CSS</h4>
+                                <span class="evaluation-card-points">4 pts</span>
+                            </header>
+                            <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Validité, propreté du code, sémantique</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> HTML valide, CSS organisé, balises sémantiques cohérentes et styles réutilisables.</p>
+                        </article>
+                        <article class="evaluation-card">
+                            <header class="evaluation-card-header">
+                                <h4>Responsive design</h4>
+                                <span class="evaluation-card-points">4 pts</span>
+                            </header>
+                            <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Approche mobile-first, breakpoints, navigation</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Layout fluide &lt;768px et desktop, navigation accessible, tests sur plusieurs largeurs.</p>
+                        </article>
+                        <article class="evaluation-card">
+                            <header class="evaluation-card-header">
+                                <h4>Design &amp; accessibilité</h4>
+                                <span class="evaluation-card-points">4 pts</span>
+                            </header>
+                            <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Cohérence visuelle, contrastes, UX</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Palette harmonieuse, hiérarchie claire, contrastes conformes, parcours utilisateur fluide.</p>
+                        </article>
+                        <article class="evaluation-card">
+                            <header class="evaluation-card-header">
+                                <h4>Qualité du code</h4>
+                                <span class="evaluation-card-points">3 pts</span>
+                            </header>
+                            <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Organisation, variables, commentaires utiles</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Gestion des variables CSS/JS, fichiers structurés, commentaires pertinents pour expliquer les choix.</p>
+                        </article>
+                        <article class="evaluation-card">
+                            <header class="evaluation-card-header">
+                                <h4>Performance</h4>
+                                <span class="evaluation-card-points">3 pts</span>
+                            </header>
+                            <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Optimisations, audits, assets</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Images optimisées, chargement rapide, audit Lighthouse avec recommandations adressées.</p>
+                        </article>
+                        <article class="evaluation-card">
+                            <header class="evaluation-card-header">
+                                <h4>Bonus</h4>
+                                <span class="evaluation-card-points">+2 pts</span>
+                            </header>
+                            <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Créativité et fonctionnalités avancées</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Valorisation du projet par des interactions soignées, intégrations techniques pertinentes ou doc de suivi.</p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>

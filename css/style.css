@@ -466,15 +466,30 @@ table {
     border-collapse: collapse;
     margin: var(--spacing-md) 0;
     background: var(--color-white);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin: var(--spacing-md) 0;
+}
+
+.table-responsive:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+.table-responsive table {
+    margin: 0;
+}
+
+.evaluation-table {
+    min-width: 640px;
 }
 
 th, td {
     padding: var(--spacing-sm) var(--spacing-md);
     text-align: left;
-    border-bottom: 1px solid var(--color-border);
 }
 
 th {
@@ -482,16 +497,75 @@ th {
     color: var(--color-white);
     font-weight: 600;
     font-size: 0.9rem;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-tr:hover {
+.evaluation-table tbody tr:nth-child(odd) {
+    background: var(--color-primary-very-light);
+}
+
+.evaluation-table tbody tr:nth-child(even) {
+    background: var(--color-white);
+}
+
+.evaluation-table tbody tr:hover {
     background: var(--color-bg-light);
 }
 
-tr:last-child td {
-    border-bottom: none;
+.evaluation-cards {
+    display: none;
+}
+
+.evaluation-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.evaluation-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.evaluation-card-header h4 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+}
+
+.evaluation-card-points {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: var(--font-size-base);
+}
+
+.evaluation-card-focus,
+.evaluation-card-expected {
+    margin: 0 0 var(--spacing-sm);
+    color: var(--color-text);
+    line-height: var(--line-height-normal);
+}
+
+.evaluation-card-expected {
+    margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+    .table-responsive {
+        display: none;
+    }
+
+    .evaluation-cards {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+    }
 }
 
 /* Colonnes spécifiques */
@@ -522,6 +596,10 @@ tr:last-child td {
 
     th, td {
         padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .evaluation-table {
+        min-width: 520px;
     }
 
     .jalon-phase {
