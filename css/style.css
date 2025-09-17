@@ -724,7 +724,7 @@ html {
    ======================================== */
 
 /* Checkbox de contrôle du menu (élément d'état, visuellement caché) */
-.nav-toggle {
+.nav-toggle, label[for="nav-toggle"] {
     position: absolute;
     width: 1px;
     height: 1px;
