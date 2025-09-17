@@ -367,10 +367,10 @@ p {
 }
 
 /* Liens */
+/* TOTDO style les liens de manière originale */
 a {
     color: var(--color-primary);
     transition: color var(--transition-fast);
-    text-decoration: none;
 }
 
 /* Liens dans les cartes de la section outils */
