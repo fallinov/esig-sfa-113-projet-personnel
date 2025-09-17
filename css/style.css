@@ -1116,7 +1116,7 @@ li.checklist-item::before {
     gap: var(--spacing-md);
     flex-wrap: wrap;
     justify-content: center;
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-xl) 0 0;
 }
 
 
@@ -1305,7 +1305,7 @@ li.checklist-item::before {
 
 /* Section générique - style minimal sans bordures ni ombres */
 section {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-3xl) var(--spacing-md);
     border: none;
     box-shadow: none;
     border-radius: 0;
@@ -1314,6 +1314,7 @@ section {
 
 .section-title {
     text-align: center;
+    margin-top: 0;
     margin-bottom: var(--spacing-2xl);
     color: var(--color-text-primary);
 }
