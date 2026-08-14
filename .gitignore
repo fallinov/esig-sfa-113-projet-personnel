@@ -38,3 +38,5 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+# Captures Playwright (ne pas publier sur GitHub Pages)
+playwright/
