@@ -249,8 +249,13 @@
                                     class="mono">&lt;nav&gt;</span>, <span class="mono">&lt;main&gt;</span>, <span
                                     class="mono">&lt;section&gt;</span>, <span class="mono">&lt;footer&gt;</span></li>
                             <li><strong>Hiérarchie des titres</strong> : Un seul <span class="mono">&lt;h1&gt;</span>
-                                par page, puis <span class="mono">&lt;h2&gt;</span>, <span
-                                        class="mono">&lt;h3&gt;</span>, etc.
+                                par page, <strong>dans <span class="mono">&lt;main&gt;</span></strong>, qui décrit
+                                cette page (« Galerie », « Contact »…) ; puis <span class="mono">&lt;h2&gt;</span>,
+                                <span class="mono">&lt;h3&gt;</span>, etc. Le nom du site va dans le
+                                <span class="mono">&lt;header&gt;</span> en logo (une
+                                <span class="mono">&lt;div&gt;</span> ou un <span class="mono">&lt;a&gt;</span>
+                                avec une classe), pas en <span class="mono">&lt;h1&gt;</span> — sinon toutes les
+                                pages auraient le même titre
                             </li>
                             <li><strong>Contenu de base</strong> : <span class="mono">&lt;p&gt;</span>, <span
                                     class="mono">&lt;ul&gt;</span>/<span class="mono">&lt;ol&gt;</span>/<span
@@ -735,7 +740,7 @@
                             </li>
                             <li class="checklist-item">
                                 <input type="checkbox" id="check-6" class="checklist-checkbox">
-                                <label for="check-6" class="checklist-label">Titres h1–h6 hiérarchisés</label>
+                                <label for="check-6" class="checklist-label">Titres h1–h6 hiérarchisés, un seul h1 par page dans main</label>
                             </li>
                             <li class="checklist-item">
                                 <input type="checkbox" id="check-7" class="checklist-checkbox">
