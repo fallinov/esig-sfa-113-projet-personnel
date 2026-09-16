@@ -90,11 +90,11 @@
                     </li>
                     <li class="manual-icons">
                         <i data-lucide="clipboard-pen"></i>
-                        Travail écrit <strong>20 pts</strong>
+                        Épreuve de module 13 janv. 2027 <strong>20 pts</strong>
                     </li>
                     <li class="manual-icons">
                         <i data-lucide="clock"></i>
-                        <strong>12 semaines</strong>
+                        <strong>15 séances</strong>
                     </li>
                     <li class="manual-icons">
                         <i data-lucide="calendar-check"></i>
@@ -173,9 +173,8 @@
                             <i data-lucide="briefcase" class="icon icon-xl"></i>
                         </div>
                         <h3>Méthodes professionnelles</h3>
-                        <p>Utilisation d'IDE (WebStorm, VS Code),
-                            versioning (Git, GitHub), publication (GitHub Pages),
-                            DevOps (GitHub Actions)</p>
+                        <p>Utilisation d'un IDE professionnel (WebStorm),
+                            versioning (Git, GitHub), publication (GitHub Pages)</p>
                     </div>
                 </div>
             </div>
@@ -189,19 +188,22 @@
                     <article class="card">
                         <h3>Ton site en ligne</h3>
                         <ul>
-                            <li>Hébergé (GitHub Pages ou équivalent).</li>
+                            <li>Hébergé sur <strong>GitHub Pages</strong>, depuis un dépôt public de ton compte nommé
+                                <span class="mono">c113-projet-nomprenom</span> — ton adresse sera
+                                <span class="mono">https://ton-compte.github.io/c113-projet-nomprenom/</span>.
+                            </li>
                             <li>HTML/CSS <strong>valides W3C</strong>.</li>
                             <li>Design <strong>responsive</strong> mobile → desktop.</li>
                             <li>Polices <strong>locales</strong> dans <span class="mono">/fonts</span> (pas de <a
                                     href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>).
                             </li>
-                            <li>Images <strong>locales optimisées</strong> &lt; 1&nbsp;Mo dans <span
+                            <li>Images <strong>locales optimisées</strong> &lt; 300&nbsp;Ko dans <span
                                     class="mono">/img</span>.
                             </li>
                             <li>Dépôt <strong>propre</strong> et structuré.</li>
                         </ul>
                         <h4>Arborescence minimale</h4>
-                        <pre><code>projet-personnel/
+                        <pre><code>c113-projet-nomprenom/
 ├── css/
 ├── fonts/
 ├── img/
@@ -304,8 +306,12 @@
                             <li><strong>Accessibilité</strong> : Attributs <span class="mono">alt</span>, contrastes
                                 suffisants, navigation au clavier (tabulations, ect.)
                             </li>
-                            <li><strong>Compatibilité</strong> : Testé sur Chrome 120+, Firefox 120+, Safari 16+</li>
-                            <li><strong>Performance</strong> : <a href="https://pagespeed.web.dev/">Audit PageSpeed Insights</a> (mobile et desktop)</li>
+                            <li><strong>Compatibilité</strong> : Testé sur les versions à jour de Chrome et Firefox
+                                (Safari si tu as un Mac ou un iPhone)
+                            </li>
+                            <li><strong>Performance</strong> : Audit <strong>Lighthouse</strong> (DevTools, F12) ou
+                                <a href="https://pagespeed.web.dev/">PageSpeed Insights</a>, mobile et desktop
+                            </li>
                             <li><strong>Ressources locales</strong> : Polices et images hébergées localement
                                 (pas de <a
                                         href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu">CDN</a>)
@@ -331,7 +337,7 @@
                             <p>Se familiariser avec les outils et poser les bases du projet.</p>
                             <ul>
                                 <li>Création des comptes <strong>GitHub</strong> et <strong>JetBrains</strong></li>
-                                <li>Configuration de votre IDE (WebStorm ou VS Code)</li>
+                                <li>Installation et configuration de WebStorm</li>
                                 <li>Publication de votre premier "Hello World" sur GitHub Pages</li>
                                 <li>Choix définitif du <strong>sujet</strong> de votre site</li>
                             </ul>
@@ -349,13 +355,16 @@
                                 <li><strong>23 septembre</strong> : <strong>Palette de couleurs</strong> et
                                     <strong>polices d'écriture</strong> définies
                                 </li>
-                                <li><strong>30 septembre</strong> : Concept validé et structure HTML de base</li>
-                                <li><strong>4 novembre</strong> : HTML complet avec navigation fonctionnelle et CSS de
-                                    base sur tout le site
+                                <li><strong>30 septembre – Jalon 1</strong> : structure HTML du projet complète —
+                                    <strong>toutes les pages existent et sont en ligne</strong>
+                                </li>
+                                <li><strong>4 novembre – Jalon 2</strong> : toutes les pages mises en page — contenu
+                                    centré, navigation fonctionnelle, états <span class="mono">:hover</span>
                                 </li>
                                 <li><strong>18 novembre</strong> : Images optimisées et audit de performance</li>
-                                <li><strong>25 novembre</strong> : Responsive fonctionnel, tests multi‑appareils et
-                                    <a href="https://validator.w3.org/">validation W3C</a>
+                                <li><strong>25 novembre – Jalon 3</strong> : site responsive fonctionnel, tests
+                                    multi‑appareils et <a href="https://validator.w3.org/">validation W3C</a> — le projet
+                                    est terminé, décembre sert au polish
                                 </li>
                             </ul>
                         </div>
@@ -378,6 +387,9 @@
                                 <li><strong>Vendredi 8 janvier 2027 – Livraison finale</strong> : Site en ligne, dépôt
                                     et README complets
                                 </li>
+                                <li><strong>Mercredi 13 janvier 2027 – Épreuve de module</strong> : sur papier, sans
+                                    ordinateur ni documentation (partie C113 : 20 pts)
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -394,6 +406,12 @@
                         <h3>Ressources de formation</h3>
                         <p>Découvrez les meilleures plateformes et ressources pour apprendre le développement web :</p>
                         <ul>
+                            <li class="recommended"><a href="https://devjs.ch/cours/113/" target="_blank">devjs.ch – Cours
+                                113</a> - Plan des 15 séances, exercice du CV, antisèches Git et WebStorm
+                            </li>
+                            <li class="recommended"><a href="https://nuxy.ch" target="_blank">Nuxy</a> - Les 11 modules
+                                HTML/CSS du cours, avec exercices corrigés et examens de module
+                            </li>
                             <li class="recommended"><a href="https://developer.mozilla.org/fr/" target="_blank">MDN Web
                                 Docs</a> - Documentation officielle et référence complète
                             </li>
@@ -429,15 +447,14 @@
                         <h3>Environnement de développement</h3>
                         <p>Configurez votre environnement de développement avec ces outils essentiels :</p>
                         <ul>
-                            <li><strong>Éditeurs de code</strong> :
-                                <a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>,
-                                <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>,
-                                <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>
+                            <li><strong>Éditeur de code</strong> :
+                                <a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>
+                                (gratuit pour les étudiants et pour l'usage non commercial)
                             </li>
                             <li><strong>Gestion de versions</strong> : <a
-                                    href="https://git-scm.com/" target="_blank">Git</a>,
-                                <a href="https://github.com/" target="_blank">GitHub</a>,
-                                <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a></li>
+                                    href="https://git-scm.com/" target="_blank">Git</a> et
+                                <a href="https://github.com/" target="_blank">GitHub</a>, depuis WebStorm —
+                                <a href="https://devjs.ch/cours/113/git-en-4-gestes" target="_blank">Git en 4 gestes</a></li>
                             <li><strong>Débogage</strong> : <a
                                     href="https://developer.chrome.com/docs/devtools/" target="_blank">Chrome
                                 DevTools</a>, <a href="https://firefox-source-docs.mozilla.org/devtools-user/"
@@ -445,11 +462,8 @@
                                     href="https://webkit.org/web-inspector/" target="_blank">Safari Web Inspector</a>
                             </li>
                             <li><strong>Hébergement</strong> :
-                                <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>,
-                                <a href="https://infomaniak.ch/" target="_blank">Infomaniak</a>,
-                                <a href="https://netlify.com/" target="_blank">Netlify</a>,
-                                <a href="https://vercel.com/" target="_blank">Vercel</a>,
-                                <a href="https://www.hostinger.com/fr" target="_blank">Hostinger</a>
+                                <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> —
+                                <a href="https://devjs.ch/cours/113/premier-depot" target="_blank">marche à suivre</a>
                             </li>
                         </ul>
                     </article>
@@ -475,15 +489,15 @@
                                 <a href="https://colourcontrast.cc/" target="_blank">Colour contrast checker</a> pour
                                 garantir la lisibilité de vos textes
                             </li>
-                            <li class="recommended"><strong>Performance</strong> : <a href="https://pagespeed.web.dev/"
-                                                                                      target="_blank">PageSpeed
-                                Insights</a> pour optimiser la vitesse de chargement
+                            <li class="recommended"><strong>Performance</strong> : Lighthouse (DevTools, F12) ou
+                                <a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a>, le même
+                                audit en ligne, pour optimiser la vitesse de chargement
                             </li>
                             <li><strong>Responsive design</strong> : Utilisez les outils intégrés des navigateurs (F12 →
                                 mode responsive)
                             </li>
-                            <li><strong>Compatibilité navigateurs</strong> : Testez sur Chrome 120+, Firefox 120+,
-                                Safari 16+ minimum. <strong>Tester sur de VRAIS smartphone iOS et Android</strong>
+                            <li><strong>Compatibilité navigateurs</strong> : Testez sur les versions à jour de Chrome
+                                et Firefox. <strong>Tester sur de VRAIS smartphones iOS et Android</strong>
                             </li>
                         </ul>
                     </article>
@@ -579,7 +593,7 @@
                                 <th scope="row">Qualité du code</th>
                                 <td>Organisation, variables, commentaires utiles</td>
                                 <td>3</td>
-                                <td>Gestion des variables CSS/JS, fichiers structurés, commentaires pertinents pour expliquer les choix.</td>
+                                <td>Gestion des variables CSS, fichiers structurés, commentaires pertinents pour expliquer les choix.</td>
                             </tr>
                             <tr>
                                 <th scope="row">Performance</th>
@@ -627,7 +641,7 @@
                                 <span class="evaluation-card-points">3 pts</span>
                             </header>
                             <p class="evaluation-card-focus"><strong>Focus&nbsp;:</strong> Organisation, variables, commentaires utiles</p>
-                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Gestion des variables CSS/JS, fichiers structurés, commentaires pertinents pour expliquer les choix.</p>
+                            <p class="evaluation-card-expected"><strong>Attendus&nbsp;:</strong> Gestion des variables CSS, fichiers structurés, commentaires pertinents pour expliquer les choix.</p>
                         </article>
                         <article class="evaluation-card">
                             <header class="evaluation-card-header">
@@ -783,12 +797,12 @@
                             </li>
                             <li class="checklist-item">
                                 <input type="checkbox" id="check-18" class="checklist-checkbox">
-                                <label for="check-18" class="checklist-label">Images locales &lt; 1 Mo (WebP si
+                                <label for="check-18" class="checklist-label">Images locales &lt; 300 Ko (WebP si
                                     possible)</label>
                             </li>
                             <li class="checklist-item">
                                 <input type="checkbox" id="check-19" class="checklist-checkbox">
-                                <label for="check-19" class="checklist-label">PageSpeed mobile/bureau renseigné</label>
+                                <label for="check-19" class="checklist-label">Audit Lighthouse mobile/bureau renseigné</label>
                             </li>
                             <li class="checklist-item">
                                 <input type="checkbox" id="check-20" class="checklist-checkbox">
